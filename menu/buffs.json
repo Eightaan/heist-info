@@ -1,0 +1,154 @@
+{
+    "menu_id": "ehi_buffs_menu",
+    "parent_menu" : "ehi_menu",
+    "title": "ehi_buffs_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_show_buffs_choice",
+            "title": "ehi_show_buffs",
+            "description": "ehi_show_buffs_desc",
+            "callback": ["SetOption", "UpdateBuffsVisibility"],
+            "callback_arguments": "show_buffs",
+            "value": "show_buffs",
+            "default_value": true,
+            "is_parent" : true,
+            "ehi_ver" : 58
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "slider",
+            "id": "ehi_x_offset",
+            "title": "ehi_x_offset",
+            "description": "ehi_x_offset_desc",
+            "callback": ["SetOption", "UpdateBuffsXOffset"],
+            "callback_arguments" : "buffs_x_offset",
+            "value": "buffs_x_offset",
+            "default_value": 0,
+            "max": 1280,
+            "min": 0,
+            "step": 0,
+            "parent": "ehi_show_buffs_choice",
+            "ehi_ver" : 58
+        },
+        {
+            "type": "slider",
+            "id": "ehi_y_offset",
+            "title": "ehi_y_offset",
+            "description": "ehi_y_offset_desc",
+            "callback": ["SetOption", "UpdateBuffsYOffset"],
+            "callback_arguments": "buffs_y_offset",
+            "value": "buffs_y_offset",
+            "default_value": 80,
+            "max": 720,
+            "min": 0,
+            "step": 0,
+            "parent": "ehi_show_buffs_choice",
+            "ehi_ver" : 58
+        },
+        {
+            "type": "slider",
+            "id": "ehi_buff_scale_choice",
+            "title": "ehi_scale",
+            "description": "ehi_buffs_scale_desc",
+            "callback": ["SetOption", "UpdateBuffsScale"],
+            "callback_arguments": "buffs_scale",
+            "value": "buffs_scale",
+            "default_value": 1,
+            "max": 2,
+            "min": 0.5,
+            "step": 2,
+            "parent": "ehi_show_buffs_choice",
+            "ehi_ver" : 58
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_buffs_alignment_choice",
+            "title": "ehi_buffs_alignment",
+            "description": "ehi_buffs_alignment_desc",
+            "callback": ["SetOption", "UpdateBuffsAlignment"],
+            "callback_arguments": "buffs_alignment",
+            "items": [
+                "ehi_buffs_alignment_1",
+                "ehi_buffs_alignment_2",
+                "ehi_buffs_alignment_3"
+            ],
+            "value": "buffs_alignment",
+            "parent": "ehi_show_buffs_choice",
+            "default_value": 2,
+            "ehi_ver" : 58
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_buffs_shape_choice",
+            "title": "ehi_buffs_shape",
+            "description": "ehi_buffs_shape_desc",
+            "callback": ["SetOption", "UpdateBuffsShape"],
+            "callback_arguments": "buffs_shape",
+            "items": [
+                "ehi_buffs_shape_1",
+                "ehi_buffs_shape_2"
+            ],
+            "value": "buffs_shape",
+            "parent": "ehi_show_buffs_choice",
+            "default_value": 1,
+            "ehi_ver" : 58
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_show_progress_choice",
+            "title": "ehi_buffs_show_progress",
+            "description": "ehi_buffs_show_progress_desc",
+            "callback": ["SetOption", "UpdateBuffsProgressVisibility"],
+            "callback_arguments": "buffs_show_progress",
+            "value": "buffs_show_progress",
+            "default_value": true,
+            "parent": "ehi_show_buffs_choice",
+            "is_parent": true,
+            "ehi_ver" : 58
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_invert_progress_choice",
+            "title": "ehi_buffs_invert_progress",
+            "description": "ehi_buffs_invert_progress_desc",
+            "callback": ["SetOption", "UpdateBuffsInvertProgress"],
+            "callback_arguments": "buffs_invert_progress",
+            "value": "buffs_invert_progress",
+            "default_value": false,
+            "parent": ["ehi_show_buffs_choice", "ehi_buffs_show_progress_choice"],
+            "ehi_ver" : 58
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "button",
+            "id": "ehi_buffs_skills_menu",
+            "title": "ehi_buffs_skills_menu",
+            "next_menu": "ehi_buffs_skills_menu",
+            "parent": "ehi_show_buffs_choice",
+            "ehi_ver" : 110
+        },
+        {
+            "type": "button",
+            "id": "ehi_buffs_perks_menu",
+            "title": "ehi_buffs_perks_menu",
+            "next_menu": "ehi_buffs_perks_menu",
+            "parent": "ehi_show_buffs_choice",
+            "ehi_ver" : 111
+        },
+        {
+            "type": "button",
+            "id": "ehi_buffs_other_menu",
+            "title": "ehi_buffs_other_menu",
+            "next_menu": "ehi_buffs_other_menu",
+            "parent": "ehi_show_buffs_choice",
+            "ehi_ver" : 98
+        }
+    ]
+}

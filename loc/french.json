@@ -1,0 +1,191 @@
+{
+    "ehi_mod_title": "Extra infos de braquage",
+    "ehi_mod_desc": "",
+
+    "ehi_menu_next_page" : "Page suivante -->",
+    "ehi_menu_previous_page" : "<-- Page précédente",
+
+    "ehi_language" : "Langage",
+    "ehi_language_desc" : "Change le langage du mod. Pour que cela prenne effet, un redémarrage du niveau est nécessaire.",
+    "ehi_language_1" : "Détecte automatiquement",
+
+    "ehi_r" : "Rouge",
+    "ehi_g" : "Vert",
+    "ehi_b" : "Bleu",
+    "ehi_button_ok" : "OK",
+    "ehi_color_reset" : "Réinitialiser la couleur",
+
+    "ehi_preview": "Aperçu (Un redémarrage de la carte est nécessaire pour être appliqué)\nLe coin rouge indiquera quand le premier moniteur apparaîtra",
+
+    "ehi_x_offset": "Décalage X",
+    "ehi_x_offset_desc": "Décalage X",
+    "ehi_y_offset": "Décalage Y",
+    "ehi_y_offset_desc": "Décalage Y",
+
+    "ehi_text_scale" : "Text Scale",
+    "ehi_text_scale_desc" : "Sets text scale.\nThis feature is useful for players with modded in-game fonts",
+
+    "ehi_scale": "Échelle",
+    "ehi_scale_desc": "Définit la taille des moniteurs. Plus la valeur est grande, plus les moniteurs seront grands et inversement.",
+
+    "ehi_vr_scale": "Échelle VR",
+    "ehi_vr_scale_desc": "Définit la taille des moniteurs en VR. Plus la valeur est grande, plus les moniteurs seront grands et inversement.",
+
+    "ehi_time_format": "Format du temps",
+    "ehi_time_format_desc": "Définit comment le moniteur de temps doit-être indiqué",
+    "ehi_time_format_1": "Secondes seulement",
+    "ehi_time_format_2": "Minutes et Secondes",
+
+    "ehi_tracker_alignment" : "Tracker Alignment",
+    "ehi_tracker_alignment_desc" : "Defines how trackers should be aligned",
+    "ehi_tracker_alignment_1" : "Vertical",
+    "ehi_tracker_alignment_2" : "Horizontal",
+
+    "ehi_visuals_menu" : "Visuels",
+    "ehi_visuals_menu_desc" : "",
+
+    "ehi_show_tracker_bg" : "Montre le fond du moniteur",
+    "ehi_show_tracker_bg_desc" : "Montre le fond du moniteur\nQuand désactivé, le fond est caché et l’animation n’est pas visible.",
+
+    "ehi_show_one_icon" : "Montre une icône dans le moniteur",
+    "ehi_show_one_icon_desc" : "Montre une icône dans le moniteur quand activé\nToutes les icônes sont visibles quand cette option est désactivée.",
+
+    "ehi_trackers_menu": "Moniteurs",
+    "ehi_trackers_menu_desc": "",
+
+    "ehi_show_achievements" : "Show Achievement Tracker",
+    "ehi_show_achievements_desc" : "Shows on the screen achievements\nSome heists may not have any achievements available",
+
+    "ehi_hide_unlocked_achievements" : "Don't Show Unlocked Achievements",
+    "ehi_hide_unlocked_achievements_desc" : "When enabled, EHI will not show trackers for unlocked achievements\nWhen disabled, EHI will show all trackers for achievements",
+
+    "ehi_show_gained_xp": "Montre l’EXP gagné",
+    "ehi_show_gained_xp_desc": "Montre l’EXP gagné dans une mission.\nCe moniteur est désactivé en mode série de crimes.",
+
+    "ehi_xp_format": "Comment indiquer l’EXP gagné",
+    "ehi_xp_format_desc": "Exemple : Valeur de base : 1000; Difficultée suicidaire\nValeur de base seulement : 1000\nValeur multipliée avec la difficultée : 13000\nValeur multipliée avec touts les bonus d’EXP : 13000+",
+    "ehi_xp_format_base": "Montre la valeur de base uniquement",
+    "ehi_xp_format_difficulty_multiplier": "Montre la valeur multiplée par la difficultée",
+    "ehi_xp_format_all_bonuses": "Montre la valeur multiplée avec tous les bonus d’EXP",
+    
+    "ehi_xp_panel": "Comment montrer l’EXP gagné",
+    "ehi_xp_panel_desc": "",
+    "ehi_xp_panel_1": "Montre le panneau pour chaque EXP gagné",
+    "ehi_xp_panel_2": "Montre le total d’EXP gagné durant le braquage",
+    
+    "ehi_show_trade_delay": "Montre le moniteur de délai",
+    "ehi_show_trade_delay_desc": "Montre le délai d’échange quand vous ou vos coéquipiers tuez des civils.",
+
+    "ehi_show_trade_delay_option": "Quand montrer le moniteur de délai d’échange",
+    "ehi_show_trade_delay_option_desc": "Tout le temps : Montre un moniteur quand vous ou vos coéquipiers tuez des civils.\nUne fois arrété: quand vous ou vos coéquipiers êtes arrétés et aient tué au moins un civil.",
+    "ehi_show_trade_delay_option_1": "Tout le temps",
+    "ehi_show_trade_delay_option_2": "Une fois arrété",
+
+    "ehi_show_trade_delay_other_players_only": "Montre le moniteur de délai d’échange uniquement pour les autres joueurs",
+    "ehi_show_trade_delay_other_players_only_desc": "Quand activé, ce moniteur n’indiquera pas combien de civils vous avez tués mais affichera tout de même ceux de vos coéquipiers.",
+
+    "ehi_show_trade_delay_suppress_in_stealth" : "Don't Show Trade Delay Tracker in Stealth",
+    "ehi_show_trade_delay_suppress_in_stealth_desc" : "Hides Trade Delay in stealth when enabled. Once the alarm goes off, the tracker appears with all accumulated delay.",
+    
+    "ehi_show_timers": "Montre les décomptes",
+    "ehi_show_timers_desc": "Montre les décomptes pour les piratages, percages, découpes, etc",
+    
+    "ehi_show_zipline_timer": "Montre le moniteur de tirolienne",
+    "ehi_show_zipline_timer_desc": "Montre deux décomptes pour les tiroliennes.\nLe premier indique le temps jusqu'a que la tirolienne dépose le sac/joueur, le second indique sa période de réintialisation.",
+    
+    "ehi_show_gage_tracker": "Montre le moniteur de packets de Gage",
+    "ehi_show_gage_tracker_desc": "Montre un moniteur pour les packets de Gage.\nSi la carte ne supporte pas les packets de Gage, le moniteur ne sera pas affiché.",
+    
+    "ehi_show_captain_damage_reduction": "Montre le moniteur de réduction de dégats ennemis",
+    "ehi_show_captain_damage_reduction_desc": "Montre un moniteur de réduction de dégats quand le capitaine est présent",
+    
+    "ehi_show_equipment_tracker": "Montre le moniteur d’équipement",
+    "ehi_show_equipment_tracker_desc": "Montre un moniteur séparé pour les sacs de soins, sacs de munitions, sacs mortuaires et kit de premiers soins",
+    
+    "ehi_equipment_menu": "Menu d’Équipement",
+    "ehi_equipment_menu_desc": "",
+
+    "ehi_equipment_format" : "Format de l’équipement",
+    "ehi_equipment_format_desc" : "Définit comment l’équipement doit être formatté.",
+    "ehi_equipment_format_1" : "Charges (Sacs placés)",
+    "ehi_equipment_format_2" : "(Sacs placés) Charges",
+    "ehi_equipment_format_3" : "(Charges) Sacs placés",
+    "ehi_equipment_format_4" : "Sacs placés (Charges)",
+    "ehi_equipment_format_5" : "Charges",
+    "ehi_equipment_format_6" : "Sacs placés",
+    
+    "ehi_show_equipment_doctorbag": "Montre le moniteur des sacs de soins",
+    "ehi_show_equipment_doctorbag_desc": "Montre un moniteur pour les sacs de soins",
+    
+    "ehi_show_equipment_ammobag": "Montre le moniteur pour les sacs de munitions",
+    "ehi_show_equipment_ammobag_desc": "Montre un moniteur pour les sacs de munitions",
+    
+    "ehi_show_equipment_grenadecases": "Montre le moniteur pour les valises de grenades",
+    "ehi_show_equipment_grenadecases_desc": "Montre un moniteur pour les valises de grenades",
+    
+    "ehi_show_equipment_bodybags": "Montre le moniteur pour les sacs mortuaires",
+    "ehi_show_equipment_bodybags_desc": "Montre un moniteur pour les sacs mortuaires\nCe moniteur est retiré quand l’alarme sonne",
+    
+    "ehi_show_equipment_firstaidkit": "Montre le moniteur pour les kits de premiers soins",
+    "ehi_show_equipment_firstaidkit_desc": "Montre un moniteur pour les kits de premiers soins",
+
+    "ehi_show_equipment_ecmjammer" : "Show ECM Jammer Duration Tracker",
+    "ehi_show_equipment_ecmjammer_desc" : "Shows a tracker for the remaining duration of an ECM Jammer\nAn ECM Jammer with the longest duration is shown in the tracker",
+
+    "ehi_show_equipment_ecmfeedback" : "Show ECM Feedback Duration Tracker",
+    "ehi_show_equipment_ecmfeedback_desc" : "Shows a tracker for the remaining duration of an ECM Feedback\nAn ECM Feedback with the longest duration is shown in the tracker (host only)",
+    
+    "ehi_show_equipment_aggregate_health": "Rassemble les sacs de soins et les kits de premiers secours",
+    "ehi_show_equipment_aggregate_health_desc": "Rassemble les sacs de soins et les kits de premiers secours en un seul moniteur",
+
+    "ehi_show_equipment_aggregate_all" : "Aggregate All Deployables",
+    "ehi_show_equipment_aggregate_all_desc" : "Aggregates all deployables into one tracker\nDeployables use their respective color from down below",
+
+    "ehi_doctor_bag" : "Doctor Bag",
+    "ehi_ammo_bag" : "Ammo Bag",
+    "ehi_grenade_crate" : "Grenade Crate",
+    "ehi_first_aid_kit" : "First Aid Kit",
+    "ehi_bodybags_bag" : "Bodybags Bag",
+    
+    "ehi_show_minion_tracker": "Montre le moniteur de convertis",
+    "ehi_show_minion_tracker_desc": "Montre un moniteur indiquant combien d’ennemis convertis sont sur la carte",
+    
+    "ehi_show_difficulty_tracker": "Montre le moniteur de difficulté",
+    "ehi_show_difficulty_tracker_desc": "Montre un moniteur indiquant la difficulté de la vague",
+
+    "ehi_show_drama_tracker" : "Show Drama Tracker",
+    "ehi_show_drama_tracker_desc" : "Shows a tracker for accumulated drama (host only)",
+    
+    "ehi_show_pager_tracker": "Montre le moniteur de bipeurs",
+    "ehi_show_pager_tracker_desc": "Montre un moniteur indiquant le nombre de bipeurs restants",
+
+    "ehi_show_pager_callback_trackers" : "Show Pager Callback Timers",
+    "ehi_show_pager_callback_trackers_desc" : "Shows a tracker for pagers that needs to be answered",
+
+    "ehi_show_enemy_count_tracker" : "Montre le moniteur de compteur d’ennemis",
+    "ehi_show_enemy_count_tracker_desc" : "Montre un moniteur indiquant le nombre d’ennemis sur la carte.",
+
+    "ehi_show_laser_tracker" : "Show Laser Tracker",
+    "ehi_show_laser_tracker_desc" : "Shows a tracker for lasers that cycle every few seconds",
+
+    "ehi_waypoints_menu" : "Waypoints",
+    "ehi_waypoints_menu_desc" : "",
+
+    "ehi_show_waypoints" : "Show Waypoints",
+    "ehi_show_waypoints_desc" : "Show waypoints in the game world",
+
+    "ehi_show_waypoints_only" : "Show Only Waypoints",
+    "ehi_show_waypoints_only_desc" : "When enabled and an element has both tracker and waypoint defined, show only the waypoint\nOtherwise tracker will be shown",
+
+    "ehi_show_waypoints_present_timer" : "Present Timer",
+    "ehi_show_waypoints_present_timer_desc" : "Sets how long the waypoint will stay on your screen before it will 'move' to its destination",
+
+    "ehi_show_waypoints_enemy_turret" : "Show Waypoints For Enemy Turret",
+    "ehi_show_waypoints_enemy_turret_desc" : "Shows a waypoint on the enemy turret when it is reloading or repairing",
+
+    "ehi_show_waypoints_timers" : "Show Waypoints For Timers",
+    "ehi_show_waypoints_timers_desc" : "Shows a waypoint on a visible timer (hacking, drilling, sawing, etc ...)",
+
+    "ehi_show_waypoints_pager" : "Show Waypoints For Pagers",
+    "ehi_show_waypoints_pager_desc" : "Shows a waypoint on a pager that needs to be answered"
+}

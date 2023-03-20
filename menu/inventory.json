@@ -1,0 +1,35 @@
+{
+    "menu_id": "ehi_inventory_menu",
+    "parent_menu" : "ehi_menu",
+    "title": "ehi_inventory_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_show_inventory_detailed_description_choice",
+            "title": "ehi_show_inventory_detailed_description",
+            "description": "ehi_show_inventory_detailed_description_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_inventory_detailed_description",
+            "value": "show_inventory_detailed_description",
+            "default_value": false,
+            "is_parent" : true,
+            "ehi_ver" : 112
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_hide_original_desc_choice",
+            "title": "ehi_hide_original_desc",
+            "description": "ehi_hide_original_desc_desc",
+            "callback": "SetOption",
+            "callback_arguments": "hide_original_desc",
+            "value": "hide_original_desc",
+            "default_value": true,
+            "parent" : "ehi_show_buffs_choice",
+            "ehi_ver" : 112
+        }
+    ]
+}

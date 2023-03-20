@@ -1,0 +1,42 @@
+{
+    "menu_id": "ehi_visuals_menu",
+    "parent_menu": "ehi_menu",
+    "title": "ehi_visuals_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_show_tracker_bg_choice",
+            "title": "ehi_show_tracker_bg",
+            "description": "ehi_show_tracker_bg_desc",
+            "callback": ["SetOption", "UpdateBGVisibility"],
+            "callback_arguments": "show_tracker_bg",
+            "value": "show_tracker_bg",
+            "is_parent" : true,
+            "default_value": true,
+            "ehi_ver" : 6
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_tracker_corners_choice",
+            "title": "ehi_show_tracker_corners",
+            "description": "ehi_show_tracker_corners_desc",
+            "callback": ["SetOption", "UpdateCornerVisibility"],
+            "callback_arguments": "show_tracker_corners",
+            "parent": "ehi_show_tracker_bg_choice",
+            "value": "show_tracker_corners",
+            "default_value": true,
+            "ehi_ver" : 78
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_one_icon_choice",
+            "title": "ehi_show_one_icon",
+            "description": "ehi_show_one_icon_desc",
+            "callback": ["SetOption", "UpdateIconsVisibility"],
+            "callback_arguments": "show_one_icon",
+            "value": "show_one_icon",
+            "default_value": false,
+            "ehi_ver" : 6
+        }
+    ]
+}

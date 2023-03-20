@@ -1,0 +1,22 @@
+{
+    "name": "Extra Heist Info",
+    "description": "",
+    "author": "Dom",
+    "contact": "http://steamcommunity.com/profiles/76561198078556212/",
+    "version": "137",
+    "blt_version" : 2,
+    "priority" : -100,
+    "supermod_definition" : "ehi.xml",
+    "image" : "ehi.png",
+    "color" : "0 0.58 1",
+    "updates" :
+    [
+        {
+            "identifier" : "EHI",
+            "host":
+            {
+                "meta": "https://www.dropbox.com/s/cs301vm4awt3o7i/meta.json?raw=1"
+            }
+        }
+    ]
+}

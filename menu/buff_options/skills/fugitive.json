@@ -1,0 +1,133 @@
+{
+    "menu_id": "ehi_buffs_skills_fugitive_menu",
+    "parent_menu" : "ehi_buffs_skills_menu",
+    "title": "ehi_buffs_skills_fugitive_menu",
+    "items": [
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_fugitive_revenant_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_fugitive_running_from_death_reload_choice",
+            "title": "ehi_buffs_skills_fugitive_running_from_death_reload",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "running_from_death_reload",
+            "value": "running_from_death_reload",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_fugitive_running_from_death_movement_choice",
+            "title": "ehi_buffs_skills_fugitive_running_from_death_movement",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "running_from_death_movement",
+            "value": "running_from_death_movement",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_fugitive_up_you_go_choice",
+            "title": "ehi_buffs_skills_fugitive_up_you_go",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "up_you_go",
+            "value": "up_you_go",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_fugitive_swan_song_choice",
+            "title": "ehi_buffs_skills_fugitive_swan_song",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "swan_song",
+            "value": "swan_song",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_fugitive_brawler_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_fugitive_bloodthirst_choice",
+            "title": "ehi_buffs_skills_fugitive_bloodthirst",
+            "description": "ehi_buffs_skills_progress",
+            "callback": "SetBuffOption",
+            "callback_arguments": "bloodthirst",
+            "value": "bloodthirst",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_fugitive_bloodthirst_reload_choice",
+            "title": "ehi_buffs_skills_fugitive_bloodthirst_reload",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "bloodthirst_reload",
+            "value": "bloodthirst_reload",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "slider",
+            "id": "ehi_buffs_skills_fugitive_bloodthirst_ratio_choice",
+            "title": "ehi_buffs_skills_fugitive_bloodthirst_ratio",
+            "description": "ehi_buffs_skills_fugitive_bloodthirst_ratio_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "bloodthirst_ratio",
+            "value": "bloodthirst_ratio",
+            "suffix": "%",
+            "default_value": 34,
+            "max": 100,
+            "min": 0,
+            "step": 0,
+            "ehi_ver" : 110
+        },
+        {
+            "type": "divider",
+            "size": 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_fugitive_berserker_choice",
+            "title": "ehi_buffs_skills_fugitive_berserker",
+            "description": "ehi_buffs_skills_progress",
+            "callback": "SetBuffOption",
+            "callback_arguments": "berserker",
+            "value": "berserker",
+            "is_parent" : true,
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "slider",
+            "id": "ehi_buffs_skills_fugitive_berserker_refresh_choice",
+            "title": "ehi_buffs_skills_fugitive_berserker_refresh",
+            "description": "ehi_buffs_skills_fugitive_berserker_refresh_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "berserker_refresh",
+            "value": "berserker_refresh",
+            "parent" : "ehi_buffs_skills_fugitive_berserker_choice",
+            "default_value": 4,
+            "max": 10,
+            "min": 1,
+            "step": 0,
+            "ehi_ver" : 79
+        }
+    ]
+}

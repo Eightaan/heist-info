@@ -1,0 +1,47 @@
+{
+    "menu_id": "ehi_buffs_skills_menu",
+    "parent_menu" : "ehi_buffs_menu",
+    "title": "ehi_buffs_skills_menu",
+    "items": [
+        {
+            "type": "button",
+            "id": "ehi_buffs_skills_mastermind_menu",
+            "title": "ehi_buffs_skills_mastermind_menu",
+            "next_menu": "ehi_buffs_skills_mastermind_menu",
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "button",
+            "id": "ehi_buffs_skills_enforcer_menu",
+            "title": "ehi_buffs_skills_enforcer_menu",
+            "next_menu": "ehi_buffs_skills_enforcer_menu",
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "button",
+            "id": "ehi_buffs_skills_ghost_menu",
+            "title": "ehi_buffs_skills_ghost_menu",
+            "next_menu": "ehi_buffs_skills_ghost_menu",
+            "ehi_ver" : 100
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "button",
+            "id": "ehi_buffs_skills_fugitive_menu",
+            "title": "ehi_buffs_skills_fugitive_menu",
+            "next_menu": "ehi_buffs_skills_fugitive_menu",
+            "ehi_ver" : 110
+        }
+    ]
+}

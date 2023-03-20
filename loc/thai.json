@@ -1,0 +1,556 @@
+{
+    "ehi_mod_title" : "ข้อมูลเพื่มเติมในแต่ละด่านที่เจ๋งที่สุด",
+    "ehi_mod_desc" : "Extra Heist Info(EHI): คลิกเพื่อปรับเปลี่ยนตัวเลือก",
+
+    "ehi_save_data_corrupted" : "ไฟล์ที่บันทึกไว้ในม็อด EHI เสียหาย",
+    "ehi_save_data_corrupted_desc" : "ไฟล์ที่บันทึกไว้ในม็อด EHI เสียหายและไม่สามารถโหลดใช้งานได้\nม็อด EHI จะใช้ค่าดั้งเดิมเพื่อเพื่อไม่ให้เกมเด้ง",
+
+    "ehi_level_restart_required" : "A level restart is required for options to take effect",
+
+    "ehi_item_depends_on" : "ตัวเลือก '$option;' ต้องถูกเปิดใช้งานเพื่อให้ตัวเลือกนี้เกิดผล",
+    
+    "ehi_menu_next_page" : "ไปที่หน้าถัดไป -->",
+    "ehi_menu_previous_page" : "<-- ย้อนกลับไปหน้าที่แล้ว",
+
+    "ehi_language" : "ภาษา",
+    "ehi_language_desc" : "เปลี่ยนภาษาของม็อด.\nจำเป็นต้องมีการรีสตาร์ทด่านเพื่อให้การเปลี่ยนแปลงนี้ส่งผลลัพธ์",
+    "ehi_language_1" : "ค้นพบภาษาอัตโนมัติ",
+
+    "ehi_menu_only" : "สำหรับเมนูเท่านั้น",
+    "ehi_show_preview_text" : "แสดงข้อความตัวอย่าง",
+    "ehi_show_preview_text_desc" : "แสดงหรือซ่อนข้อความและไอคอนตัวอย่างในหน้าเมนู",
+
+    "ehi_popup_experience" : "ประสบการณ์",
+    "ehi_popup_experience_base_gained" : "ค่าประสบการณ์เริ่มต้น: ",
+    "ehi_popup_experience_gained" : "ได้รับ: ",
+    "ehi_popup_experience_total" : "ทั้งหมด: ",
+    "ehi_popup_gage_packages" : "บรรจุุภัณฑ์เกจ",
+    "ehi_popup_minion" : "ลูกน้อง",
+    "ehi_popup_minion_killed" : "ลูกน้องของคุณเสียชีวิต",
+    "ehi_popup_achievement_failed" : "ล้มเหลวในการทำรางวัลความสำเร็จ!",
+    "ehi_popup_achievement_started" : "ACHIEVEMENT STARTED!",
+    "ehi_popup_trophy_started" : "TROPHY STARTED!",
+    "ehi_popup_trophy_failed" : "TROPHY FAILED!",
+    "ehi_popup_daily_started" : "DAILY SIDE JOB STARTED!",
+    "ehi_popup_daily_failed" : "DAILY SIDE JOB FAILED!",
+    "ehi_popup_loot_counter" : "LOOT COUNTER",
+    "ehi_popup_all_loot_secured" : "All loot bags have been secured",
+    "ehi_achievement_ok" : "โอเค",
+    "ehi_achievement_done" : "เสร็จสิ้น",
+    "ehi_achievement_pass" : "อนุมัติ",
+    "ehi_achievement_defend" : "DEFEND",
+    "ehi_achievement_finish" : "จบด่าน",
+    "ehi_achievement_secure" : "ได้รับ",
+    "ehi_achievement_no_down" : "ห้ามล้ม",
+    "ehi_achievement_destroy" : "ทำลาย",
+    "ehi_achievement_alarm" : "ALARM",
+    "ehi_achievement_ready" : "พร้อม",
+    "ehi_achievement_loud" : "โหมดบู๊",
+    "ehi_achievement_mark" : "เป้าหมาย",
+    "ehi_achievement_push" : "กดปุ่ม",
+    "ehi_achievement_hack" : "แฮ็ก",
+    "ehi_achievement_land" : "ลงจอด",
+    "ehi_achievement_find" : "ค้นหา",
+    "ehi_achievement_bring" : "นำตัว",
+    "ehi_achievement_objective" : "OBJECTIVE",
+    "ehi_achievement_fail" : "ล้มเหลว",
+
+    "ehi_r": "แดง",
+    "ehi_g": "เขียว",
+    "ehi_b": "น้ำเงิน",
+    "ehi_button_ok" : "โอเค",
+    "ehi_color_reset": "รีเซ็ตสี",
+
+    "ehi_preview" : "พรีวิว (จำเป็นต้องรีสตาร์ทด่านเพื่อให้เกิดผลลัพธ์)\nขีดสีแดงตรงมุมซ้ายสุดของไอคอนติดตามตัวอย่างจากเมนูอันแรกสุดแสดงไอคอนที่กำลังจะเกิดเหตุการณ์ขึ้น",
+
+    "ehi_x_offset" : "ตำแหน่งแกน X",
+    "ehi_x_offset_desc" : "ปรับตำแหน่งไอคอนติดตามในแนวนอน",
+    "ehi_y_offset" : "ตำแหน่งแกน Y",
+    "ehi_y_offset_desc" : "ปรับตำแหน่งไอคอนติดตามในแนวตั้ง",
+
+    "ehi_text_scale" : "ขนาดตัวอักษร",
+    "ehi_text_scale_desc" : "ปรับขนาดตัวอักษร\nตัวเลือกนี้มีประโยชน์ต่อผู้เล่นที่มี mod ที่เกี่ยวข้องกับตัวอักษร",
+
+    "ehi_scale" : "ขนาด",
+    "ehi_scale_desc" : "ปรับขนาดของไอคอนติดตาม\nยิ่งตัวเลขค่ามากขึ้นเเพียงใด ขนาดไอคอนติดตามยิ่งใหญ่ขึ้นเท่านั้น ฯลฯ",
+
+    "ehi_vr_scale": "ขนาดในโหมด VR",
+    "ehi_vr_scale_desc": "ปรับขนาดของไอคอนติดตามในโหมด VR\nยิ่งตัวเลขค่ามากขึ้นเเพียงใด ขนาดไอคอนติดตามยิ่งใหญ่ขึ้นเท่านั้น ฯลฯ",
+
+    "ehi_time_format" : "รูปแบบเวลา",
+    "ehi_time_format_desc" : "กำหนดรูปแบบเวลาของไอคอนติดตามว่าควรมีลักษณะเป็นอย่างไร",
+    "ehi_time_format_1" : "แสดงหน่วยเป็นวินาทีเท่านั้น",
+    "ehi_time_format_2" : "แสดงหน่วยเป็นนาทีและวินาที",
+
+    "ehi_tracker_alignment" : "จัดตำแหน่งไอคอนติดตาม",
+    "ehi_tracker_alignment_desc" : "กำหนดการจัดตำแหน่งไอคอนติดตาม",
+    "ehi_tracker_alignment_1" : "แนวตั้ง",
+    "ehi_tracker_alignment_2" : "แนวนอน",
+	
+    "ehi_visuals_menu" : "ภาพไอคอน",
+    "ehi_visuals_menu_desc" : "",
+
+    "ehi_show_tracker_bg" : "แสดงพื้นหลังไอคอนติดตาม",
+    "ehi_show_tracker_bg_desc" : "Shows tracker background:\nเมื่อปิดตัวเลือกนี้ พื้นหลังของไอคอนติดตามจะถูกซ่อนและไม่มีการแสดงแอนิเมชันใดๆ ",
+    
+    "ehi_show_tracker_corners" : "กำหนดขอบไอคอนติดตาม",
+    "ehi_show_tracker_corners_desc" : "กำหนดขอบสีขาวให้แก่ไอคอนติดตาม",
+
+    "ehi_show_one_icon" : "แสดงรูปภาพของไอคอนติดตามเพียง 1 รูป",
+    "ehi_show_one_icon_desc" : "เมื่อเลือกตัวเลือกนี้ ขณะเล่นเกม จะแสดงรูปภาพของไอคอนติดตามเพียง 1 รูปเท่านั้น\nรูปภาพแสดงไอคอนอธิบายถัดจากนั้นจะถูกซ่อน",
+
+    "ehi_trackers_menu" : "ไอคอนติดตาม",
+    "ehi_trackers_menu_desc" : "Trackers หรือ ไอคอนแสดงการติดตามเหตุการณ์ที่เกิดขึ้นอยู่หรือกำลังเกิดขึ้นในด่านนั้นๆ",
+
+    "ehi_show_mission_trackers": "แสดงไอคอนติดตามจากแต่ละด่าน",
+    "ehi_show_mission_trackers_desc": "แสดงไอคอนติดตามจากแต่ละด่านบนหน้าจอ (ตย. : เวลาที่รถตู้/คอปเตอร์ มาถึง, เวลารอที่จะถึงภารกิจถัดไป ฯลฯ)\n\nตัวเลือกนี้ยังมีผลไปถึงด่านที่ชุมชนสร้างขึ้นมาด้วย\nถ้าด่านเหล่านั้นรองรับ EHI",
+
+    "ehi_show_unlockables" : "Show Unlockables",
+    "ehi_show_unlockables_desc" : "Shows on the screen tracker for achievements, trophies and daily mission",
+
+    "ehi_unlockables_menu" : "Unlockables",
+    "ehi_unlockables_menu_desc" : "",
+    
+    "ehi_show_achievements" : "แสดงไอคอนติดตามรางวัลความสำเร็จ",
+    "ehi_show_achievements_desc" : "Show achievement tracker เป็นการแสดงไอคอนติดตามรางวัลความสำเร็จที่เกี่ยวข้องกับเวลาหรือจำนวนในแต่ละด่าน\nบางด่านอาจไม่มีไอคอนติดตามรางวัลความสำเร็จปรากฎให้เห็น",
+
+    "ehi_show_achievements_mission" : "Show Achievements (Heist)",
+    "ehi_show_achievements_mission_desc" : "Shows achievements that can be completed only in heists",
+
+    "ehi_hide_unlocked_achievements" : "Don't Show Unlocked Achievements (Heist)",
+    "ehi_hide_unlocked_achievements_desc" : "When enabled, EHI will not show trackers for unlocked achievements (heist)\nWhen disabled, EHI will show all trackers for achievements (heist)",
+
+    "ehi_show_achievements_weapon" : "Show Achievements (Weapons)",
+    "ehi_show_achievements_weapon_desc" : "Shows achievements that require you to kill enemies with weapons\n\nThe tracker will not be visible once the achievement is unlocked",
+
+    "ehi_show_achievements_melee" : "Show Achievements (Melee)",
+    "ehi_show_achievements_melee_desc" : "Shows achievements that require you to kill enemies with melee\n\nThe tracker will not be visible once the achievement is unlocked",
+
+    "ehi_show_achievements_grenade" : "Show Achievements (Throwables)",
+    "ehi_show_achievements_grenade_desc" : "Shows achievements that require you to kill enemies with throwables\n\nThe tracker will not be visible once the achievement is unlocked",
+
+    "ehi_show_achievements_vehicle" : "Show Achievements (Vehicle)",
+    "ehi_show_achievements_vehicle_desc" : "Shows achievements that require you to run over enemies with vehicles\n\nThe tracker will not be visible once the achievement is unlocked",
+
+    "ehi_show_achievements_other" : "Show Achievements (Other)",
+    "ehi_show_achievements_other_desc" : "Shows achievements that do not belong to any group above\n\nThe tracker will not be visible once the achievement is unlocked",
+    
+    "ehi_show_achievement_failed_popup" : "แสดงหน้าต่าง 'ทำรางวัลความสำเร็จล้มเหลว' ",
+    "ehi_show_achievement_failed_popup_desc" : "หน้าต่างทำรางวัลความสำเร็จล้มเหลวจะแสดงเป็นข้อความสีแดง",
+
+    "ehi_show_achievement_started_popup" : "Show 'Achievement Started' Popup",
+    "ehi_show_achievement_started_popup_desc" : "Achievements that are now being tracked will show as green in the popup",
+
+    "ehi_show_trophies" : "Show Trophies",
+    "ehi_show_trophies_desc" : "Shows trophies on the screen\nSome heists may not have any trophies available",
+
+    "ehi_hide_unlocked_trophies" : "Don't Show Unlocked Trophies",
+    "ehi_hide_unlocked_trophies_desc" : "When enabled, EHI will not show trackers for unlocked trophies\nWhen disabled, EHI will show all trackers for trophies",
+
+    "ehi_show_trophy_failed_popup" : "Show 'Trophy Failed' Popup",
+    "ehi_show_trophy_failed_popup_desc" : "Failed trophies will show as red in the popup",
+
+    "ehi_show_trophy_started_popup" : "Show 'Trophy Started' Popup",
+    "ehi_show_trophy_started_popup_desc" : "Trophies that are now being tracked will show as green in the popup",
+
+    "ehi_show_dailies" : "Show Daily Side Jobs",
+    "ehi_show_dailies_desc" : "Shows dailies on the screen if the are active\n\nCompleted dailies won't appear on the screen",
+
+    "ehi_show_daily_failed_popup" : "Show 'Daily Side Job Failed' Popup",
+    "ehi_show_daily_failed_popup_desc" : "Failed dailies will show as red in the popup",
+
+    "ehi_show_daily_started_popup" : "Show 'Daily Side Job Started' Popup",
+    "ehi_show_daily_started_popup_desc" : "Dailies that are now being tracked will show as green in the popup",
+    
+    "ehi_show_gained_xp" : "แสดงค่าประสบการณ์ที่ได้รับ",
+    "ehi_show_gained_xp_desc" : "Show gained XP แสดงค่าประสบการณ์ที่ได้รับในด่านที่กำลังเล่นอยู่\nไอคอนติดตามจะถูกปิดการแสดงผลอัตโนมัติหากโหมดที่เลือก คือ Crime Spree",
+
+    "ehi_xp_format" : "เลือกรูปแบบการแสดงผลค่าประสบการณ์ที่ได้รับ",
+    "ehi_xp_format_desc" : "ตัวอย่าง: ค่าประสบการณ์เริ่มต้น: 1000; ความยากระดับ Death Wish\nค่าประสบการณ์เริ่มต้นเพีบงแค่: 1000\nค่าประสบการณ์คูณด้วยระดับความยากที่เลือก: 13000\nค่าประสบการณ์คูณด้วยค่าประสบการณ์เพิ่มเติมที่ได้รับจากในด่านที่เลือก: 13000+",
+    "ehi_xp_format_base" : "แสดงค่าประสบการณ์เริ่มต้นเท่านั้น",
+    "ehi_xp_format_difficulty_multiplier" : "แสดงค่าประสบการณ์คูณด้วยระดับความยาก",
+    "ehi_xp_format_all_bonuses" : "แสดงค่าประสบการณ์คูณด้วยค่าประสบการณ์เพิ่มเติมที่ได้รับ",
+
+    "ehi_xp_panel" : "เลือกวิธีการแสดงค่าประสบการณ์ที่ได้รับ",
+    "ehi_xp_panel_desc" : "",
+    "ehi_xp_panel_1" : "แสดงค่าประสบการณ์ที่ได้รับแยกกันในแต่ละไอคอนติดตาม",
+    "ehi_xp_panel_2" : "แสดงค่าประสบการณ์ทั้งหมดที่ได้รับจากด่านนั้นๆ",
+    "ehi_xp_panel_3" : "แสดงหน้าต่างค่าประสบการณ์ที่ได้รับแต่ละครั้งและที่ได้รับทั้งหมด",
+    "ehi_xp_panel_4" : "แสดงคำใบ้ว่าคุณได้รับค่าประสบการณ์ในแต่ละครั้งและที่ได้รับทั้งหมด",
+
+    "ehi_total_xp_show_difference" : "แสดงค่าประสบการณ์ที่ได้รับในแต่ละครั้ง",
+    "ehi_total_xp_show_difference_desc" : "เป็นตัวเลือกคู่กับ [แสดงค่าประสบการณ์ทั้งหมดที่ได้รับจากด่านนั้นๆ] เท่านั้น!\nแสดงค่าประสบการณ์ที่ได้รับในไอคอนติดตาม",
+
+    "ehi_show_trade_delay" : "แสดงไอคอนติดตามความล่าช้าของการแลกเปลี่ยนตัวประกัน",
+    "ehi_show_trade_delay_desc" : "แสดงไอคอนติดตามเวลา ความล่าช้าของการแลกเปลี่ยนตัวประกันเมื่อคุณหรือเพื่อนของคุณฆ่าพลเรือน",
+
+    "ehi_show_trade_delay_option" : "เมื่อไหร่ที่จะแสดงความล่าช้าของการแลกเปลี่ยนตัวประกัน",
+    "ehi_show_trade_delay_option_desc": "แสดงตลอดเวลา: แสดงไอคอนการติดตามนี้ทันทีเมื่อคุณหรือเพื่อนของคุณฆ่าพลเรือน\nเมื่อถูกควบคุมตัวหรือ In Custody: แสดงไอคอนติดตามนี้เมื่อคุณหรือเพื่อนของคุณถูกควบคุมตัวและได้ทำการฆ่าพลเรือนไปอย่างน้อย 1 คน",
+    "ehi_show_trade_delay_option_1" : "แสดงตลอด",
+    "ehi_show_trade_delay_option_2" : "แสดงเมื่อถูกควบคุมตัว",
+
+    "ehi_show_trade_delay_other_players_only": "แสดงไอคอนติดตามความล่าช้าของการแลกเปลี่ยนตัวประกันสำหรับผู้เล่นอื่นเท่านั้น",
+    "ehi_show_trade_delay_other_players_only_desc": "เมื่อเลือกตัวเลือกนี้ ไอคอนติดตามนี้จะไม่แสดงค่าของคุณว่าคุณฆ่าพลเรือนไปกี่คน แต่จะแสดงค่าของคนอื่นตามปรกติ",
+
+    "ehi_show_trade_delay_suppress_in_stealth" : "ไม่ต้องแสดงไอคอนติดตามความล่าช้าการแลกเปลี่ยนตัวประกันเมื่ออยู่ในโหมดลอบเร้น",
+    "ehi_show_trade_delay_suppress_in_stealth_desc" : "หากเลือก จะซ่อนไอคอนติดตามแสดงความล่าช้าของการแลกเปลี่ยนตัวประกันเมื่อเล่นในโหมดลอบเร้น\nเมื่อเกมเปลี่ยนเป็นโหมดบู๊ล้างผลาญแหลก ไอคอนติดตามจะปรากฎให้เห็นพร้อมค่าความล่าช้าทั้งหมด",
+
+    "ehi_show_timers" : "แสดงไอคอนติดตามเกี่ยวกับเวลา",
+    "ehi_show_timers_desc" : "แสดงไอคอนติดตามเกี่ยวกับเวลา เช่น การแฮคระบบ, สว่าน, เลื่อย ฯลฯ",
+
+    "ehi_show_camera_loop" : "Show Camera Loop",
+    "ehi_show_camera_loop_desc" : "Shows a tracker when a security camera is looped",
+
+    "ehi_show_zipline_timer" : "แสดงไอคอนติดตามการใช้โหนสลิง",
+    "ehi_show_zipline_timer_desc" : "แสดงค่า 2 ไอคอนติดตามที่เกี่ยวข้องกับการใช้โหนสลิงหรือ Zipline\nไอคอนบรรทัดแรกแสดงเวลาที่ไอเท็มจะไปถึงผู้เล่นหรือตำแหน่งที่ปลายทาง, ไอคอนบรรทัดที่สองแสดงเวลาที่รอกจะกลับมาที่ตำแหน่งเริ่มต้นอีกครั้ง",
+
+    "ehi_show_gage_tracker" : "แสดงไอคอนติดตาม Gage Packages",
+    "ehi_show_gage_tracker_desc" : "แสดงไอคอนติดตามจำนวน Gage Packagesที่มีในด่านนั้นๆ\nหากด่านนั้นไม่อนุญาตให้มี Gage Packages ปรากฎในด่าน ไอคอนติดตามนี้จะไม่แสดงค่าให้เห็น",
+
+    "ehi_gage_tracker_panel" : "แสดงไอคอนติดตาม Gage Packages",
+    "ehi_gage_tracker_panel_desc" : "แสดงไอคอนติดตามจำนวน Gage Packagesที่มีในด่านนั้นๆ",
+    "ehi_gage_tracker_panel_1" : "ในไอคอนติดตาม",
+    "ehi_gage_tracker_panel_2" : "ในหน้าต่าง",
+
+    "ehi_show_captain_damage_reduction" : "แสดงไอคอนการลดความเสียหาย",
+    "ehi_show_captain_damage_reduction_desc" : "แสดงไอคอนค่าการลดความเสียหายเมื่อกัปตันปรากฏตัวขึ้นในด่านนั้นๆ",
+
+    "ehi_show_equipment_tracker" : "แสดงไอคอนอุปกรณ์",
+    "ehi_show_equipment_tracker_desc" : "ไอคอนแสดงค่าอุปกรณ์ที่ปรากฎอยู่บนด่านหรือจากผู้เล่น เช่น กระเป๋าแพทย์, กระเป๋ากระสุน, กระเป๋าอาวุธขว้างปา, กระเป๋าใส่ศพ และกล่องปฐมพยาบาล",
+
+    "ehi_equipment_menu" : "เมนูอุปกรณ์",
+    "ehi_equipment_menu_desc" : "",
+
+    "ehi_equipment_format" : "รูปแบบการแสดงอุปกรณ์",
+    "ehi_equipment_format_desc" : "กำหนดรูปแบบการแสดงอุปกรณ์",
+    "ehi_equipment_format_1" : "จำนวนครั้งที่ใช้ได้ (จำนวนกระเป๋าที่ปรากฎในเกม)",
+    "ehi_equipment_format_2" : "(จำนวนกระเป๋าที่ปรากฎในเกม) จำนวนครั้งที่ใช้ได้",
+    "ehi_equipment_format_3" : "(จำนวนครั้งที่ใช้ได้) จำนวนกระเป๋าที่ปรากฎในเกม",
+    "ehi_equipment_format_4" : "จำนวนกระเป๋าที่ปรากฎในเกม (จำนวนครั้งที่ใช้ได้)",
+    "ehi_equipment_format_5" : "จำนวนครั้งที่ใช้ได้",
+    "ehi_equipment_format_6" : "จำนวนกระเป๋าที่ปรากฎในเกม",
+
+    "ehi_show_equipment_doctorbag" : "แสดงกระเป๋าแพทย์",
+    "ehi_show_equipment_doctorbag_desc" : "แสดงจำนวนครั้งทั้งหมดจากกระเป๋าแพทย์",
+
+    "ehi_show_equipment_ammobag" : "แสดงกระเป๋ากระสุน",
+    "ehi_show_equipment_ammobag_desc" : "แสดงจำนวนกระเป๋ากระสุน",
+
+    "ehi_show_equipment_grenadecases" : "แสดงกระเป๋าอาวุธขว้างปา ",
+    "ehi_show_equipment_grenadecases_desc" : "แสดงจำนวนอาวุธขว้างปาจากกระเป๋าอาวุธขว้างปา ",
+
+    "ehi_show_equipment_bodybags": "แสดงกระเป๋าใส่ศพ",
+    "ehi_show_equipment_bodybags_desc": "แสดงจำนวนกระเป๋าใส่ศพ\nไอคอนติดตามนี้จะไม่แสดงค่าหากด่านเปลี่ยนจากลอบเร้นเป็นบู๊ล้างผลาญ",
+
+    "ehi_show_equipment_firstaidkit": "แสดงกล่องปฐมพยาบาล",
+    "ehi_show_equipment_firstaidkit_desc": "แสดงจำนวนกล่องปฐมพยาบาล",
+
+    "ehi_show_equipment_ecmjammer" : "ไอคอนติดตามระยะเวลาการแสดงผลอุปกรณ์แจมเมอร์",
+    "ehi_show_equipment_ecmjammer_desc" : "แสดงไอคอนติดตามระยะเวลาที่เหลือของอุปกรณ์ตัดสัญญาณอิเล็กโทรนิคชั่วคราว หรือ แจมเมอร์ (ECM Jammer)\nแจมเมอร์ทีมีระยะเวลานานที่สุดจะถูกแสดงผลก่อนเสมอ",
+
+    "ehi_show_equipment_ecmfeedback" : "ไอคอนติดตามระยะเวลาการแสดงผลคลื่นกวนสัญญาณจากอุปกรณ์แจมเมอร์",
+    "ehi_show_equipment_ecmfeedback_desc" : "แสดงไอคอนติดตามระยะเวลาที่เหลือของการเปิดใช้คลื่นรบกวนสัญญาณชั่วคราวจากอุปกรณ์ แจมเมอร์ (ECM Feedback)\nคลื่นรบกวนสัญญาณที่มีระยะเวลานานที่สุดจะถูกแสดงผลก่อนเสมอ (เฉพาะโฮสเท่านั้น)",
+
+    "ehi_show_equipment_aggregate_health" : "แสดงผลกระเป๋าแพทย์และกล่องปฐมพยาบาลรวมกัน",
+    "ehi_show_equipment_aggregate_health_desc" : "แสดงผลกระเป๋าแพทย์และกล่องปฐมพยาบาลรวมกันให้ปรากฎอยู่ในไอคอนติดตามเดียวกัน",
+
+    "ehi_show_equipment_aggregate_all" : "แสดงผลอุปกรณ์ที่พกพาติดตัวและวางเพื่อใช้งานรวมกัน",
+    "ehi_show_equipment_aggregate_all_desc" : "แสดงผลอุปกรณ์ที่พกพาติดตัวและวางเพื่อใช้งาน (Deployables) ให้ปรากฎอยู่ในไอคอนติดตามเดียวกัน\nอุปกรณ์ที่พกพาติดตัวและวางเพื่อใช้งานเหล่านั้นจะมีสีที่ปรับแต่งได้ตามลำดับตัวเลือกด้านล่างนี้",
+
+    "ehi_doctor_bag" : "กระเป๋าแพทย์",
+    "ehi_ammo_bag" : "กระเป๋ากระสุน",
+    "ehi_grenade_crate" : "กระเป๋าอาวุธขว้างปา",
+    "ehi_first_aid_kit" : "กล่องปฐมพยาบาล",
+    "ehi_bodybags_bag" : "กระเป๋าใส่ศพ",
+
+    "ehi_show_minion_tracker" : "แสดงไอคอนจำนวนพันธมิตร",
+    "ehi_show_minion_tracker_desc" : "แสดงไอคอนจำนวนพันธมิตรที่เปลี่ยนมาอยู่ฝั่งเราในด่านนั้นๆ",
+
+    "ehi_show_minion_per_player" : "แสดงไอคอนจำนวนพันธมิตรของแต่ละบุคคล",
+    "ehi_show_minion_per_player_desc" : "แสดงไอคอนจำนวนพันธมิตรแยกตามสีของแต่ละบุคคล",
+
+    "ehi_show_minion_killed_message" : "Show 'CONVERT KILLED' Message",
+    "ehi_show_minion_killed_message_desc" : "Shows a message when your convert has been killed",
+
+    "ehi_show_minion_killed_message_type" : "'CONVERT KILLED' Message Type",
+    "ehi_show_minion_killed_message_type_2" : "In hint panel",
+
+    "ehi_show_difficulty_tracker" : "แสดงไอคอนความยาก",
+    "ehi_show_difficulty_tracker_desc" : "แสดงไอคอนความยากของการจู่โจมในแต่ละรอบ มีค่าเป็นเปอร์เซ็นต์",
+
+    "ehi_show_drama_tracker" : "แสดงค่าดราม่า",
+    "ehi_show_drama_tracker_desc" : "แสดงค่าดราม่าที่เปลี่ยนแปลงไป (โฮสเท่านั้น)\nปล. หากไม่รู้จัก ให้อ่าน 'The Long Guide'",
+
+    "ehi_show_pager_tracker" : "แสดงไอคอนจำนวนวิทยุเรียกตัว",
+    "ehi_show_pager_tracker_desc" : "แสดงไอคอนจำนวนวิทยุเรียกตัวหรือ pager ที่เหลืออยู่",
+
+    "ehi_show_pager_callback_trackers" : "แสดงเวลาของเพจเจอร์ตอบกลับ",
+    "ehi_show_pager_callback_trackers_desc" : "แสดงไอคอนติดตามเวลาของเพจเจอร์ที่ต้องถูกตอบกลับ",
+
+    "ehi_show_enemy_count_tracker" : "แสดงจำนวนศัตรูทั้งหมด",
+    "ehi_show_enemy_count_tracker_desc" : "แสดงจำนวนศัตรูทั้งหมดที่อยู่ในด่าน ณ ขณะนั้น",
+
+    "ehi_show_laser_tracker" : "แสดงไอคอนติดตามเลเซอร์",
+    "ehi_show_laser_tracker_desc" : "แสดงเวลาเลเซอร์ที่มีการเปลี่ยนสถานะกลับไปกลับมาได้",
+
+    "ehi_show_assault_delay_tracker" : "Show Assault Delay Tracker",
+    "ehi_show_assault_delay_tracker_desc" : "Shows a tracker for how long the assault delay will be\n\nThe tracker won't show on clients when they drop-in after assault difficulty has been increased",
+
+    "ehi_show_loot_counter" : "แสดงจำนวนของที่ปล้นมาได้",
+    "ehi_show_loot_counter_desc" : "แสดงจำนวนของที่ปล้นมาได้ทั้งหมดในด่านนั้นๆ",
+
+    "ehi_show_all_loot_secured_popup" : "Show 'All Loot Secured' popup",
+    "ehi_show_all_loot_secured_popup_desc" : "Shows a popup when all loot on the map has been secured",
+
+    "ehi_variable_random_loot_format" : "Variable Random Loot Format",
+    "ehi_variable_random_loot_format_desc" : "Defines how additional random loot should be formatted\n\nExample:16 guaranteed bags with 4 safes that may or not have loot; 9 bags secured\n\nOption 1:\n9/16-20?\n\nOption 2:\n9/20?\n\nOption 3:\n9/16+4?",
+    "ehi_variable_random_loot_format_1" : "Progress / Max - (Max + Random)?",
+    "ehi_variable_random_loot_format_2" : "Progress / (Max + Random)?",
+    "ehi_variable_random_loot_format_3" : "Progress / Max + Random?",
+
+    "ehi_show_bodybags_counter" : "Show Bodybags Counter",
+    "ehi_show_bodybags_counter_desc" : "Shows a tracker for how many bodybags you have",
+    
+    "ehi_show_escape_chance" : "Show Escape Chance",
+    "ehi_show_escape_chance_desc" : "Shows a tracker with possible escape chance",
+    
+    "ehi_waypoints_menu" : "จุดอ้างอิง",
+    "ehi_waypoints_menu_desc" : "จุดอ้างอิง (Waypoints) เป็นไอคอนในเกมที่แสดงที่วัตถุนั้นๆ โดยตรง",
+    
+    "ehi_show_waypoints" : "แสดงจุดอ้างอิง",
+    "ehi_show_waypoints_desc" : "แสดงจุดอ้างอิงในเกม",
+
+    "ehi_show_waypoints_only" : "แสดงจุดอ้างอิงเท่านั้น",
+    "ehi_show_waypoints_only_desc" : "เมื่อใช้ตัวเลือกนี้ จะทำการแสดงเพียงจุดอ้างอิงหากมีทั้งไอคอนติดตามและจุดอ้างอิงถูกใช้งานอยู่\nหรือมีเพียงไอคอนติดตามที่ปรากฎเท่านั้น",
+
+    "ehi_show_waypoints_present_timer" : "กำหนดเเวลาของแอนิเมชั่นจุดอ้างอิง",
+    "ehi_show_waypoints_present_timer_desc" : "กำหนดระยะเวลาสูงสุดที่จุดอ้างอิงจะถูกแสดงบนหน้าจอของคุณก่อนที่มันจะ'ถูกย้าย'ไปอยู่ที่วัตถุเป้าหมาย",
+
+    "ehi_show_waypoints_enemy_turret" : "แสดงจุดอ้างอิงสำหรับป้อมปืนของศัตรู",
+    "ehi_show_waypoints_enemy_turret_desc" : "แสดงจุดอ้างอิงที่ป้อมปืนของศัตรูเมื่อป้อมปืนนั้นกำลังโหลดกระสุนชุดใหม่หรือกำลังซ่อมแซมตัวมัน",
+
+    "ehi_show_waypoints_timers" : "แสดงจุดอ้างอิงเกี่ยวกับเวลา",
+    "ehi_show_waypoints_timers_desc" : "แสดงไอคอนติดตามเกี่ยวกับเวลาที่ปรากฎในเกม (การแฮคระบบ, สว่าน, เลื่อย ฯลฯ)",
+
+    "ehi_show_waypoints_pager" : "แสดงจุดอ้างอิงสำหรับวิทยุเรียกตัว",
+    "ehi_show_waypoints_pager_desc" : "แสดงจุดอ้างอิงสำหรับวิทยุเรียกตัวหรือ pager ที่ต้องถูกตอบกลับ",
+
+    "ehi_show_waypoints_cameras" : "แสดงจุดอ้างอิงกล้องที่ถูกลูป",
+    "ehi_show_waypoints_cameras_desc" : "แสดงจุดอ้างอิงตำแหน่งกล้องวงจรปิดที่ถูกลูปภาพในขณะนั้น",
+
+    "ehi_show_waypoints_zipline" : "แสดงไอคอนติดตามสำหรับที่โหนสลิง",
+    "ehi_show_waypoints_zipline_desc" : "แสดงไอคอนติดตามการใช้โหนสลิงที่กำลังถูกใช้งาน\nมีเพียงแค่โหนสลิงเท่านั้นที่จะแสดงค่า",
+
+    "ehi_buffs_menu" : "ทักษะ",
+    "ehi_buffs_menu_desc" : "Buffs หรือทักษะที่ถูกใช้งานในเกม แสดงในรูปไอคอน",
+
+    "ehi_show_buffs" : "แสดงทักษะ",
+    "ehi_show_buffs_desc": "แสดงไอคอนทักษะที่กำลังถูกใช้งานหรือมีผลในเกมรวมถึงค่าคูลดาวน์จากทักษะและจากทักษะติดตัวพิเศษ หรือ Perk Deck",
+
+    "ehi_buffs_scale_desc" : "ปรับขนาดไอคอนทักษะ หากใส่ตัวเลขเพิ่มขึ้น ขนาดไอคอนจะใหญ่ขึ้นด้วย ฯลฯ",
+
+    "ehi_buffs_alignment" : "การจัดตำแหน่ง",
+    "ehi_buffs_alignment_desc" : "กำหนดการจัดตำแหน่งไอคอนแสดงทักษะบนหน้าจอ",
+    "ehi_buffs_alignment_1" : "ซ้าย",
+    "ehi_buffs_alignment_2" : "กลาง",
+    "ehi_buffs_alignment_3" : "ขวา",
+
+    "ehi_buffs_shape" : "รูปร่าง",
+    "ehi_buffs_shape_desc" : "กำหนดการแสดงรูปร่างไอคอนแสดงทักษะบนหน้าจอ",
+    "ehi_buffs_shape_1" : "สี่เหลี่ยมจัตุรัส",
+    "ehi_buffs_shape_2" : "วงกลม",
+
+    "ehi_buffs_show_progress" : "แสดงผลจากทักษะ",
+    "ehi_buffs_show_progress_desc" : "กำหนดการแสดงผลลัพธ์ไอคอนแสดงทักษะว่าควรแสดงให้เห็นหรือไม่\nค่าดั้งเดิมจะแสดงผลลัพธ์ทักษะตามเข็มนาฬิกา",
+
+    "ehi_buffs_invert_progress" : "แสดงผลกลับด้าน",
+    "ehi_buffs_invert_progress_desc" : "เมื่อเปิดใช้ตัวเลือกนี้ จะแสดงผลลัพธ์ทักษะทวนเข็มนาฬิกา\nหากไม่ได้เปิดใช้งาน จะมีแสดงผลลัพธ์ทักษะตามเข็มนาฬิกา",
+
+    "ehi_buffs_skills_cooldown" : "แสดงการหน่วงเวลา (Cooldown)",
+    "ehi_buffs_skills_duration" : "แสดงระยะเวลา",
+    "ehi_buffs_skills_progress" : "แสดงความคืบหน้า",
+
+    "ehi_buffs_skills_menu" : "ทักษะ",
+    "ehi_buffs_skills_mastermind_menu" : "Mastermind",
+    "ehi_buffs_skills_mastermind_medic_subclass" : "Medic",
+    "ehi_buffs_skills_mastermind_inspire_basic" : "Inspire (Basic)",
+    "ehi_buffs_skills_mastermind_inspire_basic_desc" : "แสดงการหน่วงเวลาหลังจากที่ใช้ inspire กับเพื่อนพ้อง",
+    "ehi_buffs_skills_mastermind_inspire_ace" : "Inspire (Ace)",
+    "ehi_buffs_skills_mastermind_inspire_ace_desc" : "แสดงการหน่วงเวลาที่จะสามารถใช้ทักษะได้อีกครั้งหลังจากที่ใช้ชุบชีวิตเพื่อนพ้อง",
+    "ehi_buffs_skills_mastermind_uppers" : "Uppers",
+    "ehi_buffs_skills_mastermind_uppers_range" : "Uppers Range",
+    "ehi_buffs_skills_mastermind_uppers_range_desc" : "แสดงทักษะนี้เมื่อคุณอยู่ในระยะทักษะ FAK's autoheal",
+    "ehi_buffs_skills_mastermind_uppers_range_refresh" : "Uppers Range Refresh",
+    "ehi_buffs_skills_mastermind_uppers_range_refresh_desc" : "กำหนดค่าเวลาเป็นวินาทีเพื่ออัพเดททักษะ 'Uppers Range' ",
+    "ehi_buffs_skills_mastermind_quick_fix" : "Quick Fix",
+    "ehi_buffs_skills_mastermind_painkillers" : "Painkillers",
+    "ehi_buffs_skills_mastermind_combat_medic" : "Combat Medic",
+    "ehi_buffs_skills_mastermind_controller_subclass" : "Controller",
+    "ehi_buffs_skills_mastermind_hostage_taker_muscle" : "Hostage Taker / Muscle",
+    "ehi_buffs_skills_mastermind_forced_friendship" : "Forced Friendship (Absorption)",
+    "ehi_buffs_skills_mastermind_forced_friendship_desc" : "แสดงค่าการดูดซึมสะสมจากทักษะ Forced Friendship",
+    "ehi_buffs_skills_mastermind_sharpshooter_subclass" : "Sharpshooter",
+    "ehi_buffs_skills_mastermind_ammo_efficiency" : "Ammo Efficiency",
+    "ehi_buffs_skills_mastermind_aggressive_reload" : "Aggressive Reload",
+
+    "ehi_buffs_skills_enforcer_menu" : "Enforcer",
+    "ehi_buffs_skills_enforcer_shotgunner_subclass" : "Shotgunner",
+    "ehi_buffs_skills_enforcer_overkill" : "Overkill",
+    "ehi_buffs_skills_enforcer_underdog" : "Underdog",
+    "ehi_buffs_skills_enforcer_tank_subclass" : "Tank",
+    "ehi_buffs_skills_enforcer_bullseye" : "Bullseye",
+    "ehi_buffs_skills_enforcer_ammo_specialist_subclass" : "Ammo Specialist",
+    "ehi_buffs_skills_enforcer_bulletstorm" : "Bulletstorm",
+
+    "ehi_buffs_skills_ghost_menu" : "Ghost",
+    "ehi_buffs_skills_ghost_shinobi_subclass" : "Shinobi",
+    "ehi_buffs_skills_ghost_sixth_sense_initial" : "Sixth Sense (Initial Delay)",
+    "ehi_buffs_skills_ghost_sixth_sense_marked" : "Sixth Sense (Marked units)",
+    "ehi_buffs_skills_ghost_sixth_sense_marked_desc" : "แสดงจำนวนศัตรูที่ปรากฎในรัศมีของทักษะ Sixth Sense",
+    "ehi_buffs_skills_ghost_sixth_sense_refresh" : "Sixth Sense (Refresh Delay)",
+    "ehi_buffs_skills_ghost_artful_dodger_subclass" : "Artful Dodger",
+    "ehi_buffs_skills_ghost_dire_need" : "Dire Need",
+    "ehi_buffs_skills_ghost_silent_killer_subclass" : "Silent Killer",
+    "ehi_buffs_skills_ghost_second_wind" : "Second Wind",
+    "ehi_buffs_skills_ghost_unseen_strike" : "Unseen Strike",
+
+    "ehi_buffs_skills_fugitive_menu" : "Fugitive",
+    "ehi_buffs_skills_fugitive_revenant_subclass" : "Revenant",
+    "ehi_buffs_skills_fugitive_running_from_death_reload" : "Running from Death (Reload and Swap)",
+    "ehi_buffs_skills_fugitive_running_from_death_movement" : "Running from Death (Movement)",
+    "ehi_buffs_skills_fugitive_up_you_go" : "Up You Go",
+    "ehi_buffs_skills_fugitive_swan_song" : "Swan Song",
+    "ehi_buffs_skills_fugitive_brawler_subclass" : "Brawler",
+    "ehi_buffs_skills_fugitive_bloodthirst" : "Bloodthirst",
+    "ehi_buffs_skills_fugitive_bloodthirst_reload" : "Bloodthirst (Reload)",
+    "ehi_buffs_skills_fugitive_bloodthirst_ratio" : "Bloodthirst Ratio",
+    "ehi_buffs_skills_fugitive_bloodthirst_ratio_desc" : "Sets percentual ratio to show Bloodthirst gauge\nSetting it to 0% makes the buff always visible\n\nDefault value is 34%, which are 6 kills in Vanilla",
+    "ehi_buffs_skills_fugitive_berserker" : "Berserker",
+    "ehi_buffs_skills_fugitive_berserker_refresh" : "Berserker Refresh",
+    "ehi_buffs_skills_fugitive_berserker_refresh_desc" : "กำหนดค่าเวลาเป็นวินาทีเพื่ออัพเดททักษะ 'Berserker' ",
+
+    "ehi_buffs_perks_menu" : "ทักษะติดตัวพิเศษ",
+    "ehi_buffs_perks_infiltrator" : "Infiltrator",
+    "ehi_buffs_perks_infiltrator_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Infiltrator",
+    "ehi_buffs_perks_gambler" : "Gambler",
+    "ehi_buffs_perks_gambler_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Gambler",
+    "ehi_buffs_perks_grinder" : "Grinder",
+    "ehi_buffs_perks_grinder_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Grinder",
+    "ehi_buffs_perks_maniac" : "Maniac",
+    "ehi_buffs_perks_maniac_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Maniac",
+    "ehi_buffs_perks_anarchist" : "Anarchist / Armorer",
+    "ehi_buffs_perks_anarchist_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Anarchist / Armorer",
+    "ehi_buffs_perks_biker" : "Biker",
+    "ehi_buffs_perks_biker_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Biker",
+    "ehi_buffs_perks_kingpin" : "Kingpin",
+    "ehi_buffs_perks_kingpin_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Kingpin",
+    "ehi_buffs_perks_sicario" : "Sicario",
+    "ehi_buffs_perks_sicario_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Sicario",
+    "ehi_buffs_perks_stoic" : "Stoic",
+    "ehi_buffs_perks_stoic_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Stoic",
+    "ehi_buffs_perks_tag_team" : "Tag Team",
+    "ehi_buffs_perks_tag_team_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Tag Team",
+    "ehi_buffs_perks_hacker" : "Hacker",
+    "ehi_buffs_perks_hacker_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Hacker",
+    "ehi_buffs_perks_leech" : "Leech",
+    "ehi_buffs_perks_leech_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Leech",
+    "ehi_buffs_perks_copycat" : "Copycat",
+    "ehi_buffs_perks_copycat_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Copycat",
+
+    "ehi_buffs_other_menu" : "อื่นๆ",
+    "ehi_buffs_other_interact" : "การปฏิสัมพันธ์",
+    "ehi_buffs_other_reload" : "รีโหลด",
+    "ehi_buffs_other_melee_charge" : "เวลาชาร์ตอาวุธระยะประชิต",
+    "ehi_buffs_other_shield_regen" : "เวลาหน่วงที่เกราะฟื้นตัว",
+    "ehi_buffs_other_stamina" : "Stamina",
+    "ehi_buffs_other_dodge" : "โอกาสหลบหลีก",
+    "ehi_buffs_other_dodge_refresh" : "การอัพเดทโอกาสหลบหลีก",
+    "ehi_buffs_other_dodge_refresh_desc" : "กำหนดค่าเวลาเป็นวินาทีเพื่ออัพเดท  'โอกาสหลบหลีก' ",
+    "ehi_buffs_other_dodge_persistent" : "การคงค่าโอกาสหลีกถาวร",
+    "ehi_buffs_other_dodge_persistent_desc" : "'ค่าการหลบหลีก' จะแสดงบนหน้าจอเมื่อโอกาสหลบหลีกคุณมีค่าน้อยกว่า 0%",
+    "ehi_buffs_other_crit" : "โอกาสติดคริติคอล",
+    "ehi_buffs_other_crit_refresh" : "การอัพเดทโอกาสติดคริติคอล",
+    "ehi_buffs_other_crit_refresh_desc" : "กำหนดค่าเวลาเป็นวินาทีเพื่ออัพเดท 'โอกาสติดคริติคอล'",
+    "ehi_buffs_other_crit_persistent" : "การคงค่าโอกาสติดคริติคอล",
+    "ehi_buffs_other_crit_persistent_desc" : "'โอกาสติดคริติคอล' จะแสดงบนหน้าจอเมื่อโอกาสติดคริติคอลของคุณมีค่าน้อยกว่า 0%",
+    "ehi_buffs_other_inspire_ai" : "Inspire (AI)",
+    "ehi_buffs_other_regen_throwable_ai" : "Regen Throwable (AI)",
+
+    "ehi_inventory_menu" : "Inventory",
+    "ehi_inventory_menu_desc" : "",
+
+    "ehi_show_inventory_detailed_description" : "Show Detailed Inventory Description",
+    "ehi_show_inventory_detailed_description_desc" : "Shows detailed description for Throwables and Equipment",
+
+    "ehi_hide_original_desc" : "Hide Original Description",
+    "ehi_hide_original_desc_desc" : "Hides original description",
+
+    "ehi_bm_charges" : "%s use(s) (%s uses total)",
+    "ehi_bm_charges_no_total" : "%s use(s)",
+    "ehi_bm_doctor_bag" : "Restores health and downs",
+    "ehi_bm_doctor_bag_2" : "Quick Fix: After use, %s%s less damage for %ds",
+    "ehi_bm_ammo_bag" : "Secondary weapon is refilled first, then primary",
+    "ehi_bm_ammo_bag_2" : "Bulletstorm: Unlimited ammo after use for up to %ds (depends on how much ammo you have taken)",
+    "ehi_bm_armor_kit" : "Packs your selected armor and you start with Two-Piece Suit\nAfter use, you will have your selected armor\nAfter change you cannot switch back to suit",
+    "ehi_bm_ecm_jammer" : "Unlocks Electronic Security Doors",
+    "ehi_bm_ecm_jammer_2" : "Delays Pagers",
+    "ehi_bm_bodybags_bag" : "A bodybag can hide one dead body (stealth)",
+    "ehi_bm_trip_mine" : "Fire Trap",
+    "ehi_bm_sentry_gun" : "Health",
+    "ehi_bm_sentry_gun_2" : "Ammo",
+    "ehi_bm_sentry_gun_3" : "AP Rounds (switchable)",
+    "ehi_bm_sentry_gun_4" : "AP",
+    "ehi_bm_sentry_gun_5" : "Protective Shield",
+    "ehi_bm_sentry_gun_6" : "Ammo Cost to Place",
+    "ehi_bm_sentry_gun_7" : "Accuracy",
+    "ehi_bm_sentry_gun_8" : "Degrees",
+    "ehi_bm_sentry_gun_silent" : "Silenced",
+    "ehi_bm_first_aid_kit" : "Restores health only",
+    "ehi_bm_first_aid_kit_2" : "Uppers: Autoheal after you lost all health and you are in FAK's range of %sm\nCooldown: %ds",
+    "ehi_bm_grenade_crate" : "One use restores all throwables",
+    "ehi_bm_grenade_crate_2" : "Does not work with perk deck abilities",
+    "ehi_bm_damage" : "Damage",
+    "ehi_bm_max_damage" : "Max Damage",
+    "ehi_bm_range" : "Range",
+    "ehi_bm_base_cooldown" : "Base Cooldown",
+    "ehi_bm_duration" : "Duration",
+    "ehi_bm_cooldown_drain" : "Each kill speeds up cooldown by %ss",
+    "ehi_bm_instant" : "Instant",
+    "ehi_bm_poison" : "Poison",
+    "ehi_bm_fire" : "Fire",
+    "ehi_bm_dot" : "DOT",
+    "ehi_bm_dot_tick_period" : "Damage every %ss",
+    "ehi_bm_dot_chance" : "Trigger Chance",
+    "ehi_bm_explosion" : "Explosion",
+    "ehi_bm_fir_com" : "Explodes first, then releases a fire blast",
+    "ehi_bm_concussion_1" : "Flashes and stuns enemies",
+    "ehi_bm_concussion_2" : "After recover, flashed enemies will have %s%s accuracy for %ds",
+    "ehi_bm_poison_gas_grenade_1" : "Explodes first, then releases toxic gas",
+    "ehi_bm_poison_gas_grenade_2" : "Cloud",
+    "ehi_bm_sticky_grenade" : "Sticks to surfaces and enemies",
+    "ehi_bm_kingpin_1" : "Heals you for %s%s per every damage (active)",
+    "ehi_bm_kingpin_2" : "Nearby enemies will prefer targeting you (active)",
+    "ehi_bm_kingpin_3" : "When below %s%s HP, effect is increased by %s%s (active)",
+    "ehi_bm_kingpin_4" : "If max HP, cooldown is reduced by additional %ss for %s HP gained (active)",
+    "ehi_bm_sicario_1" : "While inside the smoke screen, you and your allies avoid %s%s of all bullets",
+    "ehi_bm_sicario_2" : "Enemies inside the smoke screen have their accuracy reduced by %s%s",
+    "ehi_bm_sicario_3" : "All of your perk deck effects are increased by %s%s while you are in the smoke screen",
+    "ehi_bm_sicario_4" : "Any of your allies inside the smoke screen will gain %s%s dodge chance",
+    "ehi_bm_stoic_1" : "Using the Stoic's Hip Flask negates all pending damage",
+    "ehi_bm_stoic_2" : "If your HP is below %s%s, cooldown will be reduced by %ss for each kill instead of %ss",
+    "ehi_bm_tagteam_1" : "Each enemy you or your tagged unit kills heals you for %sHP and heals them for %sHP (active)",
+    "ehi_bm_tagteam_2_a" : "Each your kill extends the duration by %ss and reduces cooldown by %ss (active)",
+    "ehi_bm_tagteam_2_b" : "Each your kill extends the duration by %ss (active)",
+    "ehi_bm_tagteam_2_c" : "Each your kill reduces cooldown by %ss (active)",
+    "ehi_bm_tagteam_2_d" : "Each your tagged unit kill reduces cooldown by %ss (active)",
+    "ehi_bm_tagteam_3" : "Each your or tagged unit kill increases absorption by %s up to %s (active)\nResets after deactivation",
+    "ehi_bm_hacker_1" : "Each kill heals you for %dHP (active - loud)",
+    "ehi_bm_hacker_2" : "Temporarily increases dodge when getting a kill: +%s%s for %ss (active)",
+    "ehi_bm_hacker_3" : "Each crew member kill heals them for %dHP (active - loud)",
+    "ehi_bm_leech_1" : "Restores %s%s HP when activated",
+    "ehi_bm_leech_2" : "Disables your armor while Leech is active",
+    "ehi_bm_leech_3" : "Each %s kill(s) grants you invulnerability for %ss (active)",
+    "ehi_bm_leech_4" : "Divides your health into %s segments and killing %s enemies restores 1 segment (active)\nTaking damage removes 1 segment\nIf the damage is over %s, %s segment(s) are removed",
+    "ehi_bm_leech_5" : "You cannot go into bleedout, but if you are out of HP, your movement will slow down by %s%s (active)",
+    "ehi_bm_leech_6" : "You can activate Leech while downed, you will stay alive if you revive a teammate or use a doctor bag and you are above 0 HP"
+}

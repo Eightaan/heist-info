@@ -1,0 +1,719 @@
+r137 (13. 03. 2023):
+Added option "Show gained XP in Mission Briefing only"
+
+r136 (10. 03. 2023):
+Added options "Don't show ECM Jammer that won't delay pagers" and "Show Waypoints for ECM Jammer"
+
+r135 (05. 03. 2023):
+Mission Briefing: Fixed a stack overflow crash
+Mission Briefing: Fixed panel increasing in size for no reason
+
+r134 (04. 03. 2023):
+Black Cat: Fixed a crash with enabled waypoints
+Counterfeit: Fixed a crash in inaccurate tracker
+
+r133 (03. 03. 2023):
+Fixed a crash with missing values
+
+r132 (02. 03. 2023):
+Safehouse Raid: Fixed a crash in Mission Briefing
+
+r131 (01. 03. 2023):
+Fixed a possible crash in Mission Briefing due to logic issue
+
+r130 (28. 02. 2023):
+Fixed a possible crash in Mission Briefing
+
+r129 (27. 02. 2023):
+Added options "Show Remaining XP to Next Level/Infamy Pool", "Show Remaining XP to Level 100" and "Show Mission XP Overview"
+Ukrainian Prisoner: Fixed a crash related to unit
+
+r128 (24. 02. 2023):
+Hostile Takeover: Trigger fixes for achievements
+
+r127 (23. 02. 2023):
+Fixed a crash at mission load (client only)
+
+r126 (22. 02. 2023):
+Added trackers for Hostile Takeover
+Attempt to fix Loot Counter not working to some players
+
+r125 (04. 02. 2023):
+Fixed a crash when an offset is set to a doctor bag
+
+r124 (29. 01. 2023):
+Pager Tracker: Fixed an issue with stuck pager waypoints when clients answered them
+Enemy Counter: Fixed wrong enemy count after drop in
+
+r123 (28. 01. 2023):
+Attempt to fix random crashes in XP Tracker
+
+r122 (21. 01. 2023):
+Added option "Show Enemy Turret Trackers"
+XP Tracker: Fixed a rare crash when game returned nil value for accumulated stealth bonus
+
+r121 (13. 01. 2023):
+Enemy Counter: Fixed double value
+Enemy Counter: Fixed an issue where dominated guard with pager does not count down pager counter
+
+r120 (12. 01. 2023):
+"A Criminal Carol" event ended
+Assault Delay Tracker: Fixed a crash with mods that change hostage delay
+Enemy Counter: Fixed an issue where counter is negative
+
+r119 (09. 01. 2023):
+Assault Delay Tracker: Fixed a crash when alarm went off
+Enemy Count Tracker: Fixed a visual issue where 2 icons overlap each other
+
+r118 (08. 01. 2023):
+Menu: Fixed a visibility issue with options having multiple parents
+Minion Tracker: Tracker will use less space on the screen
+Slaughterhouse: Fixed a visual issue in achievement tracker "Not hard enough"
+
+r117 (05. 01. 2023):
+Shadow Raid: Fixed a crash at sync
+
+r116 (03. 01. 2023):
+Enemy Counter: Fixed a crash when option "Show enemies with pager (stealth)" is enabled
+
+r115 (02. 01. 2023):
+Added option "Show enemies with pager (stealth)"
+Inventory: Fixed missing strings in Sicario
+Inventory: Fixed percent issue in Leech
+
+r114 (01. 01. 2023):
+Inventory: Fixed crashes related to Stoic and Leech
+
+r113 (31. 12. 2022):
+Fixed a possible crash in menu
+
+r112 (30. 12. 2022):
+Added "Show Detailed Inventory Description" option
+
+r111 (27. 12. 2022):
+Added Copycat buffs
+
+r110 (17. 12. 2022):
+Added option "Bloodthirst Ratio"
+
+r109 (15. 12. 2022):
+Updated code to properly support "A Criminal Carol" event
+Implemented a new achievement hooking format which will improve memory efficiency and improve framerate
+Assault Delay Tracker: Improved accuracy if playing with difficulty overhaul mods, for example "Crackdown"
+
+r108 (12. 12. 2022):
+Meltdown: Fixed a crash related to waypoints
+
+r107 (08. 12. 2022):
+Goat Simulator Day 2: Fixed an issue where empty cage increased achievement progress
+
+r106 (06. 12. 2022):
+Fixed a crash when waypoints are modified by other HUD
+
+r105 (05. 12. 2022):
+Fixed syncing with other EHI players
+
+r104 (04. 12. 2022):
+Midland Ranch: Fixed a crash
+Fixed a crash at "GetElementTimer()"
+
+r103 (03. 12. 2022):
+Golden Grin Casino: Fixed a load crash
+
+r102 (02. 12. 2022):
+Fixed a menu crash related to DigitalGui
+
+r101 (01. 12. 2022):
+Reworked buff "Forced Friendship (Absorption)" to show value and not percentage
+Fixed compatibility with "More Weapon Stats" mod
+
+r100 (29. 11. 2022):
+Added Czech translation
+Fixed an issue where Assault Delay tracker is not visible if enabled on certain heists
+Fixed an issue where Tag Team Effect (Tagged) buffs are marked as "bad"
+
+r99 (14. 11. 2022):
+Stamina Buff: Fixed a crash at spawn
+
+r98 (13. 11. 2022):
+Added Stamina buff
+Fixed an issue where trackers are preloaded for Sentry Gun equipment
+Fixed an issue where trackers for SWAT Van Turret are not preloaded properly on client
+
+r97 (11. 11. 2022):
+Improved performance by preloading trackers for SWAT Van Turret and Zipline units
+Zipline: Fixed an issue where total time is inaccurate after a bag is "eaten" by ElementAreaTrigger
+
+r96 (06. 11. 2022):
+Boiling Point: Fixed info not appearing
+Firestarter Day 2: Fixed server loot objective not counting in Loot Counter
+Waypoints: Fixed a crash at load if custom icon is defined and unit is active (drop-in)
+
+r95 (05. 11. 2022):
+Election Day 2: Fixed an issue with maximum amount in Loot Counter
+Firestarter Day 1: Fixed an issue where Loot Counter and achievements do not show correct progress
+Fixed an issue where achievement tracker for "The Reckoning" does not count kills from secondary weapon (if attached with Reconnaissance sight)
+Waypoints: Optimized performance
+
+r94 (31. 10. 2022):
+Lost in Transit: Updated to U230.1
+
+r93 (30. 10. 2022):
+Fixed a crash when you run over a civilian
+
+r92 (28. 10. 2022):
+Fixed a crash when bot does not have loadout
+
+r91 (27. 10. 2022):
+Menu: Fixed broken buff textures
+Santa's Workshop: Added achievement tracker for "Only Santa Brings Gifts"
+
+r90 (25. 10. 2022):
+Added trackers for Lost in Transit Heist
+
+r89 (19. 10. 2022):
+Updated code to U229
+Bloodthirst Ace: Fixed an issue where "reload" buff is not visible
+
+r88 (10. 10. 2022):
+Fixed a very rare crash during mission load
+Murky Station: Added tracker for achievements "The Pacifist" and "Looting in the Dark"
+
+r87 (08. 10. 2022):
+Added proper support for Beardlib achievements
+Added throwable regen AI buff
+Code cleanup and improvements
+Firestarter Day 1: Added achievement tracker for "Wasteful"
+The Yacht Heist: Added achievement tracker for "Blood in the Water"
+
+r86 (01. 10. 2022):
+Fixed an issue where unlocked achievements are still visible in tracker when an option to hide them is enabled
+
+r85 (30. 09. 2022):
+Unlockables: Fixed options not saving correctly
+
+r84 (29. 09. 2022):
+Added "Show Escape Chance" option
+Added option to show Trophies and Daily Side Jobs
+Achievement related options are now under "Unlockables" menu - Trophy and Daily Side Jobs options are there too
+Bloodthirst Buff: Fixed an issue where buff's progress is always full when you are still stacking kills
+Loot Counter: Fixed an issue where sometimes triggers do not increase progress or maximum
+XP Counter: Fixed a very rare crash when game returned "nil" value instead of a number in how much stealth bonus you accumulated
+
+r83 (21. 09. 2022):
+Added trackers for achievements "Field Test", "Heister With A Shotgun" and "Snake Charmer"
+Added "Show Bodybags Counter" option
+
+r82 (14. 09. 2022):
+Loot Tracker: Added support for variable random loot
+Fixed an issue where Crit Chance buff shows "100s" after spawn
+Fixed an issue where Dodge Chance buff shows "100s" after spawn
+Fixed an issue where "GAGE PACKAGES" popup is visible after sync when a heist does not support them
+VR: Fixed trackers not visible
+Buluc's Mansion: Fixed achievement trackers not showing up
+The Bomb: Forest: Added achievement tracker for "Pump It Up"
+Watchdogs Day 1: Added achievement tracker for "Coming in Hot"
+Watchdogs Day 2: Fixed an issue where Loot Counter is off by 10 bags
+
+r81 (07. 09. 2022):
+Fixed a crash when you switched weapons and both of them have "Reconnaissance Sight"
+
+r80 (30. 08. 2022):
+Added "Show Loot Counter" option
+Mountain Master: Fixed a load crash when "Show Timers" option is disabled
+Menu: Fixed missing string in Skills -> Mastermind
+Menu: Fixed missing corner texture
+
+r79 (28. 08. 2022):
+Added buff for reload boost duration from Bloodthirst
+Added option to enable/disable specific buffs
+Added back Piggy Bank tracker as the event was moved to mutators
+Fixed an issue where achievements marked as "Show from start" are still visible when achievements are disabled in options
+Shadow Raid: Fixed an issue where achievements are not visible when they are enabled in options
+Shadow Raid: Fixed an issue with Loot Counter not counting maximum correctly
+Restoration Mod: Fixed missing car and water tap icons
+
+r78 (24. 08. 2022):
+Added "Show Assault Delay Tracker" option
+Added "Show Tracker Corners" option
+Removed tracker for the Piggy Bank as the event ended
+Rewrote achievement tracking of "The Reckoning" when both your weapons have the required sight
+
+r77 (12. 08. 2022):
+Disabled "Loot Counter" tracker in Crime Spree
+Fixed issues with Piggy Bank tracker
+XP Tracker: Fixed an issue where destroyed Piggy Bank did not increase XP counter
+XP Tracker: Fixed an issue with counting XP that could cause higher XP count than you got in Mission End screen
+
+r76 (11. 08. 2022):
+Added Crit Chance Buff
+Added tracker for the Piggy Bank Anniversary Event
+Fixed an issue where achievements and other non-mission trackers did not work correctly when "Mission Trackers" option is disabled
+Watchdogs Day 2: Fixed an issue where achievement "Out Of Bounds" showed when the number of secured bags is not 12
+
+r75 (09. 08. 2022):
+Fixed an issue where syncing does not work correctly when "Show Mission Trackers" option is disabled
+Fixed an issue where some mission trackers were still visible when "Show Mission Trackers" option is disabled
+Hotline Miami Day 1: Fixed an issue where clients can't see methlab restart delay (no ingredients put in)
+
+r74 (06. 08. 2022):
+Added trackers for Smackdown custom heist
+Added trackers for Truck Hustle custom heist
+Added "Show Camera Loop" option
+Branchbank: Fixed an issue where achievement tracker "Saint Francis" did not fail when one of punks despawned
+
+r73 (05. 08. 2022):
+Added Forced Friendship Absorption buff
+Fixed an issue where achievement tracker "A Good Haul" is not visible in Escapes if active mission is Branchbank
+Branchbank: Added tracker for achievement "Saint Francis"
+Goat Simulator Day 1: Fixed a load crash when "Show hint for every XP" option is selected
+
+r72 (03. 08. 2022):
+Added popups for achievements related to Gage Packages
+Biker Heist: Added achievement tracker for "Let the Man Work"
+Election Day: Added achievement tracker for "Storage Hunter"
+Escape: Garage: Added achievement tracker for "They See Me Baggin', They Hatin'"
+Midland Ranch Heist: Fixed an issue where trackers were not visible on client
+
+r71 (29. 07. 2022):
+Added Berserker buff
+Fixed an issue where camera loop tracker is still visible after the looped camera was destroyed
+Buluc's Mansion: Added achievement tracker for "Everything but the Patio Furniture"
+
+r70 (22. 07. 2022):
+Fixed Stoic buffs
+Black Cat: Added achievement tracker for "One Claw Beam Cutter"
+
+r69 (18. 07. 2022):
+Added inspire boost cooldown buff
+Shadow Raid: Added trackers for achievements
+
+r68 (15. 07. 2022):
+Added "Show 'Achievement Started' Popup" option
+Added "Show 'CONVERT KILLED' Message" option
+Possible fix for a very rare crash after a convert died
+
+r67 (04. 07. 2022):
+Fixed Maniac buffs
+Fixed an issue where after finishing or losing a heist in custody increased XP in tracker/popup
+Heat Street: Fixed a tracker with no icon
+Heat Street: Fixed an issue where gas counter tracker hide itself after shooting first gas canister
+Slaughterhouse: Added achievement tracker for "Not hard enough"
+
+r66 (22. 06. 2022):
+Midland Ranch: Fixed a log spam after plane missed fulton cage
+Midland Ranch: Fixed an issue where achievement tracker for "Lucky Streak" also counted loot bags when it shouldn't
+
+r65 (21. 06. 2022):
+Added trackers for Midland Ranch Heist
+
+r64 (20. 06. 2022):
+Minor optimization in tracker reorganization
+Fixed a regression that caused some progress trackers to miscalculate the current progress after dropin
+Fixed an issue where "The Reckoning" achievement tracker is visible when you dropped-in
+Show Timers: Fixed a possible tracker and waypoint icon corruption after dropin
+Minion Tracker: Fixed reorganization issues
+Trade Delay Tracker: Fixed reorganization issues
+Birth of Sky: "Expert Landing" achievement will now show 1 tracker, not 2
+Undercover: Fixed an issue with "The Saviour" achievement tracker where it showed wrong progress after dropin
+
+r63 (03. 06. 2022):
+Big Oil Day 2: Fixed an issue where "Pager Count Tracker" is not visible
+
+r62 (29. 05. 2022):
+Dragon Heist: Fixed a game freeze
+
+r61 (28. 05. 2022):
+Updated Heli icon
+Cursed Kill Room: Fixed tracker spam
+
+r60 (26. 05. 2022):
+Added Uppers Range Buff
+Added Leech cooldown
+Fixed a crash when PC hack had "string" value instead of a "number" value
+Goat Simulator Heist Day 1: Fixed an issue where the escape duration tracker is inaccurate
+Goat Simulator Heist Day 2: Fixed an issue where the first goat pickup timer hide after a second
+Reservoir Dogs Day 2: Fixed an issue where the escape duration tracker is inaccurate
+
+r59 (11. 05. 2022):
+Added tracker for achievement "The Red Button"
+Added tracker for achievement "Plague Doctor"
+Added option "Show 'Achievement Failed' Popup"
+Fixed an issue where hidden waypoints are visible when dropped-in
+Fixed a crash when you were tagged by a player with Tag Team
+The Ukrainian Prisoner Heist: Tracker for achievement "This Calls for a Round of Sputniks!" now shows both kills and accuracy in one tracker
+
+r58 (05. 05. 2022):
+Added buffs
+Added "Show Mission Trackers" option
+Added tracker for achievement "Masterpiece"
+Fixed an issue where Pager Waypoints are still visible on the screen after alarm has been raised
+Fixed an issue where "Assault Delay" tracker did not hide when assault started
+Fixed a log spam if certain mods are installed
+ECM Tracker: Fixed an issue where ECM icon did not correctly show peer color (client only)
+
+r57 (12. 04. 2022):
+Added Japanese translation
+Drama Tracker will show only on heists when loud option is possible
+Pager Tracker will not show on loud only heists
+
+r56 (11. 04. 2022):
+Fixed a crash when EHI Waypoints are disabled
+
+r55 (09. 04. 2022):
+Fixed an issue where some trackers are not visible on client
+Converts Tracker: Fixed an issue where killed converts did not update the counter (client only)
+Converts Tracker: Fixed an issue where converts killed by mission script were not removed from the counter
+The Big Bank: Fixed an issue with achievement tracker "Matrix with Lasers" where it did not update correctly
+Rats Day 2: Fixed an issue where "First Assault Delay" tracker did not update correctly when ambushed by police
+
+r54 (18. 03. 2022):
+Added Italian translation
+Panic Room: Fixed a client crash after connecting the magnet
+
+r53 (12. 03. 2022):
+Added in-game popup for achievement "Lieutenant Colonel"
+Changed achievement tracker "Gift Giver" to show only when you have a throwable which does damage more than 0
+Gage Tracker: Added option to show progress in popup
+XP Tracker: Added option to show XP in popup and hint panels
+
+r52 (10. 03. 2022):
+Mountain Master Heist: Added more trackers
+Mountain Master Heist: Removed duplicate achievement tracker
+Mountain Master Heist: Fixed an issue where Heli Arrival Delay tracker is not accurate (Vanilla issue)
+
+r51 (09. 03. 2022):
+Added trackers for Mountain Master Heist
+"Don't Show Trade Delay Tracker in Stealth": Fixed an issue where the option did not work corrently once the alarm went off
+Art Gallery / Framing Frame Day 1: Added tracker for achievement "Painting Yourself Into a Corner"
+Panic Room: Fixed a log spam
+Prison Nightmare: Fixed wrong heli icon
+
+r50 (13. 02. 2022):
+Units using "SecurityLockGui" class will show one tracker with progress and hack time remaining
+Election Day D1: Fixed an issue where PC hack tracker was removed when enemies pulled out the power
+Stealing Xmas: Added tracker for achievement "The Grinch"
+Reservoir Dogs Day 1: Fixed a broken achievement tracker for "Waste Not, Want Not"
+
+r49 (10. 02. 2022):
+Added tracker for achievements "The only one that is true", "The one that had many names", "The one that survived" and "The one who declared himself the hero"
+Birth of Sky: Fixed a load crash (client only)
+
+r48 (07. 02. 2022):
+Fixed a crash when XP Tracker was disabled
+Fixed an issue where in Aggregated Health Tracker when there was a gap between trackers
+Cook Off: Fixed an issue where achievement tracker for "Kiss the Chef" showed on difficulties lower than OVERKILL
+Rats Day 1/Cook Off: Fixed an issue where achievement tracker for "Full Measure" showed on difficulties lower than OVERKILL
+Murky Station: Added tracker for achievement "Janitor"
+
+r47 (05. 02. 2022):
+Rewrote achievement "Denied" to show progress in-game in popup instead of in tracker
+Fixed an issue where ignored units were not ignored after sync
+Fixed an issue where digital timer trackers were not visible in some heists when they are visible in the game world
+Beneath the Mountain: Added tracker for achievement "Juggernauts"
+Border Crystals: Fixed an issue where Methlab restart tracker was not visible (host only)
+Election Day 2 Plan C: Fixed trackers when you are scrambling the votes
+Golden Grin Casino: Added trackers for achievement "City of Sin and Well-Oiled Gears" and "Hail to the King, Baby"
+Santa's Workshop: Add tracker for achievement "Santa Slays Slackers"
+San Martín Bank: Added tracker for achievement "Gunpowder Glory"
+
+r46 (27. 01. 2022):
+Added tracker for achievements "I Do What I Do Best, I Take Scores" and "From Russia With Love"
+Black Cat: Stealth only achievements will not show up when Loud entry is selected
+
+r45 (17. 01. 2022):
+Fixed a crash when a drill/saw had autorestart
+Dragon Heist: Added tracker for achievement "Keep Breathing that Fresh Air"
+
+r44 (16. 01. 2022):
+Added more achievement trackers
+Removed most of the code for achievement tracking => the achievement progress is now taken directly from the game
+Safehouse Raid: Fixed an issue where Ammo Shelves in Wick's Room were tracked when they are inaccessible
+Hoxton Breakout Day 1: Fixed an issue where tracker for Police Car/SWAT Van roadblocks was not visible in Xmas version
+
+r43 (02. 01. 2022):
+Added tracker for achievement "Crouched and Hidden, Flying Dagger"
+Total XP: XP counter should be accurate now
+
+r42 (15. 12. 2021):
+Added tracker for achievement "A Good Haul"
+Fixed an issue where counter for achievement "Gift Giver" did not count up when you had correct throwable
+
+r41 (15. 12. 2021):
+Added tracker for achievement "Gift Giver"
+Fixed a client crash when C4 waypoint timer ended prematurely
+
+r40 (12. 12. 2021):
+Fixed a client crash when teargas ended prematurely
+
+r39 (10. 12. 2021):
+Fixed a crash when a weapon did not have a "is_category" function
+
+r38 (06. 12. 2021):
+C4 trackers now also work on client
+Fixed a client crash when a heist used PEOC computer
+
+r37 (26. 11. 2021):
+Fixed a client crash when a heist used attack helicopter from Ukrainian Prisoner Heist
+
+r36 (25. 11. 2021):
+Improved formatting of Money achievement tracker
+Mallcrasher: Fixed an issue where achievement counter for "$1.8M Speedrun" was not counting
+
+r35 (24. 11. 2021):
+Added option "Show XP difference"
+Added option "Show Waypoints for Looped Cameras"
+Made improvements to units used in-game so they will work also on custom maps
+Fixed an issue where stealth trackers were visible in loud gameplay when a client dropped-in
+Fixed an issue where a tracker could be not visible entirely and a small part of the tracker is visible
+Santa's Workshop: Fixed an issue where Safe Timer was not visible
+
+r34 (26. 10. 2021):
+Fixed a possible log spam with some specific mods
+Fixed a crash when the game returned "nil" value for Arbiter ammo
+Border Crossing: Fixed an issue where fueling timer reset in stealth
+Cook Off: Fixed an issue where the first Van arrival was not accurate
+Shacklethorne Auction: Fixed an issue where Heli timer was not visible
+Menu: Fixed a visual issue with the preview when "Tracker Alignment" was set to "Horizontal"
+
+r33 (17. 10. 2021):
+Improved detection of drill/saw autorestart on client - the unit must autorestart first
+Fixed a crash while using a sniper rifle with Graze skill
+
+r32 (16. 10. 2021):
+Heat Street: Fixed a crash at "Light the van on fire!" objective
+
+r31 (15. 10. 2021):
+Added tracker for achievements "For all you legends", "Buzzbomb" and "Cloaker Charmer"
+Achievement "Master of Floatation" is now disabled in loud as per Hotfix 212.1
+
+r30 (14. 10. 2021):
+Added trackers for Black Cat Heist
+Added "Tracker Alignment" option
+Added a lot of achievement tracking (mostly weapon kills)
+Fixed an issue where some trackers were not replaced correctly
+Show Timers Tracker: Fixed an issue where upgrades were visible if the unit did not have any upgrades available
+Firestarter Day 1: Added tracker for achievement "Lord of War"
+Transport: Downtown: Fixed a crash when civilian died
+The Ukrainian Prisoner Heist: Added tracker for achievement "This Calls for a Round of Sputniks!" - both kills and accuracy
+The White House: Fixed issues with the gas tracker in the Oval Office
+
+r29 (24. 09. 2021):
+Added "Escape Chance" to heists with possible escape
+Added "Show Only Waypoints" option
+Added "Don't Show Trade Delay Tracker in Stealth" option
+Aggregate Equipment Tracker: Fixed a gap
+Difficulty Tracker: Disabled in Holdout mode
+Drill/Saw Tracker: Drill/Saw will appear blue if it can autorestart (host only)
+Menu: New options are in yellow color
+
+r28 (02. 09. 2021):
+Added support for Cook Off (Daylight)
+GO Bank: Fixed an issue where vault timer could get stuck when vault opened
+
+r27 (25. 08. 2021):
+Fixed a crash when waypoints are still visible during heist restart/termination
+Fixed an issue where a few icons in waypoints are corrupted/malformed
+The Big Bank: Fixed waypoint position issue when timelock is counting down
+
+r26 (24. 08. 2021):
+Added waypoint option for "Pager Callback Timers"
+Added waypoint option for "Timers"
+Rewrote waypoint system for better speed and extensibility
+Fixed an issue where time trackers are not updated if certain HUD mods are installed (client only)
+Henry's Rock: Fixed an issue where trackers for computers were removed when they were powered off by enemies
+
+r25 (18. 08. 2021):
+Removed Offshore Spend tracker as the event ended
+Fixed an issue where some trackers did not behave correctly
+Dragon Heist: Fixed a crash when Escape sequence is initiated
+First World Bank: Fixed an issue where achievement tracker "Federal Assurance" showed when no Bulldozer spawned
+The White House: Fixed a crash where teargas is activated
+
+r24 (13. 08. 2021):
+Offshore Spend Tracker: Improved formatting
+Goat Simulator Day 2: Fixed a crash when pilot missed the cage
+
+r23 (12. 08. 2021):
+Added Offshore Spend tracker for weapon "Cash Blaster"
+Fixed an issue where PC Hack in Undercover did not update the tracker
+Dragon Heist: Fixed an issue where escape vehicle tracker is not accurate on host
+Transport: Train Heist: Fixed an issue where traincard hacking did not hide after alarm went off
+
+r22 (07. 08. 2021):
+Improved time accuracy of drills and saws
+Fixed a crash on The White House or Buluc's Mansion when "Show Timers" option is disabled
+
+r21 (04. 08. 2021):
+Added Waypoints
+Added trackers for ECM Jammer and ECM Feedback
+Added "Aggregate All Deployables" tracker
+Added moving animation for trackers
+Added fade in animation for new trackers
+Added fade out animation for trackers that are going to be deleted
+Added trackers for Crime and Punishment custom heist
+All Holdout maps (Vanilla and custom) should be supported out of the box
+Fixed an issue where PEOC Mainframe from The White House or Buluc's Mansion removed tracker when paused
+HoloUI: Fixed an issue where tracker edges were visible in the heist end screen
+
+r20 (20. 07. 2021):
+Fixed a crash when a mission did not have a "heat system" set up
+
+r19 (18. 07. 2021):
+Added Russian translation
+Optimized getting icons for trackers
+Optimized calling of delayed elements
+Improved some timed achievements so they will appear when you drop-in
+Fixed an issue where single grenade cases were not counted correctly
+Big Oil Day 1: Fixed an issue where achievement "A Junkyard Full Of Junkies" did not blink green when achieved
+Green Bridge: Fixed an issue where synced plane tracker showed as inaccurate tracker
+Mallcrasher: Added tracker for achievement "Shoot the Glass!"
+No Mercy: Elevator timer will show up when you drop-in
+Ukrainian Job: Fixed an issue where achievement "I'm Sure No One Heard That" was visible when metal detectors were not in the store
+
+r18 (25. 06. 2021):
+Greatly improved accuracy of timed trackers on client
+Fixed a crash when a player went to custody and "Trade Delay" tracker was not visible
+First World Bank: Fixed an issue where Thermite timer did not update correctly
+XP Tracker: Improved formatting
+
+r17 (24. 06. 2021):
+Fixed a crash after alarm went off when "Trade Delay Tracker" is not enabled
+
+r16 (23. 06. 2021):
+Added option "Text Scale"
+Trade Delay Tracker: Fixed an issue where the tracker could get wonky when related settings were changed mid-game
+Trade Delay Tracker: Fixed an issue where delay did not count down when a player went to custody in Control or Anticipation state
+
+r15 (21. 06. 2021):
+Added Spanish translation
+Brooklyn 10-10: Fixed a startup crash
+Breakfast in Tijuana: Achievement "Stolen Valor" also works when you drop-in
+Heat Street: Fixed an issue where achievement "Zookeeper" was visible after you drop-in
+
+r14 (18. 06. 2021):
+Fixed a crash when First Aid Kit or Doctor Bag were placed and tracking is disabled in EHI
+
+r13 (17. 06. 2021):
+Added trackers for The Ukrainian Prisoner Heist
+Added option "Show Pager Callback Timers"
+Added a lot of area achievements
+Murky Station: Added Loot Counter
+Reservoir Dogs Heist Day 2: Fixed an issue where achievement "Pinky Swear" appeared to be achieveable when it was not
+Trade Delay Tracker: Fixed an issue where timer stopped counting down when AI Trade switched to normal hostage trade
+
+r12 (13. 06. 2021):
+Added trackers for Cold Stones custom heist
+Added trackers for Scorched Earth custom heist
+Laser Tracker: Lasers with the same cycle time will show only once
+
+r11 (12. 06. 2021):
+Fixed a crash when game synced used and empty deployable
+San Martín Bank: Fixed a crash
+
+r10 (11. 06. 2021):
+Added Simplified Chinese translation
+Added option "Don't Show Unlocked Achievements"
+Added tracker "Drama"
+Added tracker "Show Lasers"
+Added C4 tracker to most doors and safes
+Greatly improved counting of deployables
+Trade Delay Tracker: Definitely fixed an issue where time did not count down when AI trade was possible
+Fixed an issue where Ammo Shelves did not correctly update the amount
+Fixed an issue where some achievement trackers did not respect option "Show Achievement Tracker"
+Fixed an issue where trackers did not show up on client but on host they were working fine
+Alaskan Deal: Added Loot Counter
+Counterfeit: Fixed a crash when Bile arrived with cage
+The Bomb: Dockyard: Fixed an issue where Boat Move tracker reset after alarm went off
+
+r9 (06. 06. 2021):
+Trade Delay Tracker: Possible fix for an issue when the time did not count down when all players were in custody and AI trade was possible
+Shadow Raid: Fixed a crash
+
+r8 (05. 06. 2021):
+Optimization improvements
+Fixed an issue where some synced tracker times were not accurate
+Big Oil Day 1: Added delay timer tracker for the first assault
+Beneath the Mountain: Added tracker for achievement "Clean House"
+Beneath the Mountain: Achievement "Commando Crew" will blink green when achieved
+Buluc's Mansion: Added thermite tracker for the front gate
+Brooklyn 10-10: Added Loot Counter
+Brooklyn 10-10: Fixed an issue where achievement "A Rendezvous With Destiny" showed on difficulties lower than OVERKILL
+Brooklyn Bank: Added tracker for achievement "All the Gold in Brooklyn"
+Birth of Sky: Fixed an issue where achievement "Mellon" did not show up on client when the game was started from lobby
+Heat Street: Added Gas Needed Amount tracker when you gas out Matt from the van
+Heat Street: Fixed an issue where achievement "Patience is Key" did not hide when failed
+Reservoir Dogs Heist Day 1: Added tracker for achievement "Waste Not, Want Not"
+San Martín Bank: Hacking timer is now accurate on host. Clients will see it accurate when host has EHI installed
+Scarface Mansion: Added delay timer tracker for the first assault
+Scarface Mansion: Added Loot Counter
+The Bomb: Forest: Achievement "Beaver Team" will blink green when achieved
+Watchdogs Day 1: Fixed an issue where Car Pickup timer was not accurate
+
+r7 (28. 05. 2021):
+Heat Street: Achievement "Patience is Key" will blink red when failed
+Possible fix for "Trade Delay" tracker not accurate
+Fixed a crash during game start-up
+
+r6 (27. 05. 2021):
+Added French translation
+Added Brazilian Portuguese translation
+Added option "Show Tracker Background"
+Added option "Show 1 Icon in Tracker"
+Added option "Equipment Format"
+Added tracker "Enemy Count"
+No Mercy: Fixed an issue where trackers for centrifuges did not show up
+No Mercy: Fixed issues with elevator tracker
+No Mercy: Achievement "Nyctophobia" will blink green when unlocked
+Birth of Sky: Achievement "1... 2... 3... JUMP!" will blink green when unlocked
+Undercover: Added more trackers
+
+r5 (18. 05. 2021):
+Added a pager timer tracker
+Added more trackers
+Made some trackers accurate on host. Client will see trackers accurate when host has EHI installed
+Election Day D2 Plan C: Fixed a crash when hacking timer hit zero
+Cook Off/Rats Day 1: When methlab explodes the cooking chance tracker is removed
+Rats Day 1: Fixed an issue where 2 van trackers are visible when methlab explodes
+Rats Day 1: Added tracker for achievement "Full Measure". This tracker also works when you drop-in
+Birth of Sky: Added trackers for achievement "Mellon" and thermite. "Mellon" achievement tracker also works when you drop-in
+Border Crystals: Added tracker for achievement "Heister Cocinero". This tracker also works when you drop-in
+Breakfast in Tijuana: Reworked achievement tracker "Paid in Full" to also work when you drop-in
+Dragon Heist: Added tracker for achievement "All the Gold in Chinatown". This tracker also works when you drop-in
+The Bomb: Dockyard: Added trackers for achievement "High Times" and methlab
+The Alesso Heist: Achievement "Even Steven" will blink green when close to unlock
+Slaughterhouse Heist: Achievement "But How?" will blink green when close to unlock
+Hotline Miami Day 1: Added trackers for methlab
+Hotline Miami Day 2: Fixed an issue where "Phew!" achievement did not mark itself as complete or failed when achieved or failed
+Watchdogs Day 1: Improved car lootdrop tracker
+Reworked code and reduced a lot of conditions
+Reworked some icons on trackers to make them more consistent with other trackers
+Reworked some trackers to animate when achieved or failed
+Fixed an issue where Drill/Saw timers could get stuck when finished
+Fixed an issue on host where Difficulty tracker showed difficulty that was disabled
+Fixed an issue on client where some trackers were not visible when you dropped-in
+
+r4 (07. 05. 2021):
+First Aid Kits: Fixed a rare crash
+Watchdogs Day 1: Fixed an issue where car escape timer was not visible
+First World Bank: Fixed an issue where tracker for achievement "Federal Assurance" showed in stealth
+Henry's Rock: Added tracker for achievement "Hack This!"
+Henry's Rock: Fixed an issue where hack timer was stuck when a turret was destroyed
+Diamond Heist: Added tracker for achievement "The Hunt for the Blue Sapphires"
+The White House: Fixed an issue where drill timer tracker disappeared when enemies pulled the power
+Menu: Hovering over options highlight trackers
+
+r3 (04. 05. 2021):
+Cook Off/Rats Day 1: Fixed a crash when you dropped in
+Menu: Fixed an issue where textures were missing
+
+r2 (03. 05. 2021):
+Added Thai translation
+Added trackers for Triad Takedown (Yacht Heist) custom heist
+Trade Delay Tracker: Fixed an issue where time did not count down
+XP Tracker: Fixed an issue where experience was not multiplied correctly if "Multiply by all XP bonuses" option was selected
+The Biker Heist Day 1: Fixed an issue where a tracker for Mike in the garage did not unpause (client only)
+Hoxton Breakout Day 2: Fixed an issue where "Approved clearance" tracker did not count up sometimes (client only)
+
+r1 (01. 05. 2021):
+First Release

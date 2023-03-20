@@ -1,0 +1,150 @@
+{
+    "menu_id": "ehi_buffs_perks_menu",
+    "parent_menu" : "ehi_buffs_menu",
+    "title": "ehi_buffs_perks_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_infiltrator_choice",
+            "title": "ehi_buffs_perks_infiltrator",
+            "description" : "ehi_buffs_perks_infiltrator_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "infiltrator",
+            "value": "infiltrator",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_gambler_choice",
+            "title": "ehi_buffs_perks_gambler",
+            "description" : "ehi_buffs_perks_gambler_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "gambler",
+            "value": "gambler",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_grinder_choice",
+            "title": "ehi_buffs_perks_grinder",
+            "description" : "ehi_buffs_perks_grinder_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "grinder",
+            "value": "grinder",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_maniac_choice",
+            "title": "ehi_buffs_perks_maniac",
+            "description" : "ehi_buffs_perks_maniac_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "maniac",
+            "value": "maniac",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_anarchist_choice",
+            "title": "ehi_buffs_perks_anarchist",
+            "description" : "ehi_buffs_perks_anarchist_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "anarchist",
+            "value": "anarchist",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_biker_choice",
+            "title": "ehi_buffs_perks_biker",
+            "description" : "ehi_buffs_perks_biker_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "biker",
+            "value": "biker",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_kingpin_choice",
+            "title": "ehi_buffs_perks_kingpin",
+            "description" : "ehi_buffs_perks_kingpin_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "kingpin",
+            "value": "kingpin",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_sicario_choice",
+            "title": "ehi_buffs_perks_sicario",
+            "description" : "ehi_buffs_perks_sicario_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "sicario",
+            "value": "sicario",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_stoic_choice",
+            "title": "ehi_buffs_perks_stoic",
+            "description" : "ehi_buffs_perks_stoic_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "stoic",
+            "value": "stoic",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_tag_team_choice",
+            "title": "ehi_buffs_perks_tag_team",
+            "description" : "ehi_buffs_perks_tag_team_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "tag_team",
+            "value": "tag_team",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_hacker_choice",
+            "title": "ehi_buffs_perks_hacker",
+            "description" : "ehi_buffs_perks_hacker_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "hacker",
+            "value": "hacker",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_leech_choice",
+            "title": "ehi_buffs_perks_leech",
+            "description" : "ehi_buffs_perks_leech_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "leech",
+            "value": "leech",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_perks_copycat_choice",
+            "title": "ehi_buffs_perks_copycat",
+            "description" : "ehi_buffs_perks_copycat_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "copycat",
+            "value": "copycat",
+            "default_value": true,
+            "ehi_ver" : 111
+        }
+    ]
+}

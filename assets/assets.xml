@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<assets base_path="assets/" load="startup">
+    <group name="guis/textures/pd2_mod_ehi/" path="assets/guis/textures/pd2_mod_ehi/">
+        <!-- Menu Icons-->
+        <file :name="menu_background.texture" :path="menu_background.texture"/>
+        <file :name="check_bg.texture" :path="check_bg.texture"/>
+        <file :name="check.texture" :path="check.texture"/>
+        <file :name="hud_corner.texture" :path="hud_corner.texture"/>
+
+        <!-- Custom tracker icons -->
+        <file :name="assaultbox.texture" :path="assaultbox.texture"/>
+        <file :name="boat.texture" :path="boat.texture"/>
+        <file :name="enemy.texture" :path="enemy.texture"/>
+        <file :name="deployables.texture" :path="deployables.texture"/>
+        <file :name="mad_scan.texture" :path="mad_scan.texture"/>
+        <file :name="padlock.texture" :path="padlock.texture"/>
+        <file :name="piggy.texture" :path="piggy.texture"/>
+        <file :name="daily_secret_identity.texture" :path="daily_secret_identity.texture"/>
+
+        <!-- Square -->
+        <file :name="buff_sframe.texture" :path="buff_sframe.texture"/>
+        <file :name="buff_sframe_debuff.texture" :path="buff_sframe_debuff.texture"/>
+        <!-- Circle -->
+        <file :name="buff_cframe_bg.texture" :path="buff_cframe_bg.texture"/>
+        <file :name="buff_cframe.texture" :path="buff_cframe.texture"/>
+        <file :name="buff_cframe_debuff.texture" :path="buff_cframe_debuff.texture"/>
+    </group>
+</assets>

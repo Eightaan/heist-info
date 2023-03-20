@@ -1,0 +1,205 @@
+{
+    "menu_id": "ehi_equipment_menu",
+    "parent_menu" : "ehi_trackers_menu",
+    "title": "ehi_equipment_menu",
+    "focus_changed_callback": "fcc_equipment_tracker_menu",
+    "items": [
+        {
+            "type": "multiple_choice",
+            "id": "ehi_equipment_format_choice",
+            "title": "ehi_equipment_format",
+            "description": "ehi_equipment_format_desc",
+            "callback": ["SetOption", "UpdateEquipmentFormat"],
+            "callback_arguments": "equipment_format",
+            "items": [
+                "ehi_equipment_format_1",
+                "ehi_equipment_format_2",
+                "ehi_equipment_format_3",
+                "ehi_equipment_format_4",
+                "ehi_equipment_format_5",
+                "ehi_equipment_format_6"
+            ],
+            "value": "equipment_format",
+            "default_value": 1,
+            "ehi_ver" : 6
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_doctorbag_choice",
+            "title": "ehi_show_equipment_doctorbag",
+            "description": "ehi_show_equipment_doctorbag_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_doctorbag",
+            "value": "show_equipment_doctorbag",
+            "default_value": true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_ammobag_choice",
+            "title": "ehi_show_equipment_ammobag",
+            "description": "ehi_show_equipment_ammobag_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_ammobag",
+            "value": "show_equipment_ammobag",
+            "default_value": true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_grenadecases_choice",
+            "title": "ehi_show_equipment_grenadecases",
+            "description": "ehi_show_equipment_grenadecases_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_grenadecases",
+            "value": "show_equipment_grenadecases",
+            "default_value": true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_bodybags_choice",
+            "title": "ehi_show_equipment_bodybags",
+            "description": "ehi_show_equipment_bodybags_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_bodybags",
+            "value": "show_equipment_bodybags",
+            "default_value": true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_firstaidkit_choice",
+            "title": "ehi_show_equipment_firstaidkit",
+            "description": "ehi_show_equipment_firstaidkit_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_firstaidkit",
+            "value": "show_equipment_firstaidkit",
+            "default_value": true
+        },
+        {
+            "type" : "divider",
+            "size" : 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_ecmjammer_choice",
+            "title": "ehi_show_equipment_ecmjammer",
+            "description": "ehi_show_equipment_ecmjammer_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_ecmjammer",
+            "value": "show_equipment_ecmjammer",
+            "default_value": true,
+            "ehi_ver" : 21
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_ecmjammer_block_ecm_without_pager_delay_choice",
+            "title": "ehi_ecmjammer_block_ecm_without_pager_delay",
+            "description": "ehi_ecmjammer_block_ecm_without_pager_delay_desc",
+            "callback": "SetOption",
+            "callback_arguments": "ecmjammer_block_ecm_without_pager_delay",
+            "value": "ecmjammer_block_ecm_without_pager_delay",
+            "default_value": false,
+            "ehi_ver" : 136
+        },
+        {
+            "type" : "divider",
+            "size" : 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_ecmfeedback_choice",
+            "title": "ehi_show_equipment_ecmfeedback",
+            "description": "ehi_show_equipment_ecmfeedback_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_ecmfeedback",
+            "value": "show_equipment_ecmfeedback",
+            "default_value": true,
+            "ehi_ver" : 21
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_aggregate_health_choice",
+            "title": "ehi_show_equipment_aggregate_health",
+            "description": "ehi_show_equipment_aggregate_health_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_aggregate_health",
+            "value": "show_equipment_aggregate_health",
+            "default_value": true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_aggregate_all_choice",
+            "title": "ehi_show_equipment_aggregate_all",
+            "description": "ehi_show_equipment_aggregate_all_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_equipment_aggregate_all",
+            "value": "show_equipment_aggregate_all",
+            "default_value": true,
+            "is_parent": true,
+            "ehi_ver" : 21
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_doctor_bag_color_choice",
+            "title": "ehi_doctor_bag",
+            "description": "",
+            "value": "doctor_bag",
+            "default_value": [255, 0, 0],
+            "callback": "SetEquipmentColor",
+            "callback_arguments": "doctor_bag",
+            "setting_value": "equipment",
+            "parent": "ehi_show_equipment_aggregate_all_choice",
+            "ehi_ver" : 21
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_ammo_bag_color_choice",
+            "title": "ehi_ammo_bag",
+            "description": "",
+            "value": "ammo_bag",
+            "default_value": [255, 255, 0],
+            "callback": "SetEquipmentColor",
+            "callback_arguments": "ammo_bag",
+            "setting_value": "equipment",
+            "parent": "ehi_show_equipment_aggregate_all_choice",
+            "ehi_ver" : 21
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_grenade_crate_color_choice",
+            "title": "ehi_grenade_crate",
+            "description": "",
+            "value": "grenade_crate",
+            "default_value": [0, 255, 0],
+            "callback": "SetEquipmentColor",
+            "callback_arguments": "grenade_crate",
+            "setting_value": "equipment",
+            "parent": "ehi_show_equipment_aggregate_all_choice",
+            "ehi_ver" : 21
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_first_aid_kit_color_choice",
+            "title": "ehi_first_aid_kit",
+            "description": "",
+            "value": "first_aid_kit",
+            "default_value": [255, 102, 102],
+            "callback": "SetEquipmentColor",
+            "callback_arguments": "first_aid_kit",
+            "setting_value": "equipment",
+            "parent": "ehi_show_equipment_aggregate_all_choice",
+            "ehi_ver" : 21
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_bodybags_bag_color_choice",
+            "title": "ehi_bodybags_bag",
+            "description": "",
+            "value": "bodybags_bag",
+            "default_value": [51, 204, 255],
+            "callback": "SetEquipmentColor",
+            "callback_arguments": "bodybags_bag",
+            "setting_value": "equipment",
+            "parent": "ehi_show_equipment_aggregate_all_choice",
+            "ehi_ver" : 21
+        }
+    ]
+}

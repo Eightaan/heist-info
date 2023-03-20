@@ -1,0 +1,171 @@
+{
+    "menu_id": "ehi_buffs_other_menu",
+    "parent_menu" : "ehi_buffs_menu",
+    "title": "ehi_buffs_other_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_interact_choice",
+            "title": "ehi_buffs_other_interact",
+            "callback": "SetBuffOption",
+            "callback_arguments": "interact",
+            "value": "interact",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_reload_choice",
+            "title": "ehi_buffs_other_reload",
+            "callback": "SetBuffOption",
+            "callback_arguments": "reload",
+            "value": "reload",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_melee_charge_choice",
+            "title": "ehi_buffs_other_melee_charge",
+            "callback": "SetBuffOption",
+            "callback_arguments": "melee_charge",
+            "value": "melee_charge",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_shield_regen_choice",
+            "title": "ehi_buffs_other_shield_regen",
+            "callback": "SetBuffOption",
+            "callback_arguments": "shield_regen",
+            "value": "shield_regen",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_stamina_choice",
+            "title": "ehi_buffs_other_stamina",
+            "callback": "SetBuffOption",
+            "callback_arguments": "stamina",
+            "value": "stamina",
+            "default_value": true,
+            "ehi_ver" : 98
+        },
+        {
+            "type": "divider",
+            "size": 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_dodge_choice",
+            "title": "ehi_buffs_other_dodge",
+            "callback": "SetBuffOption",
+            "callback_arguments": "dodge",
+            "value": "dodge",
+            "is_parent" : true,
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "slider",
+            "id": "ehi_buffs_other_dodge_refresh_choice",
+            "title": "ehi_buffs_other_dodge_refresh",
+            "description": "ehi_buffs_other_dodge_refresh_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "dodge_refresh",
+            "value": "dodge_refresh",
+            "parent" : "ehi_buffs_other_dodge_choice",
+            "default_value": 1,
+            "max": 10,
+            "min": 1,
+            "step": 0,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_dodge_persistent_choice",
+            "title": "ehi_buffs_other_dodge_persistent",
+            "description" : "ehi_buffs_other_dodge_persistent_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "dodge_persistent",
+            "value": "dodge_persistent",
+            "parent" : "ehi_buffs_other_dodge_choice",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_crit_choice",
+            "title": "ehi_buffs_other_crit",
+            "callback": "SetBuffOption",
+            "callback_arguments": "crit",
+            "value": "crit",
+            "is_parent" : true,
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "slider",
+            "id": "ehi_buffs_other_crit_refresh_choice",
+            "title": "ehi_buffs_other_crit_refresh",
+            "description": "ehi_buffs_other_crit_refresh_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "crit_refresh",
+            "value": "crit_refresh",
+            "parent" : "ehi_buffs_other_crit_choice",
+            "default_value": 1,
+            "max": 10,
+            "min": 1,
+            "step": 0,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_crit_persistent_choice",
+            "title": "ehi_buffs_other_crit_persistent",
+            "description" : "ehi_buffs_other_crit_persistent_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "crit_persistent",
+            "value": "crit_persistent",
+            "parent" : "ehi_buffs_other_crit_choice",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_inspire_ai_choice",
+            "title": "ehi_buffs_other_inspire_ai",
+            "description": "ehi_buffs_skills_cooldown",
+            "callback": "SetBuffOption",
+            "callback_arguments": "inspire_ai",
+            "value": "inspire_ai",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_regen_throwable_ai_choice",
+            "title": "ehi_buffs_other_regen_throwable_ai",
+            "description": "ehi_buffs_skills_progress",
+            "callback": "SetBuffOption",
+            "callback_arguments": "regen_throwable_ai",
+            "value": "regen_throwable_ai",
+            "default_value": true,
+            "ehi_ver" : 87
+        }
+    ]
+}

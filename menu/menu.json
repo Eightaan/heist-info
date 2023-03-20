@@ -1,0 +1,201 @@
+{
+    "menu_id": "ehi_menu",
+    "title": "ehi_mod_title",
+    "description": "ehi_mod_desc",
+    "items": [
+        {
+            "type": "multiple_choice",
+            "id": "ehi_mod_language_choice",
+            "title": "ehi_language",
+            "description": "ehi_language_desc",
+            "callback": "SetOption",
+            "callback_arguments": "mod_language",
+            "items": [
+                "ehi_language_1",
+                "ehi_language_2",
+                "ehi_language_3",
+                "ehi_language_4",
+                "ehi_language_5",
+                "ehi_language_6",
+                "ehi_language_7",
+                "ehi_language_8",
+                "ehi_language_9",
+                "ehi_language_10",
+                "ehi_language_11"
+            ],
+            "value": "mod_language",
+            "default_value": 1
+        },
+        {
+            "type" : "divider",
+            "size" : 20
+        },
+        {
+            "type": "slider",
+            "id": "ehi_x_offset",
+            "title": "ehi_x_offset",
+            "description": "ehi_x_offset_desc",
+            "callback": ["SetOption", "UpdateXOffset"],
+            "callback_arguments" : "x_offset",
+            "value": "x_offset",
+            "default_value": 0,
+            "max": 1280,
+            "min": 0,
+            "step": 0
+        },
+        {
+            "type": "slider",
+            "id": "ehi_y_offset",
+            "title": "ehi_y_offset",
+            "description": "ehi_y_offset_desc",
+            "callback": ["SetOption", "UpdateYOffset"],
+            "callback_arguments": "y_offset",
+            "value": "y_offset",
+            "default_value": 150,
+            "max": 720,
+            "min": 0,
+            "step": 0
+        },
+        {
+            "type": "slider",
+            "id": "ehi_text_scale",
+            "title": "ehi_text_scale",
+            "description": "ehi_text_scale_desc",
+            "callback": ["SetOption", "UpdateTextScale"],
+            "callback_arguments": "text_scale",
+            "value": "text_scale",
+            "default_value": 1,
+            "max": 2,
+            "min": 0.5,
+            "step": 2,
+            "ehi_ver" : 16
+        },
+        {
+            "type": "slider",
+            "id": "ehi_scale",
+            "title": "ehi_scale",
+            "description": "ehi_scale_desc",
+            "callback": ["SetOption", "UpdateScale"],
+            "callback_arguments": "scale",
+            "value": "scale",
+            "default_value": 1,
+            "max": 2,
+            "min": 0.5,
+            "step": 2
+        },
+        {
+            "type": "slider",
+            "id": "ehi_vr_scale",
+            "title": "ehi_vr_scale",
+            "description": "ehi_vr_scale_desc",
+            "callback": "SetOption",
+            "callback_arguments": "vr_scale",
+            "value": "vr_scale",
+            "default_value": 1,
+            "max": 5,
+            "min": 0.5,
+            "step": 2
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_time_format_choice",
+            "title": "ehi_time_format",
+            "description": "ehi_time_format_desc",
+            "callback": ["SetOption", "UpdateFormat"],
+            "callback_arguments": "time_format",
+            "items": [
+                "ehi_time_format_1",
+                "ehi_time_format_2"
+            ],
+            "value": "time_format",
+            "default_value": 2
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_tracker_alignment_choice",
+            "title": "ehi_tracker_alignment",
+            "description": "ehi_tracker_alignment_desc",
+            "callback": ["SetOption", "UpdateTrackerAlignment"],
+            "callback_arguments": "tracker_alignment",
+            "items": [
+                "ehi_tracker_alignment_1",
+                "ehi_tracker_alignment_2"
+            ],
+            "value": "tracker_alignment",
+            "default_value": 1,
+            "ehi_ver" : 30
+        },
+        {
+            "type": "button",
+            "id": "ehi_visuals_menu",
+            "title": "ehi_visuals_menu",
+            "description": "ehi_visuals_menu_desc",
+            "next_menu": "ehi_visuals_menu",
+            "ehi_ver" : 78
+        },
+        {
+            "type" : "divider",
+            "size" : 20
+        },
+        {
+            "type": "button",
+            "id": "ehi_trackers_menu",
+            "title": "ehi_trackers_menu",
+            "description": "ehi_trackers_menu_desc",
+            "next_menu": "ehi_trackers_menu",
+            "ehi_ver" : 122
+        },
+        {
+            "type": "button",
+            "id": "ehi_waypoints_menu",
+            "title": "ehi_waypoints_menu",
+            "description": "ehi_waypoints_menu_desc",
+            "next_menu": "ehi_waypoints_menu",
+            "ehi_ver" : 55
+        },
+        {
+            "type": "button",
+            "id": "ehi_buffs_menu",
+            "title": "ehi_buffs_menu",
+            "description": "ehi_buffs_menu_desc",
+            "next_menu": "ehi_buffs_menu",
+            "ehi_ver" : 111
+        },
+        {
+            "type": "button",
+            "id": "ehi_inventory_menu",
+            "title": "ehi_inventory_menu",
+            "description": "ehi_inventory_menu_desc",
+            "next_menu": "ehi_inventory_menu",
+            "ehi_ver" : 112
+        },
+        {
+            "type": "button",
+            "id": "ehi_other_menu",
+            "title": "ehi_other_menu",
+            "description": "ehi_other_menu_desc",
+            "next_menu": "ehi_other_menu",
+            "ehi_ver" : 129
+        },
+        {
+            "type" : "divider",
+            "size" : 20
+        },
+        {
+            "type" : "label",
+            "id" : "ehi_menu_only",
+            "title" : "ehi_menu_only"
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_preview_text_choice",
+            "title": "ehi_show_preview_text",
+            "description": "ehi_show_preview_text_desc",
+            "callback": ["SetOption", "UpdatePreviewTextVisibility"],
+            "callback_arguments": "show_preview_text",
+            "value": "show_preview_text",
+            "default_value": true,
+            "ehi_ver" : 58
+        }
+    ]
+}

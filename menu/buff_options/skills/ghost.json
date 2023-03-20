@@ -1,0 +1,96 @@
+{
+    "menu_id": "ehi_buffs_skills_ghost_menu",
+    "parent_menu" : "ehi_buffs_skills_menu",
+    "title": "ehi_buffs_skills_ghost_menu",
+    "items": [
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_ghost_shinobi_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_ghost_sixth_sense_initial_choice",
+            "title": "ehi_buffs_skills_ghost_sixth_sense_initial",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "sixth_sense_initial",
+            "value": "sixth_sense_initial",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_ghost_sixth_sense_marked_choice",
+            "title": "ehi_buffs_skills_ghost_sixth_sense_marked",
+            "description": "ehi_buffs_skills_ghost_sixth_sense_marked_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "sixth_sense_marked",
+            "value": "sixth_sense_marked",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_ghost_sixth_sense_refresh_choice",
+            "title": "ehi_buffs_skills_ghost_sixth_sense_refresh",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "sixth_sense_refresh",
+            "value": "sixth_sense_refresh",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_ghost_artful_dodger_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_ghost_dire_need_choice",
+            "title": "ehi_buffs_skills_ghost_dire_need",
+            "description": "",
+            "callback": "SetBuffOption",
+            "callback_arguments": "dire_need",
+            "value": "dire_need",
+            "default_value": true,
+            "ehi_ver" : 100
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_ghost_silent_killer_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_ghost_second_wind_choice",
+            "title": "ehi_buffs_skills_ghost_second_wind",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "second_wind",
+            "value": "second_wind",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_ghost_unseen_strike_choice",
+            "title": "ehi_buffs_skills_ghost_unseen_strike",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "unseen_strike",
+            "value": "unseen_strike",
+            "default_value": true,
+            "ehi_ver" : 79
+        }
+    ]
+}

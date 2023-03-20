@@ -1,0 +1,395 @@
+{
+  "ehi_mod_title": "Extra Heist Info",
+  "ehi_mod_desc": "",
+
+  "ehi_save_data_corrupted" : "EHI's Save File Corrupted",
+  "ehi_save_data_corrupted_desc" : "EHI's Save File got corrupted and cannot be loaded\nEHI will use default values to avoid crashing",
+
+  "ehi_item_depends_on" : "オプション「$option;」を有効化する必要があります。",
+
+  "ehi_menu_next_page": "次のページ -->",
+  "ehi_menu_previous_page": "<-- 前のページ",
+
+  "ehi_language": "言語",
+  "ehi_language_desc": "Modの言語を変更します。適用にはレベルの再読み込みが必要です。",
+  "ehi_language_1": "自動検出",
+
+  "ehi_menu_only": "メニューのみ",
+  "ehi_show_preview_text": "プレビューテキストを表示",
+  "ehi_show_preview_text_desc": "プレビューテキストの表示/非表示",
+
+  "ehi_popup_experience": "経験値",
+  "ehi_popup_experience_base_gained": "取得基礎経験値: ",
+  "ehi_popup_experience_gained": "取得経験値: ",
+  "ehi_popup_experience_total": "全体: ",
+  "ehi_popup_gage_packages": "GAGE パッケージ",
+  "ehi_popup_minion": "コンバートした敵",
+  "ehi_popup_minion_killed": "コンバートした敵が殺害されました",
+  "ehi_popup_achievement_failed": "実績解除失敗！",
+  "ehi_popup_achievement_started": "実績解除開始！",
+  "ehi_popup_loot_counter" : "LOOT COUNTER",
+  "ehi_popup_all_loot_secured" : "All loot bags have been secured",
+  "ehi_achievement_ok": "OK",
+  "ehi_achievement_done": "DONE",
+  "ehi_achievement_pass": "PASS",
+  "ehi_achievement_defend": "DEFEND",
+  "ehi_achievement_finish": "FINISH",
+  "ehi_achievement_secure": "SECURE",
+  "ehi_achievement_no_down": "NO DOWN",
+  "ehi_achievement_destroy": "DESTROY",
+  "ehi_achievement_alarm": "ALARM",
+  "ehi_achievement_ready": "READY",
+  "ehi_achievement_loud": "LOUD",
+  "ehi_achievement_mark": "MARK",
+  "ehi_achievement_push": "PUSH",
+  "ehi_achievement_hack": "HACK",
+  "ehi_achievement_land": "LAND",
+  "ehi_achievement_find": "FIND",
+  "ehi_achievement_bring": "BRING",
+  "ehi_achievement_objective" : "OBJECTIVE",
+  "ehi_achievement_fail": "FAIL",
+
+  "ehi_r": "赤",
+  "ehi_g": "緑",
+  "ehi_b": "青",
+  "ehi_button_ok": "OK",
+  "ehi_color_reset": "色をリセット",
+
+  "ehi_preview": "プレビュー（反映にはマップの再起動が必要です）\n赤い角は最初のトラッカーが表示される場所を示します",
+
+  "ehi_x_offset": "X オフセット",
+  "ehi_x_offset_desc": "X オフセット",
+  "ehi_y_offset": "Y オフセット",
+  "ehi_y_offset_desc": "Y オフセット",
+
+  "ehi_text_scale": "テキストのスケール",
+  "ehi_text_scale_desc": "テキストの大きさを設定\nこの機能は、ゲーム内フォントを変更している場合に便利です。",
+
+  "ehi_scale": "スケール",
+  "ehi_scale_desc": "トラッカーの大きさを設定します。\nトラッカーは、値が大きい程大きくなります。",
+
+  "ehi_vr_scale": "VRのスケール",
+  "ehi_vr_scale_desc": "VRモードでのトラッカーの大きさを設定します。\nトラッカーは、値が大きい程大きくなります。",
+
+  "ehi_time_format": "時間のフォーマット",
+  "ehi_time_format_desc": "トラッカーで使用される時計の形式を定義します。",
+  "ehi_time_format_1": "秒数のみ",
+  "ehi_time_format_2": "分と秒",
+
+  "ehi_tracker_alignment": "トラッカーの整列",
+  "ehi_tracker_alignment_desc": "トラッカーの位置合わせを定義します。",
+  "ehi_tracker_alignment_1": "縦",
+  "ehi_tracker_alignment_2": "横",
+
+  "ehi_visuals_menu": "ビジュアル",
+  "ehi_visuals_menu_desc": "",
+
+  "ehi_show_tracker_bg": "トラッカーの背景を表示",
+  "ehi_show_tracker_bg_desc": "トラッカーの背景を表示します。\n無効化すると背景は非表示になり、アニメーションが無効化されます",
+
+  "ehi_show_one_icon": "トラッカーアイコンを1つ表示",
+  "ehi_show_one_icon_desc": "有効化するとトラッカー1つにつき1つのアイコンしか表示されなくなります。\n無効化すると全てのアイコンが表示されるようになります。",
+
+  "ehi_trackers_menu": "トラッカー",
+  "ehi_trackers_menu_desc": "",
+
+  "ehi_show_mission_trackers": "ミッショントラッカーを表示",
+  "ehi_show_mission_trackers_desc": "ミッショントラッカーを表示します。（例: バン/ヘリ到着時間、次の目的地待ち時間等）\n\nこのオプションはEHIでサポートされている場合に限り、\nカスタムミッションにも適用されます。",
+
+  "ehi_show_achievements": "実績トラッカーを表示",
+  "ehi_show_achievements_desc": "実績のトラッカーを表示します。\n一部のHeistでは使用できない場合があります。",
+
+  "ehi_hide_unlocked_achievements": "解除済み実績は表示しない",
+  "ehi_hide_unlocked_achievements_desc": "有効化すると解除済み実績のトラッカーを表示しなくなります。\n無効の場合、EHIは全実績のトラッカーを表示します。",
+
+  "ehi_show_achievement_failed_popup": "実績達成失敗ポップアップを表示",
+  "ehi_show_achievement_failed_popup_desc": "達成失敗した実績は赤いポップアップで表示されるようになります。",
+
+  "ehi_show_achievement_started_popup": "実績達成開始ポップアップを表示",
+  "ehi_show_achievement_started_popup_desc": "条件を満たすと解除可能になる実績は緑のポップアップで表示されるようになります。",
+
+  "ehi_show_gained_xp": "取得したXPを表示",
+  "ehi_show_gained_xp_desc": "ミッション中に取得したXPを表示します。\nCrime Spreeではこのトラッカーは無効化されます。",
+
+  "ehi_xp_format": "XPのフォーマット方法",
+  "ehi_xp_format_desc": "例: 基本値: 1000, 難易度Death Wish\n基本値のみ: 1000\n難易度別乗算値: 13000\n全XPボーナスと掛けた値: 13000+",
+  "ehi_xp_format_base": "基本値のみを表示",
+  "ehi_xp_format_difficulty_multiplier": "難易度別乗算値を表示",
+  "ehi_xp_format_all_bonuses": "全XPボーナスと掛けた値を表示",
+
+  "ehi_xp_panel": "取得したXPの表示方法",
+  "ehi_xp_panel_desc": "",
+  "ehi_xp_panel_1": "取得するごとにパネルを表示",
+  "ehi_xp_panel_2": "Heistで得たXPの合計を表示",
+  "ehi_xp_panel_3": "取得するごとにポップアップを表示し、合計XPを表示する",
+  "ehi_xp_panel_4": "取得するごとにヒントを表示し、合計XPを表示する",
+
+  "ehi_total_xp_show_difference": "XPの差を表示",
+  "ehi_total_xp_show_difference_desc": "[Heistで得たXPの合計を表示する]オプション限定！\nスタンドアロントラッカーでXPをどれだけ獲得したか表示します。",
+
+  "ehi_show_trade_delay": "取引遅延トラッカー",
+  "ehi_show_trade_delay_desc": "自分かチームメイトが市民を殺害した際に発生する取引の遅延トラッカーを表示します。",
+
+  "ehi_show_trade_delay_option": "取引遅延トラッカーの表示タイミング",
+  "ehi_show_trade_delay_option_desc": "常に: 自分またはチームメイトが市民を殺害した際、常にトラッカーを表示します。\n拘留中: 自分かチームメイトが拘留状態になり、なおかつ少なくとも1人の市民を殺害した際にトラッカーを表示します。",
+  "ehi_show_trade_delay_option_1": "常に",
+  "ehi_show_trade_delay_option_2": "拘留中",
+
+  "ehi_show_trade_delay_other_players_only": "他のプレイヤーの取引遅延トラッカーのみ表示する",
+  "ehi_show_trade_delay_other_players_only_desc": "有効化すると自分が市民を殺害した際はトラッカーが表示されず、チームメイトが殺害した際のみ表示されます。",
+
+  "ehi_show_trade_delay_suppress_in_stealth": "ステルスで取引遅延トラッカーを表示しない",
+  "ehi_show_trade_delay_suppress_in_stealth_desc": "有効化すると取引遅延トラッカーがステルス状態では表示されなくなります。\nアラームが鳴ると蓄積された遅延が全て表示されます。",
+
+  "ehi_show_timers": "タイマーを表示",
+  "ehi_show_timers_desc": "ハッキングやドリル等のタイマーを表示します。",
+
+  "ehi_show_camera_loop": "カメラループを表示",
+  "ehi_show_camera_loop_desc": "監視カメラのカメラループトラッカーを表示します。",
+
+  "ehi_show_zipline_timer": "ジップライントラッカーを表示",
+  "ehi_show_zipline_timer_desc": "ジップラインのタイマーを2つ表示します。\n1つ目のタイマーはバッグやプレイヤーを落とすまでの時間で、\n2つ目のタイマーはジップラインのリセット時間を表示します。",
+
+  "ehi_show_gage_tracker": "Gageトラッカーを表示",
+  "ehi_show_gage_tracker_desc": "マップ上のGageパッケージのトラッカーを表示します。\nマップ上にパッケージが存在していない場合はトラッカーは表示されません。",
+
+  "ehi_gage_tracker_panel": "パッケージの進捗",
+  "ehi_gage_tracker_panel_desc": "",
+  "ehi_gage_tracker_panel_1": "トラッカー内",
+  "ehi_gage_tracker_panel_2": "ポップアップ内",
+
+  "ehi_show_captain_damage_reduction": "敵のダメージ軽減率を表示",
+  "ehi_show_captain_damage_reduction_desc": "Captain Winterの展開中、敵のダメージ軽減率のトラッカーを表示します。",
+
+  "ehi_show_equipment_tracker": "携帯アイテムトラッカーを表示",
+  "ehi_show_equipment_tracker_desc": "Doctor Bag、Ammo Bag、Grenade Case、Body Bag Case、First Aid Kitの配置状況を個別に表示します。",
+
+  "ehi_equipment_menu": "携帯アイテムメニュー",
+  "ehi_equipment_menu_desc": "",
+
+  "ehi_equipment_format": "携帯アイテムフォーマット",
+  "ehi_equipment_format_desc": "携帯アイテムのフォーマットを定義します。",
+  "ehi_equipment_format_1": "使用可能回数 (配置数)",
+  "ehi_equipment_format_2": "(配置数) 使用可能回数",
+  "ehi_equipment_format_3": "(使用可能回数) 配置数",
+  "ehi_equipment_format_4": "配置数 (使用可能回数)",
+  "ehi_equipment_format_5": "使用可能回数",
+  "ehi_equipment_format_6": "配置数",
+
+  "ehi_show_equipment_doctorbag": "Doctor Bagのトラッカーを表示",
+  "ehi_show_equipment_doctorbag_desc": "Doctor Bagのトラッカーを表示します。",
+
+  "ehi_show_equipment_ammobag": "Ammo Bagのトラッカーを表示",
+  "ehi_show_equipment_ammobag_desc": "Ammo Bagのトラッカーを表示します。",
+
+  "ehi_show_equipment_grenadecases": "Grenade Crateのトラッカーを表示",
+  "ehi_show_equipment_grenadecases_desc": "Grenade Crateのトラッカーを表示します。",
+
+  "ehi_show_equipment_bodybags": "Body Bagのトラッカーを表示",
+  "ehi_show_equipment_bodybags_desc": "Body Bagのトラッカーを表示します。\nアラームが鳴るとトラッカーは表示されなくなります。",
+
+  "ehi_show_equipment_firstaidkit": "First Aid Kitのトラッカーを表示",
+  "ehi_show_equipment_firstaidkit_desc": "First Aid Kitのトラッカーを表示します。",
+
+  "ehi_show_equipment_ecmjammer": "ECM Jammerの効果時間を表示",
+  "ehi_show_equipment_ecmjammer_desc": "ECM Jammerの効果時間のトラッカーを表示します。\n最も効果時間の長い物がトラッカーに表示されます。",
+
+  "ehi_show_equipment_ecmfeedback": "ECM Feedbackの効果時間を表示",
+  "ehi_show_equipment_ecmfeedback_desc": "ECM Feedbackの効果時間のトラッカーを表示します。\n最も効果時間の長い物がトラッカーに表示されます。(ホストのみ)",
+
+  "ehi_show_equipment_aggregate_health": "Doctor BagとFirst Aid Kitを集約",
+  "ehi_show_equipment_aggregate_health_desc": "Doctor BagとFirst Aid Kitを1つのトラッカーに集約します。",
+
+  "ehi_show_equipment_aggregate_all": "全携帯アイテムを集約",
+  "ehi_show_equipment_aggregate_all_desc": "全ての携帯アイテムを1つのトラッカーに集約します。",
+
+  "ehi_doctor_bag": "Doctor Bag",
+  "ehi_ammo_bag": "Ammo Bag",
+  "ehi_grenade_crate": "Grenade Crate",
+  "ehi_first_aid_kit": "First Aid Kit",
+  "ehi_bodybags_bag": "BodybagのBag",
+
+  "ehi_show_minion_tracker": "コンバートトラッカーを表示",
+  "ehi_show_minion_tracker_desc": "マップ上に存在するコンバートされた敵のトラッカーを表示します。",
+
+  "ehi_show_minion_per_player": "プレイヤーごとのコンバート数を表示",
+  "ehi_show_minion_per_player_desc": "コンバート数のトラッカーを着色して表示します。",
+
+  "ehi_show_minion_killed_message": "コンバート死亡メッセージを表示",
+  "ehi_show_minion_killed_message_desc": "コンバートした敵が殺害された際にメッセージを表示します。",
+
+  "ehi_show_minion_killed_message_type": "コンバート死亡メッセージのタイプ",
+  "ehi_show_minion_killed_message_type_2": "ヒントパネル内",
+
+  "ehi_show_difficulty_tracker": "難易度トラッカーを表示",
+  "ehi_show_difficulty_tracker_desc": "Waveの難易度のトラッカーを表示します。",
+
+  "ehi_show_drama_tracker": "Dramaトラッカーを表示",
+  "ehi_show_drama_tracker_desc": "蓄積されたDramaトラッカーを表示します。（ホストのみ)",
+
+  "ehi_show_pager_tracker": "Pagerトラッカーを表示",
+  "ehi_show_pager_tracker_desc": "Pagerの残数のトラッカーを表示します。",
+
+  "ehi_show_pager_callback_trackers": "Pager応答タイマーを表示",
+  "ehi_show_pager_callback_trackers_desc": "応答が必要なPagerのトラッカーを表示します。",
+
+  "ehi_show_enemy_count_tracker": "敵の数を表示",
+  "ehi_show_enemy_count_tracker_desc": "マップ上の敵の数のトラッカーを表示します。",
+
+  "ehi_show_laser_tracker": "レーザーのトラッカーを表示",
+  "ehi_show_laser_tracker_desc": "数秒ごとに周期を変えるレーザーのトラッカーを表示します。",
+
+  "ehi_waypoints_menu": "ウェイポイント",
+  "ehi_waypoints_menu_desc": "",
+
+  "ehi_show_waypoints": "ウェイポイントを表示",
+  "ehi_show_waypoints_desc": "ゲーム内ワールドにウェイポイントを表示します。",
+
+  "ehi_show_waypoints_only": "ウェイポイントのみ表示",
+  "ehi_show_waypoints_only_desc": "有効化すると要素にトラッカーとウェイポイントの両方が定義されている場合、ウェイポイントのみが表示されます。\nそれ以外はトラッカーが表示されます。",
+
+  "ehi_show_waypoints_present_timer": "プレゼントタイマー",
+  "ehi_show_waypoints_present_timer_desc": "ウェイポイントが目的地に「移動」するまでに、画面上に存在する時間を設定します。",
+
+  "ehi_show_waypoints_enemy_turret": "敵のタレットにウェイポイントを表示",
+  "ehi_show_waypoints_enemy_turret_desc": "リロード中や修理中の敵のタレットにウェイポイントを表示します。",
+
+  "ehi_show_waypoints_timers": "タイマーにウェイポイントを表示",
+  "ehi_show_waypoints_timers_desc": "ウェイポイントにタイマーを表示します。(ハッキングやドリル等)",
+
+  "ehi_show_waypoints_pager": "Pagerにウェイポイントを表示",
+  "ehi_show_waypoints_pager_desc": "ウェイポイントにPagerタイマーを表示します。",
+
+  "ehi_show_waypoints_cameras": "ループされたカメラにウェイポイントを表示",
+  "ehi_show_waypoints_cameras_desc": "ループ中のカメラにウェイポイントを表示します。",
+
+  "ehi_show_waypoints_zipline": "ジップラインにウェイポイントを表示",
+  "ehi_show_waypoints_zipline_desc": "動作中のジップラインのリセット時間のウェイポイントを表示します。",
+
+  "ehi_buffs_menu": "バフ",
+  "ehi_buffs_menu_desc": "",
+
+  "ehi_show_buffs": "バフを表示",
+  "ehi_show_buffs_desc": "スキルやPerkのバフやクールダウンを表示します。",
+
+  "ehi_buffs_scale_desc": "バフの大きさを設定します。\nバフは、値が大きい程大きくなります。",
+
+  "ehi_buffs_alignment": "バフの整列",
+  "ehi_buffs_alignment_desc": "バフの位置合わせを定義します。",
+  "ehi_buffs_alignment_1": "左",
+  "ehi_buffs_alignment_2": "中央",
+  "ehi_buffs_alignment_3": "右",
+
+  "ehi_buffs_shape": "形状",
+  "ehi_buffs_shape_desc": "バフの形状を定義します。",
+  "ehi_buffs_shape_1": "正方形",
+  "ehi_buffs_shape_2": "円形",
+
+  "ehi_buffs_show_progress": "プログレスを表示",
+  "ehi_buffs_show_progress_desc": "バフのプログレスを表示します。\nデフォルトでは、プログレスは時計回りに進みます。",
+
+  "ehi_buffs_invert_progress": "プログレスを反転",
+  "ehi_buffs_invert_progress_desc": "有効化するとプログレスは反時計回りに進みます。\n無効化すると時計回りに進みます。",
+
+  "ehi_buffs_skills_cooldown" : "Shows cooldown",
+    "ehi_buffs_skills_duration" : "Shows duration",
+    "ehi_buffs_skills_progress" : "Shows progress",
+
+    "ehi_buffs_skills_menu" : "Skills",
+    "ehi_buffs_skills_mastermind_menu" : "Mastermind",
+    "ehi_buffs_skills_mastermind_medic_subclass" : "Medic",
+    "ehi_buffs_skills_mastermind_inspire_basic" : "Inspire (Basic)",
+    "ehi_buffs_skills_mastermind_inspire_basic_desc" : "Shows cooldown when you inspire someone",
+    "ehi_buffs_skills_mastermind_inspire_ace" : "Inspire (Ace)",
+    "ehi_buffs_skills_mastermind_inspire_ace_desc" : "Shows inspire cooldown when you revive someone",
+    "ehi_buffs_skills_mastermind_uppers_range" : "Uppers Range",
+    "ehi_buffs_skills_mastermind_uppers_range_desc" : "Shows a gauge when you are in FAK's autoheal range",
+    "ehi_buffs_skills_mastermind_uppers_range_refresh" : "Uppers Range Refresh",
+    "ehi_buffs_skills_mastermind_uppers_range_refresh_desc" : "Sets how often 'Uppers Range' gauge should be updated per second",
+    "ehi_buffs_skills_mastermind_quick_fix" : "Quick Fix",
+    "ehi_buffs_skills_mastermind_painkillers" : "Painkillers",
+    "ehi_buffs_skills_mastermind_combat_medic" : "Combat Medic",
+    "ehi_buffs_skills_mastermind_controller_subclass" : "Controller",
+    "ehi_buffs_skills_mastermind_hostage_taker_muscle" : "Hostage Taker / Muscle",
+    "ehi_buffs_skills_mastermind_forced_friendship" : "Forced Friendship (Absorption)",
+    "ehi_buffs_skills_mastermind_forced_friendship_desc" : "Shows a gauge with current accumulated absorption from Forced Friendship",
+    "ehi_buffs_skills_mastermind_sharpshooter_subclass" : "Sharpshooter",
+    "ehi_buffs_skills_mastermind_aggressive_reload" : "Aggressive Reload",
+
+    "ehi_buffs_skills_enforcer_menu" : "Enforcer",
+    "ehi_buffs_skills_enforcer_shotgunner_subclass" : "Shotgunner",
+    "ehi_buffs_skills_enforcer_overkill" : "Overkill",
+    "ehi_buffs_skills_enforcer_underdog" : "Underdog",
+    "ehi_buffs_skills_enforcer_tank_subclass" : "Tank",
+    "ehi_buffs_skills_enforcer_bullseye" : "Bullseye",
+    "ehi_buffs_skills_enforcer_ammo_specialist_subclass" : "Ammo Specialist",
+    "ehi_buffs_skills_enforcer_bulletstorm" : "Bulletstorm",
+
+    "ehi_buffs_skills_ghost_menu" : "Ghost",
+    "ehi_buffs_skills_ghost_shinobi_subclass" : "Shinobi",
+    "ehi_buffs_skills_ghost_sixth_sense_initial" : "Sixth Sense (Initial Delay)",
+    "ehi_buffs_skills_ghost_sixth_sense_marked" : "Sixth Sense (Marked units)",
+    "ehi_buffs_skills_ghost_sixth_sense_marked_desc" : "Shows a gauge with how many units are currently marked with Sixth Sense",
+    "ehi_buffs_skills_ghost_sixth_sense_refresh" : "Sixth Sense (Refresh Delay)",
+    "ehi_buffs_skills_ghost_artful_dodger_subclass" : "Artful Dodger",
+    "ehi_buffs_skills_ghost_dire_need" : "Dire Need",
+    "ehi_buffs_skills_ghost_silent_killer_subclass" : "Silent Killer",
+    "ehi_buffs_skills_ghost_second_wind" : "Second Wind",
+    "ehi_buffs_skills_ghost_unseen_strike" : "Unseen Strike",
+
+    "ehi_buffs_skills_fugitive_menu" : "Fugitive",
+    "ehi_buffs_skills_fugitive_revenant_subclass" : "Revenant",
+    "ehi_buffs_skills_fugitive_running_from_death_reload" : "Running from Death (Reload and Swap)",
+    "ehi_buffs_skills_fugitive_running_from_death_movement" : "Running from Death (Movement)",
+    "ehi_buffs_skills_fugitive_up_you_go" : "Up You Go",
+    "ehi_buffs_skills_fugitive_swan_song" : "Swan Song",
+    "ehi_buffs_skills_fugitive_brawler_subclass" : "Brawler",
+    "ehi_buffs_skills_fugitive_bloodthirst" : "Bloodthirst",
+    "ehi_buffs_skills_fugitive_bloodthirst_reload" : "Bloodthirst (Reload)",
+    "ehi_buffs_skills_fugitive_berserker" : "Berserker",
+    "ehi_buffs_skills_fugitive_berserker_refresh" : "Berserker Refresh",
+    "ehi_buffs_skills_fugitive_berserker_refresh_desc" : "Sets how often 'Berserker' gauge should be updated per second",
+
+    "ehi_buffs_perks_menu" : "Perk Decks",
+    "ehi_buffs_perks_infiltrator" : "Infiltrator",
+    "ehi_buffs_perks_infiltrator_desc" : "Shows buffs and cooldowns in Infiltrator perk deck",
+    "ehi_buffs_perks_gambler" : "Gambler",
+    "ehi_buffs_perks_gambler_desc" : "Shows buffs and cooldowns in Gambler perk deck",
+    "ehi_buffs_perks_grinder" : "Grinder",
+    "ehi_buffs_perks_grinder_desc" : "Shows buffs and cooldowns in Grinder perk deck",
+    "ehi_buffs_perks_maniac" : "Maniac",
+    "ehi_buffs_perks_maniac_desc" : "Shows buffs and cooldowns in Maniac perk deck",
+    "ehi_buffs_perks_anarchist" : "Anarchist / Armorer",
+    "ehi_buffs_perks_anarchist_desc" : "Shows buffs and cooldowns in Anarchist / Armorer perk deck",
+    "ehi_buffs_perks_biker" : "Biker",
+    "ehi_buffs_perks_biker_desc" : "Shows buffs and cooldowns in Biker perk deck",
+    "ehi_buffs_perks_kingpin" : "Kingpin",
+    "ehi_buffs_perks_kingpin_desc" : "Shows buffs and cooldowns in Kingpin perk deck",
+    "ehi_buffs_perks_sicario" : "Sicario",
+    "ehi_buffs_perks_sicario_desc" : "Shows buffs and cooldowns in Sicario perk deck",
+    "ehi_buffs_perks_stoic" : "Stoic",
+    "ehi_buffs_perks_stoic_desc" : "Shows buffs and cooldowns in Stoic perk deck",
+    "ehi_buffs_perks_tag_team" : "Tag Team",
+    "ehi_buffs_perks_tag_team_desc" : "Shows buffs and cooldowns in Tag Team perk deck",
+    "ehi_buffs_perks_hacker" : "Hacker",
+    "ehi_buffs_perks_hacker_desc" : "Shows buffs and cooldowns in Hacker perk deck",
+    "ehi_buffs_perks_leech" : "Leech",
+    "ehi_buffs_perks_leech_desc" : "Shows buffs and cooldowns in Leech perk deck",
+
+    "ehi_buffs_other_menu" : "Other",
+    "ehi_buffs_other_interact" : "Interact",
+    "ehi_buffs_other_reload" : "Reload",
+    "ehi_buffs_other_melee_charge" : "Melee Charge Delay",
+    "ehi_buffs_other_shield_regen" : "Armor Regen Delay",
+    "ehi_buffs_other_dodge" : "Dodge Chance",
+    "ehi_buffs_other_dodge_refresh" : "Dodge Chance Refresh",
+    "ehi_buffs_other_dodge_refresh_desc" : "Sets how often 'Dodge Chance' gauge should be updated per second",
+    "ehi_buffs_other_dodge_persistent" : "Persistent Dodge Chance",
+    "ehi_buffs_other_dodge_persistent_desc" : "'Dodge Chance' gauge will stay on your screen when your dodge is lower than 0%",
+    "ehi_buffs_other_crit" : "Crit Chance",
+    "ehi_buffs_other_crit_refresh" : "Crit Chance Refresh",
+    "ehi_buffs_other_crit_refresh_desc" : "Sets how often 'Crit Chance' gauge should be updated per second",
+    "ehi_buffs_other_crit_persistent" : "Persistent Crit Chance",
+    "ehi_buffs_other_crit_persistent_desc" : "'Crit Chance' gauge will stay on your screen when your crit is lower than 0%",
+    "ehi_buffs_other_inspire_ai" : "Inspire (AI)"
+}

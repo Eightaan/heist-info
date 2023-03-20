@@ -1,0 +1,243 @@
+{
+    "menu_id": "ehi_trackers_2_menu",
+    "parent_menu" : "ehi_trackers_menu",
+    "title": "ehi_trackers_menu",
+    "items": [
+        {
+            "type": "button",
+            "id": "ehi_trackers_next_menu",
+            "title": "ehi_menu_next_page",
+            "next_menu": "ehi_trackers_3_menu",
+            "ehi_ver" : 83
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_gage_tracker_choice",
+            "title": "ehi_show_gage_tracker",
+            "description": "ehi_show_gage_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_gage_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_gage_tracker",
+            "default_value": true,
+            "is_parent" : true
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_gage_tracker_panel_choice",
+            "title": "ehi_gage_tracker_panel",
+            "description": "ehi_gage_tracker_panel_desc",
+            "callback": ["SetOption", "SetGagePanelOption"],
+            "callback_arguments": "gage_tracker_panel",
+            "items": [
+                "ehi_gage_tracker_panel_1",
+                "ehi_gage_tracker_panel_2"
+            ],
+            "value": "gage_tracker_panel",
+            "parent": "ehi_show_gage_tracker_choice",
+            "default_value": 1,
+            "ehi_ver" : 53
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_captain_damage_reduction_choice",
+            "title": "ehi_show_captain_damage_reduction",
+            "description": "ehi_show_captain_damage_reduction_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_captain_damage_reduction",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_captain_damage_reduction",
+            "default_value": true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_equipment_tracker_choice",
+            "title": "ehi_show_equipment_tracker",
+            "description": "ehi_show_equipment_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_equipment_tracker",
+            "value": "show_equipment_tracker",
+            "focus_changed_callback": "SetFocus",
+            "is_parent": true,
+            "default_value": true
+        },
+        {
+            "type": "button",
+            "id": "ehi_equipment_menu",
+            "title": "ehi_equipment_menu",
+            "description": "ehi_equipment_menu_desc",
+            "next_menu": "ehi_equipment_menu",
+            "parent": "ehi_show_equipment_tracker_choice",
+            "focus_changed_callback" : "fcc_equipment_tracker"
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_minion_tracker_choice",
+            "title": "ehi_show_minion_tracker",
+            "description": "ehi_show_minion_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_minion_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_minion_tracker",
+            "is_parent" : true,
+            "default_value": true,
+            "ehi_ver" : 16
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_minion_per_player_choice",
+            "title": "ehi_show_minion_per_player",
+            "description": "ehi_show_minion_per_player_desc",
+            "callback": ["SetOption", "UpdateMinionTracker"],
+            "callback_arguments": "show_minion_per_player",
+            "value": "show_minion_per_player",
+            "focus_changed_callback" : "fcc_show_minion_per_player",
+            "parent": "ehi_show_minion_tracker_choice",
+            "default_value": true,
+            "ehi_ver" : 51
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_minion_killed_message_choice",
+            "title": "ehi_show_minion_killed_message",
+            "description": "ehi_show_minion_killed_message_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_minion_killed_message",
+            "value": "show_minion_killed_message",
+            "is_parent" : true,
+            "default_value": true,
+            "ehi_ver" : 68
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_show_minion_killed_message_type_choice",
+            "title": "ehi_show_minion_killed_message_type",
+            "callback": "SetOption",
+            "callback_arguments": "show_minion_killed_message_type",
+            "items": [
+                "ehi_gage_tracker_panel_2",
+                "ehi_show_minion_killed_message_type_2"
+            ],
+            "value": "show_minion_killed_message_type",
+            "parent": "ehi_show_minion_killed_message_choice",
+            "default_value": 1,
+            "ehi_ver" : 68
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_difficulty_tracker_choice",
+            "title": "ehi_show_difficulty_tracker",
+            "description": "ehi_show_difficulty_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_difficulty_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_difficulty_tracker",
+            "default_value": true
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_drama_tracker_choice",
+            "title": "ehi_show_drama_tracker",
+            "description": "ehi_show_drama_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_drama_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_drama_tracker",
+            "default_value": true,
+            "ehi_ver" : 10
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_pager_tracker_choice",
+            "title": "ehi_show_pager_tracker",
+            "description": "ehi_show_pager_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_pager_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_pager_tracker",
+            "default_value": true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_pager_callback_trackers_choice",
+            "title": "ehi_show_pager_callback_trackers",
+            "description": "ehi_show_pager_callback_trackers_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_pager_callback",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_pager_callback",
+            "default_value": true,
+            "ehi_ver" : 13
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_enemy_count_tracker_choice",
+            "title": "ehi_show_enemy_count_tracker",
+            "description": "ehi_show_enemy_count_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_enemy_count_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_enemy_count_tracker",
+            "is_parent" : true,
+            "default_value": true,
+            "ehi_ver" : 6
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_enemy_count_show_pagers_choice",
+            "title": "ehi_show_enemy_count_show_pagers",
+            "description": "ehi_show_enemy_count_show_pagers_desc",
+            "callback": ["SetOption", "UpdateEnemyCountTracker"],
+            "callback_arguments": "show_enemy_count_show_pagers",
+            "focus_changed_callback": "SetFocus2",
+            "value": "show_enemy_count_show_pagers",
+            "parent" : "ehi_show_enemy_count_tracker_choice",
+            "default_value": true,
+            "ehi_ver" : 115
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_laser_tracker_choice",
+            "title": "ehi_show_laser_tracker",
+            "description": "ehi_show_laser_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_laser_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_laser_tracker",
+            "default_value": false,
+            "ehi_ver" : 10
+        }
+    ]
+}

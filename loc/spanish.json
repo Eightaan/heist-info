@@ -1,0 +1,562 @@
+{
+    "ehi_mod_title" : "Extra Heist Info",
+    "ehi_mod_desc" : "",
+
+    "ehi_save_data_corrupted" : "Archivo de configuración dañado",
+    "ehi_save_data_corrupted_desc" : "El archivo de configuración del mod está dañado y no se puede cargar.\nSe utilizarán los valores predeterminados para evitar crasheos.",
+
+    "ehi_level_restart_required" : "Se requiere un reinicio de nivel para que los cambios surtan efecto.",
+
+    "ehi_item_depends_on" : "(Requiere que actives la opción '$option;' para funcionar)",
+
+    "ehi_menu_next_page" : "Página siguiente -->",
+    "ehi_menu_previous_page" : "<-- Página anterior",
+
+    "ehi_language" : "Idioma",
+    "ehi_language_desc" : "Cambiar el idioma del mod.\n(Se requiere un reinicio de nivel para que los cambios surtan efecto)",
+    "ehi_language_1" : "Detectar automáticamente",
+
+    "ehi_menu_only" : "Solo en el menú",
+    "ehi_show_preview_text" : "Mostrar texto de 'Vista previa'",
+    "ehi_show_preview_text_desc" : "Mostrar / ocultar el texto de vista previa.",
+
+    "ehi_popup_experience" : "EXPERIENCIA",
+    "ehi_popup_experience_base_gained" : "EXP base obtenida: ",
+    "ehi_popup_experience_gained" : "Obtenida: ",
+    "ehi_popup_experience_total" : "Total: ",
+    "ehi_popup_gage_packages" : "PAQUETES DE GAGE",
+    "ehi_popup_minion" : "ENEMIGO CONVERTIDO",
+    "ehi_popup_minion_killed" : "Tu convertido ha sido asesinado",
+    "ehi_popup_achievement_failed" : "¡HAS FALLADO EL LOGRO!",
+    "ehi_popup_achievement_started" : "¡HAS COMENZADO EL LOGRO!",
+    "ehi_popup_trophy_started" : "¡HAS COMENZADO EL TROFEO!",
+    "ehi_popup_trophy_failed" : "¡HAS FALLADO EL TROFEO!",
+    "ehi_popup_daily_started" : "¡HAS COMENZADO EL TRABAJO DIARIO!",
+    "ehi_popup_daily_failed" : "¡HAS FALLADO EL TRABAJO DIARIO!",
+    "ehi_popup_loot_counter" : "CONTADOR DE BOLSAS",
+    "ehi_popup_all_loot_secured" : "Todas las bolsas han sido aseguradas",
+    "ehi_achievement_ok" : "BIEN",
+    "ehi_achievement_done" : "HECHO",
+    "ehi_achievement_pass" : "HECHO",
+    "ehi_achievement_defend" : "DEFENDER",
+    "ehi_achievement_finish" : "TERMINAR",
+    "ehi_achievement_secure" : "ASEGURAR",
+    "ehi_achievement_no_down" : "SIN BAJAS",
+    "ehi_achievement_destroy" : "DESTRUIR",
+    "ehi_achievement_alarm" : "ALARMA",
+    "ehi_achievement_ready" : "LISTO",
+    "ehi_achievement_loud" : "ASALTO",
+    "ehi_achievement_mark" : "MARCAR",
+    "ehi_achievement_push" : "PULSAR",
+    "ehi_achievement_hack" : "HACKEAR",
+    "ehi_achievement_land" : "ATERRIZAR",
+    "ehi_achievement_find" : "ENCONTRAR",
+    "ehi_achievement_bring" : "TRAER",
+    "ehi_achievement_objective" : "OBJETIVO",
+    "ehi_achievement_fail" : "FALLIDO",
+
+    "ehi_r" : "Rojo",
+    "ehi_g" : "Verde",
+    "ehi_b" : "Azul",
+    "ehi_button_ok" : "ACEPTAR",
+    "ehi_color_reset" : "Restablecer color",
+
+    "ehi_preview" : "VISTA PREVIA (Se requiere un reinicio de nivel para que los cambios surtan efecto)\nLa esquina roja indica donde aparecerá el primer contador.",
+
+    "ehi_x_offset" : "Posición horizontal",
+    "ehi_x_offset_desc" : "Mover la posición de los contadores en el eje X.",
+    "ehi_y_offset" : "Posición vertical",
+    "ehi_y_offset_desc" : "Mover la posición de los contadores en el eje Y.",
+
+    "ehi_text_scale" : "Tamaño del texto",
+    "ehi_text_scale_desc" : "Ajustar el tamaño del texto de los contadores.\nEsta característica es útil para jugadores con fuentes personalizadas.",
+
+    "ehi_scale" : "Tamaño",
+    "ehi_scale_desc" : "Ajustar el tamaño de los contadores.\nCuanto mayor sea el número, más grandes serán los contadores y viceversa.",
+
+    "ehi_vr_scale": "Tamaño en VR",
+    "ehi_vr_scale_desc": "Ajustar el tamaño de los contadores en realidad virtual.\nCuanto mayor sea el número, más grandes serán los contadores y viceversa.",
+
+    "ehi_time_format" : "Formato del tiempo",
+    "ehi_time_format_desc" : "Definir cómo se muestra el tiempo en los contadores cronometrados.",
+    "ehi_time_format_1" : "Solo segundos",
+    "ehi_time_format_2" : "Minutos y segundos",
+
+    "ehi_tracker_alignment" : "Alineación",
+    "ehi_tracker_alignment_desc" : "Definir cómo se alinean los contadores en pantalla.",
+    "ehi_tracker_alignment_1" : "En vertical",
+    "ehi_tracker_alignment_2" : "En horizontal",
+
+    "ehi_visuals_menu" : "Aspecto visual",
+    "ehi_visuals_menu_desc" : "",
+
+    "ehi_show_tracker_bg" : "Mostrar fondo del contador",
+    "ehi_show_tracker_bg_desc" : "Mostrar / ocultar el fondo de los contadores.\nAl desactivar esta opción, los fondos y animaciones no se mostrarán.",
+
+    "ehi_show_tracker_corners" : "Mostrar bordes del contador",
+    "ehi_show_tracker_corners_desc" : "Mostrar / ocultar el borde de los contadores.",
+
+    "ehi_show_one_icon" : "Mostrar solo 1 icono junto al contador",
+    "ehi_show_one_icon_desc" : "Mostrar solo 1 icono junto a los contadores.\nAl desactivar esta opción, todos los iconos serán visibles.",
+
+    "ehi_trackers_menu" : "Contadores",
+    "ehi_trackers_menu_desc" : "",
+
+    "ehi_show_mission_trackers": "Mostrar contadores de misión",
+    "ehi_show_mission_trackers_desc": "Mostrar / ocultar los contadores de misión en pantalla.\n(Por ejemplo: tiempo restante para la huida, el siguiente objetivo, etc.)\nEsta opción también funciona en mapas personalizados (de ser soportados).",
+
+    "ehi_show_unlockables" : "Mostrar desbloqueables",
+    "ehi_show_unlockables_desc" : "Mostrar / ocultar contadores para logros, trofeos y trabajos diarios.",
+
+    "ehi_unlockables_menu" : "Desbloqueables",
+    "ehi_unlockables_menu_desc" : "",
+
+    "ehi_show_achievements" : "Mostrar logros",
+    "ehi_show_achievements_desc" : "Mostrar / ocultar los logros en pantalla.\nAlgunos atracos pueden no tener ningún logro disponible.",
+
+    "ehi_show_achievements_mission" : "Mostrar logros (Atracos)",
+    "ehi_show_achievements_mission_desc" : "Mostrar / ocultar los logros que solo pueden ser completados en atracos.",
+
+    "ehi_hide_unlocked_achievements" : "Ocultar logros desbloqueados (Atracos)",
+    "ehi_hide_unlocked_achievements_desc" : "Al activarlo, no se mostrarán contadores para los logros de atracos ya desbloqueados.\nAl desactivarlo, se mostrarán contadores para todos los logros de atracos.",
+
+    "ehi_show_achievements_weapon" : "Mostrar logros (Armas)",
+    "ehi_show_achievements_weapon_desc" : "Mostrar / ocultar los logros que requieren matar a enemigos con armas.\n(El contador ya no será visible una vez que desbloquees el logro)",
+
+    "ehi_show_achievements_melee" : "Mostrar logros (Cuerpo a cuerpo)",
+    "ehi_show_achievements_melee_desc" : "Mostrar / ocultar los logros que requieren matar a enemigos con armas cuerpo a cuerpo.\n(El contador ya no será visible una vez que desbloquees el logro)",
+
+    "ehi_show_achievements_grenade" : "Mostrar logros (Arrojadizas)",
+    "ehi_show_achievements_grenade_desc" : "Mostrar / ocultar los logros que requieren matar a enemigos con armas arrojadizas.\n(El contador ya no será visible una vez que desbloquees el logro)",
+
+    "ehi_show_achievements_vehicle" : "Mostrar logros (Vehículos)",
+    "ehi_show_achievements_vehicle_desc" : "Mostrar / ocultar los logros que requieren atropellar a enemigos con vehiculos.\n(El contador ya no será visible una vez que desbloquees el logro)",
+
+    "ehi_show_achievements_other" : "Mostrar logros (Otros)",
+    "ehi_show_achievements_other_desc" : "Mostrar / ocultar los logros que no pertenecen a ninguno de los grupos anteriores.\n(El contador ya no será visible una vez que desbloquees el logro)",
+
+    "ehi_show_achievement_failed_popup" : "Mostrar ventana emergente de 'Logro fallido'",
+    "ehi_show_achievement_failed_popup_desc" : "Los logros fallidos se mostrarán en color rojo dentro de una ventana emergente.",
+
+    "ehi_show_achievement_started_popup" : "Mostrar ventana emergente de 'Logro comenzado'",
+    "ehi_show_achievement_started_popup_desc" : "Los logros completados se mostrarán en color verde dentro de una ventana emergente.",
+
+    "ehi_show_trophies" : "Mostrar trofeos",
+    "ehi_show_trophies_desc" : "Mostrar / ocultar los trofeos en pantalla.\nAlgunos atracos pueden no tener ningún trofeo disponible.",
+
+    "ehi_hide_unlocked_trophies" : "Ocultar trofeos desbloqueados",
+    "ehi_hide_unlocked_trophies_desc" : "Al activarlo, no se mostrarán contadores para los trofeos ya desbloqueados.\nAl desactivarlo, se mostrarán contadores para todos los trofeos.",
+
+    "ehi_show_trophy_failed_popup" : "Mostrar ventana emergente de 'Trofeo fallido'",
+    "ehi_show_trophy_failed_popup_desc" : "Los trofeos fallidos se mostrarán en color rojo dentro de una ventana emergente.",
+
+    "ehi_show_trophy_started_popup" : "Mostrar ventana emergente de 'Trofeo comenzado'",
+    "ehi_show_trophy_started_popup_desc" : "Los trofeos completados se mostrarán en color verde dentro de una ventana emergente.",
+
+    "ehi_show_dailies" : "Mostrar trabajos diarios",
+    "ehi_show_dailies_desc" : "Mostrar / ocultar los trabajos diarios activos en pantalla.\n(Los trabajos diarios ya completados no se mostrarán)",
+
+    "ehi_show_daily_failed_popup" : "Mostrar ventana emergente de 'Trabajo diario fallido'",
+    "ehi_show_daily_failed_popup_desc" : "Los trabajos diarios fallidos se mostrarán en color rojo dentro de una ventana emergente.",
+
+    "ehi_show_daily_started_popup" : "Mostrar ventana emergente de 'Trabajo diario comenzado'",
+    "ehi_show_daily_started_popup_desc" : "Los trabajos diarios completados se mostrarán en color verde dentro de una ventana emergente.",
+
+    "ehi_show_gained_xp" : "Mostrar EXP obtenida",
+    "ehi_show_gained_xp_desc" : "Mostrar / ocultar la EXP obtenida en la misión.\nEste contador no se muestra en el modo 'Racha Criminal'.",
+
+    "ehi_xp_format" : "Formato de la EXP ganada",
+    "ehi_xp_format_desc" : "Por ejemplo: Valor base: 1000, en dificultad ANIQUILACIÓN.\n'Solo valor base': 1000\n'Valor multiplicado por dificultad': 13000\n'Valor multiplicado por bonificaciones de EXP': 13000+",
+    "ehi_xp_format_base" : "Solo valor base",
+    "ehi_xp_format_difficulty_multiplier" : "Valor multiplicado por dificultad",
+    "ehi_xp_format_all_bonuses" : "Valor multiplicado por bonific. de EXP",
+
+    "ehi_xp_panel" : "Cómo mostrar la EXP obtenida",
+    "ehi_xp_panel_desc" : "",
+    "ehi_xp_panel_1" : "En un contador por cada EXP obtenida",
+    "ehi_xp_panel_2" : "En un contador por EXP total de la misión",
+    "ehi_xp_panel_3" : "En una ventana por cada EXP obtenida y EXP total",
+    "ehi_xp_panel_4" : "En una pista por cada EXP obtenida y EXP total",
+
+    "ehi_total_xp_show_difference" : "Mostrar diferencia de EXP",
+    "ehi_total_xp_show_difference_desc" : "¡Requiere activar la opción ['En un contador por EXP total de la misión'] para funcionar!\nMostrar cuánta EXP has obtenido en un contador independiente.",
+
+    "ehi_show_trade_delay" : "Mostrar contador de demora en custodia",
+    "ehi_show_trade_delay_desc" : "Mostrar / ocultar un contador con la demora total en custodia por haber matado a un civil.",
+
+    "ehi_show_trade_delay_option" : "Cuándo mostrar el contador",
+    "ehi_show_trade_delay_option_desc": "'Siempre': El contador siempre aparecerá si tú o tus compañeros matan a un civil.\n'En custodia': El contador aparecerá cuando tú o tus compañeros vayan a custodia habiendo matado al menos 1 civil.",
+    "ehi_show_trade_delay_option_1" : "Siempre",
+    "ehi_show_trade_delay_option_2" : "En custodia",
+
+    "ehi_show_trade_delay_other_players_only": "Mostrar solo el contador de los compañeros",
+    "ehi_show_trade_delay_other_players_only_desc": "Al activar esta opción, el contador no mostrará cuántos civiles que mataste tú, pero sí cuántos mataron tus compañeros.",
+
+    "ehi_show_trade_delay_suppress_in_stealth" : "Ocultar el contador de custodia en sigilo",
+    "ehi_show_trade_delay_suppress_in_stealth_desc" : "Al activar esta opción, el contador no se mostrará en sigilo.\nUna vez que se active la alarma, éste volverá a aparecer con la demora total acumulada.",
+
+    "ehi_show_timers" : "Mostrar temporizadores",
+    "ehi_show_timers_desc" : "Mostrar / ocultar temporizadores al hackear, taladrar, cortar, etc.",
+
+    "ehi_show_camera_loop" : "Mostrar cámaras desactivadas",
+    "ehi_show_camera_loop_desc" : "Mostrar / ocultar un contador al haberse desactivado temporalmente una cámara de seguridad.",
+	
+	"ehi_show_enemy_turret_trackers" : "Mostrar contadores para torretas enemigas",
+    "ehi_show_enemy_turret_trackers_desc" : "Mostrar / ocultar contadores cuando las torretas enemigas estén recargando o reparándose.",
+
+    "ehi_show_zipline_timer" : "Mostrar contador de tirolinas",
+    "ehi_show_zipline_timer_desc" : "Mostrar / ocultar 2 temporizadores para tirolinas.\nEl primero, muestra cuánto tiempo le tomará dejar caer una bolsa / jugador.\nEl segundo, muestra el tiempo de reinicio de la tirolina.",
+
+    "ehi_show_gage_tracker" : "Mostrar contador de 'Paquetes de Gage'",
+    "ehi_show_gage_tracker_desc" : "Mostrar / ocultar un contador para los 'Paquetes de Gage' en el mapa.\nSi el mapa no permite estos paquetes, el contador no se mostrará.",
+
+    "ehi_gage_tracker_panel" : "Mostrar 'Paquetes de Gage' encontrados",
+    "ehi_gage_tracker_panel_desc" : "",
+    "ehi_gage_tracker_panel_1" : "En un contador",
+    "ehi_gage_tracker_panel_2" : "En ventana emergente",
+
+    "ehi_show_captain_damage_reduction" : "Mostrar reducción de daño enemigo",
+    "ehi_show_captain_damage_reduction_desc" : "Mostrar / ocultar un contador de reducción de daño enemigo cuando el Capitán Winters esté presente.",
+
+    "ehi_show_equipment_tracker" : "Mostrar contador de equipamiento",
+    "ehi_show_equipment_tracker_desc" : "Mostrar / ocultar contadores separados para todos los equipamientos.",
+
+    "ehi_equipment_menu" : "Menú de equipamiento",
+    "ehi_equipment_menu_desc" : "",
+
+    "ehi_equipment_format" : "Formato del equipamiento",
+    "ehi_equipment_format_desc" : "Definir cómo se muestran los contadores de equipamiento.",
+    "ehi_equipment_format_1" : "Usos (Equip. colocado)",
+    "ehi_equipment_format_2" : "(Equip. colocado) Usos",
+    "ehi_equipment_format_3" : "(Usos) Equip. colocado",
+    "ehi_equipment_format_4" : "Equip. colocado (Usos)",
+    "ehi_equipment_format_5" : "Usos",
+    "ehi_equipment_format_6" : "Equipamiento colocado",
+
+    "ehi_show_equipment_doctorbag" : "Mostrar contador de 'Botiquines médicos'",
+    "ehi_show_equipment_doctorbag_desc" : "Mostrar / ocultar un contador de 'Botiquines médicos'.",
+
+    "ehi_show_equipment_ammobag" : "Mostrar contador de 'Bolsas de munición'",
+    "ehi_show_equipment_ammobag_desc" : "Mostrar / ocultar un contador de 'Bolsas de munición'.",
+
+    "ehi_show_equipment_grenadecases" : "Mostrar contador de 'Maletines de arrojadizas'",
+    "ehi_show_equipment_grenadecases_desc" : "Mostrar / ocultar un contador de 'Maletines de arrojadizas'.",
+
+    "ehi_show_equipment_bodybags": "Mostrar contador de 'Cajas de bolsas para cadáveres'",
+    "ehi_show_equipment_bodybags_desc": "Mostrar / ocultar un contador de 'Cajas de bolsas para cadáveres'.\nEste contador se desactivará al sonar la alarma.",
+
+    "ehi_show_equipment_firstaidkit": "Mostrar contador de 'Botiquines de primeros auxilios'",
+    "ehi_show_equipment_firstaidkit_desc": "Mostrar / ocultar un contador de 'Botiquines de primeros auxilios'.",
+
+    "ehi_show_equipment_ecmjammer" : "Mostrar la duración de la 'Inhibición' del ECM",
+    "ehi_show_equipment_ecmjammer_desc" : "Mostrar / ocultar un contador con la duración restante de la 'Inhibición' del ECM.\nEl ECM con la duración más larga será el que se muestre en el contador.",
+
+    "ehi_show_equipment_ecmfeedback" : "Mostrar la duración del 'Acople acústico' del ECM",
+    "ehi_show_equipment_ecmfeedback_desc" : "Mostrar / ocultar un contador con la duración restante del 'Acople acústico' del ECM.\nEl ECM con la duración más larga será el que se muestre en el contador. (Solo como 'Anfitrión')",
+
+    "ehi_show_equipment_aggregate_health" : "Agrupar 'Botiquines médicos' y 'Botiquines de primeros auxilios'",
+    "ehi_show_equipment_aggregate_health_desc" : "Agrupar 'Botiquines médicos' y 'Botiquines de primeros auxilios' dentro de un mismo contador.",
+
+    "ehi_show_equipment_aggregate_all" : "Agrupar todos los 'Equipamientos desplegables'",
+    "ehi_show_equipment_aggregate_all_desc" : "Agrupar todos los 'Equipamientos desplegables' dentro de un mismo contador.\nCada uno usará un color respectivo que puedes cambiar más abajo.",
+
+    "ehi_doctor_bag" : "'Botiquín médico'",
+    "ehi_ammo_bag" : "'Bolsa de munición'",
+    "ehi_grenade_crate" : "'Maletín de arrojadizas'",
+    "ehi_first_aid_kit" : "'Botiquín de primeros auxilios'",
+    "ehi_bodybags_bag" : "'Caja de bolsas para cadáveres'",
+
+    "ehi_show_minion_tracker" : "Mostrar contador de enemigos convertidos",
+    "ehi_show_minion_tracker_desc" : "Mostrar / ocultar un contador de cuántos enemigos convertidos hay en el mapa.",
+
+    "ehi_show_minion_per_player" : "Mostrar enemigos convertidos por cada jugador",
+    "ehi_show_minion_per_player_desc" : "Mostrar / ocultar el número de enemigos convertidos por cada jugador con su color respectivo.",
+
+    "ehi_show_minion_killed_message" : "Mostrar mensaje de 'Enemigo convertido asesinado'",
+    "ehi_show_minion_killed_message_desc" : "Mostrar / ocultar un mensaje cuando tu enemigo convertido haya sido asesinado.",
+
+    "ehi_show_minion_killed_message_type" : "Cómo mostrar el mensaje",
+    "ehi_show_minion_killed_message_type_2" : "En un panel de pista",
+
+    "ehi_show_difficulty_tracker" : "Mostrar contador de dificultad",
+    "ehi_show_difficulty_tracker_desc" : "Mostrar / ocultar un contador con la dificultad del asalto en marcha.",
+
+    "ehi_show_drama_tracker" : "Mostrar contador de drama",
+    "ehi_show_drama_tracker_desc" : "Mostrar / ocultar un contador del drama acumulado. (Solo como 'Anfitrión')",
+
+    "ehi_show_pager_tracker" : "Mostrar contador de localizadores",
+    "ehi_show_pager_tracker_desc" : "Mostrar / ocultar un contador para saber cuántos localizadores quedan.",
+
+    "ehi_show_pager_callback_trackers" : "Mostrar temporizador de localizadores pendientes",
+    "ehi_show_pager_callback_trackers_desc" : "Mostrar / ocultar un temporizador para los localizadores que necesitan ser contestados.",
+
+    "ehi_show_enemy_count_tracker" : "Mostrar contador de enemigos",
+    "ehi_show_enemy_count_tracker_desc" : "Mostrar / ocultar un contador para la cantidad de enemigos que hay el mapa.",
+	
+	"ehi_show_enemy_count_show_pagers" : "Mostrar enemigos con localizador (Sigilo)",
+    "ehi_show_enemy_count_show_pagers_desc" : "Mostrar / ocultar los enemigos que llevan un localizador a la izquierda del contador, y los que no, a la derecha.\nSi se activa la alarma, solo será visible el número de enemigos en el mapa.",
+
+    "ehi_show_laser_tracker" : "Mostrar contador de láseres",
+    "ehi_show_laser_tracker_desc" : "Mostrar / ocultar un contador para el ciclo que hacen los láseres cada ciertos segundos.",
+
+    "ehi_show_assault_delay_tracker" : "Mostrar contador de demora de asalto",
+    "ehi_show_assault_delay_tracker_desc" : "Mostrar / ocultar un contador con el tiempo de demora para el próximo asalto.\nEste contador no se mostrará para los 'Clientes' que entren después de que se haya aumentado la dificultad del asalto.",
+
+    "ehi_show_loot_counter" : "Mostrar contador de bolsas",
+    "ehi_show_loot_counter_desc" : "Mostrar / ocultar un contador de cuántas bolsas hay en el atraco.",
+
+    "ehi_show_all_loot_secured_popup" : "Mostrar ventana emergente de 'Todas las bolsas aseguradas'",
+    "ehi_show_all_loot_secured_popup_desc" : "Mostrar / ocultar una ventana emergente al haber asegurado todas las bolsas del atraco.",
+
+    "ehi_variable_random_loot_format" : "Formato del botín aleatorio",
+    "ehi_variable_random_loot_format_desc" : "Definir cómo se muestra el botín adicional aleatorio.\nPor ejemplo:16 bolsas garantizadas en el atraco y 4 cajas fuertes que podrían no tener botín; 9 bolsas ya fueron aseguradas.\n\nOpción 1:\n9 / 16 - ¿20?\n\nOpción 2:\n9 / ¿20?\n\nOpción 3:\n9 / ¿16 + 4?",
+    "ehi_variable_random_loot_format_1" : "Progreso / Max. - ¿(Max. + Aleatorio)?",
+    "ehi_variable_random_loot_format_2" : "Progreso / ¿(Max. + Aleatorio)?",
+    "ehi_variable_random_loot_format_3" : "Progreso / ¿Max. + Aleatorio?",
+
+    "ehi_show_bodybags_counter" : "Mostrar contador de bolsas para cadáveres",
+    "ehi_show_bodybags_counter_desc" : "Mostrar / ocultar un contador de cuántas bolsas para cadáveres te quedan.",
+
+    "ehi_show_escape_chance" : "Mostrar posibilidad de huida",
+    "ehi_show_escape_chance_desc" : "Mostrar / ocultar un contador con la posibilidad de huida actual.",
+    
+    "ehi_waypoints_menu" : "Indicadores de ruta",
+    "ehi_waypoints_menu_desc" : "",
+
+    "ehi_show_waypoints" : "Mostrar indicadores de ruta",
+    "ehi_show_waypoints_desc" : "Mostrar / ocultar los indicadores de ruta en los mapas.",
+
+    "ehi_show_waypoints_only" : "Mostrar solo indicadores de ruta",
+    "ehi_show_waypoints_only_desc" : "Si está activado y el elemento tiene un contador y un indicador de ruta definidos, solo se mostrará el indicador de ruta.\nDe lo contrario, también se mostrará el contador.",
+
+    "ehi_show_waypoints_present_timer" : "Tiempo del indicador en pantalla",
+    "ehi_show_waypoints_present_timer_desc" : "Definir cuánto tiempo se mantendrá el indicador de ruta en pantalla antes de 'moverse' a su destino.",
+
+    "ehi_show_waypoints_enemy_turret" : "Mostrar indicadores de ruta para torretas enemigas",
+    "ehi_show_waypoints_enemy_turret_desc" : "Mostrar / ocultar un indicador de ruta para las torretas enemigas mientras están recargando o reparándose.",
+
+    "ehi_show_waypoints_timers" : "Mostrar indicadores de ruta para temporizadores",
+    "ehi_show_waypoints_timers_desc" : "Mostrar / ocultar un indicador de ruta para los temporizadores visibles en hackeos, taladros, sierras, etc.",
+
+    "ehi_show_waypoints_pager" : "Mostrar indicadores de ruta para localizadores",
+    "ehi_show_waypoints_pager_desc" : "Mostrar / ocultar un indicador de ruta para los localizadores que necesitan ser contestados.",
+
+    "ehi_show_waypoints_cameras" : "Mostrar indicadores de ruta para cámaras desactivadas",
+    "ehi_show_waypoints_cameras_desc" : "Mostrar / ocultar un indicador de ruta para las cámaras de seguridad temporalmente desactivadas.",
+
+    "ehi_show_waypoints_zipline" : "Mostrar indicadores de ruta para tirolinas",
+    "ehi_show_waypoints_zipline_desc" : "Mostrar / ocultar un indicador de ruta en una tirolina que esté en uso.\nSolo se mostrará su tiempo de reinicio.",
+
+    "ehi_buffs_menu" : "Bonificaciones",
+    "ehi_buffs_menu_desc" : "",
+
+    "ehi_show_buffs" : "Mostrar bonificaciones",
+    "ehi_show_buffs_desc": "Mostrar / ocultar las bonificaciones y tiempos de espera de habilidades y talentos.",
+
+    "ehi_buffs_scale_desc" : "Ajustar el tamaño de los indicadores de bonificación.\nCuanto mayor sea el número, más grandes serán los indicadores y viceversa.",
+
+    "ehi_buffs_alignment" : "Alineación",
+    "ehi_buffs_alignment_desc" : "Definir cómo se alinean los indicadores de bonificación en pantalla.",
+    "ehi_buffs_alignment_1" : "A la izquierda",
+    "ehi_buffs_alignment_2" : "En el centro",
+    "ehi_buffs_alignment_3" : "A la derecha",
+
+    "ehi_buffs_shape" : "Forma",
+    "ehi_buffs_shape_desc" : "Definir la forma que tienen los indicadores de bonificación en pantalla.",
+    "ehi_buffs_shape_1" : "Cuadrados",
+    "ehi_buffs_shape_2" : "Circulares",
+
+    "ehi_buffs_show_progress" : "Mostrar progreso",
+    "ehi_buffs_show_progress_desc" : "Mostrar / ocultar el progreso de las bonificaciones.\nDe forma predeterminada, el progreso irá en sentido de las agujas del reloj.",
+
+    "ehi_buffs_invert_progress" : "Progreso invertido",
+    "ehi_buffs_invert_progress_desc" : "Al activar esta opción, el progreso irá en sentido contrario a las agujas del reloj.\nAl desactivar esta opción, el progreso irá en sentido de las agujas del reloj.",
+
+    "ehi_buffs_skills_cooldown" : "Mostrar / ocultar el tiempo de espera para volver a usar la habilidad.",
+    "ehi_buffs_skills_duration" : "Mostrar / ocultar la duración del efecto de la habilidad.",
+    "ehi_buffs_skills_progress" : "Mostrar / ocultar el progreso de la especialización.",
+
+    "ehi_buffs_skills_menu" : "Habilidades",
+    "ehi_buffs_skills_mastermind_menu" : "MENTE MAESTRA",
+    "ehi_buffs_skills_mastermind_medic_subclass" : "Médico",
+    "ehi_buffs_skills_mastermind_inspire_basic" : "'Inspiración' (Básico)",
+    "ehi_buffs_skills_mastermind_inspire_basic_desc" : "Mostrar / ocultar el tiempo de espera después de inspirar a alguien.",
+    "ehi_buffs_skills_mastermind_inspire_ace" : "'Inspiración' (As)",
+    "ehi_buffs_skills_mastermind_inspire_ace_desc" : "Mostrar / ocultar el tiempo de espera después de revivir a alguien.",
+    "ehi_buffs_skills_mastermind_uppers" : "'Estimulantes'",
+    "ehi_buffs_skills_mastermind_uppers_range" : "'Estimulantes' (Rango)",
+    "ehi_buffs_skills_mastermind_uppers_range_desc" : "Mostrar / ocultar un indicador cuando estás dentro del rango de autocuración de la habilidad.",
+    "ehi_buffs_skills_mastermind_uppers_range_refresh" : "Actualización del indicador",
+    "ehi_buffs_skills_mastermind_uppers_range_refresh_desc" : "Establecer con qué frecuencia se debe actualizar el indicador por segundo.",
+    "ehi_buffs_skills_mastermind_quick_fix" : "'Urgencia médica'",
+    "ehi_buffs_skills_mastermind_painkillers" : "'Analgésicos'",
+    "ehi_buffs_skills_mastermind_combat_medic" : "'Médico combatiente'",
+    "ehi_buffs_skills_mastermind_controller_subclass" : "Controlador",
+    "ehi_buffs_skills_mastermind_hostage_taker_muscle" : "'Secuestrador'",
+    "ehi_buffs_skills_mastermind_forced_friendship" : "'Amistad forzada' (Absorción)",
+    "ehi_buffs_skills_mastermind_forced_friendship_desc" : "Mostrar / ocultar un indicador con la absorción de daño acumulada por la habilidad.",
+    "ehi_buffs_skills_mastermind_sharpshooter_subclass" : "Tirador",
+    "ehi_buffs_skills_mastermind_ammo_efficiency" : "'Eficiencia municiosa'",
+    "ehi_buffs_skills_mastermind_aggressive_reload" : "'Recarga agresiva'",
+
+    "ehi_buffs_skills_enforcer_menu" : "MATÓN",
+    "ehi_buffs_skills_enforcer_shotgunner_subclass" : "Escopetero",
+    "ehi_buffs_skills_enforcer_overkill" : "'Overkill'",
+    "ehi_buffs_skills_enforcer_underdog" : "'Mal perdedor'",
+    "ehi_buffs_skills_enforcer_tank_subclass" : "Tanque humano",
+    "ehi_buffs_skills_enforcer_bullseye" : "'Implacable'",
+    "ehi_buffs_skills_enforcer_ammo_specialist_subclass" : "Experto en municiones",
+    "ehi_buffs_skills_enforcer_bulletstorm" : "'Lluvia de balas'",
+
+    "ehi_buffs_skills_ghost_menu" : "FANTASMA",
+    "ehi_buffs_skills_ghost_shinobi_subclass" : "Shinobi",
+    "ehi_buffs_skills_ghost_sixth_sense_initial" : "'Sexto sentido' (Demora inicial)",
+    "ehi_buffs_skills_ghost_sixth_sense_marked" : "'Sexto sentido' (Enemigos marcados)",
+    "ehi_buffs_skills_ghost_sixth_sense_marked_desc" : "Mostrar / ocultar un indicador con la cantidad de enemigos marcados usando la habilidad.",
+    "ehi_buffs_skills_ghost_sixth_sense_refresh" : "'Sexto sentido' (Demora de actualización)",
+    "ehi_buffs_skills_ghost_artful_dodger_subclass" : "Evasor",
+    "ehi_buffs_skills_ghost_dire_need" : "'Desesperación'",
+    "ehi_buffs_skills_ghost_silent_killer_subclass" : "Asesino silencioso",
+    "ehi_buffs_skills_ghost_second_wind" : "'Segundas oportunidades'",
+    "ehi_buffs_skills_ghost_unseen_strike" : "'Ataque sorpresa'",
+
+    "ehi_buffs_skills_fugitive_menu" : "FUGITIVO",
+    "ehi_buffs_skills_fugitive_revenant_subclass" : "Revenant",
+    "ehi_buffs_skills_fugitive_running_from_death_reload" : "'Evitando la muerte' (Recarga y cambio)",
+    "ehi_buffs_skills_fugitive_running_from_death_movement" : "'Evitando la muerte' (Movimiento)",
+    "ehi_buffs_skills_fugitive_up_you_go" : "'Como nuevo'",
+    "ehi_buffs_skills_fugitive_swan_song" : "'Canto del cisne'",
+    "ehi_buffs_skills_fugitive_brawler_subclass" : "Luchador",
+    "ehi_buffs_skills_fugitive_bloodthirst" : "'Sed de sangre'",
+    "ehi_buffs_skills_fugitive_bloodthirst_reload" : "'Sed de sangre' (Recarga)",
+	"ehi_buffs_skills_fugitive_bloodthirst_ratio" : "'Sed de sangre' (Radio)",
+    "ehi_buffs_skills_fugitive_bloodthirst_ratio_desc" : "Establecer un porcentaje para mostrar el indicador de la habilidad.\nPoner el valor en 0% hará que la bonificación sea siempre visible.\n\nEl valor predeterminado es 34%, lo que equivale a 6 muertes en el juego Vanilla.",
+    "ehi_buffs_skills_fugitive_berserker" : "'Furia Berserker'",
+    "ehi_buffs_skills_fugitive_berserker_refresh" : "Actualización del indicador",
+    "ehi_buffs_skills_fugitive_berserker_refresh_desc" : "Establecer con qué frecuencia se debe actualizar el indicador por segundo.",
+
+    "ehi_buffs_perks_menu" : "Talentos",
+    "ehi_buffs_perks_infiltrator" : "Espía",
+    "ehi_buffs_perks_infiltrator_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Espía'.",
+    "ehi_buffs_perks_gambler" : "Apostador",
+    "ehi_buffs_perks_gambler_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Apostador'.",
+    "ehi_buffs_perks_grinder" : "Grinder",
+    "ehi_buffs_perks_grinder_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Grinder'.",
+    "ehi_buffs_perks_maniac" : "Maníaco",
+    "ehi_buffs_perks_maniac_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Maníaco'.",
+    "ehi_buffs_perks_anarchist" : "Anarquista / Armero",
+    "ehi_buffs_perks_anarchist_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera de los talentos 'Anarquista / Armero'.",
+    "ehi_buffs_perks_biker" : "Motociclista",
+    "ehi_buffs_perks_biker_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Motociclista'.",
+    "ehi_buffs_perks_kingpin" : "Narcotraficante",
+    "ehi_buffs_perks_kingpin_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Narcotraficante'.",
+    "ehi_buffs_perks_sicario" : "Sicario",
+    "ehi_buffs_perks_sicario_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Sicario'.",
+    "ehi_buffs_perks_stoic" : "Estoico",
+    "ehi_buffs_perks_stoic_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Estoico'.",
+    "ehi_buffs_perks_tag_team" : "Pareja",
+    "ehi_buffs_perks_tag_team_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Pareja'.",
+    "ehi_buffs_perks_hacker" : "Hacker",
+    "ehi_buffs_perks_hacker_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Hacker'.",
+    "ehi_buffs_perks_leech" : "Sanguijuela",
+    "ehi_buffs_perks_leech_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Sanguijuela'.",
+	"ehi_buffs_perks_copycat" : "Imitador",
+	"ehi_buffs_perks_copycat_desc" : "Mostrar / ocultar las bonificaciones y tiempos de espera del talento 'Imitador'.",
+
+    "ehi_buffs_other_menu" : "Otros",
+    "ehi_buffs_other_interact" : "Interacción",
+    "ehi_buffs_other_reload" : "Recarga",
+    "ehi_buffs_other_melee_charge" : "Demora de las armas cuerpo a cuerpo",
+    "ehi_buffs_other_shield_regen" : "Demora de la regeneración de armadura",
+    "ehi_buffs_other_stamina" : "Resistencia",
+    "ehi_buffs_other_dodge" : "Probabilidad de esquivar",
+    "ehi_buffs_other_dodge_refresh" : "Actualización del indicador",
+    "ehi_buffs_other_dodge_refresh_desc" : "Establecer con qué frecuencia se debe actualizar el indicador por segundo.",
+    "ehi_buffs_other_dodge_persistent" : "Permanecer en pantalla",
+    "ehi_buffs_other_dodge_persistent_desc" : "El indicador permanecerá en la pantalla cuando esta probabilidad sea inferior al 0%.",
+    "ehi_buffs_other_crit" : "Probabilidad de críticos",
+    "ehi_buffs_other_crit_refresh" : "Actualización del indicador",
+    "ehi_buffs_other_crit_refresh_desc" : "Establecer con qué frecuencia se debe actualizar el indicador por segundo.",
+    "ehi_buffs_other_crit_persistent" : "Permanecer en pantalla",
+    "ehi_buffs_other_crit_persistent_desc" : "El indicador permanecerá en la pantalla cuando esta probabilidad sea inferior al 0%.",
+    "ehi_buffs_other_inspire_ai" : "Inspiración (Bots)",
+    "ehi_buffs_other_regen_throwable_ai" : "Recuperación de arrojadizas (Bots)",
+	
+	"ehi_inventory_menu" : "Inventario",
+    "ehi_inventory_menu_desc" : "",
+
+    "ehi_show_inventory_detailed_description" : "Descripción detallada del inventario",
+    "ehi_show_inventory_detailed_description_desc" : "Mostrar / ocultar una descripción más detallada en las armas arrojadizas y el equipamiento desplegable.\n(Se requiere un reinicio para que los cambios surtan efecto)",
+
+    "ehi_hide_original_desc" : "Ocultar la descripción original",
+    "ehi_hide_original_desc_desc" : "Mostrar / ocultar la descripción original.\n(Se requiere un reinicio para que los cambios surtan efecto)",
+	
+	"ehi_bm_charges" : "%s uso(s) (%s usos en total)",
+    "ehi_bm_charges_no_total" : "%s uso(s)",
+    "ehi_bm_doctor_bag" : "Recupera tu salud completa y tus vidas totales.",
+    "ehi_bm_doctor_bag_2" : "Bonificación por URGENCIA MÉDICA (AS):\nDespués de usar el BOTIQUÍN, recibirás $multiplier menos de daño durante $duration;s.",
+    "ehi_bm_ammo_bag" : "Primero rellena la munición de tu arma secundaria, luego la de tu arma principal.",
+    "ehi_bm_ammo_bag_2" : "Bonificación por LLUVIA DE BALAS:\nTienes munición ilimitada después de usar la BOLSA DE MUNICIÓN por hasta %ds. (Depende de la cantidad de munición que hayas tomado)",
+    "ehi_bm_armor_kit" : "Permite equipar la PROTECCIÓN CORPORAL que has seleccionado en cualquier momento (hasta entonces, empiezas SIN PROTECCIÓN).\nDespués de haberla equipado, no podrás quitártela por el resto de la partida.",
+    "ehi_bm_ecm_jammer" : "Puedes usarlo para abrir ciertas puertas electrónicas.",
+    "ehi_bm_ecm_jammer_2" : "Retrasa la activación de los localizadores.",
+    "ehi_bm_bodybags_bag" : "Cada bolsa que recojas sirve para ocultar un cadáver. (Solo funciona en SIGILO)",
+    "ehi_bm_trip_mine" : "TRAMPAS INCENDIARIAS",
+    "ehi_bm_sentry_gun" : "Salud",
+    "ehi_bm_sentry_gun_2" : "Munición",
+    "ehi_bm_sentry_gun_3" : "Puedes alternar entre MUNICIÓN ESTÁNDAR y MUNICIÓN AP.",
+    "ehi_bm_sentry_gun_4" : "Usando la MUNICIÓN AP",
+    "ehi_bm_sentry_gun_5" : "ESCUDO FRONTAL equipado.",
+    "ehi_bm_sentry_gun_6" : "Coste de munición por colocarse",
+    "ehi_bm_sentry_gun_7" : "Precisión",
+    "ehi_bm_sentry_gun_8" : "grados",
+    "ehi_bm_sentry_gun_silent" : "Es silenciosa.",
+    "ehi_bm_first_aid_kit" : "Solo recupera tu salud completa.",
+    "ehi_bm_first_aid_kit_2" : "Bonificación por ESTIMULANTES (AS):\nSi eres incapacitado cerca del BOTIQUÍN (en un rango de %sm), éste evitará que caigas y regenerará automáticamente toda tu salud.\nEsto solo puede suceder cada %ds.",
+    "ehi_bm_grenade_crate" : "Usarla 1 vez te devolverá todas tus arrojadizas.",
+    "ehi_bm_grenade_crate_2" : "No funciona con las habilidades otorgadas por las cartas de los talentos.",
+    "ehi_bm_damage" : "Daño",
+    "ehi_bm_max_damage" : "Daño máximo",
+    "ehi_bm_range" : "Alcance",
+    "ehi_bm_base_cooldown" : "Tiempo de enfriamiento base",
+    "ehi_bm_duration" : "Duración",
+    "ehi_bm_cooldown_drain" : "Cada enemigo que mates reduce %ss a su tiempo de enfriamiento.",
+    "ehi_bm_instant" : "Instantánea",
+    "ehi_bm_poison" : "VENENO",
+    "ehi_bm_fire" : "FUEGO",
+    "ehi_bm_dot" : "Daño cada cierto tiempo",
+    "ehi_bm_dot_tick_period" : "Inflige daño cada %ss",
+    "ehi_bm_dot_chance" : "Prob. de aplicarse",
+    "ehi_bm_explosion" : "EXPLOSIÓN",
+    "ehi_bm_fir_com" : "Primero explota, luego libera una ráfaga de fuego.",
+    "ehi_bm_concussion_1" : "Puede aturdir a la mayoría de enemigos.",
+    "ehi_bm_concussion_2" : "Después de recuperarse, los enemigos aturdidos tendrán un %s%s menos de precisión durante %ds.",
+    "ehi_bm_poison_gas_grenade_1" : "Primero explota, luego libera una nube de gas venenoso.",
+    "ehi_bm_poison_gas_grenade_2" : "Nube de gas",
+    "ehi_bm_sticky_grenade" : "Se adhiere a enemigos y superficies.",
+    "ehi_bm_kingpin_1" : "Al estar activada, regeneras un %s%s de salud cada vez que recibes daño.",
+    "ehi_bm_kingpin_2" : "Al estar activada, eres el objetivo de enemigos cercanos siempre que sea posible.",
+    "ehi_bm_kingpin_3" : "Al estar activada, y cuando tu salud está por debajo del %s%s, el efecto de la adrenalina aumenta un %s%s.",
+    "ehi_bm_kingpin_4" : "Al estar activada, y cuando tu salud está al máximo, el tiempo de enfriamiento es reducido por %ss por cada %s de salud adicional.",
+    "ehi_bm_sicario_1" : "Todo jugador dentro del humo puede esquivar un %s%s de las balas y ataques cuerpo a cuerpo.",
+    "ehi_bm_sicario_2" : "La puntería de cualquier enemigo dentro del humo es reducida por un %s%s.",
+	"ehi_bm_sicario_3" : "Todos los efectos de estos talentos son aumentados por un %s%s al estar dentro del humo, pero solo para ti.",
+	"ehi_bm_sicario_4" : "Cuando otro jugador está dentro del humo, su probabilidad de esquivar balas es aumentada por un %s%s.",
+    "ehi_bm_stoic_1" : "Al usarla, se elimina todo el daño por tiempo pendiente.",
+    "ehi_bm_stoic_2" : "Cuando tu salud es menor al %s%s, el enfriamiento de la petaca es reducido por %ss por cada enemigo que mates.",
+    "ehi_bm_tagteam_1" : "Al estar activado, cada enemigo matado por ti y quien hayas marcado hace que tú regeneres %s de salud y quien hayas marcado regenere %s.",
+    "ehi_bm_tagteam_2_a" : "Al estar activado, cada enemigo matado por ti aumenta la duración del efecto por %ss y reduce por %ss su tiempo de enfriamiento.",
+    "ehi_bm_tagteam_2_b" : "Al estar activado, cada enemigo matado por ti aumenta la duración del efecto por %ss.",
+    "ehi_bm_tagteam_2_c" : "Al estar activado, cada enemigo matado por ti reduce por %ss su tiempo de enfriamiento.",
+    "ehi_bm_tagteam_2_d" : "Al estar activado, cada enemigo matado por quien hayas marcado reduce por %ss su tiempo de enfriamiento.",
+    "ehi_bm_tagteam_3" : "Al estar activado, cada enemigo matado por ti y quien hayas marcado otorga %s de absorción de daño, hasta un máximo de %s.\nEste efecto acaba cuando el cigarrillo está disponible de nuevo.",
+    "ehi_bm_hacker_1" : "Al estar activado (en ASALTO), cada enemigo que mates te regenera %d de salud.",
+    "ehi_bm_hacker_2" : "Al estar activado, tu probabilidad de esquivar balas aumenta temporalmente con cada enemigo matado: +%s%s durante %ss.",
+    "ehi_bm_hacker_3" : "Al estar activado (en ASALTO), cuando un compañero mata a un enemigo, este regenera %d de salud.",
+    "ehi_bm_leech_1" : "Al usarla, regeneras un %s%s de salud.",
+    "ehi_bm_leech_2" : "Al estar activada, deshabilita tu protección corporal mientras dure el efecto.",
+    "ehi_bm_leech_3" : "Al estar activada, y cada %s muerte(s) de enemigos, obtienes invulnerabilidad al daño durante %ss.",
+    "ehi_bm_leech_4" : "Al estar activada, tu salud se divide en %s segmentos, y matar a %s enemigos te devuelve 1 de esos segmentos.\nRecibir daño te quita 1 segmento.\nSi el daño que recibes es mayor a %s, pierdes %s segmento(s).",
+    "ehi_bm_leech_5" : "Al estar activada, no puedes ser incapacitado, pero perder toda tu salud realentiza tu velocidad de movimiento en %s%s.",
+    "ehi_bm_leech_6" : "Puedes activarla al ser incapacitado. Si logras revivir exitosamente a un compañero o utilizar un BOTIQUÍN MÉDICO, puedes seguir con vida si tienes más de 0 puntos de salud."
+}

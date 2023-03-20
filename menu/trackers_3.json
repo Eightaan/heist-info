@@ -1,0 +1,99 @@
+{
+    "menu_id": "ehi_trackers_3_menu",
+    "parent_menu" : "ehi_trackers_2_menu",
+    "title": "ehi_trackers_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_show_assault_delay_tracker_choice",
+            "title": "ehi_show_assault_delay_tracker",
+            "description": "ehi_show_assault_delay_tracker_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_assault_delay_tracker",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_assault_delay_tracker",
+            "default_value": true,
+            "is_parent" : true,
+            "ehi_ver" : 78
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_loot_counter_choice",
+            "title": "ehi_show_loot_counter",
+            "description": "ehi_show_loot_counter_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_loot_counter",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_loot_counter",
+            "default_value": true,
+            "is_parent" : true,
+            "ehi_ver" : 80
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_all_loot_secured_popup_choice",
+            "title": "ehi_show_all_loot_secured_popup",
+            "description": "ehi_show_all_loot_secured_popup_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_all_loot_secured_popup",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_all_loot_secured_popup",
+            "default_value": true,
+            "parent": "ehi_show_loot_counter_choice",
+            "ehi_ver" : 82
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_variable_random_loot_format_choice",
+            "title": "ehi_variable_random_loot_format",
+            "description": "ehi_variable_random_loot_format_desc",
+            "callback": "SetOption",
+            "callback_arguments": "variable_random_loot_format",
+            "items": [
+                "ehi_variable_random_loot_format_1",
+                "ehi_variable_random_loot_format_2",
+                "ehi_variable_random_loot_format_3"
+            ],
+            "value": "variable_random_loot_format",
+            "default_value": 3,
+            "parent": "ehi_show_loot_counter_choice",
+            "ehi_ver" : 82
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_bodybags_counter_choice",
+            "title": "ehi_show_bodybags_counter",
+            "description": "ehi_show_bodybags_counter_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_bodybags_counter",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_bodybags_counter",
+            "default_value": true,
+            "ehi_ver" : 83
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_escape_chance_choice",
+            "title": "ehi_show_escape_chance",
+            "description": "ehi_show_escape_chance_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_escape_chance",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_escape_chance",
+            "default_value": false,
+            "ehi_ver" : 84
+        }
+    ]
+}

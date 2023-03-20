@@ -1,0 +1,136 @@
+{
+    "menu_id": "ehi_waypoints_menu",
+    "parent_menu" : "ehi_menu",
+    "title": "ehi_waypoints_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_choice",
+            "title": "ehi_show_waypoints",
+            "description": "ehi_show_waypoints_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints",
+            "value": "show_waypoints",
+            "default_value": true,
+            "is_parent" : true,
+            "ehi_ver" : 21
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_only_choice",
+            "title": "ehi_show_waypoints_only",
+            "description": "ehi_show_waypoints_only_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_only",
+            "value": "show_waypoints_only",
+            "default_value": false,
+            "parent" : "ehi_show_waypoints_choice",
+            "ehi_ver" : 29
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "slider",
+            "id": "ehi_show_waypoints_present_timer_choice",
+            "title": "ehi_show_waypoints_present_timer",
+            "description": "ehi_show_waypoints_present_timer_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_present_timer",
+            "value": "show_waypoints_present_timer",
+            "default_value": 2,
+            "max": 5,
+            "min": 0,
+            "step": 2,
+            "parent" : "ehi_show_waypoints_choice",
+            "ehi_ver" : 21
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_enemy_turret_choice",
+            "title": "ehi_show_waypoints_enemy_turret",
+            "description": "ehi_show_waypoints_enemy_turret_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_enemy_turret",
+            "value": "show_waypoints_enemy_turret",
+            "default_value": true,
+            "parent" : "ehi_show_waypoints_choice",
+            "depends_on" : "ehi_show_enemy_turret_trackers",
+            "ehi_ver" : 21
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_timers_choice",
+            "title": "ehi_show_waypoints_timers",
+            "description": "ehi_show_waypoints_timers_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_timers",
+            "value": "show_waypoints_timers",
+            "default_value": true,
+            "parent" : "ehi_show_waypoints_choice",
+            "depends_on" : "ehi_show_timers",
+            "ehi_ver" : 26
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_pager_choice",
+            "title": "ehi_show_waypoints_pager",
+            "description": "ehi_show_waypoints_pager_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_pager",
+            "value": "show_waypoints_pager",
+            "default_value": true,
+            "parent" : "ehi_show_waypoints_choice",
+            "depends_on" : "ehi_show_pager_callback_trackers",
+            "ehi_ver" : 26
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_cameras_choice",
+            "title": "ehi_show_waypoints_cameras",
+            "description": "ehi_show_waypoints_cameras_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_cameras",
+            "value": "show_waypoints_cameras",
+            "default_value": true,
+            "parent" : "ehi_show_waypoints_choice",
+            "depends_on" : "ehi_show_camera_loop",
+            "ehi_ver" : 35
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_zipline_choice",
+            "title": "ehi_show_waypoints_zipline",
+            "description": "ehi_show_waypoints_zipline_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_zipline",
+            "value": "show_waypoints_zipline",
+            "default_value": true,
+            "parent" : "ehi_show_waypoints_choice",
+            "depends_on" : "ehi_show_zipline_timer",
+            "ehi_ver" : 55
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_waypoints_ecmjammer_choice",
+            "title": "ehi_show_waypoints_ecmjammer",
+            "description": "ehi_show_waypoints_ecmjammer_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_waypoints_ecmjammer",
+            "value": "show_waypoints_ecmjammer",
+            "default_value": true,
+            "parent" : "ehi_show_waypoints_choice",
+            "depends_on" : "ehi_show_equipment_ecmjammer",
+            "ehi_ver" : 136
+        }
+    ]
+}

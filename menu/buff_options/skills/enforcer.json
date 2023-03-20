@@ -1,0 +1,74 @@
+{
+    "menu_id": "ehi_buffs_skills_enforcer_menu",
+    "parent_menu" : "ehi_buffs_skills_menu",
+    "title": "ehi_buffs_skills_enforcer_menu",
+    "items": [
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_enforcer_shotgunner_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_enforcer_overkill_choice",
+            "title": "ehi_buffs_skills_enforcer_overkill",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "overkill",
+            "value": "overkill",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_enforcer_underdog_choice",
+            "title": "ehi_buffs_skills_enforcer_underdog",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "underdog",
+            "value": "underdog",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_enforcer_tank_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_enforcer_bullseye_choice",
+            "title": "ehi_buffs_skills_enforcer_bullseye",
+            "description": "ehi_buffs_skills_cooldown",
+            "callback": "SetBuffOption",
+            "callback_arguments": "bullseye",
+            "value": "bullseye",
+            "default_value": true,
+            "ehi_ver" : 79
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type" : "label",
+            "title" : "ehi_buffs_skills_enforcer_ammo_specialist_subclass",
+            "center" : true
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_enforcer_bulletstorm_choice",
+            "title": "ehi_buffs_skills_enforcer_bulletstorm",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "bulletstorm",
+            "value": "bulletstorm",
+            "default_value": true,
+            "ehi_ver" : 79
+        }
+    ]
+}

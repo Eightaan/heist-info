@@ -1,0 +1,209 @@
+{
+    "ehi_mod_title" : "Extra Heist Info",
+    "ehi_mod_desc" : "",
+
+    "ehi_item_depends_on" : "L'opzione '$option;' deve essere abilitata per funzionare",
+
+    "ehi_menu_next_page" : "Pagina successiva -->",
+    "ehi_menu_previous_page" : "<-- Pagina precedente",
+
+    "ehi_language" : "Lingua",
+    "ehi_language_desc" : "Cambia la lingua della mod. È necessario un caricamento per rendere effettive le modifiche.",
+    "ehi_language_1" : "Rileva automaticamente",
+ 
+    "ehi_r" : "Rosso",
+    "ehi_g" : "Verde",
+    "ehi_b" : "Blu",
+    "ehi_button_ok" : "OK",
+    "ehi_color_reset" : "Ripristina Colore",
+ 
+    "ehi_preview" : "Anteprima (Richiede il riavvio della mappa perché le modifiche facciano effetto)\nL'angolo rosso indica dove apparirà il primo tracciatore",
+ 
+    "ehi_x_offset" : "Posizione X",
+    "ehi_x_offset_desc" : "Posizione X",
+    "ehi_y_offset" : "Posizione Y",
+    "ehi_y_offset_desc" : "Posizione Y",
+ 
+    "ehi_text_scale" : "Dimensione Testo",
+    "ehi_text_scale_desc" : "Imposta la dimensione del testo.\nQuesta funzionalità è utile per i giocatori che modificano il font originale",
+ 
+    "ehi_scale" : "Dimensione",
+    "ehi_scale_desc" : "Imposta la dimensione del tracciatore. Più il numero è alto, più i tracciatori sono grossi e vice versa",
+ 
+    "ehi_vr_scale": "Dimensione VR",
+    "ehi_vr_scale_desc": "Imposta la dimensione dei tracciatori in VR. Più il numero è alto, più i tracciatori sono grossi e vice versa",
+ 
+    "ehi_time_format" : "Formato Orario",
+    "ehi_time_format_desc" : "Definisce quale formato dovrebbero usare i tracciatori",
+    "ehi_time_format_1" : "Solo secondi",
+    "ehi_time_format_2" : "Minuti e secondi",
+ 
+    "ehi_tracker_alignment" : "Allineamento Tracciatore",
+    "ehi_tracker_alignment_desc" : "Definisce come dovrebbero allinearsi i tracciatori",
+    "ehi_tracker_alignment_1" : "Verticale",
+    "ehi_tracker_alignment_2" : "Orizzontale",
+ 
+    "ehi_visuals_menu" : "Aspetto visivo",
+    "ehi_visuals_menu_desc" : "",
+ 
+    "ehi_show_tracker_bg" : "Mostra Sfondo Tracciatore",
+    "ehi_show_tracker_bg_desc" : "Mostra lo sfondo del tracciatore\nQuando disattivato, lo sfondo è nascosto e l'animazione non è visibile",
+ 
+    "ehi_show_one_icon" : "Mostra 1 Icona nel Tracciatore",
+    "ehi_show_one_icon_desc" : "Quando attivato, mostra 1 icona nel tracciatore\nQuando disattivato, tutte l'icone saranno visibili",
+ 
+    "ehi_trackers_menu" : "Tracciatori",
+    "ehi_trackers_menu_desc" : "",
+ 
+    "ehi_show_achievements" : "Mostra Tracciatore Achievement",
+    "ehi_show_achievements_desc" : "Mostra achievement sullo schermo\nAlcuni colpi potrebbero non essere disponibili",
+ 
+    "ehi_hide_unlocked_achievements" : "Non Mostrare gli Achievement Sbloccati",
+    "ehi_hide_unlocked_achievements_desc" : "Quando attivato, EHI non mostrerà il tracciatore per gli achievement sbloccati\nQuando disattivato, EHI mostrerà tutti i tracciatori per gli achievement",
+ 
+    "ehi_show_gained_xp" : "Mostra PE Guadagnati",
+    "ehi_show_gained_xp_desc" : "Mostra i PE guadagnati in missione.\nQuesto tracciatore è disabilitato nella Serie Criminale.",
+ 
+    "ehi_xp_format" : "Formato dei PE Guadagnati",
+    "ehi_xp_format_desc" : "Esempio: Valore base: 1000; Difficoltà Apocalisse\nSolo il valore base: 1000\nValore moltiplicato per la difficoltà: 13000\nValore moltiplicato con tutti i bonus PE: 13000+",
+    "ehi_xp_format_base" : "Mostra solo il valore base",
+    "ehi_xp_format_difficulty_multiplier" : "Mostra il valore moltiplicato per la difficoltà",
+    "ehi_xp_format_all_bonuses" : "Mostra il valore moltiplicato per i bonus PE",
+ 
+    "ehi_xp_panel" : "Come Mostrare i PE Guadagnati",
+    "ehi_xp_panel_desc" : "",
+    "ehi_xp_panel_1" : "Mostra pannello per ogni PE guadagnato",
+    "ehi_xp_panel_2" : "Mostra PE totali guadagnati dal colpo",
+	"ehi_xp_panel_3" : "Mostra una notifica per tutti i PE guadagnati ed i PE totali",
+    "ehi_xp_panel_4" : "Mostra un consiglio per tutti i PE guadagnati ed i PE totali",
+ 
+    "ehi_total_xp_show_difference" : "Mostra Differenza PE",
+    "ehi_total_xp_show_difference_desc" : "Sola opzione: [Mostra i PE totali guadagnati dal colpo]!\nMostra quanti PE hai guadagnato in un tracciatore indipendente",
+ 
+    "ehi_show_trade_delay" : "Mostra tracciatore di ritardo nello scambio",
+    "ehi_show_trade_delay_desc" : "Mostra il ritardo nello scambio quando te o un tuo compagno di squadra uccidete un civile",
+ 
+    "ehi_show_trade_delay_option" : "Quando Mostrare il tracciatore di ritardo nello scambio",
+    "ehi_show_trade_delay_option_desc": "Sempre: Mostra sempre un tracciatore quando tu o un tuo compagno di squadra uccidete un civile\nIn Arresto: Mostra un tracciatore quando tu o un tuo compagno di squadra siete in arresto e avete ucciso almeno 1 civile",
+    "ehi_show_trade_delay_option_1" : "Sempre",
+    "ehi_show_trade_delay_option_2" : "In Arresto",
+ 
+    "ehi_show_trade_delay_other_players_only": "Mostra il tracciatore di ritardo nello scambio solo per gli altri giocatori",
+    "ehi_show_trade_delay_other_players_only_desc": "Quando attivato, questo tracciatore non mostrerà quanti civili hai ucciso ma verrà comunque mostrato agli altri giocatori.",
+ 
+    "ehi_show_trade_delay_suppress_in_stealth" : "Non mostrare il tracciatore di ritardo nello scambio in Furtiva",
+    "ehi_show_trade_delay_suppress_in_stealth_desc" : "Nasconde il ritardo nello scambio in modalità Furtiva quando attivato. Una volta che l'allarme suona, il tracciatore appare con tutto il ritardo accumulato.",
+ 
+    "ehi_show_timers" : "Mostra Timer",
+    "ehi_show_timers_desc" : "Mostra i timer per l'hacking, i trapani, la sega circolare, ecc...",
+ 
+    "ehi_show_zipline_timer" : "Mostra Tracciatore Teleferica",
+    "ehi_show_zipline_timer_desc" : "Mostra 2 timer per la teleferica.\nIl primo timer mostra quanto tempo ci vuole per far cadere una borsa/giocatore, il secondo mostra il tempo per il ripristino della teleferica",
+ 
+    "ehi_show_gage_tracker" : "Mostra Tracciatore di Gage",
+    "ehi_show_gage_tracker_desc" : "Mostra il tracciatore per i pacchetti Gage sulla mappa.\nSe la mappa non consente i pacchetti di Gage, il tracciatore non verrà visualizzato",
+ 
+    "ehi_gage_tracker_panel" : "Mostra progressi per i pacchetti di Gage",
+    "ehi_gage_tracker_panel_desc" : "",
+    "ehi_gage_tracker_panel_1" : "Tracciatore",
+    "ehi_gage_tracker_panel_2" : "Notifica",
+ 
+    "ehi_show_captain_damage_reduction" : "Mostra la Riduzione del Danno al Nemico",
+    "ehi_show_captain_damage_reduction_desc" : "Mostra il tracciatore per la riduzione del danno quando il Capitano è presente",
+ 
+    "ehi_show_equipment_tracker" : "Mostra Tracciatore Equipaggiamento",
+    "ehi_show_equipment_tracker_desc" : "Mostra un tracciatore separato per borse mediche, borse di munizioni, custodie per granate, sacchi per cadaveri e kit di pronto soccorso",
+ 
+    "ehi_equipment_menu" : "Menu Equipaggiamento",
+    "ehi_equipment_menu_desc" : "",
+ 
+    "ehi_equipment_format" : "Formato Equipaggiamento",
+    "ehi_equipment_format_desc" : "Definisce il formato dell'attrezzatura",
+    "ehi_equipment_format_1" : "Utilizzi (Borse piazzate)",
+    "ehi_equipment_format_2" : "(Borse piazzate) Utilizzi",
+    "ehi_equipment_format_3" : "(Utilizzi) Borse piazzate",
+    "ehi_equipment_format_4" : "Borse piazzate (Utilizzi)",
+    "ehi_equipment_format_5" : "Utilizzi",
+    "ehi_equipment_format_6" : "Borse piazzate",
+ 
+    "ehi_show_equipment_doctorbag" : "Mostra Tracciatore Borse Mediche",
+    "ehi_show_equipment_doctorbag_desc" : "Mostra un tracciatore sulle Borse Mediche",
+ 
+    "ehi_show_equipment_ammobag" : "Mostra Tracciatore Borsa di Munizioni",
+    "ehi_show_equipment_ammobag_desc" : "Mostra un tracciatore sulle Borse di Munizioni",
+ 
+    "ehi_show_equipment_grenadecases" : "Mostra Tracciatore Custodie per Granate",
+    "ehi_show_equipment_grenadecases_desc" : "Mostra un tracciatore sulle Custodie per Granate",
+ 
+    "ehi_show_equipment_bodybags": "Mostra Tracciatore Sacchi per Cadaveri",
+    "ehi_show_equipment_bodybags_desc": "Mostra un tracciatore per i Sacchi per Cadaveri\nQuesto tracciatore viene rimosso quando suona l'allarme",
+ 
+    "ehi_show_equipment_firstaidkit": "Mostra Tracciatore Kit di Pronto Soccorso",
+    "ehi_show_equipment_firstaidkit_desc": "Mostra un tracciatore per i Kit di Pronto Soccorso",
+ 
+    "ehi_show_equipment_ecmjammer" : "Mostra Tracciatore Durata Jammer ECM",
+    "ehi_show_equipment_ecmjammer_desc" : "Mostra un tracciatore per la durata rimanente di un Jammer ECM\nNel tracciatore viene visualizzato il Jammer ECM con la durata più lunga",
+ 
+    "ehi_show_equipment_ecmfeedback" : "Mostra Monitoraggio della Durata del Feedback ECM",
+    "ehi_show_equipment_ecmfeedback_desc" : "Mostra un tracciatore per la durata rimanente di un feedback ECM\nNel tracciatore viene visualizzato il feedback ECM con la durata più lunga (solo host)",
+ 
+    "ehi_show_equipment_aggregate_health" : "Borse Mediche Aggregate e Kit di Pronto Soccorso",
+    "ehi_show_equipment_aggregate_health_desc" : "Aggrega le borse mediche e i kit di pronto soccorso in un unico tracciatore",
+ 
+    "ehi_show_equipment_aggregate_all" : "Aggrega Tutti gli Schierabili",
+    "ehi_show_equipment_aggregate_all_desc" : "Aggrega tutti gli schierabili in un tracciatore\nGli schierabili usano il rispettivo colore dal basso",
+ 
+    "ehi_doctor_bag" : "Borsa Medica",
+    "ehi_ammo_bag" : "Borsa di Munizioni",
+    "ehi_grenade_crate" : "Custodia per Granate",
+    "ehi_first_aid_kit" : "Kit di Pronto Soccorso",
+    "ehi_bodybags_bag" : "Sacchi per Cadaveri",
+ 
+    "ehi_show_minion_tracker" : "Mostra Tracciatore Convertiti",
+    "ehi_show_minion_tracker_desc" : "Mostra un tracciatore per segnalare il numero di poliziotti convertiti presente sulla mappa",
+ 
+    "ehi_show_minion_per_player" : "Mostra Numero di Convertiti per Giocatore",
+    "ehi_show_minion_per_player_desc" : "Mostra nel tracciatore il numero di conversioni colorate del giocatore",
+ 
+    "ehi_show_difficulty_tracker" : "Mostra Tracciatore Difficoltà",
+    "ehi_show_difficulty_tracker_desc" : "Mostra un tracciatore per quanto è difficile l'ondata",
+ 
+    "ehi_show_drama_tracker" : "Mostra Tracciatore Dramma",
+    "ehi_show_drama_tracker_desc" : "Mostra un tracciatore per il dramma accumulato (solo host)",
+ 
+    "ehi_show_pager_tracker" : "Mostra Tracciatore Cercapersone",
+    "ehi_show_pager_tracker_desc" : "Mostra un tracciatore per il numero di cercapersone rimasti",
+ 
+    "ehi_show_pager_callback_trackers" : "Mostra i timer per rispondere al cercapersone",
+    "ehi_show_pager_callback_trackers_desc" : "Mostra un tracciatore per i cercapersone a cui è necessario rispondere",
+ 
+    "ehi_show_enemy_count_tracker" : "Mostra Tracciatore Conteggio Nemici",
+    "ehi_show_enemy_count_tracker_desc" : "Mostra un tracciatore per tutti i nemici sulla mappa",
+ 
+    "ehi_show_laser_tracker" : "Mostra Tracciatore Laser",
+    "ehi_show_laser_tracker_desc" : "Mostra un tracciatore per i laser che cambino ogni paio di secondi",
+ 
+    "ehi_waypoints_menu" : "Punti di Riferimento",
+    "ehi_waypoints_menu_desc" : "",
+ 
+    "ehi_show_waypoints" : "Mostra Punti di Riferimento",
+    "ehi_show_waypoints_desc" : "Mostra le punti di riferimento nel mondo di gioco",
+ 
+    "ehi_show_waypoints_only" : "Mostra Solo Punti di Riferimento",
+    "ehi_show_waypoints_only_desc" : "Quando questa impostazione viene attivata e un elemento ha sia un tracciatore che un punto di riferimento, mostra solo il punto di riferimento\nAltrimenti verrà mostrato il tracciatore",
+ 
+    "ehi_show_waypoints_present_timer" : "Timer Presente",
+    "ehi_show_waypoints_present_timer_desc" : "Imposta per quanto tempo il punto di riferimento rimarrà sullo schermo prima che si 'sposti' verso la sua destinazione",
+ 
+    "ehi_show_waypoints_enemy_turret" : "Mostra Punto di Riferimento per le Torrette Nemiche",
+    "ehi_show_waypoints_enemy_turret_desc" : "Mostra un punto di riferimento sulla torretta nemica durante la ricarica o la riparazione",
+ 
+    "ehi_show_waypoints_timers" : "Mostra Punto di Riferimento per i Timer",
+    "ehi_show_waypoints_timers_desc" : "Mostra un punto di riferimento su un timer visibile (hacking, trapano, sega circolare, ecc ...)",
+ 
+    "ehi_show_waypoints_pager" : "Mostra Punto di Riferimento per i Cercapersone",
+    "ehi_show_waypoints_pager_desc" : "Mostra un punto di riferimento sui cercapersone a cui è necessario rispondere",
+ 
+    "ehi_show_waypoints_cameras" : "Mostra Punto di Riferimento per le Telecamere in Loop",
+    "ehi_show_waypoints_cameras_desc" : "Mostra un punto di riferimento su una telecamera che è attualmente in loop"
+}

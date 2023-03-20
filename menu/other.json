@@ -1,0 +1,47 @@
+{
+    "menu_id": "ehi_other_menu",
+    "parent_menu" : "ehi_menu",
+    "title": "ehi_other_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_other_show_remaining_xp_choice",
+            "title": "ehi_other_show_remaining_xp",
+            "description": "ehi_other_show_remaining_xp_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_remaining_xp",
+            "value": "show_remaining_xp",
+            "default_value": true,
+            "is_parent" : true,
+            "ehi_ver" : 129
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_other_show_remaining_xp_to_100_choice",
+            "title": "ehi_other_show_remaining_xp_to_100",
+            "description": "ehi_other_show_remaining_xp_to_100_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_remaining_xp_to_100",
+            "value": "show_remaining_xp_to_100",
+            "default_value": false,
+            "parent" : "ehi_other_show_remaining_xp_choice",
+            "ehi_ver" : 129
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_other_show_mission_xp_overview_choice",
+            "title": "ehi_other_show_mission_xp_overview",
+            "description": "ehi_other_show_mission_xp_overview_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_mission_xp_overview",
+            "value": "show_mission_xp_overview",
+            "default_value": true,
+            "depends_on" : "ehi_show_gained_xp",
+            "ehi_ver" : 129
+        }
+    ]
+}

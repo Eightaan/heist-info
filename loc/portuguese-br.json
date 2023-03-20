@@ -1,0 +1,199 @@
+{
+    "ehi_mod_title" : "Extra Heist Info",
+    "ehi_mod_desc" : "",
+
+    "ehi_item_depends_on" : "A opção '$option;' deve estar ativo para que possa funcionar",
+
+    "ehi_menu_next_page" : "Próxima página -->",
+    "ehi_menu_previous_page" : "<-- Página anterior",
+
+    "ehi_language" : "Idioma",
+    "ehi_language_desc" : "Mude o idioma do mod. Carregar um mapa é preciso para ter efeito.",
+    "ehi_language_1" : "Auto detectação",
+
+    "ehi_r" : "Vermelho",
+    "ehi_g" : "Verde",
+    "ehi_b" : "Azul",
+    "ehi_button_ok" : "OK",
+    "ehi_color_reset" : "Redefinir a cor",
+
+    "ehi_preview" : "Prévia (É necessário recarregar o mapa para ter efeito)\nO canto vermelho indica onde o primeiro Tracker vai ser pocisionado",
+
+    "ehi_x_offset" : "Posição X",
+    "ehi_x_offset_desc" : "Posição X",
+    "ehi_y_offset" : "Posição Y",
+    "ehi_y_offset_desc" : "Posição Y",
+
+    "ehi_text_scale" : "Tamanho do Texto",
+    "ehi_text_scale_desc" : "Definie o tamanho do texto.\nEssa opção é útil para jogadores que tem mods de fontes",
+
+    "ehi_scale" : "Tamanho",
+    "ehi_scale_desc" : "Edite o tamanho dos Trackers. Mais alto o número, mais grande os Trackers e vice versa",
+
+    "ehi_vr_scale": "Tamanho no VR",
+    "ehi_vr_scale_desc": "Edite o tamanho dos Trackers em VR. Mais alto o número, mais grande os Trackers e vice versa",
+
+    "ehi_time_format" : "Formato do Tempo",
+    "ehi_time_format_desc" : "Define o formato do tempo que o Tracker vai usar",
+    "ehi_time_format_1" : "Apenas Segundos",
+    "ehi_time_format_2" : "Minutos e Segundos",
+
+    "ehi_visuals_menu" : "Visuais",
+    "ehi_visuals_menu_desc" : "",
+
+    "ehi_show_tracker_bg" : "Mostrar o fundo do Tracker",
+	"ehi_show_tracker_bg_desc" : "Mostra o fundo do Tracker\nQuando desativado, o fundo é escondido e a animação não é visível",
+
+    "ehi_show_one_icon" : "Mostra 1 ícone no Tracker",
+	"ehi_show_one_icon_desc" : "Mostra 1 ícone no Tracker quando ativado\nTodos os ícones são visíveis quando essa opção está desativado",
+
+    "ehi_trackers_menu" : "Trackers",
+    "ehi_trackers_menu_desc" : "",
+
+    "ehi_show_gained_xp" : "Mostrar XP Ganho",
+    "ehi_show_gained_xp_desc" : "Mostra o XP Ganho em uma missão.\nEsse Tracker é desativado em Crime Spree.",
+
+    "ehi_xp_format" : "Formato do XP Ganho",
+    "ehi_xp_format_desc" : "Exemplo: Valor inicial: 1000; Dificuldade Death Wish\nApenas o Valor inicial: 1000\nValor multiplicado com a dificuldade: 13000\nValor multiplicado com todos os Bônus: 13000+",
+    "ehi_xp_format_base" : "Mostrar apenas o Valor inicial",
+    "ehi_xp_format_difficulty_multiplier" : "Mostrar o valor multiplicado com a dificuldade",
+    "ehi_xp_format_all_bonuses" : "Mostra o valor multiplicado com todos os bônus de XP",
+
+    "ehi_xp_panel" : "Como mostra o XP Ganho",
+    "ehi_xp_panel_desc" : "",
+    "ehi_xp_panel_1" : "Mostra o Tracker para cada XP Ganho",
+    "ehi_xp_panel_2" : "Mostra o XP Total Ganho da missão",
+
+    "ehi_show_trade_delay" : "Mostrar o Tracker do Atraso da Troca",
+    "ehi_show_trade_delay_desc" : "Mostra o atraso da troca quando você ou os seus aliados matam um civil",
+
+    "ehi_show_trade_delay_option" : "Quando Mostrar o Atraso da Troca",
+    "ehi_show_trade_delay_option_desc": "Sempre: Sempre mostra um Tracker quando você ou os seus aliados matam um civil\nEm Custódia: Mostra um Tracker quando você ou os seus aliados foram para custódia e têrem matado pelo menos um civil",
+    "ehi_show_trade_delay_option_1" : "Sempre",
+    "ehi_show_trade_delay_option_2" : "Em Custódia",
+
+    "ehi_show_trade_delay_other_players_only": "Mostra o Atraso da Troca apenas para os outros jogadores",
+    "ehi_show_trade_delay_other_players_only_desc": "Quando ativado, esse Tracker não vai mostrar quantos civis você matou, mas só irá mostrar para outros jogadores.",
+
+    "ehi_show_timers" : "Mostrar Timers",
+    "ehi_show_timers_desc" : "Mostra timers para hacks, furadeiras, serras, etc...",
+
+    "ehi_show_zipline_timer" : "Mostrar o Tracker das Tirolesas",
+    "ehi_show_zipline_timer_desc" : "Mostra 2 timers para tirolesas.\nPrimeiro timer mostra quanto tempo vai demorar para soltar a bolsa/jogador, segundo vai mostrar quando a tirolesa vai ficar disponível de novo",
+
+    "ehi_show_gage_tracker" : "Mostrar o Tracker de Gage",
+    "ehi_show_gage_tracker_desc" : "Mostra o Tracker dos pacotes do Gage no mapa.\nSe o mapa não permite os pacotes do Gage, o Tracker não vai ser mostrado",
+
+    "ehi_show_captain_damage_reduction" : "Mostrar a Redução de Dano do Inimigo",
+    "ehi_show_captain_damage_reduction_desc" : "Mostra o Tracker para a redução de dano quando o Capitão estiver presente",
+
+    "ehi_show_equipment_tracker" : "Mostrar Tracker de Equipamento",
+    "ehi_show_equipment_tracker_desc" : "Mostra um Tracker separado para Doctor Bags, Ammo Bags, Grenade Cases, Body Bags e First Aid Kits",
+
+    "ehi_equipment_menu" : "Menu de Equipamento",
+    "ehi_equipment_menu_desc" : "",
+
+    "ehi_equipment_format" : "Formato do Equipamento",
+	"ehi_equipment_format_desc" : "Define como o equipamento deve ser exibido",
+	"ehi_equipment_format_1" : "Usos (Bolsas Colocadas)",
+	"ehi_equipment_format_2" : "(Bolsas Colocadas) Usos",
+	"ehi_equipment_format_3" : "(Usos) Bolsas Colocadas",
+	"ehi_equipment_format_4" : "Bolsas Colocadas (Usos)",
+	"ehi_equipment_format_5" : "Usos",
+	"ehi_equipment_format_6" : "Bolsas Colocadas",
+
+    "ehi_show_equipment_doctorbag" : "Mostrar Doctor Bags",
+    "ehi_show_equipment_doctorbag_desc" : "Mostra um Tracker das Doctor Bags",
+
+    "ehi_show_equipment_ammobag" : "Mostrar Ammo Bags",
+    "ehi_show_equipment_ammobag_desc" : "Mostra um Tracker das Ammo Bags",
+
+    "ehi_show_equipment_grenadecases" : "Mostrar Grenade Cases",
+    "ehi_show_equipment_grenadecases_desc" : "Mostra um Tracker das Granade Cases",
+
+    "ehi_show_equipment_bodybags": "Mostrar Body Bags",
+    "ehi_show_equipment_bodybags_desc": "Mostra um Tracker dos Body Bags\nEsse Tracker é removido quando o alarme soar",
+
+    "ehi_show_equipment_firstaidkit": "Mostrar First Aid Kit",
+    "ehi_show_equipment_firstaidkit_desc": "Mostra um Tracker das First Aid Kits",
+
+    "ehi_show_equipment_aggregate_health" : "Juntar Doctor Bags e First Aid Kits",
+    "ehi_show_equipment_aggregate_health_desc" : "Junte Doctor Bags e First Aid Kits em um só Tracker",
+
+    "ehi_show_minion_tracker" : "Mostrar o Tracker dos Convertidos",
+    "ehi_show_minion_tracker_desc" : "Mostra quantos convertidos tem no mapa",
+
+    "ehi_show_difficulty_tracker" : "Mostrar o Tracker de Dificuldade",
+    "ehi_show_difficulty_tracker_desc" : "Mostra o quão difícil a onda será",
+
+    "ehi_show_pager_tracker" : "Mostrar Tracker de Pager",
+    "ehi_show_pager_tracker_desc" : "Mostra um Tracker de quantos pagers restam",
+
+    "ehi_show_enemy_count_tracker" : "Mostrar o Tracker de Inimigos vivos",
+	"ehi_show_enemy_count_tracker_desc" : "Mostra um Tracker para quantos inimigos tem no mapa",
+	
+	"ehi_show_laser_tracker" : "Mostrar Tracker de Laser",
+    "ehi_show_laser_tracker_desc" : "Mostra um Tracker de lasers que ficam trocando por alguns segundos",
+
+    "ehi_tracker_alignment" : "Alinhamento do Tracker",
+    "ehi_tracker_alignment_desc" : "Define como os Trackers devem ser alinhados",
+    "ehi_tracker_alignment_1" : "Vertical",
+    "ehi_tracker_alignment_2" : "Horizontal",
+
+    "ehi_show_achievements" : "Mostrar Tracker de Conquista",
+    "ehi_show_achievements_desc" : "Mostra as conquistas na tela\nAlgumas heists não tem conquistas disponíveis",
+
+    "ehi_hide_unlocked_achievements" : "Não Mostrar Conquistas já Alcançadas",
+    "ehi_hide_unlocked_achievements_desc" : "Quando ativado, EHI não vai mostrar Trackers para conquistas que já foram alcançadas\nQuando desativado, EHI vai mostrar os Trackers para conquistas que já foram alcançadas",
+    
+    "ehi_total_xp_show_difference" : "Mostrar Diferença de XP",
+    "ehi_total_xp_show_difference_desc" : "Só tem a opção [Mostrar o total do XP ganho da Heist]!\nMostra o quanto de XP você ganhou em um Tracker",
+    
+    "ehi_show_trade_delay_suppress_in_stealth" : "Não Mostrar o Atraso da Troca em Stealth",
+    "ehi_show_trade_delay_suppress_in_stealth_desc" : "Esconde o Atraso da Troca em Stealth quando ativado. Assim que o alarme for soado, o Tracker irá aparecer com o Atraso acumulado.",
+    
+    "ehi_show_equipment_ecmjammer" : "Mostrar a duração do ECM Jammer",
+    "ehi_show_equipment_ecmjammer_desc" : "Mostra um Tracker que exibe quanto tempo resta para um ECM Jammer\nUm ECM Jammer com a duração mais longa vai ser exibido no Tracker",
+
+    "ehi_show_equipment_ecmfeedback" : "Mostrar a duração do ECM Feedback",
+    "ehi_show_equipment_ecmfeedback_desc" : "Mostra um Tracker que exibe quanto tempo resta para um ECM Feedback\nUm ECM Feedback com a duração mais longa vai ser exibido no Tracker (apenas host)",
+ 
+    "ehi_show_equipment_aggregate_all" : "Juntar todos os Equipamentos",
+    "ehi_show_equipment_aggregate_all_desc" : "Junta todos os equipamentos em um Tracker só\nEquipamentos vão usar uma cor diferente mostrado abaixo",
+
+    "ehi_doctor_bag" : "Bolsa Médica",
+    "ehi_ammo_bag" : "Bolsa de Munição",
+    "ehi_grenade_crate" : "Maleta de Granadas",
+    "ehi_first_aid_kit" : "Kit de Primeiro Socorros",
+    "ehi_bodybags_bag" : "Bolsas de Cadáveres",
+
+    "ehi_show_drama_tracker" : "Mostrar Tracker de Drama",
+    "ehi_show_drama_tracker_desc" : "Mostra um tracker do Drama acumulado (apenas host)",
+
+    "ehi_show_pager_callback_trackers" : "Mostrar Tracker de Pagers",
+    "ehi_show_pager_callback_trackers_desc" : "Mostra um Tracker de Pagers que precisam ser respondidas",
+
+    "ehi_waypoints_menu" : "Waypoints",
+    "ehi_waypoints_menu_desc" : "",
+
+    "ehi_show_waypoints" : "Mostrar Waypoints",
+    "ehi_show_waypoints_desc" : "Mostra waypoints no mapa do jogo",
+
+    "ehi_show_waypoints_only" : "Mostrar apenas Waypoints",
+    "ehi_show_waypoints_only_desc" : "Quando ativado e quando um elemento tem um tracker e um waypoint definido, mostra apenas o waypoint\nCaso contrário, o Tracker vai ser mostrado",
+
+    "ehi_show_waypoints_present_timer" : "Timer de Aviso",
+    "ehi_show_waypoints_present_timer_desc" : "Define por quanto tempo o waypoint vai ficar na sua tela antes de 'mover' até o seu destino",
+
+    "ehi_show_waypoints_enemy_turret" : "Mostrar waypoints para Turret Inimiga",
+    "ehi_show_waypoints_enemy_turret_desc" : "Mostra um waypoint quando a Turret Inimiga estiver recarregando ou reparando",
+
+    "ehi_show_waypoints_timers" : "Mostrar waypoints para Timers",
+    "ehi_show_waypoints_timers_desc" : "Mostra um waypoint em um Timer visível (por exemplo, um hack, uma drill ou serra, etc...)",
+
+    "ehi_show_waypoints_pager" : "Mostrar waypoints em Pagers",
+    "ehi_show_waypoints_pager_desc" : "Mostra um Tracker de Pagers que precisam ser respondidas",
+
+    "ehi_show_waypoints_cameras" : "Mostrar waypoints para câmeras afetadas pelo Loop",
+    "ehi_show_waypoints_cameras_desc" : "Mostra um waypoint em uma câmera que está sendo afetada por um Loop"
+}

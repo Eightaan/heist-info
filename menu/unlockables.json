@@ -1,0 +1,227 @@
+{
+    "menu_id": "ehi_unlockables_menu",
+    "parent_menu" : "ehi_trackers_menu",
+    "title": "ehi_unlockables_menu",
+    "items": [
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievement_choice",
+            "title": "ehi_show_achievements",
+            "description": "ehi_show_achievements_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievements",
+            "value": "show_achievements",
+            "default_value": true,
+            "is_parent" : true
+        },
+        {
+            "type" : "divider",
+            "size" : 12
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievements_mission_choice",
+            "title": "ehi_show_achievements_mission",
+            "description": "ehi_show_achievements_mission_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievements_mission",
+            "value": "show_achievements_mission",
+            "default_value": true,
+            "is_parent" : true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_hide_unlocked_achievements_choice",
+            "title": "ehi_hide_unlocked_achievements",
+            "description": "ehi_hide_unlocked_achievements_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "hide_unlocked_achievements",
+            "value": "hide_unlocked_achievements",
+            "default_value": true,
+            "parent" : ["ehi_show_achievement_choice", "ehi_show_achievements_mission_choice"],
+            "ehi_ver" : 10
+        },
+        {
+            "type" : "divider",
+            "size" : 12
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievements_weapon_choice",
+            "title": "ehi_show_achievements_weapon",
+            "description": "ehi_show_achievements_weapon_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievements_weapon",
+            "value": "show_achievements_weapon",
+            "default_value": true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievements_melee_choice",
+            "title": "ehi_show_achievements_melee",
+            "description": "ehi_show_achievements_melee_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievements_melee",
+            "value": "show_achievements_melee",
+            "default_value": true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievements_grenade_choice",
+            "title": "ehi_show_achievements_grenade",
+            "description": "ehi_show_achievements_grenade_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievements_grenade",
+            "value": "show_achievements_grenade",
+            "default_value": true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievements_vehicle_choice",
+            "title": "ehi_show_achievements_vehicle",
+            "description": "ehi_show_achievements_vehicle_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievements_vehicle",
+            "value": "show_achievements_vehicle",
+            "default_value": true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievements_other_choice",
+            "title": "ehi_show_achievements_other",
+            "description": "ehi_show_achievements_other_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievements_other",
+            "value": "show_achievements_other",
+            "default_value": true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievement_failed_popup_choice",
+            "title": "ehi_show_achievement_failed_popup",
+            "description": "ehi_show_achievement_failed_popup_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievement_failed_popup",
+            "value": "show_achievement_failed_popup",
+            "default_value": true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 59
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_achievement_started_popup_choice",
+            "title": "ehi_show_achievement_started_popup",
+            "description": "ehi_show_achievement_started_popup_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievement_started_popup",
+            "value": "show_achievement_started_popup",
+            "default_value": true,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 68
+        },
+        {
+            "type" : "divider",
+            "size" : 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_trophies_choice",
+            "title": "ehi_show_trophies",
+            "description": "ehi_show_trophies_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_trophies",
+            "value": "show_trophies",
+            "default_value": true,
+            "is_parent" : true,
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_hide_unlocked_trophies_choice",
+            "title": "ehi_hide_unlocked_trophies",
+            "description": "ehi_hide_unlocked_trophies_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "hide_unlocked_trophies",
+            "value": "hide_unlocked_trophies",
+            "default_value": true,
+            "parent" : "ehi_show_trophies_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_trophy_failed_popup_choice",
+            "title": "ehi_show_trophy_failed_popup",
+            "description": "ehi_show_trophy_failed_popup_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_trophy_failed_popup",
+            "value": "show_trophy_failed_popup",
+            "default_value": true,
+            "parent" : "ehi_show_trophies_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_trophy_started_popup_choice",
+            "title": "ehi_show_trophy_started_popup",
+            "description": "ehi_show_trophy_started_popup_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_trophy_started_popup",
+            "value": "show_trophy_started_popup",
+            "default_value": true,
+            "parent" : "ehi_show_trophies_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type" : "divider",
+            "size" : 20
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_dailies_choice",
+            "title": "ehi_show_dailies",
+            "description": "ehi_show_dailies_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_dailies",
+            "value": "show_dailies",
+            "default_value": true,
+            "is_parent" : true,
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_daily_failed_popup_choice",
+            "title": "ehi_show_daily_failed_popup",
+            "description": "ehi_show_daily_failed_popup_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_daily_failed_popup",
+            "value": "show_daily_failed_popup",
+            "default_value": true,
+            "parent" : "ehi_show_dailies_choice",
+            "ehi_ver" : 84
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_show_daily_started_popup_choice",
+            "title": "ehi_show_daily_started_popup",
+            "description": "ehi_show_daily_started_popup_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_daily_started_popup",
+            "value": "show_daily_started_popup",
+            "default_value": true,
+            "parent" : "ehi_show_dailies_choice",
+            "ehi_ver" : 84
+        }
+    ]
+}
