@@ -143,5 +143,15 @@ EHI:AddXPBreakdown({
         bos_found_scattered_money = 700,
         bos_heli_picked_up_money = 1500,
         escape = 6000
+    },
+    total_xp_override =
+    {
+        objective =
+        {
+            bos_money_pallet_found = { times = 2 },
+            flare = { times = 3 },
+            bos_found_scattered_money = { times = 8 },
+            bos_heli_picked_up_money = { times = 3 }
+        }
     }
 })

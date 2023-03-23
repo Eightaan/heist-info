@@ -21,6 +21,5 @@ EHI:AddXPBreakdown({
             { amount = 2000, stealth = true },
             { amount = 8000, loud = true }
         }
-    },
-    no_total_xp = true
+    }
 })

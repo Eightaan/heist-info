@@ -162,6 +162,5 @@ EHI:AddXPBreakdown({
         nmh_elevator_arrived = 8000,
         nmh_exit_elevator = 2000
     },
-    no_total_xp = true,
     no_gage = true
 })

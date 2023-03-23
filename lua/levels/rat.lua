@@ -162,5 +162,17 @@ if ovk_and_up then
     })
 end
 EHI:AddXPBreakdown({
-    loot_all = 8000
+    loot_all = 8000,
+    total_xp_override =
+    {
+        params =
+        {
+            min =
+            {
+                loot_all = { times = 3 }
+            },
+            max_level = true,
+            max_level_bags = true
+        }
+    }
 })

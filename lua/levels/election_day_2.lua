@@ -49,5 +49,10 @@ EHI:AddXPBreakdown({
             { amount = 14000, stealth = true },
             { amount = 18000, loud = true }
         }
+    },
+    loot =
+    {
+        money = 500,
+        gold = 1000
     }
 })

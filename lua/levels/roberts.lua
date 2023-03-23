@@ -67,7 +67,7 @@ EHI:AddXPBreakdown({
         escape =
         {
             { amount = 1000, stealth = true },
-            { amount = 2000 } -- Loud escape
+            { amount = 2000, loud = true }
         }
     },
     loot_all = 1000

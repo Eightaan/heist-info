@@ -51,5 +51,6 @@ EHI:AddXPBreakdown({
     objective =
     {
         escape = 6000
-    }
+    },
+    no_total_xp = true
 })

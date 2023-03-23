@@ -62,7 +62,8 @@ local achievements =
                 managers.ehi:CallFunction("corp_12", "SetMPState")
             end },
             [102014] = { special_function = SF.SetAchievementFailed }, -- Alarm
-            [102736] = { special_function = SF.SetAchievementFailed } -- Civilian killed
+            [102736] = { special_function = SF.SetAchievementFailed }, -- Civilian killed
+            [102740] = { special_function = SF.SetAchievementComplete }
         },
         cleanup_callback = function()
             EHIcorp12Tracker = nil

@@ -30,5 +30,7 @@ EHI:AddXPBreakdown({
     objective =
     {
         escape = 20000
-    }
+    },
+    loot_all = 1000,
+    no_total_xp = true
 })

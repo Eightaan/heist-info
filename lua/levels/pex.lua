@@ -56,3 +56,6 @@ EHI:ShowAchievementLootCounter({ -- Medals
         self:SetTrackerProgressRemaining("pex_11", self:CountUnitAvailable("units/pd2_dlc_pex/props/pex_props_federali_chief_medal/pex_props_federali_chief_medal", 1) - 5)
     end
 })
+--[[EHI:AddXPBreakdown({
+    loot_all = 1000
+})]]

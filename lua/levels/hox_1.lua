@@ -74,5 +74,11 @@ EHI:AddXPBreakdown({
         pc_hack = 3000,
         escape = 2000
     },
-    no_total_xp = true
+    total_xp_override =
+    {
+        objective =
+        {
+            hox1_blockade_cleared = { times = 2 }
+        }
+    }
 })

@@ -80,7 +80,9 @@ EHI:AddXPBreakdown({
     objective =
     {
         escape = EscapeXP
-    }
+    },
+    loot_all = 500,
+    no_total_xp = true
 })
 
 if not EHI:CanShowAchievement("voff_1") then

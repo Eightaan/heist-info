@@ -60,5 +60,6 @@ EHI:AddXPBreakdown({
     {
         money = 1000,
         mus_artifact = 500
-    }
+    },
+    no_total_xp = true
 })

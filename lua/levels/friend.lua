@@ -138,6 +138,5 @@ EHI:AddXPBreakdown({
         scarface_sosa_killed = 1000,
         vault_open = 8000
     },
-    loot_all = { amount = 500, times = 16 },
-    no_total_xp = true
+    loot_all = { amount = 500, times = 16 }
 })

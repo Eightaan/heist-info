@@ -155,12 +155,11 @@ EHI:AddXPBreakdown({
                 { amount = 2000, name = "henrys_rock_crane" }
             }
         },
-        henrys_rock_disabled_AA = 4000,
+        twh_disable_aa = 4000,
         escape = 6000
     },
     loot =
     {
         mus_artifact = 2000
-    },
-    no_total_xp = true
+    }
 })

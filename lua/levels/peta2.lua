@@ -104,5 +104,6 @@ EHI:AddXPBreakdown({
         gs2_peta_5 = 50000,
         escape = 3000
     },
-    loot_all = 500
+    loot_all = 500,
+    no_total_xp = true
 })

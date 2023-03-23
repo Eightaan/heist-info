@@ -154,6 +154,5 @@ EHI:AddXPBreakdown({
         ggc_c4_taken = 6000,
         escape = 12000
     },
-    loot_all = 1500,
-    no_total_xp = true
+    loot_all = 1500
 })

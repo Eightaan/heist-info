@@ -237,10 +237,7 @@ EHI:AddXPBreakdown({
         ggc_bfd_started = { amount = 6000, loud = true },
         ggc_bfd_done = { amount = 1000, loud = true }
     },
-    loot =
-    {
-        unknown = 250
-    }
+    loot_all = 500
 })
 
 if EHI:IsHost() then

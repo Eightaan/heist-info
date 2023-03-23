@@ -215,5 +215,6 @@ EHI:AddXPBreakdown({
         meth = 500,
         coke = 500,
         toothbrush = 1000
-    }
+    },
+    no_total_xp = true
 })

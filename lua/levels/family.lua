@@ -82,5 +82,6 @@ EHI:AddXPBreakdown({
     {
         money = 1000,
         diamonds = 1000
-    }
+    },
+    no_total_xp = true
 })

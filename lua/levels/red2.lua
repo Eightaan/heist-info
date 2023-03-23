@@ -106,7 +106,11 @@ local triggers = {
     [101325] = { special_function = SF.TriggerIfEnabled, data = { 1013251, 1013252 } },
     [1013251] = { time = 180, id = "Thermite", icons = { Icon.Fire }, special_function = SF.SetTimeOrCreateTracker },
     [1013252] = { id = "ThermiteShorterTime", special_function = SF.RemoveTracker },
-    [101684] = { time = 5.1, id = "C4", icons = { Icon.C4 } }
+    [101684] = { time = 5.1, id = "C4", icons = { Icon.C4 } },
+    [100211] = { chance = 10, id = "PCChance", icons = { Icon.PCHack }, class = TT.Chance },
+    [101226] = { id = "PCChance", special_function = SF.IncreaseChanceFromElement }, -- +17%
+    [106680] = { id = "PCChance", special_function = SF.RemoveTracker },
+    [102567] = { id = "PCChance", special_function = SF.RemoveTracker } -- Loud started
 }
 local DisableWaypoints = {}
 for i = 0, 300, 100 do
@@ -213,6 +217,5 @@ EHI:AddXPBreakdown({
     loot =
     {
         money = 1000
-    },
-    no_total_xp = true
+    }
 })

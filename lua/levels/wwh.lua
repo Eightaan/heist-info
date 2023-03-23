@@ -67,5 +67,14 @@ EHI:AddXPBreakdown({
     {
         money = 400,
         weapon = 600
-    }
+    },
+    no_total_xp = true
+    --[[total_xp_override =
+    {
+        loot =
+        {
+            money = { times = 4 },
+            weapon = { times = 4 }
+        }
+    }]]
 })

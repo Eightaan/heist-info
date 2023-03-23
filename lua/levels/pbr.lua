@@ -83,6 +83,27 @@ EHI:AddXPBreakdown({
         btm_heli_refueled = 3000,
         escape = 4000
     },
-    loot_all = 700,
-    no_total_xp = true
+    loot_all = 700
+    --[[total_xp_override =
+    {
+        params =
+        {
+            min =
+            {
+                btm_blasted_entrance = true,
+                btm_used_keycard = true,
+                btm_request_approved = true,
+                btm_vault_open_loot = { times = 2 },
+                btm_destroyed_comm = true,
+                btm_heli_refueled = true,
+                escape = true
+            }
+        },
+        objective =
+        {
+            btm_vault_open_loot = { times = 4 },
+            btm_destroyed_comm = { times = 3 }
+        },
+        loot_all = { times = 10 }
+    }]]
 })

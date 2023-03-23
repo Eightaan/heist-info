@@ -205,6 +205,5 @@ EHI:AddXPBreakdown({
         the_bomb_find_bomb_loud = { amount = 6000, loud = true },
         escape = 6000
     },
-    loot_all = 500,
-    no_total_xp = true
+    loot_all = 500
 })

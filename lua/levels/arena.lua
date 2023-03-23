@@ -95,5 +95,6 @@ EHI:AddXPBreakdown({
         alesso_pyro_set = { amount = 3000, times = 3 },
         alesso_bag_secured_stealth = 1200,
         alesso_bag_secured_loud = 1500
-    }
+    },
+    no_total_xp = true
 })

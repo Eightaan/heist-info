@@ -178,5 +178,23 @@ EHI:AddXPBreakdown({
         escape = 6000,
         hox2_no_keycard_bonus_xp = 4000
     },
-    no_total_xp = true
+    total_xp_override =
+    {
+        params =
+        {
+            min =
+            {
+                objective =
+                {
+                    hox2_reached_server_room = true,
+                    hox2_random_obj = true,
+                    escape = true
+                }
+            }
+        },
+        objective =
+        {
+            hox2_random_obj = { times = 3 }
+        }
+    }
 })

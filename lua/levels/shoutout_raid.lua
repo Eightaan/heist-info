@@ -83,5 +83,6 @@ EHI:AddXPBreakdown({
         warhead = { amount = 8000, to_secure = max },
         _else = { amount = 1500 },
         xp_bonus = { amount = 2000, to_secure = max + 8 }
-    }
+    },
+    no_total_xp = true
 })
