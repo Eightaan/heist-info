@@ -41,7 +41,7 @@ function MissionBriefingGui:init(...)
 		color = Color(0.5, 0, 0, 0)
     })
     self._ehi_panel:set_rightbottom(40 + w, 144)
-	self._ehi_panel:set_top(75) -- 100 - 10
+	self._ehi_panel:set_top(75)
     self._ehi_panel:set_visible(false)
     self._ehi_panel_v2:set_visible(false)
     self._lines = 0
@@ -76,7 +76,7 @@ end
 function MissionBriefingGui:ProcessXPBreakdown()
     if _params then
         self:AddXPBreakdown(_params)
-    elseif tweak_data.levels:get_group_ai_state() == "skirmish" then
+    elseif tweak_data.levels:IsLevelSkirmish() then
         -- Hardcoded in shared instance "obj_skm"
         local params =
         {
@@ -118,8 +118,11 @@ local function ProcessLoot(self, params, total_xp, gage)
                 xp_with_gage = self:FormatXPWithAllGagePackages(data.amount)
             end
             self:AddXPText(string.format("%s (%s): ", secured_bag, self._loc:text("ehi_experience_trigger_times", { times = data.times })), xp, xp_with_gage)
-            --total_xp.total = total_xp.total + xp
-            --total_xp.base = total_xp.base + data.amount
+            if total_xp.add and not data.times then
+                total_xp.add = false
+            end
+            total_xp.total = total_xp.total + value
+            total_xp.base = total_xp.base + data.amount
         else
             local value = self._xp:FakeMultiplyXPWithAllBonuses(data)
             local xp = self._xp:cash_string(value, "+")
@@ -141,9 +144,11 @@ local function ProcessLoot(self, params, total_xp, gage)
                     xp_with_gage = self:FormatXPWithAllGagePackages(data.amount)
                 end
                 self:AddLootSecured(loot, data.times or 0, data.to_secure or 0, xp, xp_with_gage)
-                total_xp.add = false
-                --total_xp.total = total_xp.total + xp
-                --total_xp.base = total_xp.base + data.amount
+                if total_xp.add and not data.times then
+                    total_xp.add = false
+                end
+                total_xp.total = total_xp.total + value
+                total_xp.base = total_xp.base + data.amount
             else
                 local value = self._xp:FakeMultiplyXPWithAllBonuses(data)
                 local xp = self._xp:cash_string(value, "+")
@@ -193,8 +198,8 @@ local function ProcessEscape(self, str, params, total_xp, gage)
             xp_with_gage = self:FormatXPWithAllGagePackages(params)
         end
         self:AddXPText(str .. ": ", xp, xp_with_gage)
-        --total_xp.total = total_xp.total + xp
-        --total_xp.base = total_xp.base + params
+        total_xp.total = total_xp.total + value
+        total_xp.base = total_xp.base + params
     end
 end
 local function ProcessRandomObjectives(self, random, total_xp, gage)
@@ -267,7 +272,7 @@ function MissionBriefingGui:AddXPBreakdown(params)
         end
         self:AddTotalXP(self._xp:cash_string(total_xp, "+"))
     elseif params.objective then
-        local total_xp = { base = 0, total = 0, add = not params.no_total_xp, total_xp_override = params.total_xp_override }
+        local total_xp = { base = 0, total = 0, add = not params.no_total_xp }
         for key, data in pairs(params.objective) do
             local str = GetTranslatedKey(self, key)
             if key == "escape" then
@@ -285,22 +290,30 @@ function MissionBriefingGui:AddXPBreakdown(params)
                     local times_formatted = self._loc:text("ehi_experience_trigger_times", { times = data.times })
                     local s
                     if data.stealth then
+                        total_xp.add = false
                         s = str .. " (" .. times_formatted .. "; " .. self._loc:text("ehi_experience_stealth") .. ")"
                     elseif data.loud then
+                        total_xp.add = false
                         s = str .. " (" .. times_formatted .. "; " .. self._loc:text("ehi_experience_loud") .. ")"
                     else
                         s = str .. " (" .. times_formatted .. ")"
+                        total_xp.base = total_xp.base + (data.amount * data.times)
                     end
                     self:AddXPText(s .. ": ", xp, xp_with_gage)
                 elseif data.stealth then
+                    total_xp.add = false
                     self:AddXPText(str .. " (" .. self._loc:text("ehi_experience_stealth") .. "): ", xp, xp_with_gage)
                 elseif data.loud then
+                    total_xp.add = false
                     self:AddXPText(str .. " (" .. self._loc:text("ehi_experience_loud") .. "): ", xp, xp_with_gage)
                 else
+                    total_xp.base = total_xp.base + data
                     self:AddXPText(str .. ": ", xp, xp_with_gage)
                 end
             else
+                total_xp.base = total_xp.base + data
                 local value = self._xp:FakeMultiplyXPWithAllBonuses(data)
+                total_xp.total = total_xp.total + value
                 local xp = self._xp:cash_string(value, "+")
                 local xp_with_gage
                 if gage then
@@ -310,12 +323,11 @@ function MissionBriefingGui:AddXPBreakdown(params)
             end
         end
         ProcessLoot(self, params, total_xp, gage)
-        --[[if total_xp.add and total_xp.total > 0 then
-            self:AddTotalXP(total_xp.total)
-        elseif total_xp.total_xp_override then
-        end]]
+        self:ProcessTotalXP(params, gage, total_xp)
     elseif params.loot_all or params.loot then
-        ProcessLoot(self, params, { total = 0, base = 0 }, gage)
+        local total_xp = { base = 0, total = 0, add = not params.no_total_xp }
+        ProcessLoot(self, params, total_xp, gage)
+        self:ProcessTotalXP(params, gage, total_xp)
     else
         for key, _ in pairs(params) do
             EHI:Log("[MissionBriefingGui] Unknown key! " .. tostring(key))
@@ -329,6 +341,158 @@ function MissionBriefingGui:AddXPBreakdown(params)
         self._ehi_panel_v2:set_visible(true)
     end
     _params = params
+end
+
+function MissionBriefingGui:ProcessTotalXP(params, gage, total_xp)
+    if params.total_xp_override then
+        local base = 0
+        local override = params.total_xp_override
+        local override_objective = override.objective or {}
+        local override_loot = override.loot or {}
+        for key, data in pairs(params.objective or {}) do
+            if override_objective[key] then
+                local o_override = override_objective[key]
+                local times = o_override.times or 1
+                if type(data) == "table" then
+                    base = base + (data.amount * times)
+                else
+                    base = base + (data * times)
+                end
+            elseif type(data) == "table" then
+            elseif type(data) == "number" then
+                base = base + data
+            end
+        end
+        for key, data in pairs(params.loot or {}) do
+            if override_loot[key] then
+                local o_override = override_loot[key]
+                local times = o_override.times or 1
+                if type(data) == "table" then
+                    base = base + (data.amount * times)
+                else
+                    base = base + (data * times)
+                end
+            elseif type(data) == "table" then
+            elseif type(data) == "number" then
+                base = base + data
+            end
+        end
+        local o_params = override.params
+        if o_params then
+            if o_params.min then
+                local min = 0
+                local max
+                local format_max = true
+                for key, value in pairs(o_params.min.objective or {}) do
+                    local actual_value = 0
+                    local objective = params.objective[key]
+                    if type(objective) == "table" then
+                        actual_value = objective.amount
+                    elseif type(objective) == "number" then
+                        actual_value = objective
+                    end
+                    if type(value) == "table" then
+                        min = min + (actual_value * (value.times or 1))
+                    elseif override_objective[key] then
+                        min = min + (actual_value * (override_objective[key].times or 1))
+                    else
+                        min = min + actual_value
+                    end
+                end
+                if o_params.min.loot_all then
+                    local times = o_params.min.loot_all.times or 1
+                    if type(params.loot_all) == "table" then
+                        min = min + (params.loot_all.amount * times)
+                    elseif type(params.loot_all) == "number" then
+                        min = min + (params.loot_all * times)
+                    end
+                end
+                if o_params.max then
+                    max = 0
+                    for key, _ in pairs(o_params.max.objective or {}) do
+                        local actual_value = 0
+                        local objective = params.objective[key]
+                        if type(objective) == "table" then
+                            actual_value = objective.amount
+                        elseif type(objective) == "number" then
+                            actual_value = objective
+                        end
+                        if override.objective[key] then
+                            max = max + (actual_value * (override.objective[key].times or 1))
+                        else
+                            max = max + actual_value
+                        end
+                    end
+                elseif o_params.max_level then
+                    format_max = false
+                    local max_n = 0
+                    if self._xp:level_cap() <= self._xp:current_level() then -- Level is maxed, show Infamy Pool instead
+                        max_n = self._xp:get_max_prestige_xp() - self._xp:get_current_prestige_xp()
+                        max = self._xp:experience_string(max_n)
+                    else -- Show remaining XP up to level 100
+                        local totalXpTo100 = 0
+                        for _, level in ipairs(tweak_data.experience_manager.levels) do
+                            totalXpTo100 = totalXpTo100 + Application:digest_value(level.points, false)
+                        end
+                        max_n = math.max(totalXpTo100 - self._xp:total(), 0)
+                        max = self._xp:experience_string(max_n)
+                    end
+                    if o_params.max_level_bags then
+                        if false then --self._xp:FakeMultiplyXPWithAllBonuses(min) > max_n then
+
+                        else
+                            local loot_xp = self._xp:FakeMultiplyXPWithAllBonuses(params.loot_all)
+                            local loot_xp_gage = gage and self:FormatXPWithAllGagePackagesNoString(params.loot_all) or loot_xp
+                            local bags_to_secure = math.ceil(max_n / loot_xp)
+                            local bags_to_secure_gage = math.ceil(max_n / loot_xp_gage)
+                            local to_secure = self._loc:text("ehi_experience_to_secure", { amount = bags_to_secure })
+                            if bags_to_secure == bags_to_secure_gage then -- Securing gage packages does not matter -> you still need to secure the same amount of bags
+                                max = string.format("+%s XP (%s)", max, to_secure)
+                            else -- Securing gage packages will make a difference in bags, reflect it
+                                max = string.format("+%s XP (%s; With gage packages: %s)", max, to_secure, tostring(bags_to_secure_gage))
+                            end
+                        end
+                    else
+                        max = "+" .. max .. " XP"
+                    end
+                else -- Max is missing or is not set to Player level max, assume objectives to compute
+                    max = 0
+                    for key, data in pairs(params.objective) do
+                        local times = 1
+                        if override_objective[key] then
+                            times = override_objective[key].times or 1
+                        end
+                        if type(data) == "table" then
+                            max = max + (data.amount * times)
+                        elseif type(data) == "number" then
+                            max = max + (data * times)
+                        end
+                    end
+                end
+                self:AddTotalXP()
+                self:AddLine("Min: " .. self._xp:cash_string(self._xp:FakeMultiplyXPWithAllBonuses(min), "+") .. " XP")
+                if format_max then
+                    self:AddLine("Max: +" .. self:FormatXPWithAllGagePackages(max or 0) .. " XP")
+                else
+                    self:AddLine("Max: " .. tostring(max))
+                end
+            end
+        else
+            local value = self._xp:FakeMultiplyXPWithAllBonuses(base)
+            local xp = self._xp:cash_string(value, "+")
+            local xp_with_gage
+            if gage then
+                xp_with_gage = self:FormatXPWithAllGagePackages(base)
+            end
+            self:AddTotalXP(xp, xp_with_gage)
+        end
+    elseif total_xp.add and total_xp.total > 0 then
+        local xp_with_gage
+        if gage then
+            xp_with_gage = self:FormatXPWithAllGagePackages(total_xp.base)
+        end
+        self:AddTotalXP(self._xp:cash_string(total_xp.total, "+"), xp_with_gage)
+    end
 end
 
 function MissionBriefingGui:AddXPText(txt, value, value_with_gage)
@@ -367,7 +531,15 @@ function MissionBriefingGui:AddXPOverviewText()
     self._lines = self._lines + 1
 end
 
-function MissionBriefingGui:AddTotalXP(total)
+function MissionBriefingGui:AddTotalXP(total, total_with_gage)
+    local txt
+    if total_with_gage then
+        txt = string.format("%s%s-%s XP", self._loc:text("ehi_experience_total_xp"), total, total_with_gage)
+    elseif total then
+        txt = string.format("%s%s XP", self._loc:text("ehi_experience_total_xp"), total)
+    else
+        txt = self._loc:text("ehi_experience_total_xp")
+    end
     self._ehi_panel_v2:text({
         name = tostring(self._lines),
         blend_mode = "add",
@@ -375,8 +547,8 @@ function MissionBriefingGui:AddTotalXP(total)
         y = 10 + (self._lines * 22),
         font = tweak_data.menu.pd2_large_font,
         font_size = tweak_data.menu.pd2_small_font_size,
-        color = Color.white,
-        text = string.format("%s%s XP", self._loc:text("ehi_experience_total_xp"), total),
+        color = Color.green,
+        text = txt,
         layer = 10
     })
     self._lines = self._lines + 1
@@ -465,6 +637,21 @@ function MissionBriefingGui:AddSeparator()
     self._lines = self._lines + 1
 end
 
+function MissionBriefingGui:AddLine(txt)
+    self._ehi_panel_v2:text({
+        name = tostring(self._lines),
+        blend_mode = "add",
+        x = 10,
+        y = 10 + (self._lines * 22),
+        font = tweak_data.menu.pd2_large_font,
+        font_size = tweak_data.menu.pd2_small_font_size,
+        color = Color.white,
+        text = txt,
+        layer = 10
+    })
+    self._lines = self._lines + 1
+end
+
 function MissionBriefingGui:FakeExperienceMultipliers()
     if BB and BB.grace_period and Global.game_settings.single_player and Global.game_settings.team_ai then
         self._num_winners = 4
@@ -479,11 +666,15 @@ function MissionBriefingGui:FakeExperienceMultipliers()
     self._skill_bonus = managers.player:get_skill_exp_multiplier(true)
 end
 
-function MissionBriefingGui:FormatXPWithAllGagePackages(base_xp)
+function MissionBriefingGui:FormatXPWithAllGagePackagesNoString(base_xp)
     self._gage_bonus = 1.05
-    local value = self._xp:cash_string(self._xp:FakeMultiplyXPWithAllBonuses(base_xp), "")
+    local value = self._xp:FakeMultiplyXPWithAllBonuses(base_xp)
     self._gage_bonus = 1
     return value
+end
+
+function MissionBriefingGui:FormatXPWithAllGagePackages(base_xp)
+    return self._xp:cash_string(self:FormatXPWithAllGagePackagesNoString(base_xp), "")
 end
 
 function MissionBriefingGui:RefreshXPOverview()

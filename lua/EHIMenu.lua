@@ -679,7 +679,7 @@ function EHIMenu:Cancel()
         self:CloseMultipleChoicePanel()
     elseif self._open_color_dialog then
         self:CloseColorMenu()
-    elseif self._open_menu.parent_menu then
+    elseif self._open_menu and self._open_menu.parent_menu then
         self:OpenMenu(self._open_menu.parent_menu, true)
     else
         self:Close()

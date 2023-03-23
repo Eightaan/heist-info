@@ -152,9 +152,10 @@ if show_minion_tracker or show_popup then
     original.sync_converted_enemy = GroupAIStateBase.sync_converted_enemy
 	function GroupAIStateBase:sync_converted_enemy(converted_enemy, owner_peer_id, ...)
 		if self._police[converted_enemy:key()] then
-            local local_peer = (owner_peer_id or 0) == managers.network:session():local_peer():id()
+            local peer_id = owner_peer_id or 0
+            local local_peer = peer_id == managers.network:session():local_peer():id()
             self:EHIAddListener(converted_enemy, local_peer)
-            UpdateTracker(converted_enemy, tostring(converted_enemy:key()), 1, owner_peer_id or 0)
+            UpdateTracker(converted_enemy, tostring(converted_enemy:key()), 1, peer_id)
 		end
 		return original.sync_converted_enemy(self, converted_enemy, owner_peer_id, ...)
 	end

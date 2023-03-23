@@ -193,7 +193,7 @@ if EHI:CombineAssaultDelayAndAssaultTime() then
     local function set_assault_delay(self, data)
         self.ehi:CallFunction("Assault", "SetHostages", data.nr_hostages > 0)
     end
-    local is_skirmish = tweak_data.levels:get_group_ai_state() == "skirmish"
+    local is_skirmish = tweak_data.levels:IsLevelSkirmish()
     original.sync_start_anticipation_music = HUDManager.sync_start_anticipation_music
     function HUDManager:sync_start_anticipation_music(...)
         original.sync_start_anticipation_music(self, ...)
@@ -278,7 +278,7 @@ else
     if EHI:GetOption("show_assault_time_tracker") then
         dofile(EHI.LuaPath .. "trackers/EHIAssaultTimeTracker.lua")
         local start_original = HUDManager.sync_start_assault
-        local is_skirmish = tweak_data.levels:get_group_ai_state() == "skirmish"
+        local is_skirmish = tweak_data.levels:IsLevelSkirmish()
         function HUDManager:sync_start_assault(...)
             start_original(self, ...)
             if (EHI._cache.diff and EHI._cache.diff > 0 and not EHI._cache.EndlessAssault) or is_skirmish then

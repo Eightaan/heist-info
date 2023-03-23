@@ -79,7 +79,7 @@ if EHI:GetOption("show_pager_callback") then
         end
     end)
 
-    EHI:PreHookWithID(IntimitateInteractionExt, "sync_interacted", "EHI_pager_sync_interacted", function(self, peer, player, status, skip_alive_check)
+    EHI:PreHookWithID(IntimitateInteractionExt, "sync_interacted", "EHI_pager_sync_interacted", function(self, peer, player, status, ...)
         if self.tweak_data == "corpse_alarm_pager" then
             if status == "started" or status == 1 then
                 managers.ehi:CallFunction(self._ehi_key, "SetAnswered")
@@ -116,7 +116,7 @@ if EHI:GetOption("show_enemy_count_tracker") and EHI:GetOption("show_enemy_count
         end
     end)
 
-    EHI:PreHookWithID(IntimitateInteractionExt, "sync_interacted", "EHI_EnemyCounter_pager_sync_interacted", function(self, peer, player, status, skip_alive_check)
+    EHI:PreHookWithID(IntimitateInteractionExt, "sync_interacted", "EHI_EnemyCounter_pager_sync_interacted", function(self, peer, player, status, ...)
         if self.tweak_data == "corpse_alarm_pager" then
             if (status == "started" or status == 1) and not self._unit:character_damage():dead() then
                 managers.ehi:CallFunction(CallbackKey, "AlarmEnemyPagerAnswered")

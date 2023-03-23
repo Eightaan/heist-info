@@ -742,7 +742,7 @@ function EHI:IsPlayingCrimeSpree()
 end
 
 function EHI:AssaultDelayTrackerIsEnabled()
-    return self:GetOption("show_assault_delay_tracker") and tweak_data.levels:get_group_ai_state() ~= "skirmish"
+    return self:GetOption("show_assault_delay_tracker") and not tweak_data.levels:IsLevelSkirmish()
 end
 
 function EHI:CombineAssaultDelayAndAssaultTime()

@@ -29,7 +29,7 @@ function HUDManager:RestoreWaypoint(id)
         self:add_waypoint(id, data)
         self._hud.stored_waypoints[id] = nil
     end
-    if self._hud.ehi_removed_waypoints and type(self._hud.ehi_removed_waypoints) == "table" then
+    if type(self._hud.ehi_removed_waypoints) == "table" then
         self._hud.ehi_removed_waypoints[id] = nil
     end
 end
@@ -45,8 +45,8 @@ function HUDManager:save(data, ...)
     end
 end
 
-function HUDManager:load(data, ...)
-    original.load(self, data, ...)
+function HUDManager:load(...)
+    original.load(self, ...)
     for id, _ in pairs(self._hud.waypoints or {}) do
         if EHI._cache.IgnoreWaypoints[id] then
             self:SoftRemoveWaypoint(id)
