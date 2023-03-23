@@ -391,16 +391,15 @@ local function CheckIfModifierIsActive()
         end
     end
 end
-local ListenerModifier = class(BaseModifier)
-function ListenerModifier:OnEnterSustainPhase(...)
-    managers.ehi:CallFunction("Assault", "OnEnterSustain")
-end
-EHI:AddCallback(EHI.CallbackMessage.InitFinalize, function()
-    managers.modifiers:add_modifier(ListenerModifier, "EHI")
-    CheckIfModifierIsActive()
-end)
-if EHI:IsClient() then
-    EHI:HookWithID(CrimeSpreeManager, "on_finalize_modifiers", "EHI_CrimeSpree_on_finalize_modifiers", function(...)
+if EHI:IsHost() then
+    local ListenerModifier = class(BaseModifier)
+    function ListenerModifier:OnEnterSustainPhase(...)
+        managers.ehi:CallFunction("Assault", "OnEnterSustain")
+    end
+    EHI:AddCallback(EHI.CallbackMessage.InitFinalize, function()
+        managers.modifiers:add_modifier(ListenerModifier, "EHI")
         CheckIfModifierIsActive()
     end)
+else
+    EHI:HookWithID(CrimeSpreeManager, "on_finalize_modifiers", "EHI_CrimeSpree_on_finalize_modifiers", CheckIfModifierIsActive)
 end

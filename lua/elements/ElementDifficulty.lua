@@ -7,7 +7,7 @@ if not (Global and Global.game_settings and Global.game_settings.level_id) then
     return
 end
 
-if tweak_data.levels:get_group_ai_state() == "skirmish" then
+if tweak_data.levels:IsLevelSkirmish() then
     return
 end
 
