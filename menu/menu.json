@@ -38,6 +38,7 @@
             "callback": ["SetOption", "UpdateXOffset"],
             "callback_arguments" : "x_offset",
             "value": "x_offset",
+            "parent_func" : "IsNotVR",
             "default_value": 0,
             "max": 1280,
             "min": 0,
@@ -51,6 +52,7 @@
             "callback": ["SetOption", "UpdateYOffset"],
             "callback_arguments": "y_offset",
             "value": "y_offset",
+            "parent_func" : "IsNotVR",
             "default_value": 150,
             "max": 720,
             "min": 0,
@@ -78,21 +80,9 @@
             "callback": ["SetOption", "UpdateScale"],
             "callback_arguments": "scale",
             "value": "scale",
+            "parent_func" : "IsNotVR",
             "default_value": 1,
             "max": 2,
-            "min": 0.5,
-            "step": 2
-        },
-        {
-            "type": "slider",
-            "id": "ehi_vr_scale",
-            "title": "ehi_vr_scale",
-            "description": "ehi_vr_scale_desc",
-            "callback": "SetOption",
-            "callback_arguments": "vr_scale",
-            "value": "vr_scale",
-            "default_value": 1,
-            "max": 5,
             "min": 0.5,
             "step": 2
         },
@@ -122,6 +112,7 @@
                 "ehi_tracker_alignment_2"
             ],
             "value": "tracker_alignment",
+            "parent_func" : "IsNotVR",
             "default_value": 1,
             "ehi_ver" : 30
         },
@@ -132,6 +123,70 @@
             "description": "ehi_visuals_menu_desc",
             "next_menu": "ehi_visuals_menu",
             "ehi_ver" : 78
+        },
+        {
+            "type" : "divider",
+            "size" : 20
+        },
+        {
+            "type": "slider",
+            "id": "ehi_vr_x_offset",
+            "title": "ehi_vr_x_offset",
+            "description": "ehi_x_offset_desc",
+            "callback": "SetOption",
+            "callback_arguments" : "vr_x_offset",
+            "value": "vr_x_offset",
+            "parent_func" : "IsVR",
+            "default_value": 0,
+            "max": 1280,
+            "min": 0,
+            "step": 0,
+            "ehi_ver" : 143
+        },
+        {
+            "type": "slider",
+            "id": "ehi_vr_y_offset",
+            "title": "ehi_vr_y_offset",
+            "description": "ehi_y_offset_desc",
+            "callback": "SetOption",
+            "callback_arguments": "vr_y_offset",
+            "value": "vr_y_offset",
+            "parent_func" : "IsVR",
+            "default_value": 150,
+            "max": 720,
+            "min": 0,
+            "step": 0,
+            "ehi_ver" : 143
+        },
+        {
+            "type": "slider",
+            "id": "ehi_vr_scale",
+            "title": "ehi_vr_scale",
+            "description": "ehi_vr_scale_desc",
+            "callback": "SetOption",
+            "callback_arguments": "vr_scale",
+            "value": "vr_scale",
+            "parent_func" : "IsVR",
+            "default_value": 1,
+            "max": 5,
+            "min": 0.5,
+            "step": 2
+        },
+        {
+            "type": "multiple_choice",
+            "id": "ehi_vr_tracker_alignment_choice",
+            "title": "ehi_vr_tracker_alignment",
+            "description": "ehi_vr_tracker_alignment_desc",
+            "callback": "SetOption",
+            "callback_arguments": "vr_tracker_alignment",
+            "items": [
+                "ehi_tracker_alignment_1",
+                "ehi_tracker_alignment_2"
+            ],
+            "value": "vr_tracker_alignment",
+            "parent_func" : "IsVR",
+            "default_value": 1,
+            "ehi_ver" : 140
         },
         {
             "type" : "divider",
@@ -159,7 +214,7 @@
             "title": "ehi_buffs_menu",
             "description": "ehi_buffs_menu_desc",
             "next_menu": "ehi_buffs_menu",
-            "ehi_ver" : 111
+            "ehi_ver" : 144
         },
         {
             "type": "button",
@@ -176,6 +231,14 @@
             "description": "ehi_other_menu_desc",
             "next_menu": "ehi_other_menu",
             "ehi_ver" : 129
+        },
+        {
+            "type": "button",
+            "id": "ehi_colors_menu",
+            "title": "ehi_colors_menu",
+            "description": "ehi_colors_menu_desc",
+            "next_menu": "ehi_colors_menu",
+            "ehi_ver" : 145
         },
         {
             "type" : "divider",

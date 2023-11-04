@@ -74,9 +74,6 @@
     "ehi_scale" : "ขนาด",
     "ehi_scale_desc" : "ปรับขนาดของไอคอนติดตาม\nยิ่งตัวเลขค่ามากขึ้นเเพียงใด ขนาดไอคอนติดตามยิ่งใหญ่ขึ้นเท่านั้น ฯลฯ",
 
-    "ehi_vr_scale": "ขนาดในโหมด VR",
-    "ehi_vr_scale_desc": "ปรับขนาดของไอคอนติดตามในโหมด VR\nยิ่งตัวเลขค่ามากขึ้นเเพียงใด ขนาดไอคอนติดตามยิ่งใหญ่ขึ้นเท่านั้น ฯลฯ",
-
     "ehi_time_format" : "รูปแบบเวลา",
     "ehi_time_format_desc" : "กำหนดรูปแบบเวลาของไอคอนติดตามว่าควรมีลักษณะเป็นอย่างไร",
     "ehi_time_format_1" : "แสดงหน่วยเป็นวินาทีเท่านั้น",
@@ -86,6 +83,15 @@
     "ehi_tracker_alignment_desc" : "กำหนดการจัดตำแหน่งไอคอนติดตาม",
     "ehi_tracker_alignment_1" : "แนวตั้ง",
     "ehi_tracker_alignment_2" : "แนวนอน",
+
+    "ehi_vr_x_offset" : "ตำแหน่งแกน X (VR)",
+    "ehi_vr_y_offset" : "ตำแหน่งแกน Y (VR)",
+
+    "ehi_vr_scale": "ขนาดในโหมด VR",
+    "ehi_vr_scale_desc": "ปรับขนาดของไอคอนติดตามในโหมด VR\nยิ่งตัวเลขค่ามากขึ้นเเพียงใด ขนาดไอคอนติดตามยิ่งใหญ่ขึ้นเท่านั้น ฯลฯ",
+
+    "ehi_vr_tracker_alignment" : "จัดตำแหน่งไอคอนติดตาม VR",
+    "ehi_vr_tracker_alignment_desc" : "กำหนดการจัดตำแหน่งไอคอนติดตาม VR",
 	
     "ehi_visuals_menu" : "ภาพไอคอน",
     "ehi_visuals_menu_desc" : "",
@@ -266,8 +272,7 @@
     "ehi_show_minion_tracker" : "แสดงไอคอนจำนวนพันธมิตร",
     "ehi_show_minion_tracker_desc" : "แสดงไอคอนจำนวนพันธมิตรที่เปลี่ยนมาอยู่ฝั่งเราในด่านนั้นๆ",
 
-    "ehi_show_minion_per_player" : "แสดงไอคอนจำนวนพันธมิตรของแต่ละบุคคล",
-    "ehi_show_minion_per_player_desc" : "แสดงไอคอนจำนวนพันธมิตรแยกตามสีของแต่ละบุคคล",
+    "ehi_show_minion_option_3" : "แสดงไอคอนจำนวนพันธมิตรของแต่ละบุคคล",
 
     "ehi_show_minion_killed_message" : "Show 'CONVERT KILLED' Message",
     "ehi_show_minion_killed_message_desc" : "Shows a message when your convert has been killed",
@@ -413,8 +418,12 @@
     "ehi_buffs_skills_ghost_silent_killer_subclass" : "Silent Killer",
     "ehi_buffs_skills_ghost_second_wind" : "Second Wind",
     "ehi_buffs_skills_ghost_unseen_strike" : "Unseen Strike",
+    "ehi_buffs_skills_ghost_unseen_strike_initial" : "Unseen Strike (Initial Delay)",
 
     "ehi_buffs_skills_fugitive_menu" : "Fugitive",
+    "ehi_buffs_skills_fugitive_gunslinger_subclass" : "Gunslinger",
+    "ehi_buffs_skills_fugitive_trigger_happy" : "Trigger Happy",
+    "ehi_buffs_skills_fugitive_desperado" : "Desperado",
     "ehi_buffs_skills_fugitive_revenant_subclass" : "Revenant",
     "ehi_buffs_skills_fugitive_running_from_death_reload" : "Running from Death (Reload and Swap)",
     "ehi_buffs_skills_fugitive_running_from_death_movement" : "Running from Death (Movement)",
@@ -422,9 +431,9 @@
     "ehi_buffs_skills_fugitive_swan_song" : "Swan Song",
     "ehi_buffs_skills_fugitive_brawler_subclass" : "Brawler",
     "ehi_buffs_skills_fugitive_bloodthirst" : "Bloodthirst",
-    "ehi_buffs_skills_fugitive_bloodthirst_reload" : "Bloodthirst (Reload)",
     "ehi_buffs_skills_fugitive_bloodthirst_ratio" : "Bloodthirst Ratio",
     "ehi_buffs_skills_fugitive_bloodthirst_ratio_desc" : "Sets percentual ratio to show Bloodthirst gauge\nSetting it to 0% makes the buff always visible\n\nDefault value is 34%, which are 6 kills in Vanilla",
+    "ehi_buffs_skills_fugitive_bloodthirst_reload" : "Bloodthirst (Reload)",
     "ehi_buffs_skills_fugitive_berserker" : "Berserker",
     "ehi_buffs_skills_fugitive_berserker_refresh" : "Berserker Refresh",
     "ehi_buffs_skills_fugitive_berserker_refresh_desc" : "กำหนดค่าเวลาเป็นวินาทีเพื่ออัพเดททักษะ 'Berserker' ",
@@ -440,6 +449,8 @@
     "ehi_buffs_perks_maniac_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Maniac",
     "ehi_buffs_perks_anarchist" : "Anarchist / Armorer",
     "ehi_buffs_perks_anarchist_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Anarchist / Armorer",
+    "ehi_buffs_perks_expresident" : "Ex-President",
+    "ehi_buffs_perks_expresident_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Ex-President",
     "ehi_buffs_perks_biker" : "Biker",
     "ehi_buffs_perks_biker_desc" : "แสดงค่าความสามารถและการหน่วงเวลาสำหรับทักษะติดตัวพิเศษ Biker",
     "ehi_buffs_perks_kingpin" : "Kingpin",

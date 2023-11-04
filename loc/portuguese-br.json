@@ -30,13 +30,13 @@
     "ehi_scale" : "Tamanho",
     "ehi_scale_desc" : "Edite o tamanho dos Trackers. Mais alto o número, mais grande os Trackers e vice versa",
 
-    "ehi_vr_scale": "Tamanho no VR",
-    "ehi_vr_scale_desc": "Edite o tamanho dos Trackers em VR. Mais alto o número, mais grande os Trackers e vice versa",
-
     "ehi_time_format" : "Formato do Tempo",
     "ehi_time_format_desc" : "Define o formato do tempo que o Tracker vai usar",
     "ehi_time_format_1" : "Apenas Segundos",
     "ehi_time_format_2" : "Minutos e Segundos",
+
+    "ehi_vr_scale": "Tamanho no VR",
+    "ehi_vr_scale_desc": "Edite o tamanho dos Trackers em VR. Mais alto o número, mais grande os Trackers e vice versa",
 
     "ehi_visuals_menu" : "Visuais",
     "ehi_visuals_menu_desc" : "",

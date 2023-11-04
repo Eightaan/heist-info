@@ -68,9 +68,6 @@
   "ehi_scale": "スケール",
   "ehi_scale_desc": "トラッカーの大きさを設定します。\nトラッカーは、値が大きい程大きくなります。",
 
-  "ehi_vr_scale": "VRのスケール",
-  "ehi_vr_scale_desc": "VRモードでのトラッカーの大きさを設定します。\nトラッカーは、値が大きい程大きくなります。",
-
   "ehi_time_format": "時間のフォーマット",
   "ehi_time_format_desc": "トラッカーで使用される時計の形式を定義します。",
   "ehi_time_format_1": "秒数のみ",
@@ -80,6 +77,12 @@
   "ehi_tracker_alignment_desc": "トラッカーの位置合わせを定義します。",
   "ehi_tracker_alignment_1": "縦",
   "ehi_tracker_alignment_2": "横",
+
+  "ehi_vr_scale": "VRのスケール",
+  "ehi_vr_scale_desc": "VRモードでのトラッカーの大きさを設定します。\nトラッカーは、値が大きい程大きくなります。",
+
+  "ehi_vr_tracker_alignment": "VRのトラッカーの整列",
+  "ehi_vr_tracker_alignment_desc": "VRモードでのトラッカーの位置合わせを定義します。",
 
   "ehi_visuals_menu": "ビジュアル",
   "ehi_visuals_menu_desc": "",
@@ -212,8 +215,7 @@
   "ehi_show_minion_tracker": "コンバートトラッカーを表示",
   "ehi_show_minion_tracker_desc": "マップ上に存在するコンバートされた敵のトラッカーを表示します。",
 
-  "ehi_show_minion_per_player": "プレイヤーごとのコンバート数を表示",
-  "ehi_show_minion_per_player_desc": "コンバート数のトラッカーを着色して表示します。",
+  "ehi_show_minion_option_3": "プレイヤーごとのコンバート数を表示",
 
   "ehi_show_minion_killed_message": "コンバート死亡メッセージを表示",
   "ehi_show_minion_killed_message_desc": "コンバートした敵が殺害された際にメッセージを表示します。",
@@ -361,6 +363,8 @@
     "ehi_buffs_perks_maniac_desc" : "Shows buffs and cooldowns in Maniac perk deck",
     "ehi_buffs_perks_anarchist" : "Anarchist / Armorer",
     "ehi_buffs_perks_anarchist_desc" : "Shows buffs and cooldowns in Anarchist / Armorer perk deck",
+    "ehi_buffs_perks_expresident" : "Ex-President",
+    "ehi_buffs_perks_expresident_desc" : "Shows buffs and cooldowns in Ex-President perk deck",
     "ehi_buffs_perks_biker" : "Biker",
     "ehi_buffs_perks_biker_desc" : "Shows buffs and cooldowns in Biker perk deck",
     "ehi_buffs_perks_kingpin" : "Kingpin",

@@ -183,6 +183,18 @@
             "ehi_ver" : 29
         },
         {
+            "type": "toggle",
+            "id": "ehi_show_trade_delay_amount_of_killed_civilians_choice",
+            "title": "ehi_show_trade_delay_amount_of_killed_civilians",
+            "description": "ehi_show_trade_delay_amount_of_killed_civilians_desc",
+            "callback": "SetOption",
+            "callback_arguments": "show_trade_delay_amount_of_killed_civilians",
+            "value": "show_trade_delay_amount_of_killed_civilians",
+            "parent": "ehi_show_trade_delay_choice",
+            "default_value": true,
+            "ehi_ver" : 159
+        },
+        {
             "type": "divider",
             "size": 20
         },
@@ -228,21 +240,6 @@
             "value": "show_enemy_turret_trackers",
             "default_value": true,
             "ehi_ver" : 122
-        },
-        {
-            "type": "divider",
-            "size": 20
-        },
-        {
-            "type": "toggle",
-            "id": "ehi_show_zipline_timer_choice",
-            "title": "ehi_show_zipline_timer",
-            "description": "ehi_show_zipline_timer_desc",
-            "callback": ["SetOption", "UpdateTrackerVisibility"],
-            "callback_arguments": "show_zipline_timer",
-            "focus_changed_callback": "SetFocus",
-            "value": "show_zipline_timer",
-            "default_value": true
         }
     ]
 }

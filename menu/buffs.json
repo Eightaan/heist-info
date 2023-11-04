@@ -11,8 +11,8 @@
             "callback": ["SetOption", "UpdateBuffsVisibility"],
             "callback_arguments": "show_buffs",
             "value": "show_buffs",
+            "parent_func_update" : "UpdateAllBuffOffset",
             "default_value": true,
-            "is_parent" : true,
             "ehi_ver" : 58
         },
         {
@@ -27,11 +27,11 @@
             "callback": ["SetOption", "UpdateBuffsXOffset"],
             "callback_arguments" : "buffs_x_offset",
             "value": "buffs_x_offset",
+            "parent_func" : "GetBuffOffsetEnabled",
             "default_value": 0,
             "max": 1280,
             "min": 0,
             "step": 0,
-            "parent": "ehi_show_buffs_choice",
             "ehi_ver" : 58
         },
         {
@@ -42,12 +42,50 @@
             "callback": ["SetOption", "UpdateBuffsYOffset"],
             "callback_arguments": "buffs_y_offset",
             "value": "buffs_y_offset",
+            "parent_func" : "GetBuffOffsetEnabled",
             "default_value": 80,
             "max": 720,
             "min": 0,
             "step": 0,
-            "parent": "ehi_show_buffs_choice",
             "ehi_ver" : 58
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "slider",
+            "id": "ehi_vr_x_offset",
+            "title": "ehi_vr_x_offset",
+            "description": "ehi_x_offset_desc",
+            "callback": "SetOption",
+            "callback_arguments" : "buffs_vr_x_offset",
+            "value": "buffs_vr_x_offset",
+            "parent_func" : "GetBuffVROffsetEnabled",
+            "default_value": 0,
+            "max": 1280,
+            "min": 0,
+            "step": 0,
+            "ehi_ver" : 144
+        },
+        {
+            "type": "slider",
+            "id": "ehi_vr_y_offset",
+            "title": "ehi_vr_y_offset",
+            "description": "ehi_y_offset_desc",
+            "callback": "SetOption",
+            "callback_arguments": "buffs_vr_y_offset",
+            "value": "buffs_vr_y_offset",
+            "parent_func" : "GetBuffVROffsetEnabled",
+            "default_value": 80,
+            "max": 720,
+            "min": 0,
+            "step": 0,
+            "ehi_ver" : 144
+        },
+        {
+            "type": "divider",
+            "size": 20
         },
         {
             "type": "slider",

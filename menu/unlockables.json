@@ -15,6 +15,18 @@
             "is_parent" : true
         },
         {
+            "type": "toggle",
+            "id": "ehi_show_achievement_description_choice",
+            "title": "ehi_show_achievement_description",
+            "description": "ehi_show_achievement_description_desc",
+            "callback": "SetUnlockableOption",
+            "callback_arguments": "show_achievement_description",
+            "value": "show_achievement_description",
+            "default_value": false,
+            "parent" : "ehi_show_achievement_choice",
+            "ehi_ver" : 167
+        },
+        {
             "type" : "divider",
             "size" : 12
         },

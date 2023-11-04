@@ -16,6 +16,7 @@
         <file :name="padlock.texture" :path="padlock.texture"/>
         <file :name="piggy.texture" :path="piggy.texture"/>
         <file :name="daily_secret_identity.texture" :path="daily_secret_identity.texture"/>
+        <file :name="turret.texture" :path="turret.texture"/>
 
         <!-- Square -->
         <file :name="buff_sframe.texture" :path="buff_sframe.texture"/>

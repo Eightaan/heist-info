@@ -166,6 +166,32 @@
             "value": "regen_throwable_ai",
             "default_value": true,
             "ehi_ver" : 87
+        },
+        {
+            "type": "divider",
+            "size": 10
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_health_choice",
+            "title": "ehi_buffs_other_health",
+            "description": "ehi_buffs_skills_value",
+            "callback": "SetBuffOption",
+            "callback_arguments": "health",
+            "value": "health",
+            "default_value": false,
+            "ehi_ver" : 181
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_other_armor_choice",
+            "title": "ehi_buffs_other_armor",
+            "description": "ehi_buffs_skills_value",
+            "callback": "SetBuffOption",
+            "callback_arguments": "armor",
+            "value": "armor",
+            "default_value": false,
+            "ehi_ver" : 181
         }
     ]
 }

@@ -74,9 +74,6 @@
     "ehi_scale" : "Tamaño",
     "ehi_scale_desc" : "Ajustar el tamaño de los contadores.\nCuanto mayor sea el número, más grandes serán los contadores y viceversa.",
 
-    "ehi_vr_scale": "Tamaño en VR",
-    "ehi_vr_scale_desc": "Ajustar el tamaño de los contadores en realidad virtual.\nCuanto mayor sea el número, más grandes serán los contadores y viceversa.",
-
     "ehi_time_format" : "Formato del tiempo",
     "ehi_time_format_desc" : "Definir cómo se muestra el tiempo en los contadores cronometrados.",
     "ehi_time_format_1" : "Solo segundos",
@@ -86,6 +83,15 @@
     "ehi_tracker_alignment_desc" : "Definir cómo se alinean los contadores en pantalla.",
     "ehi_tracker_alignment_1" : "En vertical",
     "ehi_tracker_alignment_2" : "En horizontal",
+
+    "ehi_vr_x_offset" : "Posición horizontal en VR",
+    "ehi_vr_y_offset" : "Posición vertical en VR",
+
+    "ehi_vr_scale": "Tamaño en VR",
+    "ehi_vr_scale_desc": "Ajustar el tamaño de los contadores en realidad virtual.\nCuanto mayor sea el número, más grandes serán los contadores y viceversa.",
+
+    "ehi_vr_tracker_alignment" : "Alineación en VR",
+    "ehi_vr_tracker_alignment_desc" : "Definir cómo se alinean los contadores en pantalla en realidad virtual.",
 
     "ehi_visuals_menu" : "Aspecto visual",
     "ehi_visuals_menu_desc" : "",
@@ -269,8 +275,7 @@
     "ehi_show_minion_tracker" : "Mostrar contador de enemigos convertidos",
     "ehi_show_minion_tracker_desc" : "Mostrar / ocultar un contador de cuántos enemigos convertidos hay en el mapa.",
 
-    "ehi_show_minion_per_player" : "Mostrar enemigos convertidos por cada jugador",
-    "ehi_show_minion_per_player_desc" : "Mostrar / ocultar el número de enemigos convertidos por cada jugador con su color respectivo.",
+    "ehi_show_minion_option_3" : "Mostrar enemigos convertidos por cada jugador",
 
     "ehi_show_minion_killed_message" : "Mostrar mensaje de 'Enemigo convertido asesinado'",
     "ehi_show_minion_killed_message_desc" : "Mostrar / ocultar un mensaje cuando tu enemigo convertido haya sido asesinado.",
@@ -428,9 +433,9 @@
     "ehi_buffs_skills_fugitive_swan_song" : "'Canto del cisne'",
     "ehi_buffs_skills_fugitive_brawler_subclass" : "Luchador",
     "ehi_buffs_skills_fugitive_bloodthirst" : "'Sed de sangre'",
-    "ehi_buffs_skills_fugitive_bloodthirst_reload" : "'Sed de sangre' (Recarga)",
-	"ehi_buffs_skills_fugitive_bloodthirst_ratio" : "'Sed de sangre' (Radio)",
+    "ehi_buffs_skills_fugitive_bloodthirst_ratio" : "'Sed de sangre' (Radio)",
     "ehi_buffs_skills_fugitive_bloodthirst_ratio_desc" : "Establecer un porcentaje para mostrar el indicador de la habilidad.\nPoner el valor en 0% hará que la bonificación sea siempre visible.\n\nEl valor predeterminado es 34%, lo que equivale a 6 muertes en el juego Vanilla.",
+    "ehi_buffs_skills_fugitive_bloodthirst_reload" : "'Sed de sangre' (Recarga)",
     "ehi_buffs_skills_fugitive_berserker" : "'Furia Berserker'",
     "ehi_buffs_skills_fugitive_berserker_refresh" : "Actualización del indicador",
     "ehi_buffs_skills_fugitive_berserker_refresh_desc" : "Establecer con qué frecuencia se debe actualizar el indicador por segundo.",

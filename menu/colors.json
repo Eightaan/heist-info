@@ -1,0 +1,128 @@
+{
+    "menu_id": "ehi_colors_menu",
+    "parent_menu" : "ehi_menu",
+    "title": "ehi_colors_menu",
+    "h" : 500,
+    "items": [
+        {
+            "type" : "label",
+            "title" : "ehi_colors_tracker_waypoint"
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_inaccurate_choice",
+            "title": "ehi_colors_inaccurate",
+            "description": "ehi_colors_inaccurate_desc",
+            "value": "inaccurate",
+            "default_value": [255, 165, 0],
+            "callback": "SetColor",
+            "callback_arguments": ["inaccurate", "tracker_waypoint"],
+            "color_type" : "tracker_waypoint",
+            "setting_value": "colors",
+            "ehi_ver" : 145
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_pause_choice",
+            "title": "ehi_colors_pause",
+            "description": "ehi_colors_pause_desc",
+            "value": "pause",
+            "default_value": [255, 0, 0],
+            "callback": "SetColor",
+            "callback_arguments": ["pause", "tracker_waypoint"],
+            "color_type" : "tracker_waypoint",
+            "setting_value": "colors",
+            "ehi_ver" : 145
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_drill_autorepair_choice",
+            "title": "ehi_colors_drill_autorepair",
+            "description": "ehi_colors_drill_autorepair_desc",
+            "value": "drill_autorepair",
+            "default_value": [137, 209, 254],
+            "callback": "SetColor",
+            "callback_arguments": ["drill_autorepair", "tracker_waypoint"],
+            "color_type" : "tracker_waypoint",
+            "setting_value": "colors",
+            "ehi_ver" : 145
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_warning_choice",
+            "title": "ehi_colors_warning",
+            "description": "ehi_colors_warning_desc",
+            "value": "warning",
+            "default_value": [255, 0, 0],
+            "callback": "SetColor",
+            "callback_arguments": ["warning", "tracker_waypoint"],
+            "color_type" : "tracker_waypoint",
+            "setting_value": "colors",
+            "ehi_ver" : 145
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_completion_choice",
+            "title": "ehi_colors_completion",
+            "description": "ehi_colors_completion_desc",
+            "value": "completion",
+            "default_value": [0, 255, 0],
+            "callback": "SetColor",
+            "callback_arguments": ["completion", "tracker_waypoint"],
+            "color_type" : "tracker_waypoint",
+            "setting_value": "colors",
+            "ehi_ver" : 145
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type" : "label",
+            "title" : "ehi_colors_mission_briefing"
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_loot_secured_choice",
+            "title": "ehi_colors_loot_secured",
+            "description": "ehi_colors_loot_secured_desc",
+            "value": "loot_secured",
+            "default_value": [255, 188, 0],
+            "callback": "SetColor",
+            "callback_arguments": ["loot_secured", "mission_briefing"],
+            "color_type" : "mission_briefing",
+            "setting_value": "colors",
+            "ehi_ver" : 155
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_total_xp_choice",
+            "title": "ehi_colors_total_xp",
+            "description": "ehi_colors_total_xp_desc",
+            "value": "total_xp",
+            "default_value": [0, 255, 0],
+            "callback": "SetColor",
+            "callback_arguments": ["total_xp", "mission_briefing"],
+            "color_type" : "mission_briefing",
+            "setting_value": "colors",
+            "ehi_ver" : 155
+        },
+        {
+            "type": "color_select",
+            "id": "ehi_colors_optional_choice",
+            "title": "ehi_colors_optional",
+            "description": "ehi_colors_optional_desc",
+            "value": "optional",
+            "default_value": [137, 209, 254],
+            "callback": "SetColor",
+            "callback_arguments": ["optional", "mission_briefing"],
+            "color_type" : "mission_briefing",
+            "setting_value": "colors",
+            "ehi_ver" : 155
+        }
+    ]
+}

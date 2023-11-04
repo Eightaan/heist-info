@@ -1,3 +1,204 @@
+r184 (03. 09. 2023):
+Armored Transport Heists: Fixed an issue where trackers are not visible
+
+r183 (30. 08. 2023):
+Added "Show Civilian Counter" option
+Fixed an issue where Ex-President buff is visible when the perk is not equipped
+
+r182 (29. 08. 2023):
+Added "Berserker Format" buff option
+Reservoir Dogs Day 2: Fixed an issue where trackers are not visible
+
+r181 (24. 08. 2023):
+Added "Your Health Value" and "Your Armor Value" buff options
+Updated to U239.3
+Updated Turret icon
+Fixed gaps between trackers in horizontal alignment
+
+r180 (19. 08. 2023):
+Fixed an issue where trackers with forced icons are incorrectly positioned on the screen in horizontal alignment
+Fixed an alignment issue with trackers that are created on specific position in horizontal alignment
+
+r179 (16. 08. 2023):
+Updated to U239 (10th Anniversary)
+
+r178 (15. 08. 2023):
+Framing Frame Day 3: Fixed an issue where trackers aren't visible
+
+r177 (14. 08. 2023):
+XP Tracker: Fixed a crash when skill XP multiplier is nil
+
+r176 (13. 08. 2023):
+Election Day 2: Fixed an issue where trackers aren't visible
+
+r175 (12. 08. 2023):
+Aggregated Equipment Tracker: Tracker will use less space on the screen
+San Martín Bank: Added achievement tracker for "Silencioso y Codicioso"
+The Bomb: Dockyard: Fixed a crash
+
+r174 (11. 08. 2023):
+Mallcrasher: Fixed a crash on OVERKILL difficulty
+
+r173 (10. 08. 2023):
+Fixed an issue with "Fool Me Once, Shame on -Shame on You. Fool Me - You Can't Get Fooled Again" achievement tracker
+
+r172 (05. 08. 2023):
+Loot Tracker: Fixed an issue where the tracker would hide even there is random loot on the map
+Hotline Miami Day 1: Fixed an issue where the black sedan sometimes did not spawn any loot and it wasn't reflected in the Loot Counter
+Hotline Miami Day 2: Fixed a crash
+
+r171 (04. 08. 2023):
+Ukrainian Prisoner: Fixed a crash
+The Bomb: Forest: Added achievement tracker for "Oppressor"
+
+r170 (01. 08. 2023):
+Hoxton Breakout Day 2: Fixed crash when Hoxton started hacking
+
+r169 (31. 07. 2023):
+Fixed a very rare and possible crash when a convert died or was deleted by the mission script
+Buluc's Mansion: Fixed a crash
+Slaughterhouse: Fixed a crash
+
+r168 (30. 07. 2023):
+Added Trigger Happy and Desperado buffs
+Added "Show Scripted Snipers" option
+Fixed an issue where achievement loot counters do not properly sync secured loot
+Improved memory consumption by deferring loading of TimerGui, DigitalGui and SecurityLockGui trackers until they are needed
+Gage Tracker: Fixed an issue where the tracker could get stuck on the screen after sync
+Cook Off: Fixed an issue where achievement tracker for "I Am the One Who Knocks" is visible
+Cook Off: Fixed an issue where Total XP Tracker is not visible
+The Bomb: Forest: Fixed an issue where "Assault Delay" is not visible on client
+
+r167 (15. 07. 2023):
+Added option "Show Achievement Description"
+To prevent crashes, mod will disable itself while in editor mode
+Total XP Tracker: Tracker will stop showing XP when you reached your XP limit
+Firestarter Day 2: Fixed an issue where Loot Counter is not visible
+Henry's Rock: Fixed an issue where additional artifact in Archaeology room is not counted 
+San Martín Bank: Fixed a visual issue where achievement "Gunpowder Glory" failed after alarm and you entered the bank
+
+r166 (09. 07. 2023):
+Updated Zipline icons
+Total XP Tracker: Slightly increased size of the tracker
+Fixed an issue where Total XP Tracker is stuck and does not count any gained experience
+
+r165 (06. 07. 2023):
+Rats Day 2: Fixed a crash after gangsters took their weapons
+Hostile Takeover: Fixed an issue where achievement tracker for "Just Passing Through" could show up in loud
+
+r164 (05. 07. 2023):
+Crude Awakening: Fixed a crash on clients due to a typo
+
+r163 (04. 07. 2023):
+Added option "Aggregate Assault Delay and Duration into one tracker"
+Crude Awakening: Fixed an issue where achievement tracker for "Human Torch" could get stuck
+Hostile Takeover: Added achievement tracker for "Texas Treasures, Part 3"
+Hostile Takeover: Possible fix for the achievement tracker "Just Passing Through" not showing correct time left in multiplayer
+Fixed a possible log spam on the first game load
+
+r162 (28. 06. 2023):
+Added trackers for Crude Awakening
+Fixed an issue where job name in mission briefing moved when XP Overview is disabled
+
+r161 (25. 06. 2023):
+Fixed a crash due to a typo
+
+r160 (24. 06. 2023):
+Trade Delay Tracker: Fixed a crash after dropin and one or more teammates are in custody
+
+r159 (23. 06. 2023):
+Added option "Show Number of your Converts only"
+Added option "Show in Trade Delay Tracker amount of killed civilians"
+
+r158 (17. 06. 2023):
+Fixed Lobby code panel overlapping with XP Overview panel
+
+r157 (08. 06. 2023):
+Updated to U237
+
+r156 (07. 06. 2023):
+The Biker Heist: Fixed a crash when mechanic started working
+Drama Tracker: Tracker is disabled in Safehouse Nightmare
+Drama Tracker: Tracker is disabled in endless assaults
+Trade Delay Tracker: Improved accuracy with very long trade delays
+Trade Delay Tracker: Tracker will use less space on the screen
+Escape: Overpass: Fixed an issue where Loot Counter is not visible for clients
+
+r155 (03. 06. 2023):
+Added option to change colors in Mission Briefing XP Breakdown
+Buffs: Inspire (AI) is now synced to other players
+Scarface Mansion: Fixed an issue where "Settling a Scar" achievement tracker does not update correctly after alarm
+Safehouse Nightmare: Trade Delay tracker is disabled
+Rats Day 1: Fixed an issue where Loot Counter is not visible on OVERKILL difficulty or above
+Escape: Park: Fixed an issue where Loot Counter is not visible for clients
+Escape: Street: Fixed an issue where Loot Counter is not visible for clients
+The Yacht Heist: Fixed an issue where achievement "Blood in the Water" is not counting correctly
+
+r154 (22. 05. 2023):
+No Mercy: Fixed missing waypoint position for the escape elevator after dropin
+Shadow Raid: Fixed an issue where samurai armor is not counted in total loot count in "I am a Ninja" achievement tracker
+
+r153 (15. 05. 2023):
+Added option "Show Waypoints For Heist Elements"
+Fixed a log spam when endless assault starts (client only)
+Fixed "Artillery Barrage" achievement not tracked correctly
+Rats Day 2: Fixed a log spam when the deal is interrupted by police
+Rats Day 2: Fixed an issue where Loot Counter is showing 0 bags as maximum
+Rats Day 3: Fixed an issue where Loot Counter is showing 0 bags as maximum
+
+r152 (13. 05. 2023):
+Optimized Timer Trackers if both tracker and waypoint are visible
+No Mercy: Disabled Assault Delay and Assault Tracker when all players are in the elevator
+VR: Fixed crashes related to "Assault Delay" and "Assault Time" trackers
+
+r151 (12. 05. 2023):
+Cook Off: Fixed a crash after putting first ingredient
+
+r150 (11. 05. 2023):
+Code reorganization
+Fixed an issue where random time is increased everytime the tracker/waypoint is created
+Big Oil Day 2: Ammo bags outside of playable area are ignored
+Shacklethorne Auction: Fixed an issue where heli icon is bigger than usual
+VR: Possible fix for a load crash
+
+r149 (04. 05. 2023):
+The Biker Heist: Fixed an issue where ammo and grenades are counted, but the bunker is not open
+Hoxton Breakout Day 2: Fixed an issue where ammo and grenades are counted, but armory is not open
+
+r148 (01. 05. 2023):
+Fixed an issue where waypoints are not properly aligned and are on default vector position (0, 0, 0) on clients
+
+r147 (30. 04. 2023):
+Fixed a crash in Wallet Gui object
+
+r146 (24. 04. 2023):
+Added "Show Assault Duration Tracker" option
+
+r145 (21. 04. 2023):
+Added option to change colors
+Fixed an issue where "ACHIEVEMENT FAILED" popup do not show on some achievements
+
+r144 (11. 04. 2023):
+Added options "X offset (VR)" and "Y offset (VR)" for buffs
+
+r143 (09. 04. 2023):
+Added options "X offset (VR)" and "Y offset (VR)"
+Fixed a crash in waypoints
+
+r142 (07. 04. 2023):
+Fixed issues with "Tracker Alignment" option in VR
+
+r141 (06. 04. 2023):
+Added Unseen Strike (Initial Delay) buff
+Fixed an issue where Ex-President buff is visible when the perk is not equipped
+
+r140 (04. 04. 2023):
+Added Ex-President buffs
+Added option "VR Tracker Alignment"
+
+r139 (30. 03. 2023):
+XP Tracker: Fixed a crash when difficulty multiplier is nil
+
 r138 (23. 03. 2023):
 Updated to U235
 
@@ -273,7 +474,7 @@ Goat Simulator Day 1: Fixed a load crash when "Show hint for every XP" option is
 
 r72 (03. 08. 2022):
 Added popups for achievements related to Gage Packages
-Biker Heist: Added achievement tracker for "Let the Man Work"
+The Biker Heist: Added achievement tracker for "Let the Man Work"
 Election Day: Added achievement tracker for "Storage Hunter"
 Escape: Garage: Added achievement tracker for "They See Me Baggin', They Hatin'"
 Midland Ranch Heist: Fixed an issue where trackers were not visible on client
@@ -592,7 +793,6 @@ r15 (21. 06. 2021):
 Added Spanish translation
 Brooklyn 10-10: Fixed a startup crash
 Breakfast in Tijuana: Achievement "Stolen Valor" also works when you drop-in
-Heat Street: Fixed an issue where achievement "Zookeeper" was visible after you drop-in
 
 r14 (18. 06. 2021):
 Fixed a crash when First Aid Kit or Doctor Bag were placed and tracking is disabled in EHI

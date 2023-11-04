@@ -30,9 +30,6 @@
     "ehi_scale" : "Dimensione",
     "ehi_scale_desc" : "Imposta la dimensione del tracciatore. Più il numero è alto, più i tracciatori sono grossi e vice versa",
  
-    "ehi_vr_scale": "Dimensione VR",
-    "ehi_vr_scale_desc": "Imposta la dimensione dei tracciatori in VR. Più il numero è alto, più i tracciatori sono grossi e vice versa",
- 
     "ehi_time_format" : "Formato Orario",
     "ehi_time_format_desc" : "Definisce quale formato dovrebbero usare i tracciatori",
     "ehi_time_format_1" : "Solo secondi",
@@ -42,6 +39,12 @@
     "ehi_tracker_alignment_desc" : "Definisce come dovrebbero allinearsi i tracciatori",
     "ehi_tracker_alignment_1" : "Verticale",
     "ehi_tracker_alignment_2" : "Orizzontale",
+
+    "ehi_vr_scale": "Dimensione VR",
+    "ehi_vr_scale_desc": "Imposta la dimensione dei tracciatori in VR. Più il numero è alto, più i tracciatori sono grossi e vice versa",
+
+    "ehi_vr_tracker_alignment" : "Allineamento Tracciatore VR",
+    "ehi_vr_tracker_alignment_desc" : "Definisce come dovrebbero allinearsi i tracciatori in VR",
  
     "ehi_visuals_menu" : "Aspetto visivo",
     "ehi_visuals_menu_desc" : "",
@@ -162,8 +165,7 @@
     "ehi_show_minion_tracker" : "Mostra Tracciatore Convertiti",
     "ehi_show_minion_tracker_desc" : "Mostra un tracciatore per segnalare il numero di poliziotti convertiti presente sulla mappa",
  
-    "ehi_show_minion_per_player" : "Mostra Numero di Convertiti per Giocatore",
-    "ehi_show_minion_per_player_desc" : "Mostra nel tracciatore il numero di conversioni colorate del giocatore",
+    "ehi_show_minion_option_3" : "Mostra Numero di Convertiti per Giocatore",
  
     "ehi_show_difficulty_tracker" : "Mostra Tracciatore Difficoltà",
     "ehi_show_difficulty_tracker_desc" : "Mostra un tracciatore per quanto è difficile l'ondata",

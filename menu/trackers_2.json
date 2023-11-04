@@ -16,6 +16,21 @@
         },
         {
             "type": "toggle",
+            "id": "ehi_show_zipline_timer_choice",
+            "title": "ehi_show_zipline_timer",
+            "description": "ehi_show_zipline_timer_desc",
+            "callback": ["SetOption", "UpdateTrackerVisibility"],
+            "callback_arguments": "show_zipline_timer",
+            "focus_changed_callback": "SetFocus",
+            "value": "show_zipline_timer",
+            "default_value": true
+        },
+        {
+            "type": "divider",
+            "size": 20
+        },
+        {
+            "type": "toggle",
             "id": "ehi_show_gage_tracker_choice",
             "title": "ehi_show_gage_tracker",
             "description": "ehi_show_gage_tracker_desc",
@@ -96,17 +111,22 @@
             "ehi_ver" : 16
         },
         {
-            "type": "toggle",
-            "id": "ehi_show_minion_per_player_choice",
-            "title": "ehi_show_minion_per_player",
-            "description": "ehi_show_minion_per_player_desc",
+            "type": "multiple_choice",
+            "id": "ehi_show_minion_option_choice",
+            "title": "ehi_show_minion_option",
+            "description": "ehi_show_minion_option_desc",
             "callback": ["SetOption", "UpdateMinionTracker"],
-            "callback_arguments": "show_minion_per_player",
-            "value": "show_minion_per_player",
-            "focus_changed_callback" : "fcc_show_minion_per_player",
+            "callback_arguments": "show_minion_option",
+            "items": [
+                "ehi_show_minion_option_1",
+                "ehi_show_minion_option_2",
+                "ehi_show_minion_option_3"
+            ],
+            "focus_changed_callback": "fcc_show_minion_option",
             "parent": "ehi_show_minion_tracker_choice",
-            "default_value": true,
-            "ehi_ver" : 51
+            "value": "show_minion_option",
+            "default_value": 3,
+            "ehi_ver" : 159
         },
         {
             "type": "toggle",
@@ -222,22 +242,6 @@
             "parent" : "ehi_show_enemy_count_tracker_choice",
             "default_value": true,
             "ehi_ver" : 115
-        },
-        {
-            "type": "divider",
-            "size": 20
-        },
-        {
-            "type": "toggle",
-            "id": "ehi_show_laser_tracker_choice",
-            "title": "ehi_show_laser_tracker",
-            "description": "ehi_show_laser_tracker_desc",
-            "callback": ["SetOption", "UpdateTrackerVisibility"],
-            "callback_arguments": "show_laser_tracker",
-            "focus_changed_callback": "SetFocus",
-            "value": "show_laser_tracker",
-            "default_value": false,
-            "ehi_ver" : 10
         }
     ]
 }

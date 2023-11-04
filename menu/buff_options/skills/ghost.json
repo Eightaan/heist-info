@@ -91,6 +91,17 @@
             "value": "unseen_strike",
             "default_value": true,
             "ehi_ver" : 79
+        },
+        {
+            "type": "toggle",
+            "id": "ehi_buffs_skills_ghost_unseen_strike_initial_choice",
+            "title": "ehi_buffs_skills_ghost_unseen_strike_initial",
+            "description": "ehi_buffs_skills_duration",
+            "callback": "SetBuffOption",
+            "callback_arguments": "unseen_strike_initial",
+            "value": "unseen_strike_initial",
+            "default_value": true,
+            "ehi_ver" : 141
         }
     ]
 }

@@ -60,6 +60,17 @@
         },
         {
             "type": "toggle",
+            "id": "ehi_buffs_perks_expresident_choice",
+            "title": "ehi_buffs_perks_expresident",
+            "description" : "ehi_buffs_perks_expresident_desc",
+            "callback": "SetBuffOption",
+            "callback_arguments": "expresident",
+            "value": "expresident",
+            "default_value": true,
+            "ehi_ver" : 140
+        },
+        {
+            "type": "toggle",
             "id": "ehi_buffs_perks_biker_choice",
             "title": "ehi_buffs_perks_biker",
             "description" : "ehi_buffs_perks_biker_desc",

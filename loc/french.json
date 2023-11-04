@@ -28,9 +28,6 @@
     "ehi_scale": "Échelle",
     "ehi_scale_desc": "Définit la taille des moniteurs. Plus la valeur est grande, plus les moniteurs seront grands et inversement.",
 
-    "ehi_vr_scale": "Échelle VR",
-    "ehi_vr_scale_desc": "Définit la taille des moniteurs en VR. Plus la valeur est grande, plus les moniteurs seront grands et inversement.",
-
     "ehi_time_format": "Format du temps",
     "ehi_time_format_desc": "Définit comment le moniteur de temps doit-être indiqué",
     "ehi_time_format_1": "Secondes seulement",
@@ -40,6 +37,9 @@
     "ehi_tracker_alignment_desc" : "Defines how trackers should be aligned",
     "ehi_tracker_alignment_1" : "Vertical",
     "ehi_tracker_alignment_2" : "Horizontal",
+
+    "ehi_vr_scale": "Échelle VR",
+    "ehi_vr_scale_desc": "Définit la taille des moniteurs en VR. Plus la valeur est grande, plus les moniteurs seront grands et inversement.",
 
     "ehi_visuals_menu" : "Visuels",
     "ehi_visuals_menu_desc" : "",
