@@ -6,31 +6,31 @@ end
 local UpdateTracker
 if EHI:GetOption("show_equipment_aggregate_all") then
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:TrackerDoesNotExist("Deployables") then
-            managers.ehi:AddAggregatedDeployablesTracker()
+        if managers.ehi_deployable:TrackerDoesNotExist("Deployables") then
+            managers.ehi_deployable:AddAggregatedDeployablesTracker()
         end
-        managers.ehi:CallFunction("Deployables", "UpdateAmount", "bodybags_bag", unit, key, amount)
+        managers.ehi_deployable:CallFunction("Deployables", "UpdateAmount", "bodybags_bag", unit, key, amount)
     end
 else
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:TrackerDoesNotExist("BodyBags") and managers.groupai:state():whisper_mode() then
-            managers.ehi:CreateDeployableTracker("BodyBags")
+        if managers.ehi_deployable:TrackerDoesNotExist("BodyBags") and managers.groupai:state():whisper_mode() then
+            managers.ehi_deployable:CreateDeployableTracker("BodyBags")
         end
-        managers.ehi:CallFunction("BodyBags", "UpdateAmount", unit, key, amount)
+        managers.ehi_deployable:CallFunction("BodyBags", "UpdateAmount", unit, key, amount)
     end
     EHI:AddOnAlarmCallback(function()
-        managers.ehi:RemoveTracker("BodyBags")
+        managers.ehi_deployable:RemoveTracker("BodyBags")
     end)
 end
 
-if _G.IS_VR then
+if EHI:IsVR() then
     local old_UpdateTracker = UpdateTracker
     local function Reload(key, data)
         old_UpdateTracker(data.unit, key, data.amount)
     end
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:IsLoading() then
-            managers.ehi:AddToLoadQueue(key, { unit = unit, amount = amount }, Reload)
+        if managers.ehi_deployable:IsLoading() then
+            managers.ehi_deployable:AddToLoadQueue(key, { unit = unit, amount = amount }, Reload)
             return
         end
         old_UpdateTracker(unit, key, amount)

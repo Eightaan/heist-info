@@ -1,6 +1,8 @@
 local max_kills = tweak_data.upgrades.wild_max_triggers_per_time or 10
 local pm
 local f
+---@class EHIBikerBuffTracker : EHIBuffTracker
+---@field super EHIBuffTracker
 EHIBikerBuffTracker = class(EHIBuffTracker)
 function EHIBikerBuffTracker:PreUpdateCheck()
     pm = managers.player
@@ -57,12 +59,12 @@ function EHIBikerBuffTracker:Trigger(kills)
 end
 
 function EHIBikerBuffTracker:SetIconColor(color)
-    self._panel:child("icon"):set_color(color)
+    self._panel:child("icon"):set_color(color) ---@diagnostic disable-line
 end
 
 function EHIBikerBuffTracker:Activate(t)
     EHIBikerBuffTracker.super.Activate(self, t)
-    self._parent_class:AddVisibleBuff(self._id)
+    self:AddVisibleBuff()
 end
 
 function EHIBikerBuffTracker:Deactivate()

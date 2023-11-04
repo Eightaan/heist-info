@@ -2,16 +2,18 @@ local EHI = EHI
 if EHI:CheckHook("tweak_data") then
     return
 end
+local string_format = string.format
+local math_floor = math.floor
 core:import("CoreTable")
 local deep_clone = CoreTable.deep_clone
 local Icon = EHI.Icons
 
 tweak_data.ehi =
 {
-    color =
+    colors =
     {
-        Inaccurate = Color(255, 255, 165, 0) / 255,
-        DrillAutorepair = Color(255, 137, 209, 254) / 255
+        WaterColor = Color("D4F1F9"),
+        CarBlue = Color("1E90FF")
     },
     icons =
     {
@@ -30,12 +32,14 @@ tweak_data.ehi =
         assaultbox = { texture = "guis/textures/pd2_mod_ehi/assaultbox" },
         deployables = { texture = "guis/textures/pd2_mod_ehi/deployables" },
         padlock = { texture = "guis/textures/pd2_mod_ehi/padlock" },
+        turret = { texture = "guis/textures/pd2_mod_ehi/turret" },
 
         reload = { texture = "guis/textures/pd2/skilltree/icons_atlas", texture_rect = {0, 576, 64, 64} },
         smoke = { texture = "guis/dlcs/max/textures/pd2/specialization/icons_atlas", texture_rect = {0, 0, 64, 64} },
         teargas = { texture = "guis/dlcs/drm/textures/pd2/crime_spree/modifiers_atlas_2", texture_rect = {128, 256, 128, 128} },
         gage = { texture = "guis/dlcs/gage_pack_jobs/textures/pd2/endscreen/gage_assignment" },
         hostage = { texture = "guis/textures/pd2/hud_icon_hostage" },
+        civilians = { texture = "guis/textures/pd2/skilltree/icons_atlas", texture_rect = {384, 448, 64, 64} },
         buff_shield = { texture = "guis/textures/pd2/hud_buff_shield" },
 
         doctor_bag = { texture = "guis/textures/pd2/blackmarket/icons/deployables/outline/doctor_bag" },
@@ -75,12 +79,35 @@ tweak_data.ehi =
     -- Definitions for buffs and their icons
     buff =
     {
+        Health =
+        {
+            deck = true,
+            folder = "chico",
+            text = "0",
+            x = 1,
+            y = 0,
+            class = "EHIGaugeBuffTracker",
+            format = "damage",
+            option = "health",
+            pos = 0,
+        },
+        Armor =
+        {
+            u100skill = true,
+            x = 2,
+            y = 12,
+            class = "EHIGaugeBuffTracker",
+            format = "damage",
+            option = "armor",
+            pos = 1
+        },
         DodgeChance =
         {
             u100skill = true,
             x = 1,
             y = 12,
             class = "EHIDodgeChanceBuffTracker",
+            text = "Dodge",
             format = "percent",
             activate_after_spawn = true,
             option = "dodge",
@@ -229,6 +256,22 @@ tweak_data.ehi =
             y = 9,
             option = "second_wind"
         },
+        trigger_happy =
+        {
+            u100skill = true,
+            text = "Dmg+",
+            x = 11,
+            y = 2,
+            option = "trigger_happy"
+        },
+        desperado =
+        {
+            u100skill = true,
+            text = "Acc+",
+            x = 11,
+            y = 1,
+            option = "desperado"
+        },
         revived_damage_resist =
         {
             u100skill = true,
@@ -260,7 +303,14 @@ tweak_data.ehi =
             x = 10,
             y = 11,
             option = "unseen_strike",
-            --class = "EHIUnseenStrikeBuffTracker"
+        },
+        unseen_strike_initial =
+        {
+            u100skill = true,
+            bad = true,
+            x = 10,
+            y = 11,
+            option = "unseen_strike_initial",
         },
         melee_damage_stacking =
         {
@@ -447,7 +497,7 @@ tweak_data.ehi =
             skills = true,
             x = 2,
             y = 10,
-            class = "EHIHostageTakerMuscleRegenBuffTracker",
+            class = "EHIHealthRegenBuffTracker",
             option = "hostage_taker_muscle"
         },
         crew_throwable_regen =
@@ -465,6 +515,16 @@ tweak_data.ehi =
             class = "EHIStaminaBuffTracker",
             format = "percent",
             option = "stamina"
+        },
+        ExPresident =
+        {
+            deck = true,
+            x = 3,
+            y = 7,
+            class = "EHIExPresidentBuffTracker",
+            option = "expresident",
+            check_after_spawn = true,
+            format = "damage"
         },
         BikerBuff =
         {
@@ -510,6 +570,7 @@ tweak_data.ehi =
             deck = true,
             folder = "joy",
             x = 3,
+            text = "Dodge+",
             class = "EHIHackerTemporaryDodgeBuffTracker",
             option = "hacker"
         },
@@ -517,13 +578,15 @@ tweak_data.ehi =
         {
             skills = true,
             x = 6,
-            y = 3
+            y = 3,
+            option = "hacker"
         },
         HackerFeedbackEffect =
         {
             skills = true,
             x = 6,
-            y = 2
+            y = 2,
+            option = "hacker"
         },
         copr_ability =
         {
@@ -549,17 +612,26 @@ tweak_data.ehi =
     },
     functions =
     {
-        IsBranchbankJobActive = function()
-            local current_job = managers.job:current_job_id()
-            for _, job in ipairs(tweak_data.achievement.complete_heist_achievements.uno_1.jobs) do
-                if current_job == job then
-                    return true
+        ---@param check_level? boolean
+        uno_1 = function(check_level)
+            if check_level then
+                local current_job = managers.job:current_job_id()
+                if not table.contains(tweak_data.achievement.complete_heist_achievements.uno_1.jobs, current_job) then
+                    return
                 end
             end
-            return false
+            EHI:ShowAchievementBagValueCounter({
+                achievement = "uno_1",
+                value = tweak_data.achievement.complete_heist_achievements.uno_1.bag_loot_value,
+                show_finish_after_reaching_target = true,
+                counter =
+                {
+                    check_type = EHI.LootCounter.CheckType.ValueOfBags
+                }
+            })
         end,
         ShowNumberOfLootbagsOnTheGround = function()
-            local max = managers.ehi:CountLootbagsOnTheGround()
+            local max = managers.ehi_manager:CountLootbagsOnTheGround()
             if max == 0 then
                 return
             end
@@ -593,30 +665,87 @@ tweak_data.ehi =
             end
             return n
         end,
+        HookArmoredTransportUnit = function(truck_id)
+            local exploded = {}
+            local function GarbageFound()
+                managers.ehi_tracker:CallFunction("LootCounter", "RandomLootDeclined")
+            end
+            local function LootFound()
+                managers.ehi_tracker:CallFunction("LootCounter", "RandomLootSpawned")
+            end
+            local function LootFoundExplosionCheck()
+                if exploded[truck_id] then
+                    GarbageFound()
+                    return
+                end
+                managers.ehi_tracker:CallFunction("LootCounter", "RandomLootSpawned")
+            end
+            managers.mission:add_runned_unit_sequence_trigger(truck_id, "set_exploded", function()
+                exploded[truck_id] = true
+            end)
+            for _, loot in ipairs({ "gold", "money", "art" }) do
+                for i = 1, 9, 1 do
+                    if i <= 2 then -- Explosion can disable this loot
+                        managers.mission:add_runned_unit_sequence_trigger(truck_id, "spawn_loot_" .. loot .. "_" .. tostring(i), LootFoundExplosionCheck)
+                    else
+                        managers.mission:add_runned_unit_sequence_trigger(truck_id, "spawn_loot_" .. loot .. "_" .. tostring(i), LootFound)
+                    end
+                end
+            end
+            for i = 1, 9, 1 do
+                managers.mission:add_runned_unit_sequence_trigger(truck_id, "spawn_loot_empty_" .. tostring(i), GarbageFound)
+            end
+        end,
         FormatSecondsOnly = function(self)
-            local t = math.floor(self._time * 10) / 10
+            local t = math_floor(self._time * 10) / 10
             if t < 0 then
-                return string.format("%d", 0)
+                return string_format("%d", 0)
             elseif t < 1 then
-                return string.format("%.2f", self._time)
+                return string_format("%.2f", self._time)
             elseif t < 10 then
-                return string.format("%.1f", t)
+                return string_format("%.1f", t)
             else
-                return string.format("%d", t)
+                return string_format("%d", t)
             end
         end,
         FormatMinutesAndSeconds = function(self)
-            local t = math.floor(self._time * 10) / 10
+            local t = math_floor(self._time * 10) / 10
             if t < 0 then
-                return string.format("%d", 0)
+                return string_format("%d", 0)
             elseif t < 1 then
-                return string.format("%.2f", self._time)
+                return string_format("%.2f", self._time)
             elseif t < 10 then
-                return string.format("%.1f", t)
+                return string_format("%.1f", t)
             elseif t < 60 then
-                return string.format("%d", t)
+                return string_format("%d", t)
             else
-                return string.format("%d:%02d", t / 60, t % 60)
+                return string_format("%d:%02d", t / 60, t % 60)
+            end
+        end,
+        ReturnSecondsOnly = function(_, time)
+            local t = math_floor(time * 10) / 10
+            if t < 0 then
+                return string_format("%d", 0)
+            elseif t < 1 then
+                return string_format("%.2f", time)
+            elseif t < 10 then
+                return string_format("%.1f", t)
+            else
+                return string_format("%d", t)
+            end
+        end,
+        ReturnMinutesAndSeconds = function(_, time)
+            local t = math_floor(time * 10) / 10
+            if t < 0 then
+                return string_format("%d", 0)
+            elseif t < 1 then
+                return string_format("%.2f", time)
+            elseif t < 10 then
+                return string_format("%.1f", t)
+            elseif t < 60 then
+                return string_format("%d", t)
+            else
+                return string_format("%d:%02d", t / 60, t % 60)
             end
         end
     }
@@ -646,13 +775,14 @@ tweak_data.hud_icons.EHI_Gage = { texture = tweak_data.ehi.icons.gage.texture }
 tweak_data.hud_icons.EHI_Minion = tweak_data.ehi.icons.minion
 tweak_data.hud_icons.EHI_Loot = tweak_data.hud_icons.pd2_loot
 
-do
-    local preplanning = tweak_data.preplanning
-    local path = preplanning.gui.type_icons_path
-    local text_rect_blimp = preplanning:get_type_texture_rect(preplanning.types.kenaz_faster_blimp.icon)
-    text_rect_blimp[1] = text_rect_blimp[1] + text_rect_blimp[3] -- Add the negated "w" value so it will correctly show blimp
-    text_rect_blimp[3] = -text_rect_blimp[3] -- Flip the image so it will face correctly
-    tweak_data.ehi.icons.blimp = { texture = path, texture_rect = text_rect_blimp }
-    tweak_data.ehi.icons.heli = { texture = path, texture_rect = preplanning:get_type_texture_rect(preplanning.types.kenaz_ace_pilot.icon) }
-    tweak_data.hud_icons.EHI_Heli = tweak_data.ehi.icons.heli
-end
+local preplanning = tweak_data.preplanning
+local path = preplanning.gui.type_icons_path
+local text_rect_blimp = preplanning:get_type_texture_rect(preplanning.types.kenaz_faster_blimp.icon)
+text_rect_blimp[1] = text_rect_blimp[1] + text_rect_blimp[3] -- Add the negated "w" value so it will correctly show blimp
+text_rect_blimp[3] = -text_rect_blimp[3] -- Flip the image so it will face correctly
+tweak_data.ehi.icons.blimp = { texture = path, texture_rect = text_rect_blimp }
+tweak_data.ehi.icons.heli = { texture = path, texture_rect = preplanning:get_type_texture_rect(preplanning.types.kenaz_ace_pilot.icon) }
+tweak_data.hud_icons.EHI_Heli = tweak_data.ehi.icons.heli
+tweak_data.ehi.icons.oil = { texture = path, texture_rect = preplanning:get_type_texture_rect(preplanning.types.kenaz_drill_improved_cooling_system.icon) }
+tweak_data.ehi.icons.zipline = { texture = path, texture_rect = preplanning:get_type_texture_rect(81) } -- Zipline, currently unused -> hardcoded number
+tweak_data.ehi.icons.zipline_bag = { texture = path, texture_rect = preplanning:get_type_texture_rect(preplanning.types.corp_zipline_north.icon) }

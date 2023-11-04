@@ -1,12 +1,16 @@
-local Color = Color
 local lerp = math.lerp
-local function anim(o, ratio)
-    local r = o:color().red
+---@param o PanelBitmap
+---@param ratio number
+---@param progress Color
+local function anim(o, ratio, progress)
+    local r = progress.red
     over(0.25, function(p, t)
-        local l = lerp(r, ratio, p)
-        o:set_color(Color(1, l, 1, 1))
+        progress.red = lerp(r, ratio, p)
+        o:set_color(progress)
     end)
 end
+---@class EHIGaugeBuffTracker : EHIBuffTracker
+---@field super EHIBuffTracker
 EHIGaugeBuffTracker = class(EHIBuffTracker)
 EHIGaugeBuffTracker._inverted_progress = true
 function EHIGaugeBuffTracker:init(panel, params)
@@ -15,17 +19,9 @@ function EHIGaugeBuffTracker:init(panel, params)
     EHIGaugeBuffTracker.super.init(self, panel, params)
 end
 
-function EHIGaugeBuffTracker:Activate(ratio, pos)
+function EHIGaugeBuffTracker:Activate(ratio, custom_value, pos)
     self._active = true
-    self:SetRatio(ratio)
-    self._panel:stop()
-    self._panel:animate(self._show)
-    self._pos = pos
-end
-
-function EHIGaugeBuffTracker:Activate2(ratio, custom_value, pos)
-    self._active = true
-    self:SetRatio2(ratio, custom_value)
+    self:SetRatio(ratio, custom_value)
     self._panel:stop()
     self._panel:animate(self._show)
     self._pos = pos
@@ -33,46 +29,33 @@ end
 
 function EHIGaugeBuffTracker:Deactivate()
     EHIGaugeBuffTracker.super.Deactivate(self)
-    self._progress:set_color(Color(1, 0, 1, 1)) -- No need to animate this because the panel is no longer visible
+    self._progress_bar.red = 0 -- No need to animate this because the panel is no longer visible
+    self._progress:set_color(self._progress_bar)
 end
 
-function EHIGaugeBuffTracker:SetRatio(ratio)
-    self._ratio = ratio
-    self._text:set_text(self:Format())
-    self:FitTheText()
-    self._progress:stop()
-    self._progress:animate(anim, self._ratio)
-end
-
-function EHIGaugeBuffTracker:SetRatio2(ratio, custom_value)
-    self._ratio = ratio
-    self._text:set_text(self:FormatCustom(custom_value))
-    self:FitTheText()
-    self._progress:stop()
-    self._progress:animate(anim, self._ratio)
-end
-
-function EHIGaugeBuffTracker:FitTheText()
-    local w = select(3, self._text:text_rect())
-    if w > self._text:w() then
-        self._text:set_font_size(self._text:font_size() * (self._text:w() / w))
+---@param ratio number
+---@param custom_value number?
+function EHIGaugeBuffTracker:SetRatio(ratio, custom_value)
+    if self._ratio == ratio then
+        return
     end
+    self._ratio = ratio
+    self._text:set_text(self:Format(custom_value))
+    self:FitTheText(self._text)
+    self._progress:stop()
+    self._progress:animate(anim, self._ratio, self._progress_bar)
 end
 
-function EHIGaugeBuffTracker:Format()
-    if self._format == "percent" then
-        return tostring(self._ratio * 100) .. "%"
-    elseif self._format == "multiplier" then
-        return self._ratio .. "x"
-    end
-    return tostring(self._ratio)
-end
-
-function EHIGaugeBuffTracker:FormatCustom(value)
+---@param value number?
+---@return string
+function EHIGaugeBuffTracker:Format(value)
+    value = value or self._ratio
     if self._format == "percent" then
         return tostring(value * 100) .. "%"
     elseif self._format == "multiplier" then
         return value .. "x"
+    elseif self._format == "damage" then
+        return tostring(value * 10)
     end
     return tostring(value)
 end

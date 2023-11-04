@@ -7,8 +7,12 @@ if not EHI:GetOption("show_laser_tracker") then
     return
 end
 
+---@class EHILaserTracker : EHITracker
+---@field super EHITracker
 EHILaserTracker = class(EHITracker)
 EHILaserTracker._forced_icons = { EHI.Icons.Lasers }
+---@param panel Panel
+---@param params EHITracker_params
 function EHILaserTracker:init(panel, params)
     self._next_cycle_t = params.time
     EHILaserTracker.super.init(self, panel, params)
@@ -26,11 +30,6 @@ function EHILaserTracker:UpdateInterval(t)
     self._time = t
 end
 
-function EHILaserTracker:delete()
-    self._parent_class:RemoveLaser(self._id)
-    EHILaserTracker.super.delete(self)
-end
-
 local original =
 {
     init = ElementLaserTrigger.init,
@@ -46,7 +45,7 @@ end
 
 function ElementLaserTrigger:add_callback(...)
     if not self._callback and self._is_cycled then
-        managers.ehi:AddLaserTracker({
+        managers.ehi_tracker:AddLaserTracker({
             id = self._ehi_id,
             time = self._values.cycle_interval,
             class = "EHILaserTracker"
@@ -57,10 +56,10 @@ end
 
 function ElementLaserTrigger:remove_callback(...)
     original.remove_callback(self, ...)
-	managers.ehi:RemoveTracker(self._ehi_id)
+	managers.ehi_tracker:RemoveLaserTracker(self._ehi_id)
 end
 
 function ElementLaserTrigger:load(...)
     original.load(self, ...)
-    managers.ehi:CallFunction(self._ehi_id, "UpdateInterval", self._next_cycle_t)
+    managers.ehi_tracker:CallFunction(self._ehi_id, "UpdateInterval", self._next_cycle_t)
 end

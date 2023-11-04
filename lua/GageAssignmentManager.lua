@@ -12,7 +12,7 @@ local original =
 local ShowProgress
 if EHI:GetOption("gage_tracker_panel") == 1 then
 	ShowProgress = function(picked_up, max, client_sync_load)
-		managers.ehi:SetTrackerProgress("Gage", picked_up)
+		managers.ehi_tracker:SetTrackerProgress("Gage", picked_up)
 	end
 else
 	ShowProgress = function(picked_up, max, client_sync_load)

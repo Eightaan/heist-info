@@ -113,7 +113,7 @@ function EHIMenu:init()
             name = "bg",
             alpha = 0,
         })
-        self._back_button = {type = "button", panel = back_button, callback = "Cancel", num = 0 }
+        self._back_button = { type = "button", panel = back_button, callback = "Cancel", num = 0 }
     else
         self._button_legends = self._panel:text({
             name = "legends",
@@ -128,7 +128,7 @@ function EHIMenu:init()
         self._button_legends:set_right(self._options_panel:right() - 5)
         self._button_legends:set_top(self._options_panel:bottom())
     end
-    if _G.IS_VR then
+    if EHI:IsVR() then
         self._gui_vr = World:newgui()
         --self._ws_vr = managers.gui_data:create_fullscreen_workspace(nil, MenuRoom:gui())
         self._ws_vr = self._gui_vr:create_world_workspace(1280, 720, Vector3(0, 0, 0), Vector3(1, 0, 0), Vector3(0, 1, 0))
@@ -138,7 +138,7 @@ function EHIMenu:init()
             alpha = 1
         })
     end
-    self._preview_panel = FakeEHIManager:new(self._vr_panel or self._panel)
+    self._preview_panel = FakeEHITrackerManager:new(self._vr_panel or self._panel)
     self._buffs_preview_panel = FakeEHIBuffsManager:new(self._vr_panel or self._panel)
 
     self._menu_ver = 1
@@ -182,6 +182,7 @@ function EHIMenu:init()
     self:GetMenuFromJson(EHI.MenuPath .. "buff_options/other.json", EHI.settings.buff_option)
     self:GetMenuFromJson(EHI.MenuPath .. "inventory.json")
     self:GetMenuFromJson(EHI.MenuPath .. "other.json")
+    self:GetMenuFromJson(EHI.MenuPath .. "colors.json", EHI.settings.colors)
 
     self:OpenMenu("ehi_menu")
 end
@@ -194,16 +195,8 @@ function EHIMenu:CallCallback(item, params)
             value = tonumber(value)
         end
         if params.color then
-            local cpanels = { 5, 32, 59 }
-            local colors = {}
-            local i = 1
-            for _, v in pairs(params.color_panels) do
-                if v:y() == cpanels[i] then
-                    colors[#colors + 1] = v:child("value"):text()
-                    i = i + 1
-                end
-            end
-            value = Color(colors[1], colors[2], colors[3])
+            local v = params.color_panels
+            value = Color(v[1]:child("value"):text(), v[2]:child("value"):text(), v[3]:child("value"):text())
         end
         local var = item.callback_arguments and type(item.callback_arguments) == "table" or false
         if type(item.callback) == "table" then
@@ -289,9 +282,10 @@ function EHIMenu:Open()
     self._panel:animate(function(o)
         local a = self._panel:alpha()
 
-        do_animation(0.2, function (p)
-            self._panel:set_alpha(math.lerp(a, 1, p))
-            self._preview_panel._hud_panel:set_alpha(math.lerp(a, 1, p))
+        do_animation(0.2, function(p)
+            local alpha_lerp = math.lerp(a, 1, p)
+            self._panel:set_alpha(alpha_lerp)
+            self._preview_panel._hud_panel:set_alpha(alpha_lerp)
         end)
         self._controller:enable()
     end)
@@ -310,9 +304,10 @@ function EHIMenu:Close()
     self._panel:animate(function(o)
         local a = self._panel:alpha()
 
-        do_animation(0.2, function (p)
-            self._panel:set_alpha(math.lerp(a, 0, p))
-            self._preview_panel._hud_panel:set_alpha(math.lerp(a, 0, p))
+        do_animation(0.2, function(p)
+            local alpha_lerp = math.lerp(a, 0, p)
+            self._panel:set_alpha(alpha_lerp)
+            self._preview_panel._hud_panel:set_alpha(alpha_lerp)
         end)
         self._panel:set_alpha(0)
         self._preview_panel._hud_panel:set_alpha(0)
@@ -326,7 +321,7 @@ function EHIMenu:Close()
 end
 
 function EHIMenu:destroy()
-    if _G.IS_VR then
+    if self._gui_vr and self._ws_vr then
         self._gui_vr:destroy_workspace(self._ws_vr)
         self._ws_vr = nil
         self._gui_vr = nil
@@ -340,7 +335,7 @@ function EHIMenu:mouse_move(o, x, y)
         managers.mouse_pointer:set_pointer_image("arrow")
         if self._open_choice_dialog and self._open_choice_dialog.panel then
             local selected = false
-            for i, item in pairs(self._open_choice_dialog.items) do
+            for i, item in ipairs(self._open_choice_dialog.items) do
                 if alive(item) and item:inside(x,y) and not selected then
                     if self._open_choice_dialog.selected > 0 and self._open_choice_dialog.selected ~= i then
                         self._open_choice_dialog.items[self._open_choice_dialog.selected]:set_color(Color(0.6,0.6,0.6))
@@ -356,7 +351,7 @@ function EHIMenu:mouse_move(o, x, y)
                 self:SetColorSlider(self._slider.slider, x, self._slider.type)
                 managers.mouse_pointer:set_pointer_image("grab")
             else
-                for i, item in pairs(self._open_color_dialog.items) do
+                for i, item in ipairs(self._open_color_dialog.items) do
                     if alive(item) and item:inside(x,y) and item:child("bg"):alpha() ~= 0.1 then
                         if self._open_color_dialog.selected > 0 and self._open_color_dialog.selected ~= i then
                             self._open_color_dialog.items[self._open_color_dialog.selected]:child("bg"):set_alpha(0)
@@ -369,11 +364,11 @@ function EHIMenu:mouse_move(o, x, y)
             end
         elseif self._slider then
             self:SetSlider(self._slider, x)
-        elseif self._back_button and self._back_button.panel:inside(x,y) then
+        elseif self._back_button and self._back_button.panel:inside(x, y) then
             self:HighlightItem(self._back_button)
             managers.mouse_pointer:set_pointer_image("link")
         else
-            for _, item in pairs(self._open_menu.items) do
+            for _, item in ipairs(self._open_menu.items) do
                 if item.enabled and item.panel:inside(x,y) and item.panel:child("bg") then
                     self:HighlightItem(item)
                     if item.type == "slider" then
@@ -392,7 +387,7 @@ function EHIMenu:mouse_press(o, button, x, y)
     if button == Idstring("0") then
         if self._open_choice_dialog then
             if self._open_choice_dialog.panel:inside(x,y) then
-                for i, item in pairs(self._open_choice_dialog.items) do
+                for i, item in ipairs(self._open_choice_dialog.items) do
                     if alive(item) and item:inside(x,y) and item:alpha() == 1 then
                         local parent_item = self._open_choice_dialog.parent_item
                         parent_item.panel:child("title_selected"):set_text(self._open_choice_dialog.items[i]:text())
@@ -405,7 +400,7 @@ function EHIMenu:mouse_press(o, button, x, y)
             end
         elseif self._open_color_dialog then
             if self._open_color_dialog.panel:inside(x,y) then
-                for i, item in pairs(self._open_color_dialog.items) do
+                for i, item in ipairs(self._open_color_dialog.items) do
                     if alive(item) and item:inside(x,y) then
                         if item:child("slider") then
                             self._slider = {slider = item, type = i}
@@ -443,7 +438,7 @@ function EHIMenu:Confirm()
         return
     end
     if self._open_choice_dialog then
-        for i, item in pairs(self._open_choice_dialog.items) do
+        for i, item in ipairs(self._open_choice_dialog.items) do
             if alive(item) and self._open_choice_dialog.selected == i then
                 local parent_item = self._open_choice_dialog.parent_item
                 parent_item.panel:child("title_selected"):set_text(self._open_choice_dialog.items[i]:text())
@@ -481,10 +476,10 @@ function EHIMenu:MenuDown()
             end
             self._open_color_dialog.items[self._open_color_dialog.selected + 1]:child("bg"):set_alpha(0.1)
             self._open_color_dialog.selected = self._open_color_dialog.selected + 1
-            self:SetLegends(self._open_color_dialog.selected == 4 and true or false, false, self._open_color_dialog.selected < 4 and true or false)
+            self:SetLegends(self._open_color_dialog.selected == 4, false, self._open_color_dialog.selected < 4)
         end
     elseif self._open_menu and not self._highlighted_item then
-        for i, item in pairs(self._open_menu.items) do
+        for i, item in ipairs(self._open_menu.items) do
             if item.enabled and item.panel:child("bg") then
                 self:HighlightItem(item)
                 return
@@ -667,9 +662,9 @@ function EHIMenu:SetLegends(accept, reset, step)
     if self._button_legends then
         local text = managers.localization:text("menu_legend_back", {BTN_BACK = managers.localization:btn_macro("back")})
         local separator = "    "
-        if accept then text = managers.localization:text("menu_legend_select", {BTN_UPDATE  = managers.localization:btn_macro("menu_update")}) .. separator .. text end
-        if reset then text = managers.localization:to_upper_text("VoidUI_tooltip_reset_cnt", {BTN_RESET  = managers.localization:btn_macro("menu_toggle_voice_message")}) .. separator .. text end
-        if step then text = managers.localization:to_upper_text("VoidUI_tooltip_steps", {BTN_STEP  = managers.localization:btn_macro("previous_page") .. managers.localization:btn_macro("next_page")}) .. separator .. text end
+        if accept then text = managers.localization:text("menu_legend_select", {BTN_UPDATE = managers.localization:btn_macro("menu_update")}) .. separator .. text end
+        if reset then text = managers.localization:to_upper_text("VoidUI_tooltip_reset_cnt", {BTN_RESET = managers.localization:btn_macro("menu_toggle_voice_message")}) .. separator .. text end
+        if step then text = managers.localization:to_upper_text("VoidUI_tooltip_steps", {BTN_STEP = managers.localization:btn_macro("previous_page") .. managers.localization:btn_macro("next_page")}) .. separator .. text end
         self._button_legends:set_text(text)
     end
 end
@@ -679,7 +674,7 @@ function EHIMenu:Cancel()
         self:CloseMultipleChoicePanel()
     elseif self._open_color_dialog then
         self:CloseColorMenu()
-    elseif self._open_menu.parent_menu then
+    elseif self._open_menu and self._open_menu.parent_menu then
         self:OpenMenu(self._open_menu.parent_menu, true)
     else
         self:Close()
@@ -739,8 +734,6 @@ function EHIMenu:GetMenuFromJson(path, settings_table)
         file:close()
 
         local content = json.decode(file_content)
-        local menu_id = content.menu_id
-        local parent_menu = content.parent_menu or nil
         local menu_title = managers.localization:text(content.title)
         local items = content.items
 
@@ -749,17 +742,17 @@ function EHIMenu:GetMenuFromJson(path, settings_table)
         end
 
         local menu = self:CreateMenu({
-            menu_id = menu_id,
-            parent_menu = parent_menu,
+            menu_id = content.menu_id,
+            parent_menu = content.parent_menu,
             title = menu_title,
             focus_changed_callback = content.focus_changed_callback,
         })
 
         for _, item in ipairs(items) do
             if item.table then
-                self:CreateOneLineItems(item, items, menu_id, settings_table)
+                self:CreateOneLineItems(item, items, menu, settings_table)
             else
-                self:CreateItem(item, items, menu_id, settings_table)
+                self:CreateItem(item, items, menu, settings_table)
             end
         end
         menu.panel:set_h(content.h or menu.items[#menu.items].panel:bottom())
@@ -769,7 +762,10 @@ function EHIMenu:GetMenuFromJson(path, settings_table)
     end
 end
 
-function EHIMenu:CreateItem(item, items, menu_id, settings_table)
+function EHIMenu:CreateItem(item, items, menu, settings_table)
+    if not menu then
+        return
+    end
     local item_type = item.type
     local id = item.id
     local title = item.title
@@ -782,10 +778,12 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
     if item.enabled ~= nil then
         enabled = item.enabled
     elseif item.parent_func then
-        enabled = self[item.parent_func](self)
+        if self[item.parent_func] then
+            enabled = self[item.parent_func](self)
+        end
     elseif parents then
         if type(parents) == "string" then
-            for _, pitem in pairs(items) do
+            for _, pitem in ipairs(items) do
                 if pitem.id == parents then
                     enabled = settings_table[pitem.value]
                     break
@@ -805,9 +803,8 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
         end
     end
 
-    value = settings_table[item.value]
-    if value == nil then
-        value = default_value
+    if item.value and settings_table[item.value] ~= nil then
+        value = settings_table[item.value]
     end
 
     local desc = item.description and managers.localization:text(item.description) or ""
@@ -823,8 +820,7 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
 
     local itm
     if item_type == "label" then
-        itm = self:CreateLabel({
-            menu_id = menu_id,
+        itm = self:CreateLabel(menu, {
             id = id,
             enabled = enabled,
             title = managers.localization:text(title),
@@ -833,13 +829,9 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
             new = new
         })
     elseif item_type == "divider" then
-        itm = self:CreateDivider({
-            menu_id = menu_id,
-            size = item.size
-        })
+        itm = self:CreateDivider(menu, { size = item.size })
     elseif item_type == "button" then
-        itm = self:CreateButton({
-            menu_id = menu_id,
+        itm = self:CreateButton(menu, {
             id = id,
             title = managers.localization:text(title),
             description = desc,
@@ -852,8 +844,7 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
             new = new
         })
     elseif item_type == "toggle" then
-        itm = self:CreateToggle({
-            menu_id = menu_id,
+        itm = self:CreateToggle(menu, {
             id = id,
             title = managers.localization:text(title),
             description = desc,
@@ -869,8 +860,7 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
             new = new
         })
     elseif item_type == "slider" then
-        itm = self:CreateSlider({
-            menu_id = menu_id,
+        itm = self:CreateSlider(menu, {
             id = id,
             title = managers.localization:text(title),
             description = desc,
@@ -893,8 +883,7 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
             item.items[k] = managers.localization:text(item.items[k])
         end
 
-        itm = self:CreateMultipleChoice({
-            menu_id = menu_id,
+        itm = self:CreateMultipleChoice(menu, {
             id = id,
             title = managers.localization:text(title),
             description = desc,
@@ -910,12 +899,19 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
         })
     elseif item_type == "color_select" then
         local stored_value = EHI.settings
-        if item.setting_value and item.setting_value == "equipment" then
-            stored_value = EHI.settings.equipment_color
+        if item.setting_value then
+            if item.setting_value == "equipment" then
+                stored_value = EHI.settings.equipment_color
+            elseif item.setting_value == "colors" then
+                if item.color_type then
+                    stored_value = EHI.settings.colors[item.color_type]
+                else
+                    stored_value = EHI.settings.colors
+                end
+            end
         end
         value = EHI:GetColor(stored_value[item.value])
-        itm = self:CreateColorSelect({
-            menu_id = menu_id,
+        itm = self:CreateColorSelect(menu, {
             id = id,
             title = managers.localization:text(title),
             description = desc,
@@ -933,7 +929,10 @@ function EHIMenu:CreateItem(item, items, menu_id, settings_table)
     return itm
 end
 
-function EHIMenu:CreateOneLineItems(item, items, menu_id, settings_table)
+function EHIMenu:CreateOneLineItems(item, items, menu, settings_table)
+    if not menu then
+        return
+    end
     local offset = {
         label = 5,
         button = 10,
@@ -942,29 +941,32 @@ function EHIMenu:CreateOneLineItems(item, items, menu_id, settings_table)
         multiple_choice = 215,
         color_select = 64
     }
-    local n = table.getn(item.table)
+    local n = table.size(item.table)
     local previous_item
-    for _, v in pairs(item.table) do
-        local itm = self:CreateItem(v, items, menu_id, settings_table)
-        itm.panel:set_w(itm.panel:w() / n)
-        if itm.panel:child("title") then
-            itm.panel:child("title"):set_w(itm.panel:w() - (offset[itm.type] or 0))
-            local w = select(3, itm.panel:child("title"):text_rect())
-            if w > itm.panel:child("title"):w() then
-                itm.panel:child("title"):set_font_size(itm.panel:child("title"):font_size() * (itm.panel:child("title"):w() / w))
+    for _, v in ipairs(item.table) do
+        local itm = self:CreateItem(v, items, menu, settings_table)
+        if itm then
+            itm.panel:set_w(itm.panel:w() / n)
+            local item_title = itm.panel:child("title")
+            if item_title then
+                item_title:set_w(itm.panel:w() - (offset[itm.type] or 0))
+                local w = select(3, item_title:text_rect())
+                if w > item_title:w() then
+                    item_title:set_font_size(item_title:font_size() * (item_title:w() / w))
+                end
             end
-        end
-        if previous_item then
-            itm.panel:set_left(previous_item.panel:right())
-            itm.panel:set_y(previous_item.panel:y())
-            self:AddItemToMenu(menu_id, nil, -(itm.panel:h() + 1))
+            if previous_item then
+                itm.panel:set_left(previous_item.panel:right())
+                itm.panel:set_y(previous_item.panel:y())
+                self:AddItemToMenu(menu, nil, -(itm.panel:h() + 1))
+            end
         end
         previous_item = itm
     end
 end
 
 function EHIMenu:CreateMenu(params)
-    if self._options_panel:child("menu_"..tostring(params.menu_id)) or self._menus[params.menu_id] then
+    if self._menus[params.menu_id] then
         return self._menus[params.menu_id]
     end
 
@@ -990,8 +992,9 @@ function EHIMenu:CreateMenu(params)
         title:set_w(title:w() * (menu_w/title:w()))
     end
     title:set_right(menu_panel:w() - 5)
-    self._menus[params.menu_id] = {panel = menu_panel, parent_menu = params.parent_menu, items = {}, focus_changed_callback = params.focus_changed_callback}
-    return self._menus[params.menu_id]
+    local menu = { panel = menu_panel, parent_menu = params.parent_menu, items = {}, focus_changed_callback = params.focus_changed_callback }
+    self._menus[params.menu_id] = menu
+    return menu
 end
 
 function EHIMenu:OpenMenu(menu, close)
@@ -1037,13 +1040,13 @@ function EHIMenu:OpenMenu(menu, close)
         self._open_menu.id = menu
 
         if close and opened ~= nil then
-            for _, item in pairs(self._open_menu.items) do
+            for _, item in ipairs(self._open_menu.items) do
                 if item.panel and item.panel:child("bg") and item.id == opened then
                     self:HighlightItem(item)
                 end
             end
         else
-            for _, item in pairs(self._open_menu.items) do
+            for _, item in ipairs(self._open_menu.items) do
                 if item.panel and item.enabled and item.panel:child("bg") then
                     self:HighlightItem(item)
                     return
@@ -1053,29 +1056,25 @@ function EHIMenu:OpenMenu(menu, close)
     end)
 end
 
-function EHIMenu:AddItemToMenu(menu_id, item, total_size)
-    table.insert(self._menus[menu_id].items, item)
+function EHIMenu:AddItemToMenu(menu, item, total_size)
+    table.insert(menu.items, item)
     if total_size then
-        self._menus[menu_id].len = (self._menus[menu_id].len or 50) + total_size
+        menu.len = (menu.len or 50) + total_size
     else
-        self._menus[menu_id].len = (self._menus[menu_id].len or 50) + (item.panel and item.panel:h() or (item.size or 25)) + 1
+        menu.len = (menu.len or 50) + (item.panel and item.panel:h() or (item.size or 25)) + 1
     end
 end
 
-function EHIMenu:GetLastPosInMenu(menu_id)
-    return self._menus[menu_id].len or 50
+function EHIMenu:GetLastPosInMenu(menu)
+    return menu.len or 50
 end
 
 --Label Items
-function EHIMenu:CreateLabel(params)
-    local menu_panel = self._options_panel:child("menu_"..tostring(params.menu_id))
-    if not menu_panel or not self._menus[params.menu_id] then
-        return
-    end
-    local label_name = params.id or tostring(#self._menus[params.menu_id].items)
-    local label_panel = menu_panel:panel({
+function EHIMenu:CreateLabel(menu, params)
+    local label_name = params.id or tostring(#menu.items)
+    local label_panel = menu.panel:panel({
         name = "label_"..label_name,
-        y = self:GetLastPosInMenu(params.menu_id),
+        y = self:GetLastPosInMenu(menu),
         h = 25,
         layer = 2,
         alpha = params.enabled and 1 or 0.5
@@ -1101,38 +1100,30 @@ function EHIMenu:CreateLabel(params)
         enabled = params.enabled,
         parent = params.parent,
         type = "label",
-        num = #self._menus[params.menu_id].items
+        num = #menu.items
     }
-    self:AddItemToMenu(params.menu_id, label)
+    self:AddItemToMenu(menu, label)
     return label
 end
 
 --Divider Items
-function EHIMenu:CreateDivider(params)
-    local menu_panel = self._options_panel:child("menu_"..tostring(params.menu_id))
-    if not menu_panel or not self._menus[params.menu_id] then
-        return
-    end
-
+function EHIMenu:CreateDivider(menu, params)
+    local num = #menu.items
     local div = {
-        id = "divider_"..tostring(#self._menus[params.menu_id].items),
+        id = "divider_"..tostring(num),
         type = "divider",
-        num = #self._menus[params.menu_id].items,
+        num = num,
         size = params.size
     }
-    self:AddItemToMenu(params.menu_id, div)
+    self:AddItemToMenu(menu, div)
     return div
 end
 
 --Button Items
-function EHIMenu:CreateButton(params)
-    local menu_panel = self._options_panel:child("menu_"..tostring(params.menu_id))
-    if not menu_panel or not self._menus[params.menu_id] then
-        return
-    end
-    local button_panel = menu_panel:panel({
+function EHIMenu:CreateButton(menu, params)
+    local button_panel = menu.panel:panel({
         name = "button_"..tostring(params.id),
-        y = self:GetLastPosInMenu(params.menu_id),
+        y = self:GetLastPosInMenu(menu),
         h = 25,
         layer = 2,
         alpha = params.enabled and 1 or 0.5
@@ -1167,23 +1158,19 @@ function EHIMenu:CreateButton(params)
         next_menu = params.next_menu,
         callback = params.next_menu and nil or params.callback,
         callback_arguments = params.callback_arguments,
-        num = #self._menus[params.menu_id].items,
+        num = #menu.items,
         focus_changed_callback = params.focus_changed_callback
     }
-    self:AddItemToMenu(params.menu_id, button)
+    self:AddItemToMenu(menu, button)
     return button
 end
 
 --Toggle Items
-function EHIMenu:CreateToggle(params)
-    local menu_panel = self._options_panel:child("menu_"..tostring(params.menu_id))
-    if not menu_panel or not self._menus[params.menu_id] then
-        return
-    end
+function EHIMenu:CreateToggle(menu, params)
     local color = params.new and Color.yellow or Color.white
-    local toggle_panel = menu_panel:panel({
+    local toggle_panel = menu.panel:panel({
         name = "toggle_"..tostring(params.id),
-        y = self:GetLastPosInMenu(params.menu_id),
+        y = self:GetLastPosInMenu(menu),
         h = 25,
         layer = 2,
         alpha = params.enabled and 1 or 0.5
@@ -1240,27 +1227,23 @@ function EHIMenu:CreateToggle(params)
         parent = params.parent,
         is_parent = params.is_parent,
         desc = params.description,
-        num = #self._menus[params.menu_id].items,
+        num = #menu.items,
         callback = params.callback,
         callback_arguments = params.callback_arguments,
         focus_changed_callback = params.focus_changed_callback,
         parent_func_update = params.parent_func_update
     }
-    self:AddItemToMenu(params.menu_id, toggle)
+    self:AddItemToMenu(menu, toggle)
     return toggle
 end
 
 --Slider Items
-function EHIMenu:CreateSlider(params)
-    local menu_panel = self._options_panel:child("menu_"..tostring(params.menu_id))
-    if not menu_panel or not self._menus[params.menu_id] then
-        return
-    end
+function EHIMenu:CreateSlider(menu, params)
     local color = params.new and Color.yellow or Color.white
     local percentage = (params.value - params.min) / (params.max - params.min)
-    local slider_panel = menu_panel:panel({
+    local slider_panel = menu.panel:panel({
         name = "slider_"..tostring(params.id),
-        y = self:GetLastPosInMenu(params.menu_id),
+        y = self:GetLastPosInMenu(menu),
         h = 25,
         layer = 2,
         alpha = params.enabled and 1 or 0.5
@@ -1331,10 +1314,10 @@ function EHIMenu:CreateSlider(params)
         parent = params.parent,
         desc = params.description,
         suffix = params.suffix,
-        num = #self._menus[params.menu_id].items,
+        num = #menu.items,
         focus_changed_callback = params.focus_changed_callback
     }
-    self:AddItemToMenu(params.menu_id, slider)
+    self:AddItemToMenu(menu, slider)
     return slider
 end
 
@@ -1361,14 +1344,10 @@ function EHIMenu:SetSlider(item, x, add)
 end
 
 --Multiple Choice Items
-function EHIMenu:CreateMultipleChoice(params)
-    local menu_panel = self._options_panel:child("menu_"..tostring(params.menu_id))
-    if not menu_panel or not self._menus[params.menu_id] then
-        return
-    end
-    local multiple_panel = menu_panel:panel({
+function EHIMenu:CreateMultipleChoice(menu, params)
+    local multiple_panel = menu.panel:panel({
         name = "multiple_choice_"..tostring(params.id),
-        y = self:GetLastPosInMenu(params.menu_id),
+        y = self:GetLastPosInMenu(menu),
         h = 25,
         layer = 2,
         alpha = params.enabled and 1 or 0.5
@@ -1414,12 +1393,12 @@ function EHIMenu:CreateMultipleChoice(params)
         default_value = params.default_value,
         parent = params.parent,
         desc = params.description,
-        num = #self._menus[params.menu_id].items,
+        num = #menu.items,
         callback = params.callback,
         callback_arguments = params.callback_arguments,
         focus_changed_callback = params.focus_changed_callback
     }
-    self:AddItemToMenu(params.menu_id, multiple_choice)
+    self:AddItemToMenu(menu, multiple_choice)
     return multiple_choice
 end
 
@@ -1524,14 +1503,10 @@ function EHIMenu:CloseMultipleChoicePanel()
 end
 
 -- Custom Color Items
-function EHIMenu:CreateColorSelect(params)
-    local menu_panel = self._options_panel:child("menu_"..tostring(params.menu_id))
-    if not menu_panel or not self._menus[params.menu_id] then
-        return
-    end
-    local color_panel = menu_panel:panel({
+function EHIMenu:CreateColorSelect(menu, params)
+    local color_panel = menu.panel:panel({
         name = "color_select_"..tostring(params.id),
-        y = self:GetLastPosInMenu(params.menu_id),
+        y = self:GetLastPosInMenu(menu),
         h = 25,
         layer = 2,
         alpha = params.enabled and 1 or 0.5
@@ -1581,12 +1556,12 @@ function EHIMenu:CreateColorSelect(params)
         default_value = params.default_value,
         parent = params.parent,
         desc = params.description,
-        num = #self._menus[params.menu_id].items,
+        num = #menu.items,
         callback = params.callback,
         callback_arguments = params.callback_arguments
     }
 
-    self:AddItemToMenu(params.menu_id, color)
+    self:AddItemToMenu(menu, color)
 
     return color
 end
@@ -1879,7 +1854,7 @@ function EHIMenu:ResetColorMenu()
     local c = item.parent_item.default_value
     local colors_to_table = { red = 1, green = 2, blue = 3 }
     local color_panel
-    for _, v in pairs(item.items) do
+    for _, v in ipairs(item.items) do
         color_panel = v:name():gsub("_panel", "")
         local number = colors_to_table[color_panel]
         if number then
@@ -1926,6 +1901,35 @@ function EHIMenu:UpdateAllXPOptions(menu)
             self:AnimateItemEnabled(item, enabled)
         elseif items2[item.id or ""] then
             self:AnimateItemEnabled(item, enabled2)
+        end
+    end
+end
+
+function EHIMenu:GetBuffOffsetEnabled()
+    return EHI:GetOption("show_buffs") and not EHI:IsVR()
+end
+
+function EHIMenu:GetBuffVROffsetEnabled()
+    return EHI:GetOption("show_buffs") and EHI:IsVR()
+end
+
+function EHIMenu:UpdateAllBuffOffset(menu)
+    local enabled = self:GetBuffVROffsetEnabled()
+    local items =
+    {
+        ehi_vr_x_offset = true,
+        ehi_vr_y_offset = true
+    }
+    local items2 =
+    {
+        ehi_x_offset = true,
+        ehi_y_offset = true
+    }
+    for _, item in ipairs(menu.items) do
+        if items[item.id or ""] then
+            self:AnimateItemEnabled(item, enabled)
+        elseif items2[item.id or ""] then
+            self:AnimateItemEnabled(item, not enabled)
         end
     end
 end

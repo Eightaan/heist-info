@@ -6,35 +6,35 @@ end
 local UpdateTracker
 if EHI:GetOption("show_equipment_aggregate_all") then
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:TrackerDoesNotExist("Deployables") then
-            managers.ehi:AddAggregatedDeployablesTracker()
+        if managers.ehi_deployable:TrackerDoesNotExist("Deployables") then
+            managers.ehi_deployable:AddAggregatedDeployablesTracker()
         end
-        managers.ehi:CallFunction("Deployables", "UpdateAmount", "doctor_bag", unit, key, amount)
+        managers.ehi_deployable:CallFunction("Deployables", "UpdateAmount", "doctor_bag", unit, key, amount)
     end
 elseif EHI:GetOption("show_equipment_aggregate_health") then
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:TrackerDoesNotExist("Health") then
-            managers.ehi:AddAggregatedHealthTracker()
+        if managers.ehi_deployable:TrackerDoesNotExist("Health") then
+            managers.ehi_deployable:AddAggregatedHealthTracker()
         end
-        managers.ehi:CallFunction("Health", "UpdateAmount", "doctor_bag", unit, key, amount)
+        managers.ehi_deployable:CallFunction("Health", "UpdateAmount", "doctor_bag", unit, key, amount)
     end
 else
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:TrackerDoesNotExist("DoctorBags") then
-            managers.ehi:CreateDeployableTracker("DoctorBags")
+        if managers.ehi_deployable:TrackerDoesNotExist("DoctorBags") then
+            managers.ehi_deployable:CreateDeployableTracker("DoctorBags")
         end
-        managers.ehi:CallFunction("DoctorBags", "UpdateAmount", unit, key, amount)
+        managers.ehi_deployable:CallFunction("DoctorBags", "UpdateAmount", unit, key, amount)
     end
 end
 
-if _G.IS_VR then
+if EHI:IsVR() then
     local old_UpdateTracker = UpdateTracker
     local function Reload(key, data)
         old_UpdateTracker(data.unit, key, data.amount)
     end
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:IsLoading() then
-            managers.ehi:AddToLoadQueue(key, { unit = unit, amount = amount }, Reload)
+        if managers.ehi_deployable:IsLoading() then
+            managers.ehi_deployable:AddToLoadQueue(key, { unit = unit, amount = amount }, Reload)
             return
         end
         old_UpdateTracker(unit, key, amount)

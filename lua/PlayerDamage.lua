@@ -14,14 +14,13 @@ if EHI:GetBuffOption("dire_need") then
     function PlayerDamage:init(...)
         original.init(self, ...)
         if self._dire_need then
-            local function clbk(stagger)
+            managers.player:register_message(Message.SetWeaponStagger, "EHI_Buff_DireNeed", function(stagger)
                 if stagger then
                     managers.ehi_buff:AddBuffNoUpdate("DireNeed")
                 else
                     managers.ehi_buff:RemoveBuff("DireNeed")
                 end
-            end
-            managers.player:register_message(Message.SetWeaponStagger, "EHI_Buff_DireNeed", clbk)
+            end)
         end
     end
 end
@@ -30,6 +29,12 @@ end
 --//  Muscle / Hostage Taker  //--
 --//////////////////////////////--
 if EHI:GetBuffOption("hostage_taker_muscle") then
+    local TeamAIHealhRegen = false
+    EHI:AddCallback(EHI.CallbackMessage.TeamAISkillBoostChange, function(boost, operation)
+        if boost == "crew_regen" then
+            TeamAIHealhRegen = operation == "add"
+        end
+    end)
     original._upd_health_regen = PlayerDamage._upd_health_regen
     function PlayerDamage:_upd_health_regen(t, dt, ...)
         local previoustimer = self._health_regen_update_timer or 0
@@ -56,17 +61,49 @@ if EHI:GetBuffOption("hostage_taker_muscle") then
         -- Determine which icon to use. This is fine to do here since this code only runs once every few seconds (thanks to the
         -- above checks)
         local icon = "muscle"
-        local hostage_taker = playermanager:has_category_upgrade("player", "hostage_health_regen_addend")
-        if hostage_taker then
-            -- Sure the player has the skill, but are there actually any hostages around to provide that regen benefit?
-            local state = managers.groupai and managers.groupai:state()
-            hostage_taker = ((state and state:hostage_count() or 0) + (playermanager:num_local_minions() or 0) > 0)
-        end
-        if hostage_taker then
-            icon = "hostage_taker"
+        if TeamAIHealhRegen then
+            icon = "team_ai_health_regen"
+        else
+            local hostage_taker = playermanager:has_category_upgrade("player", "hostage_health_regen_addend")
+            if hostage_taker then
+                -- Sure the player has the skill, but are there actually any hostages around to provide that regen benefit?
+                local state = managers.groupai and managers.groupai:state()
+                hostage_taker = ((state and state:hostage_count() or 0) + (playermanager:num_local_minions() or 0) > 0)
+            end
+            if hostage_taker then
+                icon = "hostage_taker"
+            end
         end
         managers.ehi_buff:CallFunction("HealthRegen", "SetIcon", icon)
         managers.ehi_buff:AddBuff("HealthRegen", self._health_regen_update_timer + 0.2)
+    end
+end
+
+--////////////////////--
+--//  Ex-President  //--
+--////////////////////--
+if EHI:GetBuffOption("expresident") then
+    original.update_armor_stored_health = PlayerDamage.update_armor_stored_health
+    function PlayerDamage:update_armor_stored_health(...)
+        original.update_armor_stored_health(self, ...)
+        if managers.hud then -- Vanilla check
+            managers.ehi_buff:CallFunction("ExPresident", "SetStoredHealthMaxAndUpdateRatio", self:max_armor_stored_health(), self._armor_stored_health)
+        end
+    end
+
+    original.add_armor_stored_health = PlayerDamage.add_armor_stored_health
+    function PlayerDamage:add_armor_stored_health(...)
+        local previous = self._armor_stored_health
+        original.add_armor_stored_health(self, ...)
+        if previous ~= self._armor_stored_health and not self._check_berserker_done then
+            managers.ehi_buff:CallFunction("ExPresident", "SetRatio", nil, self._armor_stored_health)
+        end
+    end
+
+    original.clear_armor_stored_health = PlayerDamage.clear_armor_stored_health
+    function PlayerDamage:clear_armor_stored_health(...)
+        original.clear_armor_stored_health(self, ...)
+        managers.ehi_buff:CallFunction("ExPresident", "SetRatio", nil, self._armor_stored_health)
     end
 end
 
@@ -198,5 +235,40 @@ if EHI:GetBuffOption("shield_regen") then
             final_time = final_time + math.max(0, self._supperssion_data.decay_start_t - managers.player:player_timer():time())
         end
         managers.ehi_buff:AddBuff("ArmorRegenDelay", final_time)
+    end
+end
+
+--//////////////--
+--//  Health  //--
+--//////////////--
+if EHI:GetBuffOption("health") then
+    original._send_set_health = PlayerDamage._send_set_health
+    function PlayerDamage:_send_set_health(...)
+        original._send_set_health(self, ...)
+        local max_health = self:_max_health()
+        local current_health = self:get_real_health()
+        local ratio = current_health / max_health
+        managers.ehi_buff:AddGauge("Health", ratio, current_health)
+    end
+
+    original._send_set_revives = PlayerDamage._send_set_revives
+    function PlayerDamage:_send_set_revives(...)
+        original._send_set_revives(self, ...)
+        local revives = math.max(Application:digest_value(self._revives, false) - 1, 0)
+        managers.ehi_buff:CallFunction("Health", "SetHintText", tostring(revives))
+    end
+end
+
+--/////////////--
+--//  Armor  //--
+--/////////////--
+if EHI:GetBuffOption("armor") then
+    original._send_set_armor = PlayerDamage._send_set_armor
+    function PlayerDamage:_send_set_armor(...)
+        original._send_set_armor(self, ...)
+        local max_armor = self:_max_armor()
+        local current_armor = self:get_real_armor()
+        local ratio = current_armor / max_armor
+        managers.ehi_buff:AddGauge("Armor", ratio, current_armor)
     end
 end

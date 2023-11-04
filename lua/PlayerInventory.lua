@@ -53,10 +53,10 @@ function PlayerInventory:load(load_data, ...)
     if jammer_data and jammer_data.effect == "jamming" and jammer then
         local peer = managers.network:session():peer_by_unit(self._unit)
         local peer_id = peer and peer:id() or 0
-        if managers.ehi:TrackerExists("ECMJammer") then
-            managers.ehi:CallFunction("ECMJammer", "SetTimeIfLower", jammer_data.t, peer_id)
+        if managers.ehi_tracker:TrackerExists("ECMJammer") then
+            managers.ehi_tracker:CallFunction("ECMJammer", "SetTimeIfLower", jammer_data.t, peer_id)
         else
-            managers.ehi:AddTracker({
+            managers.ehi_tracker:AddTracker({
                 id = "ECMJammer",
                 time = jammer_data.t,
                 icons = { { icon = "ecm_jammer", color = EHI:GetPeerColorByPeerID(peer_id) } },
@@ -78,10 +78,10 @@ function PlayerInventory:_start_jammer_effect(end_time, ...)
     end
     local peer = managers.network:session():peer_by_unit(self._unit)
     local peer_id = peer and peer:id() or 0
-    if managers.ehi:TrackerExists("ECMJammer") then
-        managers.ehi:CallFunction("ECMJammer", "SetTimeIfLower", end_time, peer_id)
+    if managers.ehi_tracker:TrackerExists("ECMJammer") then
+        managers.ehi_tracker:CallFunction("ECMJammer", "SetTimeIfLower", end_time, peer_id)
     else
-        managers.ehi:AddTracker({
+        managers.ehi_tracker:AddTracker({
             id = "ECMJammer",
             time = end_time,
             icons = { { icon = "ecm_jammer", color = EHI:GetPeerColorByPeerID(peer_id) } },

@@ -2,6 +2,7 @@ local EHI = EHI
 if EHI:CheckLoadHook("GameSetup") then
     return
 end
+local EM = EHIManager
 
 local redirect =
 {
@@ -20,13 +21,16 @@ local redirect =
     gallery = "framing_frame_1",
     crojob3_night = "crojob3",
     -- Custom Missions
-    ratdaylight = "levels/rat"
+    ratdaylight = "levels/rat",
+    lid_cookoff_methslaves = "levels/rat"
 }
 
 local levels =
 {
     -- Tutorial
     short2_stage2b = true, -- Basic Mission: Loud - Plan B
+    -- Safehouse Nightmare
+    haunted = true,
     -- Escapes
     escape_cafe = true, -- Escape: Cafe
     escape_cafe_day = true, -- Escape: Cafe (Day)
@@ -135,7 +139,7 @@ local levels =
     -- Silkroad campaign
     mex = true, -- Border Crossing
     mex_cooking = true, -- Border Crystals
-    bex = true, -- San Martín Bank; Add "Silencioso y Codicioso" achievement
+    bex = true, -- San Martín Bank
     pex = true, -- Breakfast in Tijuana
     fex = true, -- Buluc's Mansion
     -- City of Gold campaign
@@ -147,7 +151,7 @@ local levels =
     ranc = true, -- Midland Ranch
     trai = true, -- Lost in Transit
     corp = true, -- Hostile Takeover
-    fourth_and_last_heist_of_the_Texas_Heat_campaign = true
+    deep = true -- Crude Awakening
 }
 
 local custom_levels =
@@ -182,18 +186,27 @@ local custom_levels =
     Scarlett Resort (Loud and Stealth)
     Penthouse Crasher (Loud Only)
     Golden Shakedown (Loud and Stealth)
+    Early Bird (Loud Only)
+    Cartel Transport: Construction Site (Loud Only)
+    Cartel Transport: Train (Loud Only)
+    Dance with the Devil (Loud Only)
+    Cartel Transport: Downtown (Loud Only)
+    Welcome to the Jungle (Loud Only)
+    Fiesta (Loud Only)
+    Showdown (Loud Only)
     ]]
     --Tonis2 = true, -- Triple Threat
     --dwn1 = true -- Deep Inside
     street_new = true, -- Heat Street Rework (Heat Street True Classic in-game)
-    office_strike = true,
-    tonmapjam22l = true -- Hard Cash
+    office_strike = true, -- Office Strike
+    tonmapjam22l = true, -- Hard Cash
+    SJamBank = true -- Branch Bank Initiative
 }
 
 local init_finalize = GameSetup.init_finalize
 function GameSetup:init_finalize(...)
     init_finalize(self, ...)
-    EHI:CallCallback(EHI.CallbackMessage.InitFinalize)
+    EHI:CallCallbackOnce(EHI.CallbackMessage.InitFinalize)
     local level_id = Global.game_settings.level_id
     if levels[level_id] then
         local fixed_name = redirect[level_id] or level_id
@@ -203,15 +216,15 @@ function GameSetup:init_finalize(...)
         local fixed_path = redirect[level_id] or ("custom_levels/" .. level_id)
         dofile(EHI.LuaPath .. fixed_path .. ".lua")
     end
-    EHI:InitElements()
+    EM:InitElements()
     EHI:DisableWaypointsOnInit()
 end
 
 EHI:PreHookWithID(GameSetup, "load", "EHI_GameSetup_load_Pre", function(...)
+    EM:SetInSync(true)
     EHI:FinalizeUnitsClient()
 end)
 
 EHI:HookWithID(GameSetup, "load", "EHI_GameSetup_load_Post", function(...)
-    managers.ehi:LoadSync()
-    EHI:SyncLoad()
+    EM:load()
 end)

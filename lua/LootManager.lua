@@ -2,6 +2,13 @@ local EHI = EHI
 if EHI:CheckLoadHook("LootManager") then
     return
 end
+
+---@class LootManager
+---@field GetSecuredBagsAmount fun(self: self): integer
+---@field GetSecuredBagsTypeAmount fun(self: self, t: string|string[]): integer
+---@field GetSecuredBagsValueAmount fun(self: self): number
+---@field EHIReportProgress fun(self: self, tracker_id: string, check_type: integer, loot_type: string|string[], f: fun(loot: self, tracker_id: string))
+
 local check_types = EHI.LootCounter.CheckType
 local original =
 {
@@ -26,6 +33,7 @@ function LootManager:GetSecuredBagsAmount()
     return total
 end
 
+---@param t string|string[]
 function LootManager:GetSecuredBagsTypeAmount(t)
     local secured = 0
     if type(t) == "string" then
@@ -56,20 +64,27 @@ function LootManager:GetSecuredBagsValueAmount()
     return value
 end
 
+---@param tracker_id string
+---@param check_type integer
+---@param loot_type string|string[]
+---@param f fun(loot: self, tracker_id: string)?
 function LootManager:EHIReportProgress(tracker_id, check_type, loot_type, f)
     if check_type == check_types.AllLoot then
+        local bags = self:GetSecuredBagsValueAmount()
+        local small_loot = self:get_real_total_small_loot_value()
+        managers.ehi_tracker:SetTrackerProgress(tracker_id, bags + small_loot)
     elseif check_type == check_types.BagsOnly then
-        managers.ehi:SetTrackerProgress(tracker_id, self:GetSecuredBagsAmount())
+        managers.ehi_tracker:SetTrackerProgress(tracker_id, self:GetSecuredBagsAmount())
     elseif check_type == check_types.ValueOfBags then
-        managers.ehi:SetTrackerProgress(tracker_id, self:GetSecuredBagsValueAmount())
+        managers.ehi_tracker:SetTrackerProgress(tracker_id, self:GetSecuredBagsValueAmount())
     elseif check_type == check_types.SmallLootOnly then
     elseif check_type == check_types.ValueOfSmallLoot then
-        managers.ehi:SetTrackerProgress(tracker_id, self:get_real_total_small_loot_value())
+        managers.ehi_tracker:SetTrackerProgress(tracker_id, self:get_real_total_small_loot_value())
     elseif check_type == check_types.OneTypeOfLoot then
-        managers.ehi:SetTrackerProgress(tracker_id, self:GetSecuredBagsTypeAmount(loot_type))
+        managers.ehi_tracker:SetTrackerProgress(tracker_id, self:GetSecuredBagsTypeAmount(loot_type))
     elseif check_type == check_types.CustomCheck then
         if f then
-            f(self, tracker_id, loot_type)
+            f(self, tracker_id)
         end
     elseif check_type == check_types.Debug then
         local tweak = tweak_data.carry
@@ -80,5 +95,21 @@ function LootManager:EHIReportProgress(tracker_id, check_type, loot_type, f)
             loot_name = "Small Loot"
         end
         managers.chat:_receive_message(1, "[EHI]", "Secured: " .. loot_name .. "; Carry ID: " .. tostring(loot_type))
+    end
+end
+
+if EHI.debug.loot_manager_escape then
+    original.init = LootManager.init
+    function LootManager:init(...)
+        original.init(self, ...)
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "money", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "money", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "money", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "money", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "coke", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "coke", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "coke", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "coke", multiplier = 1 }
+        self._distribution_loot[#self._distribution_loot + 1] = { carry_id = "coke", multiplier = 1 }
     end
 end

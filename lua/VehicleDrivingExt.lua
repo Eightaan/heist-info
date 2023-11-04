@@ -3,7 +3,7 @@ if EHI:CheckLoadHook("VehicleDrivingExt") then
     return
 end
 
-if not EHI:GetOption("show_trade_delay") or EHI:GetOption("show_trade_delay_option") == 2 then
+if EHI:IsTradeTrackerDisabled() or EHI:GetOption("show_trade_delay_option") == 2 then
     return
 end
 
@@ -26,7 +26,7 @@ function VehicleDrivingExt:_detect_npc_collisions(...)
 	end
 	local oobb = self._unit:oobb()
 	local units = World:find_units("intersect", "obb", oobb:center(), oobb:x(), oobb:y(), oobb:z(), self._ehi_flesh_slotmask)
-	for _, unit in pairs(units) do
+	for _, unit in ipairs(units) do
 		if not unit:in_slot(self._ehi_all_criminals_slotmask) and unit:character_damage() and not unit:character_damage():dead() and unit:base():has_tag("civilian") then
             local attacker_unit = nil
             if self._seats.driver.occupant ~= managers.player:local_player() then

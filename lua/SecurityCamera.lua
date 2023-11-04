@@ -3,8 +3,7 @@ if EHI:CheckLoadHook("SecurityCamera") or not EHI:GetOption("show_camera_loop") 
     return
 end
 
-local show_waypoint = EHI:GetWaypointOption("show_waypoints_cameras")
-local show_waypoint_only = show_waypoint and EHI:GetWaypointOption("show_waypoints_only")
+local show_waypoint, show_waypoint_only = EHI:GetWaypointOptionWithOnly("show_waypoints_cameras")
 
 local original =
 {
@@ -23,7 +22,7 @@ function SecurityCamera:_start_tape_loop(tape_loop_t, ...)
     original._start_tape_loop(self, tape_loop_t, ...)
     local t = tape_loop_t + 5
     if not show_waypoint_only then
-        managers.ehi:AddTracker({
+        managers.ehi_tracker:AddTracker({
             id = self._ehi_key,
             time = t,
             icons = { "camera_loop" },
@@ -42,12 +41,12 @@ end
 
 function SecurityCamera:_deactivate_tape_loop(...)
     original._deactivate_tape_loop(self, ...)
-    managers.ehi:RemoveTracker(self._ehi_key)
+    managers.ehi_tracker:RemoveTracker(self._ehi_key)
     managers.ehi_waypoint:RemoveWaypoint(self._ehi_key)
 end
 
-function SecurityCamera:destroy(unit, ...)
-    original.destroy(self, unit, ...)
-    managers.ehi:RemoveTracker(self._ehi_key)
+function SecurityCamera:destroy(...)
+    managers.ehi_tracker:RemoveTracker(self._ehi_key)
     managers.ehi_waypoint:RemoveWaypoint(self._ehi_key)
+    original.destroy(self, ...)
 end

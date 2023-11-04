@@ -6,8 +6,7 @@ end
 local Icon = EHI.Icons
 local WWarning = EHI.Waypoints.Warning
 
-local show_waypoints = EHI:GetOption("show_waypoints_enemy_turret")
-local show_waypoint_only = show_waypoints and EHI:GetWaypointOption("show_waypoints_only")
+local show_waypoint, show_waypoint_only = EHI:GetWaypointOptionWithOnly("show_waypoints_enemy_turret")
 
 local original =
 {
@@ -34,17 +33,17 @@ function SentryGunMovement:Preload()
     if not show_waypoint_only then
         local Warning = EHI.Trackers.Warning
         if self._tweak.AUTO_RELOAD then
-            managers.ehi:PreloadTracker({
+            managers.ehi_tracker:PreloadTracker({
                 id = self._ehi_key_reload,
-                icons = { Icon.Sentry, "reload" },
+                icons = { Icon.Turret, "reload" },
                 hide_on_delete = true,
                 class = Warning
             })
         end
         if self._tweak.AUTO_REPAIR then
-            managers.ehi:PreloadTracker({
+            managers.ehi_tracker:PreloadTracker({
                 id = self._ehi_key_repair,
-                icons = { Icon.Sentry, Icon.Fix },
+                icons = { Icon.Turret, Icon.Fix },
                 hide_on_delete = true,
                 class = Warning
             })
@@ -61,8 +60,8 @@ end
 function SentryGunMovement:rearm(...)
     original.rearm(self, ...)
     local t = self._tweak.AUTO_RELOAD_DURATION -- 8s
-    managers.ehi:RunTracker(self._ehi_key_reload, { time = t })
-    if show_waypoints then
+    managers.ehi_tracker:RunTracker(self._ehi_key_reload, { time = t })
+    if show_waypoint then
         managers.ehi_waypoint:AddWaypoint(self._ehi_key_reload, {
             time = t,
             texture = "guis/textures/pd2/skilltree/icons_atlas",
@@ -75,11 +74,10 @@ end
 
 function SentryGunMovement:repair(...)
     original.repair(self, ...)
-    managers.ehi:RemoveTracker(self._ehi_key_reload)
-    managers.ehi_waypoint:RemoveWaypoint(self._ehi_key_reload)
+    managers.ehi_manager:Remove(self._ehi_key_reload)
     local t = self._tweak.AUTO_REPAIR_DURATION -- 30s
-    managers.ehi:RunTracker(self._ehi_key_repair, { time = t })
-    if show_waypoints then
+    managers.ehi_tracker:RunTracker(self._ehi_key_repair, { time = t })
+    if show_waypoint then
         managers.ehi_waypoint:AddWaypoint(self._ehi_key_repair, {
             time = t,
             icon = "pd2_fix",
@@ -95,14 +93,14 @@ function SentryGunMovement:load(save_data, ...)
 		return
 	end
     self:Preload()
+    managers.ehi_waypoint:RemoveWaypoint(self._ehi_key_reload)
+    managers.ehi_waypoint:RemoveWaypoint(self._ehi_key_repair)
 end
 
 function SentryGunMovement:on_death(...)
     original.on_death(self, ...)
-    managers.ehi:ForceRemoveTracker(self._ehi_key_reload)
-    managers.ehi:ForceRemoveTracker(self._ehi_key_repair)
-    managers.ehi_waypoint:RemoveWaypoint(self._ehi_key_reload)
-    managers.ehi_waypoint:RemoveWaypoint(self._ehi_key_repair)
+    managers.ehi_manager:ForceRemove(self._ehi_key_reload)
+    managers.ehi_manager:ForceRemove(self._ehi_key_repair)
 end
 
 function SentryGunMovement:pre_destroy(...)

@@ -1,6 +1,8 @@
 local EHI = EHI
 local player_manager
 local detection_risk = 0
+---@class EHICritChanceBuffTracker : EHIGaugeBuffTracker
+---@field super EHIGaugeBuffTracker
 EHICritChanceBuffTracker = class(EHIGaugeBuffTracker)
 EHICritChanceBuffTracker._refresh_time = 1 / EHI:GetBuffOption("crit_refresh")
 function EHICritChanceBuffTracker:init(panel, params)
@@ -36,22 +38,21 @@ function EHICritChanceBuffTracker:PreUpdate()
     player_manager = managers.player
     detection_risk = managers.blackmarket:get_suspicion_offset_of_local(tweak_data.player.SUSPICION_OFFSET_LERP or 0.75)
     detection_risk = math.round(detection_risk * 100)
-    local function f(state)
+    EHI:AddOnCustodyCallback(function(state)
         self:SetCustody(state)
-    end
-    EHI:AddOnCustodyCallback(f)
+    end)
     self._update_disabled = false
     self:SetRatio(0)
 end
 
 function EHICritChanceBuffTracker:SetCustody(state)
     if state then
-        self._parent_class:RemoveBuffFromUpdate(self._id)
+        self:RemoveBuffFromUpdate()
         self._crit = 0
         self:Deactivate()
     else
         self._time = self._refresh_time
-        self._parent_class:AddBuffToUpdate(self._id, self)
+        self:AddBuffToUpdate()
     end
     self._update_disabled = state
 end
@@ -71,14 +72,14 @@ function EHICritChanceBuffTracker:Activate()
     self._active = true
     self._panel:stop()
     self._panel:animate(self._show)
-    self._parent_class:AddVisibleBuff(self._id)
+    self:AddVisibleBuff()
 end
 
 function EHICritChanceBuffTracker:Deactivate()
     if not self._active then
         return
     end
-    self._parent_class:RemoveVisibleBuff(self._id, self._pos)
+    self:RemoveVisibleBuff()
     self._panel:stop()
     self._panel:animate(self._hide)
     self._active = false

@@ -9,22 +9,26 @@ local original =
     on_executed = ElementAiGlobalEvent.on_executed
 }
 
-local function TriggerEndlessAssault()
-    EHI._cache.EndlessAssault = true
-    managers.ehi:RemoveTracker("AssaultTime")
-    managers.ehi:RemoveTracker("Assault")
+local mode = "besiege"
+
+local function NotifyListeners(wave_mode)
+    if wave_mode and wave_mode ~= mode then
+        if wave_mode ~= "besiege" and wave_mode ~= "hunt" then
+            return
+        end
+        mode = wave_mode
+        if wave_mode == "besiege" then
+            EHI:CallCallback(EHI.CallbackMessage.AssaultWaveModeChanged, "normal")
+        elseif wave_mode == "hunt" then
+            EHI:CallCallback(EHI.CallbackMessage.AssaultWaveModeChanged, "endless")
+        end
+    end
 end
 
 function ElementAiGlobalEvent:client_on_executed(...)
     original.client_on_executed(self, ...)
     local wave_mode = self._wave_modes[self._values.wave_mode]
-    if wave_mode then
-        if wave_mode == "hunt" then
-            TriggerEndlessAssault()
-        --elseif wave_mode == "besiege" then
-            --managers.hud:SetNormalAssaultOverride()
-        end
-    end
+    NotifyListeners(wave_mode)
 end
 
 function ElementAiGlobalEvent:on_executed(...)
@@ -32,12 +36,6 @@ function ElementAiGlobalEvent:on_executed(...)
         return
     end
     local wave_mode = self._wave_modes[self._values.wave_mode]
-    if wave_mode then
-        if wave_mode == "hunt" then
-            TriggerEndlessAssault()
-        --elseif wave_mode == "besiege" then
-            --managers.hud:SetNormalAssaultOverride()
-        end
-    end
+    NotifyListeners(wave_mode)
     original.on_executed(self, ...)
 end

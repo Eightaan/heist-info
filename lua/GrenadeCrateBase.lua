@@ -10,32 +10,32 @@ end
 local UpdateTracker
 if EHI:GetOption("show_equipment_aggregate_all") then
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:TrackerDoesNotExist("Deployables") and amount ~= 0 then
-            managers.ehi:AddAggregatedDeployablesTracker()
+        if managers.ehi_deployable:TrackerDoesNotExist("Deployables") and amount ~= 0 then
+            managers.ehi_deployable:AddAggregatedDeployablesTracker()
         end
-        managers.ehi:CallFunction("Deployables", "UpdateAmount", "grenade_crate", unit, key, amount)
+        managers.ehi_deployable:CallFunction("Deployables", "UpdateAmount", "grenade_crate", unit, key, amount)
     end
 else
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:TrackerDoesNotExist("GrenadeCases") and amount ~= 0 then
-            managers.ehi:AddTracker({
+        if managers.ehi_deployable:TrackerDoesNotExist("GrenadeCases") and amount ~= 0 then
+            managers.ehi_deployable:AddTracker({
                 id = "GrenadeCases",
                 icons = { "frag_grenade" },
                 class = "EHIEquipmentTracker"
             })
         end
-        managers.ehi:CallFunction("GrenadeCases", "UpdateAmount", unit, key, amount)
+        managers.ehi_deployable:CallFunction("GrenadeCases", "UpdateAmount", unit, key, amount)
     end
 end
 
-if _G.IS_VR then
+if EHI:IsVR() then
     local old_UpdateTracker = UpdateTracker
     local function Reload(key, data)
         old_UpdateTracker(data.unit, key, data.amount)
     end
     UpdateTracker = function(unit, key, amount)
-        if managers.ehi:IsLoading() then
-            managers.ehi:AddToLoadQueue(key, { unit = unit, amount = amount }, Reload)
+        if managers.ehi_deployable:IsLoading() then
+            managers.ehi_deployable:AddToLoadQueue(key, { unit = unit, amount = amount }, Reload)
             return
         end
         old_UpdateTracker(unit, key, amount)
@@ -59,7 +59,7 @@ end
 function GrenadeCrateBase:_set_visual_stage(...)
     original._set_visual_stage(self, ...)
     if not self._ignore then
-        UpdateTracker(self._unit, self._ehi_key, self._grenade_amount)
+        UpdateTracker(self._unit, self._ehi_key, self:GetRealAmount())
     end
 end
 
@@ -72,8 +72,26 @@ function GrenadeCrateBase:GetRealAmount()
 end
 
 function GrenadeCrateBase:SetIgnore()
+    if self._ignore_set_by_parent then
+        return
+    end
     self._ignore = true
     UpdateTracker(self._unit, self._ehi_key, 0)
+end
+
+function GrenadeCrateBase:SetIgnoreChild()
+    if self._parent_done then
+        return
+    end
+    self:SetIgnore()
+    self._ignore_set_by_parent = true
+end
+
+function GrenadeCrateBase:SetCountThisUnit()
+    self._ignore = nil
+    self._ignore_set_by_parent = nil
+    self._parent_done = true
+    UpdateTracker(self._unit, self._ehi_key, self:GetRealAmount())
 end
 
 function GrenadeCrateBase:destroy(...)

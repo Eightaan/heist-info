@@ -3,18 +3,15 @@ if EHI:CheckLoadHook("WorldDefinition") then
     return
 end
 
-local original =
-{
-    init = WorldDefinition.init,
-    init_done = WorldDefinition.init_done,
-    create = WorldDefinition.create
-}
+---@class WorldDefinition
+---@field get_unit fun(self: self, id: number): Unit?
 
 function EHI:FinalizeUnitsClient()
     self:FinalizeUnits(self._cache.MissionUnits)
     self:FinalizeUnits(self._cache.InstanceUnits)
 end
 
+---@param tbl table<number, UnitUpdateDefinition>
 function EHI:FinalizeUnits(tbl)
     local wd = managers.worlddefinition
     for id, unit_data in pairs(tbl) do
@@ -27,48 +24,63 @@ function EHI:FinalizeUnits(tbl)
                     unit_data.f(id, unit_data, unit)
                 end
             else
-                if unit:timer_gui() and unit:timer_gui()._ehi_key then
-                    unit:timer_gui():SetIcons(unit_data.icons)
-                    unit:timer_gui():SetRemoveOnPowerOff(unit_data.remove_on_power_off)
+                local timer_gui = unit:timer_gui()
+                local digital_gui = unit:digital_gui()
+                if timer_gui and timer_gui._ehi_key then
+                    if unit_data.child_units then
+                        timer_gui:SetChildUnits(unit_data.child_units, wd)
+                    end
+                    timer_gui:SetIcons(unit_data.icons)
+                    timer_gui:SetRemoveOnPowerOff(unit_data.remove_on_power_off)
                     if unit_data.disable_set_visible then
-                        unit:timer_gui():DisableOnSetVisible()
+                        timer_gui:DisableOnSetVisible()
                     end
                     if unit_data.remove_on_alarm then
-                        unit:timer_gui():SetOnAlarm()
+                        timer_gui:SetOnAlarm()
                     end
                     if unit_data.remove_vanilla_waypoint then
-                        unit:timer_gui():RemoveVanillaWaypoint(unit_data.waypoint_id)
+                        timer_gui:RemoveVanillaWaypoint(unit_data.remove_vanilla_waypoint)
                         if unit_data.restore_waypoint_on_done then
-                            unit:timer_gui():SetRestoreVanillaWaypointOnDone()
+                            timer_gui:SetRestoreVanillaWaypointOnDone()
                         end
                     end
                     if unit_data.ignore_visibility then
-                        unit:timer_gui():SetIgnoreVisibility()
+                        timer_gui:SetIgnoreVisibility()
                     end
-                    unit:timer_gui():Finalize()
-                end
-                if unit:digital_gui() and unit:digital_gui()._ehi_key then
-                    unit:digital_gui():SetIcons(unit_data.icons)
-                    unit:digital_gui():SetIgnore(unit_data.ignore)
-                    unit:digital_gui():SetRemoveOnPause(unit_data.remove_on_pause)
-                    unit:digital_gui():SetWarning(unit_data.warning)
-                    unit:digital_gui():SetCompletion(unit_data.completion)
-                    if unit_data.remove_on_alarm then
-                        unit:digital_gui():SetOnAlarm()
+                    if unit_data.set_custom_id then
+                        timer_gui:SetCustomID(unit_data.set_custom_id)
+                    end
+                    if unit_data.tracker_merge_id then
+                        timer_gui:SetTrackerMergeID(unit_data.tracker_merge_id, unit_data.destroy_tracker_merge_on_done)
                     end
                     if unit_data.custom_callback then
-                        unit:digital_gui():SetCustomCallback(unit_data.custom_callback.id, unit_data.custom_callback.f)
+                        timer_gui:SetCustomCallback(unit_data.custom_callback.id, unit_data.custom_callback.f)
+                    end
+                    timer_gui:SetWaypointPosition(unit_data.position)
+                    timer_gui:Finalize()
+                end
+                if digital_gui and digital_gui._ehi_key then
+                    digital_gui:SetIcons(unit_data.icons)
+                    digital_gui:SetIgnore(unit_data.ignore)
+                    digital_gui:SetRemoveOnPause(unit_data.remove_on_pause)
+                    digital_gui:SetWarning(unit_data.warning)
+                    digital_gui:SetCompletion(unit_data.completion)
+                    if unit_data.remove_on_alarm then
+                        digital_gui:SetOnAlarm()
+                    end
+                    if unit_data.custom_callback then
+                        digital_gui:SetCustomCallback(unit_data.custom_callback.id, unit_data.custom_callback.f)
                     end
                     if unit_data.icon_on_pause then
-                        unit:digital_gui():SetIconOnPause(unit_data.icon_on_pause[1])
+                        digital_gui:SetIconOnPause(unit_data.icon_on_pause[1])
                     end
                     if unit_data.remove_vanilla_waypoint then
-                        unit:digital_gui():RemoveVanillaWaypoint(unit_data.waypoint_id)
+                        digital_gui:RemoveVanillaWaypoint(unit_data.remove_vanilla_waypoint)
                     end
                     if unit_data.ignore_visibility then
-                        unit:digital_gui():SetIgnoreVisibility()
+                        digital_gui:SetIgnoreVisibility()
                     end
-                    unit:digital_gui():Finalize()
+                    digital_gui:Finalize()
                 end
             end
             -- Clear configured unit from the table
@@ -78,13 +90,11 @@ function EHI:FinalizeUnits(tbl)
 end
 
 local units = {}
-function WorldDefinition:init(...)
-    original.init(self, ...)
+EHI:HookWithID(WorldDefinition, "init", "EHI_WorldDefinition_init", function(...)
     units = tweak_data.ehi.units
-end
+end)
 
-function WorldDefinition:create(...)
-    local return_data = original.create(self, ...)
+EHI:HookWithID(WorldDefinition, "create", "EHI_WorldDefinition_create", function(self, ...)
     if self._definition.statics then
         for _, values in ipairs(self._definition.statics) do
             if units[values.unit_data.name] and not values.unit_data.instance then
@@ -101,18 +111,22 @@ function WorldDefinition:create(...)
             end
         end
     end
-    return return_data
-end
+end)
 
-function WorldDefinition:init_done(...)
+EHI:PreHookWithID(WorldDefinition, "init_done", "EHI_WorldDefinition_init_done", function(...)
     EHI:FinalizeUnits(EHI._cache.MissionUnits)
     EHI:FinalizeUnits(EHI._cache.InstanceUnits)
-    original.init_done(self, ...)
-end
+end)
 
 function WorldDefinition:IgnoreDeployable(unit_id, unit_data, unit)
     if unit:base() and unit:base().SetIgnore then
         unit:base():SetIgnore()
+    end
+end
+
+function WorldDefinition:IgnoreChildDeployable(unit_id, unit_data, unit)
+    if unit:base() and unit:base().SetIgnoreChild then
+        unit:base():SetIgnoreChild()
     end
 end
 

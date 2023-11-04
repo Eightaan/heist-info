@@ -3,6 +3,7 @@ if EHI:CheckLoadHook("HUDManagerPD2") then
     return
 end
 
+---@type string
 local level_id = Global.game_settings.level_id
 
 local original =
@@ -16,21 +17,22 @@ local original =
 }
 
 local EHIWaypoints = EHI:GetOption("show_waypoints")
-local server = EHI:IsHost()
 
 function HUDManager:_setup_player_info_hud_pd2(...)
     original._setup_player_info_hud_pd2(self, ...)
+    local server = EHI:IsHost()
     local hud = self:script(PlayerBase.PLAYER_INFO_HUD_PD2)
-    self.ehi = managers.ehi
-    self.ehi_waypoint = managers.ehi_waypoint
-    self.ehi_waypoint:SetPlayerHUD(self)
+    self.ehi = managers.ehi_tracker
+    managers.ehi_waypoint:SetPlayerHUD(self)
+    self.ehi_manager = managers.ehi_manager
     if server or level_id == "hvh" then
-        self:add_updator("EHI_Update", callback(self.ehi, self.ehi, "update"))
         if EHIWaypoints then
-            self:add_updator("EHI_Waypoint_Update", callback(self.ehi_waypoint, self.ehi_waypoint, "update"))
+            self:add_updator("EHIManager_Update", callback(self.ehi_manager, self.ehi_manager, "update"))
+        else
+            self:add_updator("EHI_Update", callback(self.ehi, self.ehi, "update"))
         end
     end
-    if _G.IS_VR then
+    if EHI:IsVR() then
         self.ehi:SetPanel(hud.panel)
     end
     if EHI:GetOption("show_buffs") then
@@ -38,12 +40,11 @@ function HUDManager:_setup_player_info_hud_pd2(...)
         self:add_updator("EHI_Buff_Update", callback(buff, buff, "update"))
         buff:init_finalize(hud)
     end
-    local level_tweak_data = tweak_data.levels[level_id]
-    if (level_tweak_data and level_tweak_data.is_safehouse) or level_id == "safehouse" then
+    if tweak_data.levels:IsLevelSafehouse(level_id) then
         return
     end
     if EHI:GetOption("show_captain_damage_reduction") then
-        local function f(mode)
+        EHI:AddCallback(EHI.CallbackMessage.AssaultModeChanged, function(mode)
             if mode == "phalanx" then
                 self.ehi:AddTracker({
                     id = "PhalanxDamageReduction",
@@ -53,41 +54,34 @@ function HUDManager:_setup_player_info_hud_pd2(...)
             else
                 self.ehi:RemoveTracker("PhalanxDamageReduction")
             end
-        end
-        EHI:AddCallback(EHI.CallbackMessage.AssaultModeChanged, f)
+        end)
     end
     if EHI:GetOption("show_enemy_count_tracker") then
         self.ehi:AddTracker({
             id = "EnemyCount",
-            flash = false,
+            flash_bg = false,
             class = "EHIEnemyCountTracker"
         })
     end
-    if level_tweak_data.ghost_bonus or level_tweak_data.ghost_required or level_tweak_data.ghost_required_visual or level_id == "welcome_to_the_jungle_2" then
-        -- In case the heist will require stealth completion but does not have XP bonus
-        -- Big Oil Day 2 is exception to this rule because guards have pagers
+    if tweak_data.levels:IsStealthAvailable(level_id) then
         if EHI:GetOption("show_pager_tracker") then
             local base = tweak_data.player.alarm_pager.bluff_success_chance_w_skill
             if server then
-                local function remove_chance()
-                    self.ehi:RemoveTracker("pagers_chance")
-                end
                 for _, value in pairs(base) do
                     if value > 0 and value < 1 then
                         -- Random Chance
                         self.ehi:AddTracker({
-                            id = "pagers_chance",
+                            id = "PagersChance",
                             chance = EHI:RoundChanceNumber(base[1] or 0),
                             icons = { EHI.Icons.Pager },
                             class = EHI.Trackers.Chance
                         })
-                        EHI:AddOnAlarmCallback(remove_chance)
+                        EHI:AddOnAlarmCallback(function()
+                            self.ehi:RemoveTracker("PagersChance")
+                        end)
                         return
                     end
                 end
-            end
-            local function remove()
-                self.ehi:RemoveTracker("pagers")
             end
             local max = 0
             for _, value in pairs(base) do
@@ -96,16 +90,18 @@ function HUDManager:_setup_player_info_hud_pd2(...)
                 end
             end
             self.ehi:AddTracker({
-                id = "pagers",
+                id = "Pagers",
                 max = max,
                 icons = { EHI.Icons.Pager },
                 set_color_bad_when_reached = true,
                 class = EHI.Trackers.Progress
             })
             if max == 0 then
-                self.ehi:CallFunction("pagers", "SetBad")
+                self.ehi:CallFunction("Pagers", "SetBad")
             end
-            EHI:AddOnAlarmCallback(remove)
+            EHI:AddOnAlarmCallback(function()
+                self.ehi:RemoveTracker("Pagers")
+            end)
         end
         if EHI:GetOption("show_bodybags_counter") then
             self.ehi:AddTracker({
@@ -113,13 +109,12 @@ function HUDManager:_setup_player_info_hud_pd2(...)
                 icons = { "equipment_body_bag" },
                 class = EHI.Trackers.Counter
             })
-            local function remove()
+            EHI:AddOnAlarmCallback(function()
                 self.ehi:RemoveTracker("BodybagsCounter")
-            end
-            EHI:AddOnAlarmCallback(remove)
+            end)
         end
     end
-    if EHI:GetOption("show_gained_xp") and EHI:GetOption("xp_panel") == 2 and Global.game_settings.gamemode ~= "crime_spree" and not EHI:IsOneXPElementHeist(level_id) then
+    if EHI:IsXPTrackerVisible() and EHI:GetOption("xp_panel") == 2 and not EHI:IsOneXPElementHeist(level_id) then
         self.ehi:AddTracker({
             id = "XPTotal",
             class = "EHITotalXPTracker"
@@ -163,8 +158,7 @@ function HUDManager:set_enabled(...)
 end
 
 function HUDManager:destroy(...)
-    self.ehi:destroy()
-    self.ehi_waypoint:destroy()
+    self.ehi_manager:destroy()
     original.destroy(self, ...)
 end
 
@@ -173,8 +167,7 @@ if EHI:IsClient() and level_id ~= "hvh" then
     if EHIWaypoints then
         function HUDManager:feed_heist_time(time, ...)
             original.feed_heist_time(self, time, ...)
-            self.ehi:update_client(time)
-            self.ehi_waypoint:update_client(time)
+            self.ehi_manager:update_client(time)
         end
     else
         function HUDManager:feed_heist_time(time, ...)
@@ -185,7 +178,6 @@ if EHI:IsClient() and level_id ~= "hvh" then
 end
 
 if EHI:CombineAssaultDelayAndAssaultTime() then
-    dofile(EHI.LuaPath .. "trackers/EHIAssaultTracker.lua")
     local SyncFunction = EHI:IsHost() and "SyncAnticipationColor" or "SyncAnticipation"
     local anticipation_delay = 30 -- Get it from tweak_data
     local function VerifyHostageHesitationDelay()
@@ -193,7 +185,8 @@ if EHI:CombineAssaultDelayAndAssaultTime() then
     local function set_assault_delay(self, data)
         self.ehi:CallFunction("Assault", "SetHostages", data.nr_hostages > 0)
     end
-    local is_skirmish = tweak_data.levels:get_group_ai_state() == "skirmish"
+    local is_skirmish = tweak_data.levels:IsLevelSkirmish(level_id)
+    local EndlessAssault = nil
     original.sync_start_anticipation_music = HUDManager.sync_start_anticipation_music
     function HUDManager:sync_start_anticipation_music(...)
         original.sync_start_anticipation_music(self, ...)
@@ -204,24 +197,25 @@ if EHI:CombineAssaultDelayAndAssaultTime() then
     function HUDManager:sync_start_assault(...)
         original.sync_start_assault(self, ...)
         EHI:Unhook("Assault_set_control_info")
-        if EHI._cache.EndlessAssault then
+        if EndlessAssault or self._ehi_manual_block then
             return
-        end
-        if self.ehi:TrackerExists("Assault") then
+        elseif self.ehi:TrackerExists("Assault") then
             self.ehi:CallFunction("Assault", "AssaultStart", EHI._cache.diff or 0)
         elseif (EHI._cache.diff and EHI._cache.diff > 0) or is_skirmish then
             self.ehi:AddTracker({
                 id = "Assault",
                 assault = true,
                 diff = EHI._cache.diff or 0,
-                class = "EHIAssaultTracker"
-            })
+                class = EHI.Trackers.Assault.Assault
+            }, 0)
         end
     end
     original.sync_end_assault = HUDManager.sync_end_assault
     function HUDManager:sync_end_assault(...)
         original.sync_end_assault(self, ...)
-        if is_skirmish then
+        if self._ehi_manual_block then
+            return
+        elseif is_skirmish or EndlessAssault then
             self.ehi:RemoveTracker("Assault")
         elseif self.ehi:TrackerExists("Assault") then
             self.ehi:CallFunction("Assault", "AssaultEnd", EHI._cache.diff or 0)
@@ -229,17 +223,26 @@ if EHI:CombineAssaultDelayAndAssaultTime() then
             self.ehi:AddTracker({
                 id = "Assault",
                 diff = EHI._cache.diff,
-                class = "EHIAssaultTracker"
-            })
+                class = EHI.Trackers.Assault.Assault
+            }, 0)
         end
-        EHI._cache.EndlessAssault = nil
         EHI:HookWithID(self, "set_control_info", "EHI_Assault_set_control_info", set_assault_delay)
     end
     EHI:HookWithID(HUDManager, "set_control_info", "EHI_Assault_set_control_info", set_assault_delay)
     VerifyHostageHesitationDelay()
+    EHI:AddCallback(EHI.CallbackMessage.AssaultWaveModeChanged, function(mode)
+        if mode == "endless" then
+            EndlessAssault = true
+            managers.ehi_tracker:RemoveTracker("Assault")
+        else
+            EndlessAssault = nil
+        end
+    end)
+    EHI:AddCallback(EHI.CallbackMessage.AssaultModeChanged, function(mode)
+        EndlessAssault = nil
+    end)
 else
     if EHI:AssaultDelayTrackerIsEnabled() then
-        dofile(EHI.LuaPath .. "trackers/EHIAssaultDelayTracker.lua")
         local SyncFunction = EHI:IsHost() and "SyncAnticipationColor" or "SyncAnticipation"
         local anticipation_delay = 30 -- Get it from tweak_data
         local function VerifyHostageHesitationDelay()
@@ -262,12 +265,11 @@ else
         original.sync_end_assault = HUDManager.sync_end_assault
         function HUDManager:sync_end_assault(...)
             original.sync_end_assault(self, ...)
-            if EHI._cache.diff and EHI._cache.diff > 0 then
+            if EHI._cache.diff and EHI._cache.diff > 0 and not self._ehi_manual_block then
                 self.ehi:AddTracker({
                     id = "AssaultDelay",
-                    compute_time = true,
                     diff = EHI._cache.diff,
-                    class = EHI.Trackers.AssaultDelay
+                    class = EHI.Trackers.Assault.Delay
                 })
                 EHI:HookWithID(HUDManager, "set_control_info", "EHI_AssaultDelay_set_control_info", set_assault_delay)
             end
@@ -276,31 +278,54 @@ else
         VerifyHostageHesitationDelay()
     end
     if EHI:GetOption("show_assault_time_tracker") then
-        dofile(EHI.LuaPath .. "trackers/EHIAssaultTimeTracker.lua")
         local start_original = HUDManager.sync_start_assault
-        local is_skirmish = tweak_data.levels:get_group_ai_state() == "skirmish"
+        local is_skirmish = tweak_data.levels:IsLevelSkirmish(level_id)
+        local EndlessAssault = nil
         function HUDManager:sync_start_assault(...)
             start_original(self, ...)
-            if (EHI._cache.diff and EHI._cache.diff > 0 and not EHI._cache.EndlessAssault) or is_skirmish then
+            if self._ehi_assault_in_progress or self._ehi_manual_block then
+                return
+            elseif (EHI._cache.diff and EHI._cache.diff > 0 and not EndlessAssault) or is_skirmish then
                 self.ehi:AddTracker({
                     id = "AssaultTime",
                     diff = EHI._cache.diff or 0,
-                    class = "EHIAssaultTimeTracker"
+                    class = EHI.Trackers.Assault.Time
                 })
             end
+            self._ehi_assault_in_progress = true
         end
         local end_original = HUDManager.sync_end_assault
         function HUDManager:sync_end_assault(...)
             end_original(self, ...)
             self.ehi:RemoveTracker("AssaultTime")
-            EHI._cache.EndlessAssault = nil
+            self._ehi_assault_in_progress = nil
         end
+        EHI:AddCallback(EHI.CallbackMessage.AssaultWaveModeChanged, function(mode)
+            if mode == "endless" then
+                EndlessAssault = true
+                managers.ehi_tracker:RemoveTracker("AssaultTime")
+            else
+                EndlessAssault = nil
+            end
+        end)
+        EHI:AddCallback(EHI.CallbackMessage.AssaultModeChanged, function(mode)
+            EndlessAssault = nil
+        end)
+    end
+end
+
+function HUDManager:SetAssaultTrackerManualBlock(block)
+    self._ehi_manual_block = block
+    if block then
+        self.ehi:CallFunction("Assault", "PoliceActivityBlocked")
+        self.ehi:CallFunction("AssaultDelay", "PoliceActivityBlocked")
+        self.ehi:CallFunction("AssaultTime", "PoliceActivityBlocked")
     end
 end
 
 function HUDManager:ShowAchievementStartedPopup(id, beardlib)
     if beardlib then
-        self:custom_ingame_popup_text("ACHIEVEMENT STARTED!", EHI._cache[id], "ehi_" .. id)
+        self:custom_ingame_popup_text("ACHIEVEMENT STARTED!", EHI._cache.Beardlib[id].name, "ehi_" .. id)
     else
         self:custom_ingame_popup_text("ACHIEVEMENT STARTED!", managers.localization:to_upper_text("achievement_" .. id), EHI:GetAchievementIconString(id))
     end
@@ -308,9 +333,18 @@ end
 
 function HUDManager:ShowAchievementFailedPopup(id, beardlib)
     if beardlib then
-        self:custom_ingame_popup_text("ACHIEVEMENT FAILED!", EHI._cache[id], "ehi_" .. id)
+        self:custom_ingame_popup_text("ACHIEVEMENT FAILED!", EHI._cache.Beardlib[id].name, "ehi_" .. id)
     else
         self:custom_ingame_popup_text("ACHIEVEMENT FAILED!", managers.localization:to_upper_text("achievement_" .. id), EHI:GetAchievementIconString(id))
+    end
+end
+
+function HUDManager:ShowAchievementDescription(id, beardlib)
+    if beardlib then
+        local Achievement = EHI._cache.Beardlib[id]
+        managers.chat:_receive_message(1, Achievement.name, Achievement.objective, Color.white)
+    else
+        managers.chat:_receive_message(1, managers.localization:text("achievement_" .. id), managers.localization:text("achievement_" .. id .. "_desc"), Color.white)
     end
 end
 
@@ -344,8 +378,12 @@ function HUDManager:Debug(id)
     managers.chat:_receive_message(1, "[EHI]", "ID: " .. tostring(id) .. "; dt: " .. dt, Color.white)
 end
 
-function HUDManager:DebugElement(id, element)
-    managers.chat:_receive_message(1, "[EHI]", "ID: " .. tostring(id) .. "; Element: " .. tostring(element), Color.white)
+function HUDManager:DebugElement(id, editor_name, enabled)
+    managers.chat:_receive_message(1, "[EHI]", "ID: " .. tostring(id) .. "; Editor Name: " .. tostring(editor_name) .. "; Enabled: " .. tostring(enabled), Color.white)
+end
+
+function HUDManager:DebugExperience(id, name, amount)
+    managers.chat:_receive_message(1, "[EHI]", string.format("`%s` ElementExperince %d: Gained %d XP", name, id, amount), Color.white)
 end
 
 function HUDManager:DebugBaseElement(id, instance_index, continent_index, element)
@@ -356,7 +394,7 @@ function HUDManager:DebugBaseElement2(base_id, instance_index, continent_index, 
     managers.chat:_receive_message(1, "[EHI]", "Base ID: " .. tostring(EHI:GetBaseUnitID(base_id, instance_index, continent_index or 100000)) .. "; ID: " .. tostring(base_id) .. "; Element: " .. tostring(element) .. "; Instance: " .. tostring(instance_name), Color.white)
 end
 
-local animation = { start_t = {}, end_t = {} }
+--[[local animation = { start_t = {}, end_t = {} }
 function HUDManager:DebugAnimation(id, type)
     if type == "start" then
         animation.start_t[id] = TimerManager:game():time()
@@ -380,4 +418,4 @@ function HUDManager:DebugAnimation2(id, type)
     if type == "end" then
         last_id = ""
     end
-end
+end]]

@@ -6,7 +6,7 @@ local C4 = EHI.Icons.C4
 
 local function StartC4Sequence(unit)
     local key = tostring(unit:key())
-    managers.ehi:AddTracker({
+    managers.ehi_tracker:AddTracker({
         id = key,
         time = 5,
         icons = { C4 }
@@ -34,7 +34,7 @@ else
     end
 end
 
-if EHI.debug and EHI:IsHost() then
+if EHI.debug.mission_door and EHI:IsHost() then
     EHI._cache.MissionDoor = {}
     local _f_init = MissionDoor.init
     function MissionDoor:init(...)

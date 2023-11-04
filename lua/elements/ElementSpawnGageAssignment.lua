@@ -7,14 +7,26 @@ if not EHI:GetOption("show_gage_tracker") then
     return
 end
 
+local original =
+{
+    init = ElementSpawnGageAssignment.init,
+    client_on_executed = ElementSpawnGageAssignment.client_on_executed,
+    on_executed = ElementSpawnGageAssignment.on_executed
+}
+
+function ElementSpawnGageAssignment:init(...)
+    original.init(self, ...)
+    EHI._cache.GagePackagesSpawned = true
+end
+
 local CreateTracker
 if EHI:GetOption("gage_tracker_panel") == 1 then -- Tracker
     CreateTracker = function()
-        if _G.IS_VR and managers.ehi:IsLoading() then
+        if managers.ehi_tracker:TrackerExists("Gage") or (EHI:IsVR() and managers.ehi_tracker:IsLoading()) then
             return
         end
         local max = tweak_data.gage_assignment:get_num_assignment_units()
-        managers.ehi:AddTracker({
+        managers.ehi_tracker:AddTracker({
             id = "Gage",
             icons = { "gage" },
             max = max,
@@ -26,15 +38,13 @@ else -- Popup
     end
 end
 
-local _f_client_on_executed = ElementSpawnGageAssignment.client_on_executed
 function ElementSpawnGageAssignment:client_on_executed(...)
-    _f_client_on_executed(self, ...)
+    original.client_on_executed(self, ...)
     CreateTracker()
 end
 
-local _f_on_executed = ElementSpawnGageAssignment.on_executed
 function ElementSpawnGageAssignment:on_executed(...)
-    _f_on_executed(self, ...)
+    original.on_executed(self, ...)
     if not self._values.enabled then
         return
     end

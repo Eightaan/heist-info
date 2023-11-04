@@ -2,6 +2,8 @@ local EHI = EHI
 local player_manager
 local math_max = math.max
 local THRESHOLD = tweak_data.upgrades.player_damage_health_ratio_threshold or 0.5
+---@class EHIBerserkerBuffTracker : EHIGaugeBuffTracker
+---@field super EHIGaugeBuffTracker
 EHIBerserkerBuffTracker = class(EHIGaugeBuffTracker)
 EHIBerserkerBuffTracker._refresh_time = 1 / EHI:GetBuffOption("berserker_refresh")
 function EHIBerserkerBuffTracker:init(panel, params)
@@ -18,13 +20,17 @@ function EHIBerserkerBuffTracker:PreUpdate()
     if player_manager:upgrade_value("player", "melee_damage_health_ratio_multiplier", 0) == 0 then
         return
     end
-    local function f(state)
-        self:SetCustody(state)
+    if player_manager:has_category_upgrade("player", "armor_regen_damage_health_ratio_multiplier") then -- Yakuza 9/9 deck
+        THRESHOLD = 1 - player_manager:_get_damage_health_ratio_threshold("armor_regen")
+    elseif player_manager:has_category_upgrade("player", "movement_speed_damage_health_ratio_multiplier") then -- Yakuza 9/9 deck
+        THRESHOLD = 1 - player_manager:_get_damage_health_ratio_threshold("movement_speed")
     end
-    EHI:AddOnCustodyCallback(f)
-    self._damage_multiplier = player_manager:upgrade_value('player', 'damage_health_ratio_multiplier', 0)
-    self._melee_damage_multiplier = player_manager:upgrade_value('player', 'melee_damage_health_ratio_multiplier', 0)
-    self._parent_class:AddBuffToUpdate(self._id, self)
+    EHI:AddOnCustodyCallback(function(state)
+        self:SetCustody(state)
+    end)
+    self._damage_multiplier = player_manager:upgrade_value('player', 'damage_health_ratio_multiplier', 0) --[[@as number]]
+    self._melee_damage_multiplier = player_manager:upgrade_value('player', 'melee_damage_health_ratio_multiplier', 0) --[[@as number]]
+    self:AddBuffToUpdate()
 end
 
 function EHIBerserkerBuffTracker:SetCustody(state)
@@ -34,7 +40,7 @@ function EHIBerserkerBuffTracker:SetCustody(state)
     else
         self:Activate()
         self._time = self._refresh_time
-        self._parent_class:AddBuffToUpdate(self._id, self)
+        self:AddBuffToUpdate()
     end
 end
 
@@ -72,25 +78,8 @@ function EHIBerserkerBuffTracker:UpdateMultipliers()
     end
 end
 
-function EHIBerserkerBuffTracker:SetRatio(ratio)
-    if self._ratio == ratio then
-        return
-    end
-    EHIBerserkerBuffTracker.super.SetRatio(self, ratio)
-end
-
 function EHIBerserkerBuffTracker:Activate()
     self._active = true
-end
-
-function EHIBerserkerBuffTracker:ActivateSoft()
-    if self._visible then
-        return
-    end
-    self._panel:stop()
-    self._panel:animate(self._show)
-    self._parent_class:AddVisibleBuff(self._id)
-    self._visible = true
 end
 
 function EHIBerserkerBuffTracker:Deactivate()
@@ -99,22 +88,22 @@ function EHIBerserkerBuffTracker:Deactivate()
     end
     self:DeactivateSoft()
     self._active = false
-    self._progress:set_color(Color(1, 0, 1, 1)) -- No need to animate this because the panel is no longer visible
+    self._progress_bar.red = 0 -- No need to animate this because the panel is no longer visible
+    self._progress:set_color(self._progress_bar)
 end
 
-function EHIBerserkerBuffTracker:DeactivateSoft()
-    if not self._visible then
-        return
+if EHI:GetBuffOption("berserker_format") == 1 then
+    function EHIBerserkerBuffTracker:Format()
+        local dmg = EHI:RoundNumber(self._current_damage_multiplier, 0.1)
+        local mdmg = EHI:RoundNumber(self._current_melee_damage_multiplier, 0.1)
+        local s = (dmg > 1 and dmg .. "x" or "") .. (dmg > 1 and (mdmg > 1 and " " .. mdmg .. "x" or "") or (mdmg > 1 and mdmg .. "x" or ""))
+        return s
     end
-    self._parent_class:RemoveVisibleBuff(self._id, self._pos)
-    self._panel:stop()
-    self._panel:animate(self._hide)
-    self._visible = false
-end
-
-function EHIBerserkerBuffTracker:Format()
-    local dmg = EHI:RoundNumber(self._current_damage_multiplier, 0.1)
-    local mdmg = EHI:RoundNumber(self._current_melee_damage_multiplier, 0.1)
-    local s = (dmg > 1 and dmg .. "x" or "") .. (dmg > 1 and (mdmg > 1 and " " .. mdmg .. "x" or "") or (mdmg > 1 and mdmg .. "x" or ""))
-    return s
+else
+    function EHIBerserkerBuffTracker:Format()
+        local dmg = EHI:RoundNumber(self._current_damage_multiplier - 1, 0.01) * 100
+        local mdmg = EHI:RoundNumber(self._current_melee_damage_multiplier - 1, 0.01) * 100
+        local s = (dmg > 0 and dmg .. "%" or "") .. (dmg > 0 and (mdmg > 0 and " " .. mdmg .. "%" or "") or (mdmg > 0 and mdmg .. "%" or ""))
+        return s
+    end
 end
