@@ -13,6 +13,7 @@ local triggers = {
     [100423] = { time = escape_fly_in, id = "EscapeHeli", icons = Icon.HeliEscapeNoLoot, special_function = SF.UnpauseTrackerIfExists, class = TT.Pausable }
 }
 
+---@type ParseAchievementTable
 local achievements =
 {
     hunter_party =
@@ -20,7 +21,7 @@ local achievements =
         difficulty_pass = EHI:IsDifficultyOrAbove(EHI.Difficulties.OVERKILL),
         elements =
         {
-            [100045] = { status = "ok", class = TT.AchievementStatus, special_function = SF.ShowAchievementFromStart },
+            [100045] = { status = "ok", class = TT.Achievement.Status, special_function = SF.ShowAchievementFromStart },
             [100679] = { special_function = SF.SetAchievementFailed }
         }
     }

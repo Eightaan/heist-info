@@ -22,7 +22,7 @@ EHI:DisableWaypoints(DisableWaypoints)
 
 local tbl =
 {
-    [EHI:GetInstanceUnitID(100037, 6750)] = { remove_vanilla_waypoint = true, waypoint_id = EHI:GetInstanceElementID(100017, 6750) }
+    [EHI:GetInstanceUnitID(100037, 6750)] = { remove_vanilla_waypoint = EHI:GetInstanceElementID(100017, 6750) }
 }
 EHI:UpdateUnits(tbl)
 EHI:ShowLootCounter({

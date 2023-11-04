@@ -1,4 +1,4 @@
-local EHI = EHI
+local EHI, EM = EHI, EHIManager
 local SF = EHI.SpecialFunctions
 local TT = EHI.Trackers
 local repair = { time = 90, id = "RepairWait", icons = { EHI.Icons.Fix } }
@@ -9,6 +9,7 @@ local triggers = {
     [100123] = repair
 }
 
+---@type ParseAchievementTable
 local achievements =
 {
     hunter_loot =
@@ -17,10 +18,10 @@ local achievements =
         elements =
         {
             [100132] = { special_function = SF.Trigger, data = { 1001321, 1001322 } },
-            [1001321] = { max = 21, class = TT.AchievementProgress, special_function = SF.ShowAchievementFromStart },
+            [1001321] = { max = 21, class = TT.Achievement.Progress, special_function = SF.ShowAchievementFromStart },
             [1001322] = { special_function = SF.CustomCode, f = function()
                 EHI:ShowLootCounter({ max = 21 })
-                EHI:UnhookElement(100416)
+                EM:UnhookElement(100416)
             end },
             [100416] = { special_function = SF.IncreaseProgress }
         }
@@ -34,6 +35,6 @@ EHI:ParseTriggers({
 })
 EHI:AddLoadSyncFunction(function(self)
     EHI:ShowLootCounter({ max = 21 })
-    EHI:UnhookElement(100416)
-    self:SyncSecuredLoot()
+    self:UnhookElement(100416)
+    self._trackers:SyncSecuredLoot()
 end)

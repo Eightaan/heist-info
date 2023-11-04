@@ -1,10 +1,10 @@
-local EHI = EHI
+local EHI, EM = EHI, EHIManager
 local SF = EHI.SpecialFunctions
 local TT = EHI.Trackers
 dofile(EHI.LuaPath .. "levels/run.lua")
 -- Triggers
-EHI:UnhookTrigger(100144) -- Does not work in reworked version
-EHI:UnhookTrigger(102876) -- Needs to be reworked -> 1st gas can
+EM:UnhookTrigger(100144) -- Does not work in reworked version
+EM:UnhookTrigger(102876) -- Needs to be reworked -> 1st gas can
 local triggers =
 {
     -- Creates Fire tracker -> 1028762, copy of 100144
@@ -18,6 +18,7 @@ if EHI:MissionTrackersAndWaypointEnabled() then
 end
 
 -- Achievements
+---@type ParseAchievementTable
 local achievements =
 {
     run_9 =
@@ -33,7 +34,7 @@ local achievements =
         difficulty_pass = EHI:IsDifficultyOrAbove(EHI.Difficulties.VeryHard),
         elements =
         {
-            [102426] = { time = 817, class = TT.Achievement },
+            [102426] = { time = 817, class = TT.Achievement.Base },
             [100553] = { special_function = SF.SetAchievementComplete }
         }
     }

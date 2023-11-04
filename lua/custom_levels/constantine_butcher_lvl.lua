@@ -28,7 +28,7 @@ local tbl =
 {
     --levels/instances/unique/sand/sand_computer_hackable
     --units/pd2_dlc_sand/equipment/sand_interactable_hack_computer/sand_interactable_hack_computer
-    [EHI:GetInstanceUnitID(100140, 8000)] = { remove_vanilla_waypoint = true, waypoint_id = EHI:GetInstanceElementID(100034, 8000) },
+    [EHI:GetInstanceUnitID(100140, 8000)] = { remove_vanilla_waypoint = EHI:GetInstanceElementID(100034, 8000) },
 
     [EHI:GetInstanceUnitID(100037, 3750)] = { f = function(unit_id, unit_data, unit)
         EHI:HookWithID(unit:timer_gui(), "set_jammed", "EHI_100037_3750_unjammed", function(self, jammed, ...)
@@ -47,8 +47,5 @@ local DisableWaypoints =
     [EHI:GetInstanceElementID(100018, 3750)] = true -- Defend
 }
 -- levels/instances/unique/rvd/rvd_hackbox
-for i = 8250, 9000, 250 do
-    DisableWaypoints[EHI:GetInstanceElementID(100034, i)] = true -- Defend Hackbox
-    DisableWaypoints[EHI:GetInstanceElementID(100031, i)] = true -- Fix Hackbox
-end
+-- Handled in CoreWorldInstanceManager.lua
 EHI:DisableWaypoints(DisableWaypoints)

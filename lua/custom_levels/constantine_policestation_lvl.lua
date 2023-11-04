@@ -18,7 +18,7 @@ local tbl =
 {
     --levels/instances/unique/sand/sand_computer_hackable
     --units/pd2_dlc_sand/equipment/sand_interactable_hack_computer/sand_interactable_hack_computer
-    [EHI:GetInstanceUnitID(100140, 2750)] = { remove_vanilla_waypoint = true, waypoint_id = EHI:GetInstanceElementID(100034, 2750) },
+    [EHI:GetInstanceUnitID(100140, 2750)] = { remove_vanilla_waypoint = EHI:GetInstanceElementID(100034, 2750) },
 
     [EHI:GetInstanceUnitID(100037, 5750)] = { f = function(unit_id, unit_data, unit)
         EHI:HookWithID(unit:timer_gui(), "set_jammed", "EHI_100037_5750_unjammed", function(self, jammed, ...)
