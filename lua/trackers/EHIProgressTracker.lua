@@ -1,16 +1,20 @@
+---@class EHIProgressTracker : EHITracker
+---@field super EHITracker
 EHIProgressTracker = class(EHITracker)
 EHIProgressTracker.update = EHIProgressTracker.update_fade
+EHIProgressTracker._progress_bad = Color(255, 255, 165, 0) / 255
 EHIProgressTracker._update = false
-function EHIProgressTracker:init(panel, params)
+function EHIProgressTracker:pre_init(params)
     self._max = params.max or 0
     self._progress = params.progress or 0
-    self._flash = not params.dont_flash
-    self._flash_max = not params.dont_flash_max
-    self._remove_after_reaching_counter_target = params.remove_after_reaching_target ~= false
+    self._show_finish_after_reaching_target = params.show_finish_after_reaching_target or params.show_progress_on_finish
     self._set_color_bad_when_reached = params.set_color_bad_when_reached
-    self._flash_times = params.flash_times or 3
     self._status_is_overridable = params.status_is_overridable
-    EHIProgressTracker.super.init(self, panel, params)
+    self._show_progress_on_finish = params.show_progress_on_finish
+end
+
+function EHIProgressTracker:post_init(params)
+    self._progress_text = self._text
 end
 
 function EHIProgressTracker:Format()
@@ -19,29 +23,25 @@ end
 
 function EHIProgressTracker:SetProgressMax(max)
     self._max = max
-    self._text:set_text(self:Format())
-    self:FitTheText()
-    if self._flash_max then
-        self:AnimateBG(self._flash_times)
-    end
+    self._progress_text:set_text(self:FormatProgress())
+    self:FitTheText(self._progress_text)
+    self:AnimateBG()
 end
 
-function EHIProgressTracker:IncreaseProgressMax(progress)
-    self:SetProgressMax(self._max + (progress or 1))
+function EHIProgressTracker:IncreaseProgressMax(max)
+    self:SetProgressMax(self._max + (max or 1))
 end
 
-function EHIProgressTracker:DecreaseProgressMax(progress)
-    self:SetProgressMax(self._max - (progress or 1))
+function EHIProgressTracker:DecreaseProgressMax(max)
+    self:SetProgressMax(self._max - (max or 1))
 end
 
 function EHIProgressTracker:SetProgress(progress)
     if self._progress ~= progress and not self._disable_counting then
         self._progress = progress
-        self._text:set_text(self:Format())
-        self:FitTheText()
-        if self._flash then
-            self:AnimateBG(self._flash_times)
-        end
+        self._progress_text:set_text(self:FormatProgress())
+        self:FitTheText(self._progress_text)
+        self:AnimateBG()
         if self._progress == self._max then
             if self._set_color_bad_when_reached then
                 self:SetBad()
@@ -58,7 +58,7 @@ end
 
 function EHIProgressTracker:DecreaseProgress(progress)
     self:SetProgress(self._progress - (progress or 1))
-    self:SetTextColor()
+    self:SetTextColor(nil, self._progress_text)
     self._disable_counting = false
 end
 
@@ -67,12 +67,12 @@ function EHIProgressTracker:SetProgressRemaining(remaining)
 end
 
 function EHIProgressTracker:SetCompleted(force)
-    if not self._status or force then
+    if force or not self._status then
         self._status = "completed"
-        self:SetTextColor(Color.green)
-        if self._remove_after_reaching_counter_target or force then
+        self:SetTextColor(Color.green, self._progress_text)
+        if force or not self._show_finish_after_reaching_target then
             self:AddTrackerToUpdate()
-        else
+        elseif not self._show_progress_on_finish then
             self:SetStatusText("finish")
         end
         self._disable_counting = true
@@ -80,7 +80,7 @@ function EHIProgressTracker:SetCompleted(force)
 end
 
 function EHIProgressTracker:SetBad()
-    self:SetTextColor(tweak_data.ehi.color.Inaccurate)
+    self:SetTextColor(self._progress_bad, self._progress_text)
 end
 
 function EHIProgressTracker:Finalize()
@@ -95,7 +95,7 @@ function EHIProgressTracker:SetFailed()
     if self._status and not self._status_is_overridable then
         return
     end
-    self:SetTextColor(Color.red)
+    self:SetTextColor(Color.red, self._progress_text)
     self._status = "failed"
     self:AddTrackerToUpdate()
     self:AnimateBG()
@@ -105,3 +105,4 @@ end
 function EHIProgressTracker:GetProgress()
     return self._progress
 end
+EHIProgressTracker.FormatProgress = EHIProgressTracker.Format

@@ -1,26 +1,33 @@
 local lerp = math.lerp
 local sin = math.sin
 local Color = Color
+---@class EHIPiggyBankMutatorTracker : EHIProgressTracker
+---@field super EHIProgressTracker
 EHIPiggyBankMutatorTracker = class(EHIProgressTracker)
 EHIPiggyBankMutatorTracker._forced_icons = { "piggy" }
-EHIPiggyBankMutatorTracker._piggy_tweak_data = tweak_data.mutators.piggybank.pig_levels
+---@param panel Panel
+---@param params EHITracker_params
 function EHIPiggyBankMutatorTracker:init(panel, params)
     self._current_level = 1
     self._max_levels = 7
     params.flash_times = 1
+    if params.revenge then
+        self._piggy_tweak_data = tweak_data.mutators.piggyrevenge.pig_levels
+    else
+        self._piggy_tweak_data = tweak_data.mutators.piggybank.pig_levels
+    end
     EHIPiggyBankMutatorTracker.super.init(self, panel, params)
     self:SetNewMax()
 end
 
 function EHIPiggyBankMutatorTracker:OverridePanel()
-    self._panel:set_w(self._panel:w() * 2)
-    self._time_bg_box:set_w(self._time_bg_box:w() * 2)
-    self._levels_text = self._time_bg_box:text({
+    self:SetBGSize()
+    self._levels_text = self._bg_box:text({
         name = "text2",
         text = self:FormatLevels(),
         align = "center",
         vertical = "center",
-        w = self._time_bg_box:w() / 2,
+        w = self._bg_box:w() / 2,
         h = self._icon_size_scaled,
         font = tweak_data.menu.pd2_large_font,
 		font_size = self._panel:h() * self._text_scale,
@@ -28,9 +35,7 @@ function EHIPiggyBankMutatorTracker:OverridePanel()
     })
     self:FitTheText(self._levels_text)
     self._levels_text:set_left(self._text:right())
-    if self._icon1 then
-        self._icon1:set_x(self._icon1:x() * 2)
-    end
+    self:SetIconX()
 end
 
 function EHIPiggyBankMutatorTracker:FormatLevels()

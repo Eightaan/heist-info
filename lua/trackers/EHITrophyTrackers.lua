@@ -1,4 +1,6 @@
 local EHI = EHI
+---@class EHITrophyTracker : EHIAchievementTracker
+---@field super EHIAchievementTracker
 EHITrophyTracker = class(EHIAchievementTracker)
 EHITrophyTracker._popup_type = "trophy"
 EHITrophyTracker._show_started = EHI:GetUnlockableOption("show_trophy_started_popup")

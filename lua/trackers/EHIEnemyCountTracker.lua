@@ -1,3 +1,5 @@
+---@class EHIEnemyCountTracker : EHICountTracker
+---@field super EHICountTracker
 EHIEnemyCountTracker = class(EHICountTracker)
 if EHI:GetOption("show_enemy_count_show_pagers") then
     EHIEnemyCountTracker._forced_icons = { "pager_icon", "enemy" }
@@ -33,15 +35,13 @@ end
 
 function EHIEnemyCountTracker:Update()
     self._text:set_text(self:Format())
-    if self._anim_flash then
-        self:AnimateBG(self._flash_times)
-    end
+    self:AnimateBG()
 end
 
 function EHIEnemyCountTracker:Alarm()
     self._alarm_sounded = true
     self._count = self._count + self._alarm_count
-    self.Format = self.super.Format
+    self.Format = EHIEnemyCountTracker.super.Format
     self:Update()
     self:FitTheText()
     self:AnimateBG()
@@ -50,7 +50,7 @@ function EHIEnemyCountTracker:Alarm()
         self._icon2:set_visible(true)
         self._icon1:set_visible(false)
         if not self._manually_created_icon2 then
-            self._parent_class:ChangeTrackerWidth(self._id, self._time_bg_box:w() + self._icon_gap_size_scaled)
+            self:ChangeTrackerWidth(self._bg_box:w() + self._icon_gap_size_scaled)
         end
     end
 end

@@ -1,9 +1,11 @@
+---@class EHIAggregatedHealthEquipmentTracker : EHITracker
+---@field super EHITracker
 EHIAggregatedHealthEquipmentTracker = class(EHITracker)
 EHIAggregatedHealthEquipmentTracker._update = false
 EHIAggregatedHealthEquipmentTracker._pos = { "doctor_bag", "first_aid_kit" }
 EHIAggregatedHealthEquipmentTracker._dont_show_placed = { first_aid_kit = true }
 EHIAggregatedHealthEquipmentTracker._forced_icons = { { icon = "doctor_bag", visible = false }, { icon = "first_aid_kit", visible = false } }
-function EHIAggregatedHealthEquipmentTracker:init(panel, params)
+function EHIAggregatedHealthEquipmentTracker:pre_init(params)
     self._amount = {}
     self._placed = {}
     self._deployables = {}
@@ -12,7 +14,6 @@ function EHIAggregatedHealthEquipmentTracker:init(panel, params)
         self._placed[id] = 0
         self._deployables[id] = {}
     end
-    EHIAggregatedHealthEquipmentTracker.super.init(self, panel, params)
 end
 
 function EHIAggregatedHealthEquipmentTracker:Format()
@@ -34,33 +35,29 @@ do
         function EHIAggregatedHealthEquipmentTracker:FormatDeployable(id)
             if self._dont_show_placed[id] then
                 return self._amount[id]
-            else
-                return self._amount[id] .. " (" .. self._placed[id] .. ")"
             end
+            return self._amount[id] .. " (" .. self._placed[id] .. ")"
         end
     elseif format == 2 then -- (Bags placed) Uses
         function EHIAggregatedHealthEquipmentTracker:FormatDeployable(id)
             if self._dont_show_placed[id] then
                 return self._amount[id]
-            else
-                return "(" .. self._placed[id] .. ") " .. self._amount[id]
             end
+            return "(" .. self._placed[id] .. ") " .. self._amount[id]
         end
     elseif format == 3 then -- (Uses) Bags placed
         function EHIAggregatedHealthEquipmentTracker:FormatDeployable(id)
             if self._dont_show_placed[id] then
                 return self._amount[id]
-            else
-                return "(" .. self._amount[id] .. ") " .. self._placed[id]
             end
+            return "(" .. self._amount[id] .. ") " .. self._placed[id]
         end
     elseif format == 4 then -- Bags placed (Uses)
         function EHIAggregatedHealthEquipmentTracker:FormatDeployable(id)
             if self._dont_show_placed[id] then
                 return self._amount[id]
-            else
-                return self._placed[id] .. " (" .. self._amount[id] .. ")"
             end
+            return self._placed[id] .. " (" .. self._amount[id] .. ")"
         end
     elseif format == 5 then -- Uses
         function EHIAggregatedHealthEquipmentTracker:FormatDeployable(id)
@@ -70,9 +67,8 @@ do
         function EHIAggregatedHealthEquipmentTracker:FormatDeployable(id)
             if self._dont_show_placed[id] then
                 return tostring(self._amount[id])
-            else
-                return tostring(self._placed[id])
             end
+            return tostring(self._placed[id])
         end
     end
 end
@@ -86,7 +82,7 @@ function EHIAggregatedHealthEquipmentTracker:GetTotalAmount()
 end
 
 function EHIAggregatedHealthEquipmentTracker:GetIconPosition(i)
-    local start = self._time_bg_box:w()
+    local start = self._bg_box:w()
     local gap = self._gap_scaled
     start = start + (self._icon_size_scaled * i)
     gap = gap + (self._gap_scaled * i)
@@ -120,8 +116,8 @@ function EHIAggregatedHealthEquipmentTracker:UpdateIconsVisibility()
         move_x = move_x + 1
     end
     local n = icons
-    local panel_w = self._time_bg_box:w()
-    self._parent_class:ChangeTrackerWidth(self._id, panel_w + ((self._icon_size_scaled + self._gap_scaled) * n))
+    local panel_w = self._bg_box:w()
+    self:ChangeTrackerWidth(panel_w + ((self._icon_size_scaled + self._gap_scaled) * n))
 end
 
 function EHIAggregatedHealthEquipmentTracker:UpdateAmount(id, unit, key, amount)

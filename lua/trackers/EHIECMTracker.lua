@@ -1,5 +1,9 @@
 local EHI = EHI
+---@class EHIECMTracker : EHIWarningTracker
+---@field super EHIWarningTracker
 EHIECMTracker = class(EHIWarningTracker)
+---@param panel Panel
+---@param params EHITracker_params
 function EHIECMTracker:init(panel, params)
     EHIECMTracker.super.init(self, panel, params)
     self._unit = params.unit

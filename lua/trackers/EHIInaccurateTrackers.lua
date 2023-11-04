@@ -1,7 +1,7 @@
-local color = tweak_data.ehi.color.Inaccurate
-local lerp = math.lerp
-local sin = math.sin
+local color = EHI:GetTWColor("inaccurate")
 local Color = Color
+---@class EHIInaccurateTracker : EHITracker
+---@field super EHITracker
 EHIInaccurateTracker = class(EHITracker)
 EHIInaccurateTracker._tracker_type = "inaccurate"
 EHIInaccurateTracker._text_color = color
@@ -10,6 +10,8 @@ function EHIInaccurateTracker:SetTrackerAccurate(time)
     EHIInaccurateTracker.super.SetTrackerAccurate(self, time)
 end
 
+---@class EHIInaccuratePausableTracker : EHIPausableTracker
+---@field super EHIPausableTracker
 EHIInaccuratePausableTracker = class(EHIPausableTracker)
 EHIInaccuratePausableTracker._tracker_type = "inaccurate"
 EHIInaccuratePausableTracker._text_color = color
@@ -18,27 +20,11 @@ function EHIInaccuratePausableTracker:SetTrackerAccurate(time)
     EHIInaccuratePausableTracker.super.SetTrackerAccurate(self, time)
 end
 
+---@class EHIInaccurateWarningTracker : EHIWarningTracker
+---@field super EHIWarningTracker
 EHIInaccurateWarningTracker = class(EHIWarningTracker)
 EHIInaccurateWarningTracker._tracker_type = "inaccurate"
 EHIInaccurateWarningTracker._text_color = color
-function EHIInaccurateWarningTracker:AnimateWarning()
-    if self._tracker_type == "accurate" then
-        EHIInaccurateWarningTracker.super.AnimateWarning(self)
-    else
-        self._text:animate(function(o)
-            while true do
-                local t = 1
-                while t > 0 do
-                    t = t - coroutine.yield()
-                    local n = sin(t * 180)
-                    local g = lerp(color.g, 0, n)
-                    o:set_color(Color(1, g, 0))
-                end
-            end
-        end)
-    end
-end
-
 function EHIInaccurateWarningTracker:SetTrackerAccurate(time)
     self._text_color = Color.white
     EHIInaccurateWarningTracker.super.SetTrackerAccurate(self, time)

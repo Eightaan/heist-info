@@ -1,12 +1,12 @@
 local original =
 {
-    init = EHIWaypointManager.init,
+    new = EHIWaypointManager.new,
     Save = VoidUI.Save
 }
 
-function EHIWaypointManager:init()
-    original.init(self)
+function EHIWaypointManager:new()
     self:UpdateValues()
+    return original.new(self)
 end
 
 function EHIWaypointManager:UpdateValues()
@@ -18,7 +18,7 @@ function EHIWaypointManager:UpdateValues()
 end
 
 function VoidUI:Save()
-	original.Save(self)
+    original.Save(self)
     if managers.ehi_waypoint then
         managers.ehi_waypoint:UpdateValues()
     end

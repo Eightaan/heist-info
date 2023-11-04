@@ -2,21 +2,29 @@ local lerp = math.lerp
 local Color = Color
 local Control = Color.white
 local Anticipation = Color(255, 186, 204, 28) / 255
-if BAI then
-    Control = BAI:GetColor("control")
-    Anticipation = BAI:GetColor("anticipation")
-    BAI:AddEvent(BAI.EventList.Update, function()
-        Control = BAI:GetColor("control")
-        Anticipation = BAI:GetColor("anticipation")
-        EHIAssaultDelayTracker._forced_icons[1].color = Control
-    end)
-end
-local assault_values = tweak_data.group_ai[tweak_data.levels:get_group_ai_state()].assault
+local assault_values = tweak_data.group_ai[tweak_data.levels:GetGroupAIState()].assault
 local tweak_values = assault_values.delay
 local hostage_values = assault_values.hostage_hesitation_delay
+---@class EHIAssaultDelayTracker : EHIWarningTracker
+---@field super EHIWarningTracker
 EHIAssaultDelayTracker = class(EHIWarningTracker)
 EHIAssaultDelayTracker._forced_icons = { { icon = "assaultbox", color = Control } }
-EHIAssaultDelayTracker.AnimateNegative = EHITimerTracker.AnimateCompletion
+EHIAssaultDelayTracker._show_completion_color = true
+if type(tweak_values) ~= "table" then -- If for some reason the assault delay is not a table, use the value directly
+    EHIAssaultDelayTracker._assault_delay = tonumber(tweak_values) or 30
+else
+    local first_value = tweak_values[1] or 0
+    local match = true
+    for _, value in pairs(tweak_values) do
+        if first_value ~= value then
+            match = false
+            break
+        end
+    end
+    if match then -- All numbers are the same, use it and avoid computation because it is expensive
+        EHIAssaultDelayTracker._assault_delay = first_value
+    end
+end
 if type(hostage_values) ~= "table"  then -- If for some reason the hesitation delay is not a table, use the value directly
     EHIAssaultDelayTracker._precomputed_hostage_delay = true
     EHIAssaultDelayTracker._hostage_delay = tonumber(hostage_values) or 30
@@ -29,13 +37,15 @@ else
             break
         end
     end
-    if match then -- All numbers the same, use it and avoid computation because it is expensive
+    if match then -- All numbers are the same, use it and avoid computation because it is expensive
         EHIAssaultDelayTracker._precomputed_hostage_delay = true
         EHIAssaultDelayTracker._hostage_delay = first_value
     end
 end
+---@param panel Panel
+---@param params EHITracker_params
 function EHIAssaultDelayTracker:init(panel, params)
-    if params.compute_time then
+    if not params.time then
         params.time = self:CalculateBreakTime(params.diff) + (2 * math.random())
     end
     self:ComputeHostageDelay(params.diff or 0)
@@ -45,6 +55,7 @@ function EHIAssaultDelayTracker:init(panel, params)
     self:CheckIfHostageIsPresent()
 end
 
+---@param diff number
 function EHIAssaultDelayTracker:ComputeHostageDelay(diff)
     if self._precomputed_hostage_delay then
         return
@@ -59,6 +70,8 @@ function EHIAssaultDelayTracker:ComputeHostageDelay(diff)
     self._hostage_delay = lerp(hostage_values[difficulty_point_index], hostage_values[difficulty_point_index + 1], difficulty_ramp)
 end
 
+---@param t any Unused
+---@param dt number
 function EHIAssaultDelayTracker:update_negative(t, dt)
     self._time = self._time + dt
     self._text:set_text("+" .. self:Format())
@@ -73,6 +86,7 @@ function EHIAssaultDelayTracker:SyncAnticipationColor()
     self._hostage_delay_disabled = true
 end
 
+---@param t number
 function EHIAssaultDelayTracker:SyncAnticipation(t)
     self._time = t - (2 * math.random())
     self:SyncAnticipationColor()
@@ -87,7 +101,11 @@ function EHIAssaultDelayTracker:CheckIfHostageIsPresent()
     self._hostages_found = true
 end
 
+---@param diff number
 function EHIAssaultDelayTracker:CalculateBreakTime(diff)
+    if self._assault_delay then
+        return self._assault_delay + 30
+    end
     local ramp = tweak_data.group_ai.difficulty_curve_points
     local i = 1
     while (ramp[i] or 1) < diff do
@@ -99,6 +117,7 @@ function EHIAssaultDelayTracker:CalculateBreakTime(diff)
     return base_delay + 30
 end
 
+---@param has_hostages boolean
 function EHIAssaultDelayTracker:SetHostages(has_hostages)
     if self._hostage_delay_disabled then
         return
@@ -112,6 +131,7 @@ function EHIAssaultDelayTracker:SetHostages(has_hostages)
     end
 end
 
+---@param t number
 function EHIAssaultDelayTracker:UpdateTime(t)
     self._time = self._time + t
     if not self._update then
@@ -119,6 +139,7 @@ function EHIAssaultDelayTracker:UpdateTime(t)
     end
 end
 
+---@param t number
 function EHIAssaultDelayTracker:StartAnticipation(t)
     self._hostage_delay_disabled = true
     self._time = t
@@ -127,6 +148,7 @@ function EHIAssaultDelayTracker:StartAnticipation(t)
     end
 end
 
+---@param time number
 function EHIAssaultDelayTracker:SetTime(time)
     if self._hostage_delay_disabled then
         return
@@ -136,6 +158,7 @@ function EHIAssaultDelayTracker:SetTime(time)
     self:CheckIfHostageIsPresent()
 end
 
+---@param diff number
 function EHIAssaultDelayTracker:UpdateDiff(diff)
     if self._hostage_delay_disabled or self._precomputed_hostage_delay then
         return
@@ -153,14 +176,37 @@ function EHIAssaultDelayTracker:UpdateDiff(diff)
     end]]
 end
 
+function EHIAssaultDelayTracker:PoliceActivityBlocked()
+    self._hide_on_delete = nil
+    self._time = 1
+    EHIAssaultDelayTracker.super.delete(self)
+end
+
 function EHIAssaultDelayTracker:delete()
     if self._time <= 0 then
         self.update = self.update_negative
         self._time = -self._time
         self._text:stop()
         self:SetTextColor(Color.white)
-        self:AnimateNegative()
+        self:AnimateColor()
         return
     end
     EHIAssaultDelayTracker.super.delete(self)
+end
+
+---@class EHIInaccurateAssaultDelayTracker : EHIAssaultDelayTracker
+---@field super EHIAssaultDelayTracker
+EHIInaccurateAssaultDelayTracker = class(EHIAssaultDelayTracker)
+EHIInaccurateAssaultDelayTracker._text_color = EHI:GetTWColor("inaccurate")
+---@param t number
+function EHIInaccurateAssaultDelayTracker:StartAnticipation(t)
+    self:SetTextColor(Color.white)
+    self._text_color = Color.white
+    EHIInaccurateAssaultDelayTracker.super.StartAnticipation(self, t)
+end
+
+---@param t number
+function EHIInaccurateAssaultDelayTracker:SyncAnticipation(t)
+    EHIInaccurateAssaultDelayTracker.super.SyncAnticipation(self, t)
+    self._text_color = Color.white
 end

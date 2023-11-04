@@ -5,34 +5,25 @@ local Captain = Color(255, 255, 128, 0) / 255
 local Build = Color.yellow
 local Sustain = Color(255, 237, 127, 127) / 255
 local Fade = Color(255, 0, 255, 255) / 255
-if BAI then
-    Captain = BAI:GetRightColor("captain")
-    Build = BAI:GetColor("build")
-    Sustain = BAI:GetColor("sustain")
-    Fade = BAI:GetColor("fade")
-    BAI:AddEvent(BAI.EventList.Update, function()
-        Captain = BAI:GetRightColor("captain")
-        Build = BAI:GetColor("build")
-        Sustain = BAI:GetColor("sustain")
-        Fade = BAI:GetColor("fade")
-        EHIAssaultTimeTracker._forced_icons[1].color = Build
-    end)
-end
 local State =
 {
     build = 1,
     sustain = 2,
     fade = 3
 }
-local assault_values = tweak_data.group_ai[tweak_data.levels:get_group_ai_state()].assault
+local assault_values = tweak_data.group_ai[tweak_data.levels:GetGroupAIState()].assault
+---@class EHIAssaultTimeTracker : EHIWarningTracker
+---@field super EHIWarningTracker
 EHIAssaultTimeTracker = class(EHIWarningTracker)
 EHIAssaultTimeTracker._forced_icons = { { icon = "assaultbox", color = Build } }
 EHIAssaultTimeTracker._is_client = EHI:IsClient()
-EHIAssaultTimeTracker.AnimateWarning = EHITimerTracker.AnimateCompletion
+EHIAssaultTimeTracker._paused_color = EHIPausableTracker._paused_color
+EHIAssaultTimeTracker._show_completion_color = true
+---@param panel Panel
+---@param params EHITracker_params
 function EHIAssaultTimeTracker:init(panel, params)
     self:CalculateDifficultyRamp(params.diff)
-    self._original_time = self:CalculateAssaultTime()
-    params.time = self._original_time
+    params.time = self:CalculateAssaultTime()
     EHIAssaultTimeTracker.super.init(self, panel, params)
     self.update_normal = self.update
     self._state = State.build
@@ -47,9 +38,14 @@ function EHIAssaultTimeTracker:update(t, dt)
     if self._to_sustain_t then
         self._to_sustain_t = self._to_sustain_t - dt
         if self._to_sustain_t <= 0 then
-            self._to_sustain_t = nil
             self._state = State.sustain
             self:SetIconColor(Sustain)
+            if self._recalculate_on_sustain then
+                self:RecalculateAssaultTime(self._new_diff)
+                self._new_diff = nil
+                self._recalculate_on_sustain = nil
+            end
+            self._to_sustain_t = nil
         end
     end
     if self._to_fade_t then
@@ -68,9 +64,14 @@ function EHIAssaultTimeTracker:update_cs(t, dt)
     if self._to_sustain_t then
         self._to_sustain_t = self._to_sustain_t - dt
         if self._to_sustain_t <= 0 then
-            self._to_sustain_t = nil
             self._state = State.sustain
             self:SetIconColor(Sustain)
+            if self._recalculate_on_sustain then
+                self:RecalculateAssaultTime(self._new_diff)
+                self._new_diff = nil
+                self._recalculate_on_sustain = nil
+            end
+            self._to_sustain_t = nil
         end
     end
     if self._to_fade_t then
@@ -96,6 +97,7 @@ function EHIAssaultTimeTracker:CalculateDifficultyRamp(diff)
     end
     self._difficulty_point_index = i
     self._difficulty_ramp = (diff - (ramp[i - 1] or 0)) / ((ramp[i] or 1) - (ramp[i - 1] or 0))
+    self._diff = diff
 end
 
 function EHIAssaultTimeTracker:CalculateDifficultyDependentValue(values)
@@ -116,6 +118,16 @@ function EHIAssaultTimeTracker:CalculateAssaultTime()
     end
     self._to_fade_t = build + sustain
     return build + sustain + fade
+end
+
+function EHIAssaultTimeTracker:RecalculateAssaultTime(diff)
+    self:CalculateDifficultyRamp(diff)
+    local t = self:CalculateAssaultTime()
+    local build = assault_values.build_duration
+    local fade = assault_values.fade_duration
+    self._assault_t = t - build - fade
+    self._to_fade_t = t - build - fade
+    self._time = t - build
 end
 
 function EHIAssaultTimeTracker:CalculateCSSustainTime(sustain, n_of_hostages)
@@ -152,22 +164,20 @@ function EHIAssaultTimeTracker:SetTime(t)
 end
 
 function EHIAssaultTimeTracker:UpdateDiff(diff)
-    if self._state == State.build then
-        self:CalculateDifficultyRamp(diff)
-        local new_time = self:CalculateAssaultTime()
-        if new_time ~= self._original_time then
-            local time_diff = new_time - self._original_time
-            self._time = self._time + time_diff
-            self._original_time = new_time
-            self._to_fade_t = self._to_fade_t + time_diff
-            if self._to_sustain_t then
-                self._to_sustain_t = self._to_sustain_t + time_diff
-            end
-        end
+    if self._is_client and self._state == State.build and self._diff ~= diff then
+        self._recalculate_on_sustain = true
+        self._new_diff = diff
     end
 end
 
-function EHIAssaultTimeTracker:OnEnterSustain()
+function EHIAssaultTimeTracker:OnEnterSustain(t)
+    if self._captain_arrived or self._state ~= State.build then
+        return
+    end
+    self._to_fade_t = t
+    self._assault_t = t
+    self._sustain_original_t = t
+    self._time = t + assault_values.fade_duration
     self._state = State.sustain
     self:SetIconColor(Sustain)
     if self._cs_assault_extender then
@@ -176,18 +186,23 @@ function EHIAssaultTimeTracker:OnEnterSustain()
 end
 
 function EHIAssaultTimeTracker:CaptainArrived()
+    self._captain_arrived = true
     self:RemoveTrackerFromUpdate()
     self._text:stop()
-    self:SetTextColor(Color.red)
+    self:SetTextColor(self._paused_color)
     self:SetIconColor(Captain)
     self._time_warning = false
 end
 
 function EHIAssaultTimeTracker:CaptainDefeated()
-    self._time = 5
-    self:SetTextColor(Color.white)
-    self:SetIconColor(Fade)
-    self:AddTrackerToUpdate()
+    self._time = 1
+    self:delete()
+end
+
+function EHIAssaultTimeTracker:PoliceActivityBlocked()
+    self._hide_on_delete = nil
+    self._time = 1
+    EHIAssaultTimeTracker.super.delete(self)
 end
 
 function EHIAssaultTimeTracker:delete()
@@ -202,16 +217,16 @@ end
 
 EHI:AddCallback(EHI.CallbackMessage.AssaultModeChanged, function(mode)
     if mode == "phalanx" then
-        managers.ehi:CallFunction("AssaultTime", "CaptainArrived")
+        managers.ehi_tracker:CallFunction("AssaultTime", "CaptainArrived")
     else
-        managers.ehi:CallFunction("AssaultTime", "CaptainDefeated")
+        managers.ehi_tracker:CallFunction("AssaultTime", "CaptainDefeated")
     end
 end)
 
 local _Active = false
 local function ActivateHooks()
     local function f()
-        managers.ehi:CallFunction("AssaultTime", "OnMinionCountChanged")
+        managers.ehi_tracker:CallFunction("AssaultTime", "OnMinionCountChanged")
     end
     EHI:AddCallback(EHI.CallbackMessage.OnMinionAdded, f)
     EHI:AddCallback(EHI.CallbackMessage.OnMinionKilled, f)
@@ -237,16 +252,15 @@ local function CheckIfModifierIsActive()
         end
     end
 end
-local ListenerModifier = class(BaseModifier)
-function ListenerModifier:OnEnterSustainPhase(...)
-    managers.ehi:CallFunction("AssaultTime", "OnEnterSustain")
-end
-EHI:AddCallback(EHI.CallbackMessage.InitFinalize, function()
-    managers.modifiers:add_modifier(ListenerModifier, "EHI")
-    CheckIfModifierIsActive()
-end)
-if EHI:IsClient() then
-    EHI:HookWithID(CrimeSpreeManager, "on_finalize_modifiers", "EHI_CrimeSpree_on_finalize_modifiers", function(...)
+if EHI:IsHost() then
+    local ListenerModifier = class(BaseModifier)
+    function ListenerModifier:OnEnterSustainPhase(duration)
+        managers.ehi_tracker:CallFunction("AssaultTime", "OnEnterSustain", duration)
+    end
+    EHI:AddCallback(EHI.CallbackMessage.InitFinalize, function()
+        managers.modifiers:add_modifier(ListenerModifier, "EHI")
         CheckIfModifierIsActive()
     end)
+else
+    EHI:HookWithID(CrimeSpreeManager, "on_finalize_modifiers", "EHI_CrimeSpree_on_finalize_modifiers", CheckIfModifierIsActive)
 end

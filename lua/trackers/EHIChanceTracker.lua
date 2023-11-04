@@ -1,10 +1,9 @@
+---@class EHIChanceTracker : EHITracker
+---@field super EHITracker
 EHIChanceTracker = class(EHITracker)
 EHIChanceTracker._update = false
-function EHIChanceTracker:init(panel, params)
-    self._flash = params.dont_flash ~= true
-    self._flash_times = params.flash_times or 3
+function EHIChanceTracker:pre_init(params)
     self._chance = params.chance or 0
-    EHIChanceTracker.super.init(self, panel, params)
 end
 
 function EHIChanceTracker:Format()
@@ -20,12 +19,7 @@ function EHIChanceTracker:DecreaseChance(amount)
 end
 
 function EHIChanceTracker:SetChance(amount)
-    if amount < 0 then
-        amount = 0
-    end
-    self._chance = amount
+    self._chance = math.max(0, amount)
     self._text:set_text(self:Format())
-    if self._flash then
-        self:AnimateBG(self._flash_times)
-    end
+    self:AnimateBG()
 end
